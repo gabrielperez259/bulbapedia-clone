@@ -1,11 +1,21 @@
-<div> {{pokemon()?.id}} </div>
-<div> {{pokemon()?.name }}</div>
-@for (pokemon of pokemon()?.types; track $index) {
-    <div> {{pokemon.type.name}} </div>    
-}
+@let pokemons = service.pokemons.value();
+
+@if (!service.pokemons.isLoading()){
+    <div> {{pokemons!.id}} </div>
+    <div> {{pokemons!.name}}</div>
+
+    @for (pokemon of pokemons!.types; track $index ) {
+        <div> {{pokemon.type.name}} </div>    
+    }
    
-<img src="{{pokemon()?.sprites?.back_default}}" >
-<img src="{{pokemon()?.sprites?.front_default}}" >
-<img src="{{pokemon()?.sprites?.back_shiny}}" >
-<img src="{{pokemon()?.sprites?.front_shiny}}" >
+    <img src="{{pokemons!.sprites.back_default}}" >
+    <img src="{{pokemons!.sprites.front_default}}" >
+    <img src="{{pokemons!.sprites.back_shiny}}" >
+    <img src="{{pokemons!.sprites.front_shiny}}" >
+
+}@else {
+    <div>Loading...</div>
+
+}
+
 
