@@ -1,0 +1,18 @@
+<button (click)="setGenOneValue()"> Gen 1 </button>
+<button (click)="setGenTwoValue()"> Gen 2 </button> 
+<button (click)="setGenThreeValue()"> Gen 3 </button>
+<button (click)="setGenFourValue()"> Gen 4 </button>
+<button (click)="setGenFiveValue()"> Gen 5 </button>
+<button (click)="setGenSixValue()"> Gen 6 </button>
+<button (click)="setGenSevenValue()"> Gen 7 </button>
+<button (click)="setGenEightValue()"> Gen 8 </button>
+<button (click)="setGenNineValue()"> Gen 9 </button>
+
+@for(pokemon of pokemons.value().results; track $index) { 
+
+    <div > {{pokemon.name}} </div>
+   
+    <div>  ************************** </div>
+
+}
+
