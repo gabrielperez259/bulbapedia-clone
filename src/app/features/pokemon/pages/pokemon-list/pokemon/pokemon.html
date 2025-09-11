@@ -1,1 +1,9 @@
-<p>pokemon works!</p>
+<div> {{pokemon.value().name}}</div>
+<div>
+    @for( type of pokemon.value().types; track $index) {
+        {{type.type.name}}
+    
+    }
+
+</div>
+<img src="{{pokemon.value().sprites.front_default}}"> 

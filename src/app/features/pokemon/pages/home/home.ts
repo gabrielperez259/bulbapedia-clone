@@ -1,5 +1,5 @@
 import { Component } from "@angular/core";
-import { PokemonList } from "../pokemon-list/pokemon-list.";
+import { PokemonList } from "../pokemon-list/pokemon-list";
 
 
 @Component({

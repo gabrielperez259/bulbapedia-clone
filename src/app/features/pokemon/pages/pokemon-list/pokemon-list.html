@@ -10,9 +10,8 @@
 
 @for(pokemon of pokemons.value().results; track $index) { 
 
-    <div display="inline">
-        
-         <a routerLink="/resume">  {{pokemon.name}} </a>        
+    <div display="inline">        
+         <a routerLink= "{{pokemon.name}}">  {{pokemon.name}} </a>        
     </div>
    
       

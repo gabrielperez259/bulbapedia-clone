@@ -11,12 +11,12 @@ export class PokemonResource {
 
     #url = environment.apiUrl
 
-    public pokemonsData(search: Signal<string>, genValue: Signal<string>) {
+    public pokemonsData(search: Signal<string>) {
 
         const debouncedSearch = signalDebouncing(search, 500)
         return httpResource(() => {
             return {
-                url: `${this.#url}/pokemon/${search()}?${genValue()}`,
+                url: `${this.#url}/pokemon/${debouncedSearch()}`,
                 responseType: 'json',
                 method: 'GET'
             } as HttpResourceRequest
@@ -32,19 +32,18 @@ export class PokemonResource {
 
     }
 
-    public pokemonsDetailsResource(search: Signal<string>) {
-
+    public pokemonsDetailsResource(search: Signal<string >) {
         const debouncedSearch = signalDebouncing(search, 500)
 
         return httpResource(() => {
             return {
-                url: `${this.#url}/pokemon/${debouncedSearch()}}`,
+                url: `${this.#url}/pokemon/${debouncedSearch()}`,
                 responseType: 'json',
                 method: 'GET'
             } as HttpResourceRequest
         }, {
             parse: (response: any) => {               
-                
+                console.log(response)
                 return response as Pokemon
                 
             },
