@@ -1,5 +1,6 @@
 import { Component, signal } from '@angular/core';
-import { Home } from './components/home/home';
+import { Home } from './features/pokemon/pages/home/home';
+
 
 @Component({
   selector: 'app-root',
