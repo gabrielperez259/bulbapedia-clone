@@ -1,6 +1,10 @@
-import { Component, inject, signal } from '@angular/core';
-import { PokemonResource } from '../../services/pokemon-resource';
+import { Component, computed, inject, signal } from '@angular/core';
+import { PokemonListDataClient } from '../../services/pokemon-list-data-client';
 import { RouterLink } from '@angular/router';
+import { Pokemon } from '../../models/pokemon';
+import { PokemonPayload } from '../../models/pokemon-payload';
+import { Results } from '../../models/results';
+import { GenValues } from '../../../../shared/utils/gen-values';
 
 @Component({
   selector: 'app-pokemon-list',
@@ -9,43 +13,52 @@ import { RouterLink } from '@angular/router';
   styleUrl: './pokemon-list.scss'
 })
 export class PokemonList {  
-  private genValue = signal('');
-  pokemons = inject(PokemonResource).pokemonsData(this.genValue);
-
-  setGenOneValue() {
-    this.genValue.set('?offset=0&limit=151');
-
+  
+  data = inject(PokemonListDataClient);
+  
+  
+  setGenOneValue() {    
+    this.data.search.set(GenValues.GenOne);
+    
   }
 
   setGenTwoValue() {
-    this.genValue.set('?offset=151&limit=100');
+    this.data.search.set(GenValues.GenTwo);
+    
   }
 
   setGenThreeValue() {
-    this.genValue.set('?offset=251&limit=135');
+    this.data.search.set(GenValues.GenThree);
+    
   }
 
   setGenFourValue() {
-    this.genValue.set('?offset=386&limit=107');
+    this.data.search.set(GenValues.GenFour);
+    
   }
 
   setGenFiveValue() {
-    this.genValue.set('?offset=493&limit=156');
+    this.data.search.set(GenValues.GenFive);
+    
   }
 
   setGenSixValue() {
-    this.genValue.set('?offset=649&limit=72');
+    this.data.search.set(GenValues.GenSix);
+    
   }
 
   setGenSevenValue() {
-    this.genValue.set('?offset=721&limit=88');
+    this.data.search.set(GenValues.GenSeven);
+    
   }
 
   setGenEightValue() {
-    this.genValue.set('?offset=809&limit=96');
+    this.data.search.set(GenValues.GenEight);
+    
   }
 
   setGenNineValue() {
-    this.genValue.set('?offset=905&limit=88');
+    this.data.search.set(GenValues.GenNine);
+    
   }
 }

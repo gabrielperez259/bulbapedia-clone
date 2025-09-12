@@ -1,9 +1,20 @@
-<div> {{pokemon.value().name}}</div>
-<div>
-    @for( type of pokemon.value().types; track $index) {
+@if(data.pokemonDetailsLoading()){
+    <p> loading... </p>
+
+}@else if (data.pokemonDetailsError()) {
+    <p> error </p> 
+
+}@else {
+    <div> {{data.pokemonDetails()!.name}}</div>
+    <div>
+    @for( type of data.pokemonDetails()!.types; track $index) {
         {{type.type.name}}
     
     }
+    </div>
+    <img src="{{data.pokemonDetails()!.sprites.front_default}}"> 
 
-</div>
-<img src="{{pokemon.value().sprites.front_default}}"> 
+
+}
+
+
