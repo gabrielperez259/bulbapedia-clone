@@ -1,9 +1,6 @@
-import { Component, computed, inject, signal } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { PokemonListDataClient } from '../../services/pokemon-list-data-client';
 import { RouterLink } from '@angular/router';
-import { Pokemon } from '../../models/pokemon';
-import { PokemonPayload } from '../../models/pokemon-payload';
-import { Results } from '../../models/results';
 import { GenValues } from '../../../../shared/utils/gen-values';
 
 @Component({
@@ -18,7 +15,7 @@ export class PokemonList {
   
   
   setGenOneValue() {    
-    this.data.search.set(GenValues.GenOne);
+    this.data.search.set(GenValues.GenOne);    
     
   }
 

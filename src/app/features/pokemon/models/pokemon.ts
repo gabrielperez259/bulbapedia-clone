@@ -1,5 +1,5 @@
 import { Type } from "./type";
-import { Sprite } from "./sprites";
+import { Sprite } from "./sprites/sprites";
 
 export interface Pokemon{
     id: number;

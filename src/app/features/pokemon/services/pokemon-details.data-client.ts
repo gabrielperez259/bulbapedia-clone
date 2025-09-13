@@ -9,12 +9,16 @@ import { Pokemon } from "../models/pokemon";
 })
 
 export class PokemonDetailsDataClient {
-    #url = environment.apiUrl
-    public search = signal('');
-    private debouncedSearch = signalDebouncing(this.search, 500)
+    #url = environment.apiUrl 
 
-    readonly pokemonDeatilsResource = httpResource<Pokemon>(() => ({
-        url: `${this.#url}/pokemon/${this.debouncedSearch()}`,
+    public search = signal('');        
+    
+    public pokemonDetails = computed(() => this.#pokemonDeatilsResource.value());
+    public pokemonDetailsLoading = computed(() => this.#pokemonDeatilsResource.isLoading());
+    public pokemonDetailsError = computed(() => this.#pokemonDeatilsResource.error());
+    
+    readonly #pokemonDeatilsResource = httpResource<Pokemon>(() => ({
+        url: `${this.#url}${this.search()}`,
         responseType: 'json',
         method: 'GET',        
         defaultValue: {
@@ -34,7 +38,5 @@ export class PokemonDetailsDataClient {
         }
     }))
 
-    public pokemonDetails = computed(() => this.pokemonDeatilsResource.value());
-    public pokemonDetailsLoading = computed(() => this.pokemonDeatilsResource.isLoading());
-    public pokemonDetailsError = computed(() => this.pokemonDeatilsResource.error());
+
 }

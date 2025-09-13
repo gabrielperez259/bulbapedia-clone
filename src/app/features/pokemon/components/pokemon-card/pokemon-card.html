@@ -1,0 +1,13 @@
+<mat-card  [style.background-color]="getColorType(pokemon()!.types[0].type.name | capitalizeWords)" class="pokemon-card" appearance="outlined">
+  <mat-card-header class="pokemon-card-header">
+    <mat-card-title-group class="title-group">      
+      <mat-card-title class="title-line">  
+        #{{pokemon()!.id.toString().padStart(4,'0')}} |
+         {{pokemon()!.name | capitalizeWords }}
+      </mat-card-title>          
+    </mat-card-title-group> 
+  </mat-card-header>
+  <mat-card-content class="pokemon-card-content">
+     <img class="pokemon-image" mat-card-xl-image src="{{pokemon()!.sprites.other['official-artwork'].front_default}}">
+  </mat-card-content>
+</mat-card>

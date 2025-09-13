@@ -1,6 +1,6 @@
 import { Route } from '@angular/router';
 import { PokemonList } from '../pages/pokemon-list/pokemon-list';
-import { Pokemon } from '../pages/pokemon-list/pokemon/pokemon';
+import { PokemonDetails } from '../pages/pokemon-list/pokemon/pokemon-details';
 
 export const POKEMON_ROUTES : Route[] = [
     {
@@ -9,6 +9,6 @@ export const POKEMON_ROUTES : Route[] = [
     },
     {
         path: ':name',
-        component: Pokemon
+        component: PokemonDetails
     }
 ]

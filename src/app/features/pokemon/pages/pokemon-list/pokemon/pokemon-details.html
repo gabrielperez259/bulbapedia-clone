@@ -1,0 +1,12 @@
+@if(data.pokemonDetailsLoading()){
+    <p> loading... </p>
+
+}@else if (data.pokemonDetailsError()) {
+    <p> error </p> 
+
+}@else {
+    <app-pokemon-card [pokemon]="data.pokemonDetails()"></app-pokemon-card>
+
+}
+
+

@@ -1,4 +1,6 @@
-export interface Sprite {
+import { Other } from "./other"
+
+export interface Sprite {    
     back_default: string,
     back_female: string,
     back_shiny: string,
@@ -7,4 +9,5 @@ export interface Sprite {
     front_female: string,
     front_shiny: string,
     front_shiny_female: string
+    other : Other
 }
