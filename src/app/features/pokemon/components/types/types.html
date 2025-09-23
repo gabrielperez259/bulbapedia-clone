@@ -1,6 +1,6 @@
 @for(type of types(); track $index ) {    
 
-    <button [style.background-color]="type.type.name | capitalizeWords | colorType" [class]="types()!.length > 1 ? 'type-button-dual' : 'type-button'" matButton="elevated" > 
+    <button [style.background-color]="type.type.name | capitalizeWords | colorType" [class]="types()!.length > 1 ? 'type-button-dual' : 'type-button'"> 
         <span> {{type.type.name | capitalizeWords}} </span>
     </button> 
  

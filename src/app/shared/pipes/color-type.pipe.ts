@@ -1,6 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { ColorTypes } from '../../features/pokemon/models/types/color-types';
-
+import { ColorTypes } from '../utils/color-types';
 
 @Pipe({
   name: 'colorType',

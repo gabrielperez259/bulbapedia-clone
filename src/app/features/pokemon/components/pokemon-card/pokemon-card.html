@@ -17,7 +17,14 @@
        </div>
        <div class="type-name-container">
           <app-types [types]="pokemon()!.types"></app-types>
-       </div>
-       
+       </div>        
   </div>
+  <div class="ability-container" [style.background-color]="pokemon()!.types[0].type.name | capitalizeWords | colorType">
+        <div class="ability-title-container">
+          <span class="ability-title"> ABILITIES </span> 
+       </div>
+        <app-ability [abilities]="pokemon()!.abilities"> </app-ability>
+
+  </div>
+
 </div>

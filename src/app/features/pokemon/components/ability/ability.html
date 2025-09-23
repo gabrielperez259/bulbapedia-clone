@@ -1,0 +1,5 @@
+@for (ability of abilities(); track $index) {
+    <button [class]="abilityClass()" >  
+        <span> {{ability.ability.name | capitalizeWords }}</span>    
+    </button>
+}

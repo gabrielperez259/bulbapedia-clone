@@ -1,15 +1,14 @@
 import { Component, input } from '@angular/core';
-import {MatCardModule} from '@angular/material/card';
-import { Pokemon } from '../../models/pokemon';
 import { CapitalizeWordsPipe } from "../../../../shared/pipes/capitalize-word.pipe";
-import { ColorTypes } from '../../models/types/color-types';
 import { ColorTypePipe } from "../../../../shared/pipes/color-type.pipe";
 import { Types } from "../types/types";
+import { Ability } from "../ability/ability";
+import { Pokemon } from '../../models/pokemon/pokemon';
 
 
 @Component({
   selector: 'app-pokemon-card',
-  imports: [CapitalizeWordsPipe, ColorTypePipe, Types],
+  imports: [CapitalizeWordsPipe, ColorTypePipe, Types, Ability],
   templateUrl: './pokemon-card.html',
   styleUrl: './pokemon-card.scss'
 })

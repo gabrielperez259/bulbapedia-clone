@@ -1,8 +1,8 @@
 import { computed, Injectable, signal } from "@angular/core";
 import { environment } from "../../../../environments/environment";
-import { signalDebouncing } from "../../../shared/utils/signal-debouncing";
 import { httpResource } from "@angular/common/http";
-import { Pokemon } from "../models/pokemon";
+import { Pokemon } from "../models/pokemon/pokemon";
+
 
 @Injectable({
     providedIn: 'root'
