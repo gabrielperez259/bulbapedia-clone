@@ -1,4 +1,4 @@
-import { Component, computed, inject, input, OnInit, Signal, signal } from '@angular/core';
+import { Component, inject, input, OnInit, } from '@angular/core';
 import { PokemonDetailsDataClient } from '../../../services/pokemon-details.data-client';
 import { PokemonCard } from "../../../components/pokemon-card/pokemon-card";
 

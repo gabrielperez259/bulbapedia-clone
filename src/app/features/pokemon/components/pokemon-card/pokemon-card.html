@@ -1,13 +1,23 @@
-<mat-card  [style.background-color]="getColorType(pokemon()!.types[0].type.name | capitalizeWords)" class="pokemon-card" appearance="outlined">
-  <mat-card-header class="pokemon-card-header">
-    <mat-card-title-group class="title-group">      
-      <mat-card-title class="title-line">  
-        #{{pokemon()!.id.toString().padStart(4,'0')}} |
-         {{pokemon()!.name | capitalizeWords }}
-      </mat-card-title>          
-    </mat-card-title-group> 
-  </mat-card-header>
-  <mat-card-content class="pokemon-card-content">
-     <img class="pokemon-image" mat-card-xl-image src="{{pokemon()!.sprites.other['official-artwork'].front_default}}">
-  </mat-card-content>
-</mat-card>
+<div class="card-container" 
+  [style.background-color]="pokemon()!.types[0].type.name | capitalizeWords | colorType">
+  <div class="name-container">
+    <span  class="pokemon-id">
+      #{{pokemon()!.id.toString().padStart(4, '0')}}
+    </span>
+    <span [style.color]="pokemon()!.types.length > 1 ? pokemon()!.types[1].type.name :  'white'  | capitalizeWords | colorType" class="pokemon-name">
+      {{pokemon()!.name | capitalizeWords}}
+    </span>
+  </div>
+  <div  class="image-container">
+     <img class="pokemon-image" src="{{pokemon()!.sprites.other['official-artwork'].front_default}}">
+  </div>
+  <div class="type-container">
+       <div class="type-title-container">
+          <span class="type-title"> TYPE </span> 
+       </div>
+       <div class="type-name-container">
+          <app-types [types]="pokemon()!.types"></app-types>
+       </div>
+       
+  </div>
+</div>
