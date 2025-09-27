@@ -1,7 +1,8 @@
 import { computed, Injectable, signal } from "@angular/core";
 import { environment } from "../../../../environments/environment";
 import { httpResource } from "@angular/common/http";
-import { Pokemon } from "../models/pokemon/pokemon";
+import { Pokemon } from "../models/pokemon";
+
 
 
 @Injectable({

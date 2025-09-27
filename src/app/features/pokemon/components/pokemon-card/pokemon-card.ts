@@ -3,7 +3,7 @@ import { CapitalizeWordsPipe } from "../../../../shared/pipes/capitalize-word.pi
 import { ColorTypePipe } from "../../../../shared/pipes/color-type.pipe";
 import { Types } from "../types/types";
 import { Ability } from "../ability/ability";
-import { Pokemon } from '../../models/pokemon/pokemon';
+import { Pokemon } from '../../models/pokemon';
 
 
 @Component({

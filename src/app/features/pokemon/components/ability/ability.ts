@@ -1,6 +1,6 @@
 import { Component, computed, input } from '@angular/core';
-import { Pokemon } from '../../models/pokemon/pokemon';
 import { CapitalizeWordsPipe } from "../../../../shared/pipes/capitalize-word.pipe";
+import { Pokemon } from '../../models/pokemon';
 
 
 

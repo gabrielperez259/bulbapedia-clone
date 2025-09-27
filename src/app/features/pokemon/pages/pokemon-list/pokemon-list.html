@@ -1,28 +1,21 @@
-<button (click)="setGenOneValue()"> Gen 1 </button>
-<button (click)="setGenTwoValue()"> Gen 2 </button>
-<button (click)="setGenThreeValue()"> Gen 3 </button>
-<button (click)="setGenFourValue()"> Gen 4 </button>
-<button (click)="setGenFiveValue()"> Gen 5 </button>
-<button (click)="setGenSixValue()"> Gen 6 </button>
-<button (click)="setGenSevenValue()"> Gen 7 </button>
-<button (click)="setGenEightValue()"> Gen 8 </button>
-<button (click)="setGenNineValue()"> Gen 9 </button>
+<div class="select-by-gen-bar-container">
+    <app-select-by-gen-bar (genValue)="setData($event)"> </app-select-by-gen-bar>
+</div>
+<div class="pokemon-list-container">
+    @if (data.pokemonListLoading()) {
+        <p> loading... </p>
 
-
-@if (data.pokemonListLoading()) {
-    <p> loading... </p>
-
-}@else if (data.pokemonListError()) {
-    <p> error... </p>
-}@else {
+    }@else if (data.pokemonListError()) {
+        <p> error... </p>
+    }@else {
     @for(pokemon of data.pokemonList(); track $index) {
 
-        <div display="inline">
-            <a routerLink="{{pokemon.name}}"> {{pokemon.name}} </a>
+        <div >
+            <a class="pokemon-name" routerLink="{{pokemon.name}}"> {{pokemon.name}} </a>
         </div>
-        <div> ************************** </div>
+        <div class="pokemon-name"> ************************** </div>
 
-    }   
-}
+        }   
+    }
 
-
+</div>
