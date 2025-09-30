@@ -1,0 +1,14 @@
+@use '../../../../styles/utils' as ds;
+
+.sprite-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: ds.$space-xs;
+    
+}
+
+.sprite-image{
+    margin: ds.$space-xs;
+    border-radius: ds.$radius-md;
+}

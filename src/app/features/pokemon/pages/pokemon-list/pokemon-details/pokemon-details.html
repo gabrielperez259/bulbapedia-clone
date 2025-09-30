@@ -4,8 +4,13 @@
 }@else if (data.pokemonDetailsError()) {
     <p> error </p> 
 
-}@else {
-    <app-pokemon-card [pokemon]="data.pokemonDetails()"></app-pokemon-card>
+}@else {    
+    <div class="pokemon-details-container" [style.background-color]="data.pokemonDetails()!.types[0].type.name | capitalizeWords | colorType">
+        <app-pokemon-details-card [pokemon]="data.pokemonDetails()"/>
+    </div>
+
+        
+   
     
 }
 

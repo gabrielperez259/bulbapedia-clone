@@ -13,6 +13,7 @@ import {MatButtonToggleModule} from '@angular/material/button-toggle';
 })
 export class SelectByGenBar {
 
+
   readonly genValue = output<string>();  
 
   setGenValue(value: string) {

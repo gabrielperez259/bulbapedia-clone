@@ -7,5 +7,5 @@ export enum GenValues {
     GenSix = '?offset=649&limit=72',
     GenSeven = '?offset=721&limit=88',
     GenEight = '?offset=809&limit=96',
-    GenNine = '?offset=905&limit=88'
+    GenNine = '?offset=905&limit=122'
 }

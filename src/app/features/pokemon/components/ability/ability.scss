@@ -1,22 +1,37 @@
+@use "../../../../styles/utils" as ds;
+
+.ability-title{
+    color: white;
+    text-align: center;
+    justify-content: center;
+    font-weight: bold;
+    display: flex;
+}
+
+.ability-container{    
+    margin: ds.$space-xs;
+    border-radius: ds.$radius-xs;
+    background-color: ds.$accent-color;
+
+}
+
+
 .single-ability-button{
-    padding: 1%;
-    margin: 1%;
-    height: 5%;   
-    width: 99%;
+    margin: ds.$space-xs;
+    border-radius: ds.$radius-xs;
+    width: 95%;
 }
 
 .double-ability-button{
-    padding: 1%;
-    margin: 1%;
-    height: 5%;   
-    width: 48%;
+    margin: ds.$space-xs;  
+    border-radius: ds.$radius-xs;
+    width: 47%;
     
 }
 
 .triple-ability-button{
-    padding: 1%;
-    margin: 1%;
-    height: 5%;   
-    width: 31%;    
+    margin: ds.$space-xs;
+    border-radius: ds.$radius-xs;
+    width: 47%;    
     
 }

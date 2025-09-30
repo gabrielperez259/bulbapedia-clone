@@ -1,18 +1,22 @@
+@use "../../../../styles/utils" as ds;
+
+.type-title-container{
+    font-weight: bold;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;    
+    margin: ds.$space-xs;
+    border-radius: ds.$radius-xs;
+}
+
 .type-button{
-    padding: 1%;
-    margin: 1%;
-    width: 99%;
-    height: 5%;   
+    margin: ds.$space-xs;
+    border-radius: ds.$radius-xs;
     color: white;
-
+    width: 100%;
+    background-color: white;
+    
 
 }
 
-.type-button-dual{
-    padding: 1%;
-    margin: 1%;
-    width: 48%;
-    height: 5%;
-    color: white;
-   
-}

@@ -1,0 +1,18 @@
+@use '../../../../styles/utils' as ds;
+
+
+.name-container{
+    
+    background-color: ds.$accent-color;
+    margin: ds.$space-xs;
+    border-radius: ds.$radius-xs;
+}
+
+.pokemon-name {
+  color: white;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}

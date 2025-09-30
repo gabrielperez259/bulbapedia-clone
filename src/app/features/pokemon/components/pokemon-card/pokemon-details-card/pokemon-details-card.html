@@ -1,0 +1,16 @@
+<div class="pokemon-details-card-container" >
+    <app-card >
+        <app-flex >
+            <app-index-number select="card-header" [pokemonIndexNumber]="pokemon()!.id" />
+            <app-name select="card-header" [pokemonName]="pokemon()!.name" />
+        </app-flex>
+        <app-sprite select="card-body" 
+            [title]="pokemon()!.name" 
+            [id]="pokemon()!.id " 
+            [background]="'white'" [width]='"100%"'>
+        </app-sprite>
+        <app-types select="card-footer" [types]="pokemon()!.types"></app-types>
+        <app-ability select="card-footer" [abilities]="pokemon()!.abilities"></app-ability>
+    </app-card>
+</div>
+

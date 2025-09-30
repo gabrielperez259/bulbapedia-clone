@@ -1,5 +1,9 @@
-@for (ability of abilities(); track $index) {
+<div class="ability-container">
+    <span class="ability-title"> ABILITIES </span>
+    @for (ability of abilities(); track $index) {
     <button [class]="abilityClass()" >  
         <span> {{ability.ability.name | capitalizeWords }}</span>    
-    </button>
-}
+    </button>}
+
+</div>
+

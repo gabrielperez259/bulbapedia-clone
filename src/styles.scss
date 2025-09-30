@@ -1,9 +1,7 @@
-
-// Include theming for Angular Material with `mat.theme()`.
-// This Sass mixin will define CSS variables that are used for styling Angular Material
-// components according to the Material 3 design spec.
-// Learn more about theming and how to use it for your application's
-// custom components at https://material.angular.dev/guide/theming
+@forward "./app/styles/utils/breakpoints";
+@forward "./app/styles/utils/colors";
+@forward "./app/styles/utils/spacing";
+@forward  "./app/styles/utils/borders";
 @use '@angular/material' as mat;
 
 html {

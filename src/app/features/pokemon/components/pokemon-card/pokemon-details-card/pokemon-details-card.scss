@@ -1,0 +1,10 @@
+@use '../../../../../styles/utils' as ds;
+
+.pokemon-details-card-container{
+    width: 25%;
+    margin: ds.$space-md;    
+    padding: ds.$space-xs;
+    border-radius: ds.$radius-md;    
+    
+}
+

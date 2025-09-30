@@ -1,9 +1,21 @@
+@use '../../../../styles/utils' as ds;
+
 .container{
     display: flex;
     align-items: center;
     justify-content: center;
+    margin: ds.$space-xs;
+    background-color: ds.$primary-color;
+    
+}
+
+mat-button-toggle-group {
+    background-color: ds.$accent-color;
+    margin: ds.$space-s;
 }
 
 mat-button-toggle {
-    color: blue;
+    color: white;
+    background-color: ds.$accent-color;    
+    
 }

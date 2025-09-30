@@ -1,21 +1,18 @@
-<div class="select-by-gen-bar-container">
-    <app-select-by-gen-bar (genValue)="setData($event)"> </app-select-by-gen-bar>
-</div>
 <div class="pokemon-list-container">
+    <app-select-by-gen-bar (genValue)="setData($event)"> </app-select-by-gen-bar>
     @if (data.pokemonListLoading()) {
         <p> loading... </p>
 
     }@else if (data.pokemonListError()) {
         <p> error... </p>
     }@else {
-    @for(pokemon of data.pokemonList(); track $index) {
-
-        <div >
-            <a class="pokemon-name" routerLink="{{pokemon.name}}"> {{pokemon.name}} </a>
-        </div>
-        <div class="pokemon-name"> ************************** </div>
+         <app-grid [columns]="5">
+        @for(pokemon of data.pokemonList(); track $index) {            
+            <app-pokemon-list-item [pokemon]="pokemon" [route]="pokemon.name"> </app-pokemon-list-item>
+               
 
         }   
+        </app-grid>
     }
 
 </div>

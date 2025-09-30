@@ -1,0 +1,8 @@
+@use '../../../../styles/utils' as ds;
+
+.index-number-container{
+    color: white;
+    background-color: ds.$accent-color;
+    margin: ds.$space-xs;
+    border-radius: ds.$radius-xs;
+}
