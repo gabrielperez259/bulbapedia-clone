@@ -3,6 +3,7 @@ import { provideRouter, withComponentInputBinding } from '@angular/router';
 
 import { routes } from './app.routes';
 import { provideHttpClient } from '@angular/common/http';
+import { provideHighcharts } from 'highcharts-angular';
 
 
 export const appConfig: ApplicationConfig = {
@@ -10,8 +11,8 @@ export const appConfig: ApplicationConfig = {
     provideRouter(routes, withComponentInputBinding()),
     provideBrowserGlobalErrorListeners(),
     provideZonelessChangeDetection(),
-    provideRouter(routes),
-    provideHttpClient()
+    provideHttpClient(),
+    provideHighcharts()
 
-]
+  ]
 };

@@ -2,6 +2,7 @@ import { Component, input, signal,  } from '@angular/core';
 import { CapitalizeWordsPipe } from "../../../../shared/pipes/capitalize-word.pipe";
 import { RouterLink } from '@angular/router';
 import { Transparency } from '../../../../shared/directives/transparency';
+import { Pokemon } from '../../models/pokemon';
 
 
 

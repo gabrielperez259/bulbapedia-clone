@@ -1,3 +1,4 @@
+<app-flex>
 <div class="pokemon-details-card-container" [style.background-color]="pokemon()!.types[0].type.name | capitalizeWords | colorType" >
     <app-card [isTransparent]="true">
         <app-flex >
@@ -9,10 +10,10 @@
             <app-name 
                 select="card-header" 
                 [isTransparent]="true"    
-                [pokemonName]="pokemon()!.name" />
+                [pokemonName]="pokemon()!.species.name"/>
         </app-flex>
         <app-sprite select="card-body" 
-            [title]="pokemon()!.name" 
+            [title]="pokemon()!.species.name" 
             [id]="pokemon()!.id " 
             [background]="'white'" [width]='"100%"'>
         </app-sprite>
@@ -24,4 +25,10 @@
             />
     </app-card>
 </div>
-
+<div>
+    <app-stats 
+        [stats]="pokemon()!.stats" 
+        [background]="pokemon()!.types[0].type.name | capitalizeWords | colorType"
+    />
+</div>
+</app-flex>

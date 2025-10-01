@@ -9,7 +9,7 @@ import {Component, computed, input, numberAttribute} from '@angular/core';
 })
 export class Sprite {
 
-  title = input.required<string>();
+
   id = input.required({ transform: numberAttribute });
   width = input.required();
   background = input.required();

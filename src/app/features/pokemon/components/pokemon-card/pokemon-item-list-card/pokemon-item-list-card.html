@@ -7,7 +7,7 @@
         />
         <app-name select="card-header"
             [isTransparent]="false" 
-            [pokemonName]="pokemon().name" 
+            [pokemonName]="pokemon().name.split('-')[0]" 
             [route]="route()"
         />
     </app-flex>
