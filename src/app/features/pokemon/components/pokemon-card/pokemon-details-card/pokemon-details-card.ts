@@ -7,10 +7,12 @@ import { Sprite } from "../../sprite/sprite";
 import { Pokemon } from '../../../models/pokemon';
 import { Types } from "../../types/types";
 import { Ability } from "../../ability/ability";
+import { ColorTypePipe } from "../../../../../shared/pipes/color-type.pipe";
+import { CapitalizeWordsPipe } from "../../../../../shared/pipes/capitalize-word.pipe";
 
 @Component({
   selector: 'app-pokemon-details-card',
-  imports: [Card, Flex, IndexNumber, Name, Sprite, Types, Ability ],
+  imports: [Card, Flex, IndexNumber, Name, Sprite, Types, Ability, ColorTypePipe, CapitalizeWordsPipe],
   templateUrl: './pokemon-details-card.html',
   styleUrl: './pokemon-details-card.scss'
 })

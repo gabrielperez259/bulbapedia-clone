@@ -1,7 +1,7 @@
 @use "../../../../styles/utils" as ds;
 
 .ability-title{
-    color: white;
+    color: black;
     text-align: center;
     justify-content: center;
     font-weight: bold;
@@ -16,22 +16,9 @@
 }
 
 
-.single-ability-button{
+.ability-button{
     margin: ds.$space-xs;
     border-radius: ds.$radius-xs;
-    width: 95%;
+    width: 50%;
 }
 
-.double-ability-button{
-    margin: ds.$space-xs;  
-    border-radius: ds.$radius-xs;
-    width: 47%;
-    
-}
-
-.triple-ability-button{
-    margin: ds.$space-xs;
-    border-radius: ds.$radius-xs;
-    width: 47%;    
-    
-}

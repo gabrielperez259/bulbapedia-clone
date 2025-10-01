@@ -1,4 +1,4 @@
-<div class="name-container">
+<div class="name-container" [transparency]="isTransparent()">
     <a class="pokemon-name" routerLink="{{route()}}">
         {{pokemonName() | capitalizeWords}} 
     </a>

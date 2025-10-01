@@ -1,11 +1,14 @@
-import { Component, input, signal } from '@angular/core';
+import { Component, input, signal,  } from '@angular/core';
 import { CapitalizeWordsPipe } from "../../../../shared/pipes/capitalize-word.pipe";
 import { RouterLink } from '@angular/router';
+import { Transparency } from '../../../../shared/directives/transparency';
+
+
 
 
 @Component({
   selector: 'app-name',
-  imports: [CapitalizeWordsPipe, RouterLink],
+  imports: [CapitalizeWordsPipe, RouterLink, Transparency],
   templateUrl: './name.html',
   styleUrl: './name.scss'
 })
@@ -13,5 +16,6 @@ export class Name {
 
   pokemonName = input.required<string>()
   route = input<string>()
+  isTransparent = input.required<boolean>()
   
 }

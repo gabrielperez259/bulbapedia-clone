@@ -1,9 +1,13 @@
-<div class="ability-container">
+<div class="ability-container" [transparency]="isTransparent()">
     <span class="ability-title"> ABILITIES </span>
+    <app-flex>
     @for (ability of abilities(); track $index) {
-    <button [class]="abilityClass()" >  
-        <span> {{ability.ability.name | capitalizeWords }}</span>    
-    </button>}
-
+    
+        <button class="ability-button">  
+            <span> {{ability.ability.name | capitalizeWords }}</span>    
+        </button>
+    
+    }
+    </app-flex> 
 </div>
 

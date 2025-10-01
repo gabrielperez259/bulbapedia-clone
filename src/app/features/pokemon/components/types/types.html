@@ -1,13 +1,16 @@
-<div class="type-title-container">
-    <span> TYPE </span>
+<div class="types-container">
+    <div class="type-title-container">
+        <span> TYPE </span>
+    </div>
+    <app-flex>
+        @for(type of types(); track $index ) {
+            <button 
+                class="type-button" 
+                [style.background-color]="type.type.name | capitalizeWords | colorType">
+                <span>  {{type.type.name | capitalizeWords}} </span>
+            </button>
+        }
+    </app-flex>
 </div>
-<app-flex>    
-    @for(type of types(); track $index ) {    
-    
-    <button class="type-button" [style.background-color]="type.type.name | capitalizeWords | colorType"> 
-        <span> {{type.type.name | capitalizeWords}} </span>
-    </button>
-    }
-</app-flex>
 
     

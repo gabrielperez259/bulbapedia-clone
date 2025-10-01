@@ -1,7 +1,15 @@
-<app-card>
+<app-card [isTransparent]="false">
     <app-flex>
-        <app-index-number select="card-header" [pokemonIndexNumber]="pokemon().url | extractId"/>
-        <app-name select="card-header" [pokemonName]="pokemon().name" [route]="route()"/>
+        <app-index-number
+            select="card-header"
+            [isTransparent]="false"
+            [pokemonIndexNumber]="pokemon().url | extractId"
+        />
+        <app-name select="card-header"
+            [isTransparent]="false" 
+            [pokemonName]="pokemon().name" 
+            [route]="route()"
+        />
     </app-flex>
     <app-sprite select="card-body" 
         [title]="pokemon().name" 

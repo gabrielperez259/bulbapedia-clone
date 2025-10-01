@@ -1,22 +1,31 @@
 @use "../../../../styles/utils" as ds;
 
+.types-container{
+    margin: ds.$space-xs;
+    border-radius: ds.$radius-xs;
+    background-color: white;}
+
 .type-title-container{
     font-weight: bold;
-    color: white;
+    color: black;
     display: flex;
     align-items: center;
     justify-content: center;    
     margin: ds.$space-xs;
     border-radius: ds.$radius-xs;
+    
 }
 
 .type-button{
     margin: ds.$space-xs;
     border-radius: ds.$radius-xs;
     color: white;
-    width: 100%;
-    background-color: white;
+    width: 50%;    
+    justify-content: center;
+    text-align: center;
     
 
 }
+
+
 
