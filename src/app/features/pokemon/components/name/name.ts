@@ -1,11 +1,7 @@
-import { Component, input, signal,  } from '@angular/core';
+import { Component, input } from '@angular/core';
 import { CapitalizeWordsPipe } from "../../../../shared/pipes/capitalize-word.pipe";
 import { RouterLink } from '@angular/router';
 import { Transparency } from '../../../../shared/directives/transparency';
-import { Pokemon } from '../../models/pokemon';
-
-
-
 
 @Component({
   selector: 'app-name',
@@ -15,8 +11,8 @@ import { Pokemon } from '../../models/pokemon';
 })
 export class Name {
 
-  pokemonName = input.required<string>()
-  route = input<string>()
-  isTransparent = input.required<boolean>()
+  public pokemonName = input.required<string>()
+  public route = input<string>()
+  public isTransparent = input.required<boolean>()
   
 }

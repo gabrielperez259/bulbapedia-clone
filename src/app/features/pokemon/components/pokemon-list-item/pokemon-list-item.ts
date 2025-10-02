@@ -1,6 +1,6 @@
 import { Component, input } from '@angular/core';
-import { Results } from '../../../models/results';
-import { PokemonItemListCard } from "../../../components/pokemon-card/pokemon-item-list-card/pokemon-item-list-card";
+import { Results } from '../../models/results';
+import { PokemonItemListCard } from "../pokemon-card/pokemon-item-list-card/pokemon-item-list-card";
 
 @Component({
   selector: 'app-pokemon-list-item',

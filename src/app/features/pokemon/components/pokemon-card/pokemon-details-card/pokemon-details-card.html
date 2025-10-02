@@ -1,34 +1,26 @@
+@if(pokemon()!.species.name) {
+    
+
+}@else {
+
+}
 <app-flex>
-<div class="pokemon-details-card-container" [style.background-color]="pokemon()!.types[0].type.name | capitalizeWords | colorType" >
-    <app-card [isTransparent]="true">
-        <app-flex >
-            <app-index-number
-                select="card-header"
-                [isTransparent]="true"
-                [pokemonIndexNumber]="pokemon()!.id" 
-            />    
-            <app-name 
-                select="card-header" 
-                [isTransparent]="true"    
-                [pokemonName]="pokemon()!.species.name"/>
-        </app-flex>
-        <app-sprite select="card-body" 
-            [title]="pokemon()!.species.name" 
-            [id]="pokemon()!.id " 
-            [background]="'white'" [width]='"100%"'>
-        </app-sprite>
-        <app-types select="card-footer" [types]="pokemon()!.types"></app-types>
-        <app-ability 
-            select="card-footer" 
-            [isTransparent]="true"
-            [abilities]="pokemon()!.abilities"
-            />
-    </app-card>
-</div>
-<div>
-    <app-stats 
-        [stats]="pokemon()!.stats" 
-        [background]="pokemon()!.types[0].type.name | capitalizeWords | colorType"
-    />
-</div>
+    <div class="pokemon-details-card-container"
+        [style.background-color]="pokemon()!.types[0].type.name | capitalizeWords | colorType">
+        <app-card [isTransparent]="true">
+            <app-flex>
+                <app-index-number select="card-header" [isTransparent]="true" [pokemonIndexNumber]="pokemon()!.id" />
+                <app-name select="card-header" [isTransparent]="true" [pokemonName]="pokemon()!.species.name" />
+            </app-flex>
+            <app-sprite select="card-body" [title]="pokemon()!.species.name" [id]="pokemon()!.id "
+                [background]="'white'" [width]='"100%"'>
+            </app-sprite>
+            <app-types select="card-footer" [types]="pokemon()!.types"></app-types>
+            <app-ability select="card-footer" [isTransparent]="true" [abilities]="pokemon()!.abilities" />
+        </app-card>
+    </div>
+    <div>
+        <app-stats [stats]="pokemon()!.stats"
+            [background]="pokemon()!.types[0].type.name | capitalizeWords | colorType" />
+    </div>
 </app-flex>

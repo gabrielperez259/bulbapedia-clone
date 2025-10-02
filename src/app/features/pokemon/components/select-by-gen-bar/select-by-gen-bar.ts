@@ -16,7 +16,7 @@ export class SelectByGenBar {
 
   readonly genValue = output<string>();  
 
-  setGenValue(value: string) {
+  public setGenValue(value: string) {
     this.genValue.emit(value);
   }
 

@@ -4,7 +4,7 @@
     @for (ability of abilities(); track $index) {
     
         <button class="ability-button">  
-            <span> {{ability.ability.name | capitalizeWords }}</span>    
+            <span> {{ability.ability.name.split('-').join(' ') | capitalizeWords }}</span>    
         </button>
     
     }

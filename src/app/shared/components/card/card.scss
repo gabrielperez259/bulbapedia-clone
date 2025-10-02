@@ -1,7 +1,7 @@
 @use "../../../styles/utils" as ds;
 
 .card-container{
-    margin: ds.$space-s;
+    margin: ds.$space-xs;
     background-color: ds.$accent-color;
     border-radius: ds.$radius-md;
 

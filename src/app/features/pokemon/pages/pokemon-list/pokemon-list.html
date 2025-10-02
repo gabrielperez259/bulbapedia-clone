@@ -6,7 +6,7 @@
     }@else if (data.pokemonListError()) {
         <p> error... </p>
     }@else {
-         <app-grid [columns]="5">
+         <app-grid [columns]="6">
         @for(pokemon of data.pokemonList(); track $index) {            
             <app-pokemon-list-item [pokemon]="pokemon" [route]="pokemon.name"> </app-pokemon-list-item>
                

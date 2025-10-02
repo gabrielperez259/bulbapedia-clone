@@ -10,6 +10,8 @@ import { Ability } from "../../ability/ability";
 import { ColorTypePipe } from "../../../../../shared/pipes/color-type.pipe";
 import { CapitalizeWordsPipe } from "../../../../../shared/pipes/capitalize-word.pipe";
 import { Stats } from '../../stats/stats';
+import {MatTabsModule} from '@angular/material/tabs';
+
 
 
 @Component({
@@ -24,12 +26,14 @@ import { Stats } from '../../stats/stats';
     Ability, 
     ColorTypePipe, 
     CapitalizeWordsPipe, 
-    Stats],
+    Stats,
+    MatTabsModule],
   templateUrl: './pokemon-details-card.html',
   styleUrl: './pokemon-details-card.scss'
 })
+
 export class PokemonDetailsCard {
 
-  pokemon = input.required<Pokemon | undefined>()
+  public pokemon = input.required<Pokemon | undefined>()
 
 }

@@ -9,7 +9,7 @@ import { Transparency } from "../../../../shared/directives/transparency";
 })
 export class IndexNumber {
 
-  pokemonIndexNumber = input.required({ transform: numberAttribute });
-  isTransparent = input.required<boolean>();
+  public  pokemonIndexNumber = input.required({ transform: numberAttribute });
+  public isTransparent = input.required<boolean>();
 
 }

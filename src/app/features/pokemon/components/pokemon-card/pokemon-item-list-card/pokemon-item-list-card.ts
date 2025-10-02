@@ -15,7 +15,7 @@ import { Flex } from "../../../../../shared/components/flex/flex";
 })
 export class PokemonItemListCard {
 
-  pokemon = input.required<Results>();
-  route = input.required<string>();
+  public pokemon = input.required<Results>();
+  public route = input.required<string>();
 
 }
