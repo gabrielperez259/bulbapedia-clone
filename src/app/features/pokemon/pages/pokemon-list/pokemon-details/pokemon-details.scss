@@ -2,4 +2,22 @@
 
 .pokemon-details-container{
     margin: ds.$space-lg;
+    background-color: ds.$primary-color;
+}
+
+.side-bar-container{
+    width: 20%;
+    margin: ds.$space-md;
+ 
+}
+
+.router-container{
+    width: 50%;
+    margin: ds.$space-s;
+}
+
+.card-container{
+    width: 30%;
+    margin: ds.$space-md;
+  
 }

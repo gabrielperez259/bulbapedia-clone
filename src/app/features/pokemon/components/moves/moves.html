@@ -1,0 +1,33 @@
+<div class="move-set-container">
+<app-grid [columns]="3">
+    <div>
+        <h2> LEVEL UP </h2>
+            @for(move of levelUpMoveSet() ; track $index) {
+                <h4> {{move.move.name | capitalizeWords}}</h4>
+
+            }
+    </div>
+    <div>
+        <h2> TM </h2>
+            @for(move of machineMoveSet() ; track $index) {
+                <h4> {{move.move.name | capitalizeWords}}</h4>
+
+        }
+
+    </div>
+
+    <div>
+        <h2> BREEDING </h2>
+            @for(move of breedingMoveSet() ; track $index) {
+                <h4> {{move.move.name | capitalizeWords}}</h4>
+
+        }
+
+    </div>
+
+</app-grid>
+</div>
+
+
+
+

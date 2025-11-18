@@ -36,7 +36,9 @@ export class PokemonDetailsDataClient {
                 front_shiny_female: ''
             },
             types: [],
-            stats: []
+            stats: [],
+            moves: [],
+            abilities: []
         }
     }))
 

@@ -1,7 +1,9 @@
-import { Component, computed, effect, input, model, OnInit, output } from '@angular/core';
+import { Component, computed, effect, inject, input, model, OnInit, output, signal } from '@angular/core';
 import { Pokemon } from '../../models/pokemon';
 import * as Highcharts from 'highcharts';
 import { HighchartsChartComponent } from 'highcharts-angular';
+import { ActivatedRoute } from '@angular/router';
+import { PokemonDetailsDataClient } from '../../services/pokemon-details.data-client';
 
 @Component({
   selector: 'app-stats',
@@ -11,14 +13,16 @@ import { HighchartsChartComponent } from 'highcharts-angular';
 })
 export class Stats implements OnInit {
 
-  stats = input.required<Pokemon["stats"]>();
+  stats = inject(PokemonDetailsDataClient).pokemonDetails()!.stats;
   background = input.required<string>();
-  total = computed(() => this.stats().reduce((acc, stat) => acc + stat.base_stat, 0));
+  total = computed(() => this.stats.reduce((acc, stat) => acc + stat.base_stat, 0));
 
   Highcharts: typeof Highcharts = Highcharts;
   chartOptions: Highcharts.Options = {};
 
   ngOnInit(): void {
+    console.log(this.stats);
+    
     this.chartOptions = {
       chart: {
         type: 'bar',
@@ -29,7 +33,7 @@ export class Stats implements OnInit {
         text: 'Stats',
       },
       xAxis: {
-        categories: this.stats()!.map((s) => s.stat.name.toUpperCase().replace('-', ' ')),
+        categories: this.stats!.map((s) => s.stat.name.toUpperCase().replace('-', ' ')),
         labels: {
           align: 'left',  
           style: {
@@ -62,7 +66,7 @@ export class Stats implements OnInit {
           name: 'Base Stat',
           pointPadding: 0.1,  
           groupPadding: 0, 
-          data: this.stats().map((s) => {
+          data: this.stats.map((s) => {
             let color = '#4285F4'; // cor padrão
 
             switch (s.stat.name.toLowerCase()) {

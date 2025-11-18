@@ -1,0 +1,13 @@
+@use '../../../../styles/utils' as ds;
+
+.move-set-container{
+    margin: ds.$space-lg;
+    background-color: ds.$accent-color;
+    border-radius: ds.$radius-lg;
+
+}
+div{
+    margin: ds.$space-s;
+    color: white;
+
+}

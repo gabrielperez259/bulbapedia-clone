@@ -26,7 +26,6 @@ import {MatTabsModule} from '@angular/material/tabs';
     Ability, 
     ColorTypePipe, 
     CapitalizeWordsPipe, 
-    Stats,
     MatTabsModule],
   templateUrl: './pokemon-details-card.html',
   styleUrl: './pokemon-details-card.scss'

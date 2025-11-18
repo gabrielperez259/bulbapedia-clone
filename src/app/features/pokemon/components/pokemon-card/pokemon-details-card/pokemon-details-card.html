@@ -1,9 +1,3 @@
-@if(pokemon()!.species.name) {
-    
-
-}@else {
-
-}
 <app-flex>
     <div class="pokemon-details-card-container"
         [style.background-color]="pokemon()!.types[0].type.name | capitalizeWords | colorType">
@@ -18,9 +12,5 @@
             <app-types select="card-footer" [types]="pokemon()!.types"></app-types>
             <app-ability select="card-footer" [isTransparent]="true" [abilities]="pokemon()!.abilities" />
         </app-card>
-    </div>
-    <div>
-        <app-stats [stats]="pokemon()!.stats"
-            [background]="pokemon()!.types[0].type.name | capitalizeWords | colorType" />
     </div>
 </app-flex>
