@@ -9,6 +9,9 @@ export const SIDEBAR_ROUTES : Route[] = [
     {
         path: 'moves',
         loadComponent: () => import('../moves/moves').then(m => m.Moves)
+    },{
+        path: 'evolution',
+        loadComponent: ()=> import('../evolution/evolution').then(m => m.Evolution)
     }
 
 ]

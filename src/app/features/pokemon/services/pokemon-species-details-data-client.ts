@@ -11,7 +11,7 @@ import { Specie } from "../models/species/specie";
 export class PokemonSpeciesDetailsDataClient {
     
 
-    #url = environment.apiUrl
+    #url = environment.speciesUrl;
 
     public search = signal('');        
     

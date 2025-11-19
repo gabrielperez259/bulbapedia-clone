@@ -1,9 +1,11 @@
-import { Component, inject, input, OnInit, } from '@angular/core';
+import { Component, computed, effect, inject, input, OnInit, } from '@angular/core';
 import { PokemonDetailsDataClient } from '../../../services/pokemon-details.data-client';
 import { PokemonDetailsCard } from "../../../components/pokemon-card/pokemon-details-card/pokemon-details-card";
 import { SideBar } from "../../../components/side-bar/side-bar";
 import { RouterOutlet } from '@angular/router';
 import { Flex } from "../../../../../shared/components/flex/flex";
+import { PokemonSpeciesDetailsDataClient } from '../../../services/pokemon-species-details-data-client';
+import { Specie } from '../../../models/species/specie';
 
 @Component({
   selector: 'app-pokemon-details',
@@ -16,10 +18,14 @@ import { Flex } from "../../../../../shared/components/flex/flex";
 export class PokemonDetails implements OnInit {
 
   public name = input<string>('name');  
-  data = inject(PokemonDetailsDataClient);  
+  pokemonData = inject(PokemonDetailsDataClient);  
+  speciesData = inject(PokemonSpeciesDetailsDataClient)
+
   
   ngOnInit(): void {
-    this.data.search.set(this.name());
+    this.pokemonData.search.set(this.name());
+    this.speciesData.search.set(this.name());
+    
   }
 
 

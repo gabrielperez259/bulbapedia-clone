@@ -1,20 +1,20 @@
-@if(data.pokemonDetailsLoading()){
+@if(pokemonData.pokemonDetailsLoading()){
     <p> loading... </p>
 
-}@else if (data.pokemonDetailsError()) {
+}@else if (pokemonData.pokemonDetailsError()) {
     <p> error </p> 
 
 }@else {    
     <div class="pokemon-details-container" >
         <app-flex>
             <div class="side-bar-container">
-                <app-side-bar [pokemon]="data.pokemonDetails()"></app-side-bar>  
+                <app-side-bar [pokemon]="pokemonData.pokemonDetails()"></app-side-bar>  
             </div>
             <div class="router-container">
                 <router-outlet></router-outlet>
             </div>          
             <div class="card-container">
-                <app-pokemon-details-card [pokemon]="data.pokemonDetails()"/>       
+                <app-pokemon-details-card [pokemon]="pokemonData.pokemonDetails()"/>       
             </div>            
         </app-flex>
 

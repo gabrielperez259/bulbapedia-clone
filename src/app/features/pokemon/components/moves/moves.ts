@@ -1,4 +1,4 @@
-import { Component, computed, inject, signal } from '@angular/core';
+import { Component, computed, inject, input, signal } from '@angular/core';
 import { PokemonDetailsDataClient } from '../../services/pokemon-details.data-client';
 import { CapitalizeWordsPipe } from "../../../../shared/pipes/capitalize-word.pipe";
 import { Move } from '../../models/moves/move';
