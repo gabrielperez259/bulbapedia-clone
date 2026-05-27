@@ -1,31 +1,43 @@
 <div class="move-set-container">
-<app-grid [columns]="3">
-    <div>
-        <h2> LEVEL UP </h2>
-            @for(move of levelUpMoveSet() ; track $index) {
-                <h4> {{move.move.name | capitalizeWords}}</h4>
+    <app-grid [columns]="5">
+        <div class="container">
+            
+            <mat-button-toggle-group aria-label="Font Style">
+                <mat-button-toggle disabled  > Learn Method:  </mat-button-toggle>
+                <mat-button-toggle (click)="setLearnMethodValue('level-up')" > Level up </mat-button-toggle>
+                <mat-button-toggle (click)="setLearnMethodValue('machine')" > TM </mat-button-toggle>
+                <mat-button-toggle (click)="setLearnMethodValue('tutor')" > Tutor </mat-button-toggle>
+                <mat-button-toggle (click)="setLearnMethodValue('egg')"> Egg </mat-button-toggle>
+            </mat-button-toggle-group>
+        </div>     
+    </app-grid>
 
-            }
-    </div>
-    <div>
-        <h2> TM </h2>
-            @for(move of machineMoveSet() ; track $index) {
-                <h4> {{move.move.name | capitalizeWords}}</h4>
-
+<div class="container">
+    <label for="version-select"> Game version: </label>
+    <select name="version-select" id="version-select" [(ngModel)]="version">
+        @for(version of versions(); track $index ){
+            <option [value]="version"> {{version }} </option>
         }
 
-    </div>
+    </select>     
+    <app-grid [columns]="6">
+        <div class="move-details-container">
+            <span class="number-span"> Level</span>
+            <span class="name-span"> Move </span>       
+            <span class="name-span"> Type </span>
+            <span class="number-span"> Power </span>
+            <span class="number-span"> Accuracy </span>
+            <span class="number-span"> PP </span>   
+        </div>
+    </app-grid>        
+            @for(move of this.computedMoveList() ; track $index){
+            
+                        <app-move-details [learnedAtLevel]="move.version_group_details[0].level_learned_at" [moveName]="move.move.name"/>   
+              
+                
+            }    
 
-    <div>
-        <h2> BREEDING </h2>
-            @for(move of breedingMoveSet() ; track $index) {
-                <h4> {{move.move.name | capitalizeWords}}</h4>
-
-        }
-
-    </div>
-
-</app-grid>
+    
 </div>
 
 
