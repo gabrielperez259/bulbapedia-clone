@@ -1,31 +1,27 @@
 <div class="move-set-container">
-    <app-grid [columns]="5">
-        <div class="container">
-            <label>Learn Method: </label>
-            <mat-button-toggle-group aria-label="Font Style">
-                <mat-button-toggle (click)="setLearnMethodValue('level-up')" > Level up </mat-button-toggle>
-                <mat-button-toggle (click)="setLearnMethodValue('machine')" > TM </mat-button-toggle>
-                <mat-button-toggle (click)="setLearnMethodValue('tutor')" > Tutor </mat-button-toggle>
-                <mat-button-toggle (click)="setLearnMethodValue('egg')"> Egg </mat-button-toggle>
-            </mat-button-toggle-group>
-        </div>     
-    </app-grid>
-
-<div class="container">
-    <label for="version-select"> Game version: </label>
-    <select name="version-select" id="version-select" [(ngModel)]="version">
-        @for(version of versions(); track $index ){
-            <option [value]="version"> {{version | cleanText}} </option>
-        }
-
-    </select>     
-
+    <div class="container">
+        <div class="search-container">
+            <div class="selection-bar-container">
+                <app-selection-bar
+                    [labelText]="'Learn Method: '"
+                    [initialValue]="this.initialLearnMethod()"
+                    [values]="this.learnMethods()"
+                    (selectedOptionOutput)="this.setLearnMethodValue($event)"
+                />
+            </div>
+            <div class="selection-bar-container">
+                <app-selection-bar 
+                    [labelText]="'Game Version: '"
+                    [initialValue]="this.initialVersion()"
+                    [values]="this.versions()" 
+                    (selectedOptionOutput)="this.setGenMoveValue($event)"
+                />
+            </div>
+    </div>    
     <table>
         <thead>
             <tr>
-
-                <th>Level</th>
-             
+                <th>Level</th>             
                 <th>Move</th>       
                 <th>Type</th>
                 <th>Cat </th>
@@ -36,7 +32,8 @@
         </thead>
         <tbody>
             @for (move of this.computedMoveList(); track $index) {
-                <tr app-level-up-moves [moveName]="move.move.name" 
+                <tr app-pokemon-move-details 
+                    [moveName]="move.move.name" 
                     [learnedAtLevel]="move.level"
                     [learnMethod]="move.method"> 
                 </tr>

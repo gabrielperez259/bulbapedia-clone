@@ -8,19 +8,24 @@ import { MatTableModule } from '@angular/material/table';
 import { PokemonMoveDetails } from './pokemon-move-details/pokemon-move-details';
 import { SortService } from '../../../../../../shared/services/sort-service';
 import { CleanTextPipe } from "../../../../../../shared/pipes/clean-text.pipe";
+import { SelectionBar } from "../../../../components/selection-bar/selection-bar";
+import { LEARN_METHODS } from '../../../../../../shared/constants/learn.method';
+
 
 
 @Component({
-  selector: 'app-moves',
+  selector: 'app-pokemon-move-list',
   imports: [
-    Grid, 
-    MatButtonToggleGroup, 
-    MatButtonToggle, 
-    FormsModule, 
-    MatTableModule, 
-    PokemonMoveDetails, 
-    CleanTextPipe,    
-  ],
+    Grid,
+    MatButtonToggleGroup,
+    MatButtonToggle,
+    FormsModule,
+    MatTableModule,
+    PokemonMoveDetails,
+    CleanTextPipe,
+    SelectionBar
+    
+],
   templateUrl: './pokemon-move-list.html',
   styleUrl: './pokemon-move-list.scss'
 })
@@ -30,7 +35,10 @@ export class PokemonMoveList {
   sortService = inject(SortService);
 
   public learnMethod = signal<string>('level-up');
+  public learnMethods = signal(LEARN_METHODS);
   public version = signal<string>(POKEMON_VERSION_GROUPS.SCARLET_VIOLET);
+  public initialLearnMethod = signal<string>('level-up');
+  public initialVersion = signal<string>(POKEMON_VERSION_GROUPS.SCARLET_VIOLET);
   public versions = signal(ALL_VERSION_GROUPS); 
 
   public setLearnMethodValue(value: string) {
@@ -43,6 +51,8 @@ export class PokemonMoveList {
     this.version.set(value);
 
   }
+
+  
 
 computedMoveList = computed(() => {
   const currentVersion = this.version();

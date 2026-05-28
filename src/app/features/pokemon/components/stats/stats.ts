@@ -1,8 +1,6 @@
-import { Component, computed, effect, inject, input, model, OnInit, output, signal } from '@angular/core';
-import { Pokemon } from '../../models/pokemon';
+import { Component, computed, effect, inject, input, OnInit} from '@angular/core';
 import * as Highcharts from 'highcharts';
 import { HighchartsChartComponent } from 'highcharts-angular';
-import { ActivatedRoute } from '@angular/router';
 import { PokemonDetailsDataClient } from '../../services/pokemon-details.data-client';
 
 @Component({
@@ -16,6 +14,10 @@ export class Stats implements OnInit {
   stats = inject(PokemonDetailsDataClient).pokemonDetails()!.stats;
   background = input.required<string>();
   total = computed(() => this.stats.reduce((acc, stat) => acc + stat.base_stat, 0));
+
+  backgroundColorEffect = effect(() => {
+    this.chartOptions.chart!.backgroundColor = this.background();
+  })
 
   Highcharts: typeof Highcharts = Highcharts;
   chartOptions: Highcharts.Options = {};

@@ -17,13 +17,10 @@ export type PokemonVersionGroup =
   | 'ultra-sun-ultra-moon'
   | 'lets-go-pikachu-lets-go-eevee'
   | 'sword-shield'
-  | 'the-isle-of-armor'
-  | 'the-the-crown-tundra'
   | 'brilliant-diamond-shining-pearl'
   | 'legends-arceus'
   | 'scarlet-violet'
-  | 'the-teal-mask'
-  | 'the-indigo-disk';
+
 
 
 export const POKEMON_VERSION_GROUPS = {
@@ -45,13 +42,9 @@ export const POKEMON_VERSION_GROUPS = {
   ULTRA_SUN_ULTRA_MOON: 'ultra-sun-ultra-moon',
   LETS_GO_PIKACHU_LETS_GO_EEVEE: 'lets-go-pikachu-lets-go-eevee',
   SWORD_SHIELD: 'sword-shield',
-  THE_ISLE_OF_ARMOR: 'the-isle-of-armor',
-  THE_CROWN_TUNDRA: 'the-the-crown-tundra', // Nota: A PokéAPI usa a repetição "the-the" para a Crown Tundra
   BRILLIANT_DIAMOND_SHINING_PEARL: 'brilliant-diamond-shining-pearl',
   LEGENDS_ARCEUS: 'legends-arceus',
   SCARLET_VIOLET: 'scarlet-violet',
-  THE_TEAL_MASK: 'the-teal-mask',
-  THE_INDIGO_DISK: 'the-indigo-disk',
 } as const;
 
 

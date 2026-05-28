@@ -1,0 +1,6 @@
+<label for="select"> {{ this.labelText()}} </label>
+<select [(ngModel)]="selectedOption">
+    @for (value of values(); track $index) {
+        <option> {{ value }} </option>
+    }
+</select>
