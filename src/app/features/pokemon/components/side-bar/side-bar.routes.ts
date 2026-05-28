@@ -8,7 +8,7 @@ export const SIDEBAR_ROUTES : Route[] = [
     },
     {
         path: 'moves',
-        loadComponent: () => import('../moves/moves').then(m => m.Moves)
+        loadComponent: () => import('../../pages/pokemon-list/pokemon-details/pokemon-move-list/pokemon-move-list').then(m => m.PokemonMoveList)
     },{
         path: 'evolution',
         loadComponent: ()=> import('../evolution/evolution').then(m => m.Evolution)

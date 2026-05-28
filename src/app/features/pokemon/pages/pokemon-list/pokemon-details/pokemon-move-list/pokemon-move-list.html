@@ -15,7 +15,7 @@
     <label for="version-select"> Game version: </label>
     <select name="version-select" id="version-select" [(ngModel)]="version">
         @for(version of versions(); track $index ){
-            <option [value]="version"> {{version }} </option>
+            <option [value]="version"> {{version | cleanText}} </option>
         }
 
     </select>     
@@ -23,7 +23,9 @@
     <table>
         <thead>
             <tr>
+
                 <th>Level</th>
+             
                 <th>Move</th>       
                 <th>Type</th>
                 <th>Cat </th>
@@ -34,13 +36,14 @@
         </thead>
         <tbody>
             @for (move of this.computedMoveList(); track $index) {
-                <tr app-level-up-moves [moveName]="move.move.name" [learnedAtLevel]="move.version_group_details[0].level_learned_at"> </tr>
-            }
+                <tr app-level-up-moves [moveName]="move.move.name" 
+                    [learnedAtLevel]="move.level"
+                    [learnMethod]="move.method"> 
+                </tr>
+            }   
+
         </tbody>
-    </table>
-
-
-    
+    </table>    
 </div>
 
 

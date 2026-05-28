@@ -17,6 +17,9 @@ export enum ColorTypes {
     Dragon = '#6F35FC',
     Dark = '#705746',
     Steel = '#B7B7CE',
-    Fairy = '#D685AD'
+    Fairy = '#D685AD',
+    Status = '#A8A77A',
+    Physical = '#EE8130',
+    Special = '#4153d6'
 
 }
