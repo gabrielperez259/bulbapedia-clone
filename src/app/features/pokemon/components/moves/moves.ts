@@ -1,22 +1,22 @@
-import { Component, computed, inject, input, output, signal } from '@angular/core';
+import { Component, computed, inject, signal } from '@angular/core';
 import { PokemonDetailsDataClient } from '../../services/pokemon-details.data-client';
 import { Move } from '../../models/moves/move';
 import { Grid } from "../../../../shared/components/grid/grid";
 import { MatButtonToggleGroup, MatButtonToggle } from "@angular/material/button-toggle";
 import { ALL_VERSION_GROUPS, POKEMON_VERSION_GROUPS } from '../../../../shared/constants/version-group';
 import { FormsModule } from '@angular/forms';
-import { MoveDetails } from "./move-details/move-details";
+import { MatTableModule } from '@angular/material/table';
+import { LevelUpMoves } from './level-up-moves/level-up-moves';
 
 @Component({
   selector: 'app-moves',
-  imports: [Grid, MatButtonToggleGroup, MatButtonToggle, FormsModule, MoveDetails],
+  imports: [Grid, MatButtonToggleGroup, MatButtonToggle, FormsModule, MatTableModule, LevelUpMoves],
   templateUrl: './moves.html',
   styleUrl: './moves.scss'
 })
 export class Moves {
 
   moves = inject(PokemonDetailsDataClient).pokemonDetails()!.moves;
-
 
   public learnMethod = signal<string>('level-up');
   public version = signal<string>(POKEMON_VERSION_GROUPS.RED_BLUE);

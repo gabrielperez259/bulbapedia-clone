@@ -2,8 +2,6 @@ import { inject, Injectable } from "@angular/core";
 import { environment } from "../../../../environments/environment";
 import { HttpClient, httpResource } from "@angular/common/http";
 import { computed, signal } from "@angular/core";
-import { rxResource } from "@angular/core/rxjs-interop";
-import { Observable, refCount, shareReplay } from "rxjs";
 import { MoveDetails } from "../models/moves/move-details";
 
 @Injectable({
@@ -24,6 +22,7 @@ export class MovesDataClient {
     public movePower = computed(() => this.moveDetails.value()?.power)
     public movePP = computed(() => this.moveDetails.value()?.pp)
     public moveType = computed(() => this.moveDetails.value()?.type)
+    public moveDamageClass = computed(() => this.moveDetails.value()?.damage_class)
 
     readonly moveDetails = httpResource<MoveDetails>(() => ({
         url: `${this.url}${this.search()}`,

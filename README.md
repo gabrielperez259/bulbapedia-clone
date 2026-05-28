@@ -1,6 +1,8 @@
 # Bulbapedia
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.2.2.
+It's a bulbapedia clone built with Angular consuming the API from [PokeAPI](https://pokeapi.co/).  
+
 
 ## Development server
 

@@ -1,0 +1,7 @@
+@use '../../../../../styles/utils' as ds;
+
+td{
+    margin: ds.$space-xs;    
+    padding: ds.$space-xs;
+    background-color: white;
+}

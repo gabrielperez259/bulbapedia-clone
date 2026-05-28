@@ -1,1 +1,8 @@
-<p>level-up-moves works!</p>
+<td>{{this.learnedAtLevel()}}</td>
+<td>{{this.movesDataClient.moveName() | cleanText}}</td> 
+<td>{{this.movesDataClient.moveType()?.name | cleanText}}</td>
+<td>{{this.movesDataClient.moveDamageClass()?.name | cleanText}}</td>
+<td>{{this.movesDataClient.movePower()}}</td>
+<td>{{this.movesDataClient.moveAccuracy() | formatStat}}</td>
+<td>{{this.movesDataClient.movePP()}}</td>
+
