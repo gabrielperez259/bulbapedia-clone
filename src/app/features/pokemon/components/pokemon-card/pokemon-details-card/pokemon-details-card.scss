@@ -1,9 +1,8 @@
 @use '../../../../../styles/utils' as ds;
 
 .pokemon-details-card-container{
-    margin: ds.$space-md;    
-    padding: ds.$space-xs;
-    border-radius: ds.$radius-md;    
+
+    border-radius: ds.$radius-s;    
    
 }
 

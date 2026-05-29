@@ -4,11 +4,9 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: ds.$space-md;
     background-color: ds.$accent-color;
-    padding-top: ds.$space-md;
-    padding-bottom: ds.$space-md;
     border-radius: ds.$radius-md;
+    padding-top: ds.$space-md;
     width: 100%;    
 }
 
@@ -17,20 +15,22 @@
     color: white;
 }
 table{
-    margin: ds.$space-md;        
+    
+    
+    margin: ds.$space-xs;        
     background-color: black;
     width: 100%;
 }
 
 thead, th {
-    margin: ds.$space-md;
-    padding: ds.$space-md;
+    margin: ds.$space-xs;
+    padding: ds.$space-xs;
     background-color: ds.$accent-color;
+
 }
 
 tr{
     margin: ds.$space-xs;
-    border-radius: ds.$radius-md;
-    padding: ds.$space-md;
+    padding: ds.$space-xs;
     background-color: white;
 }

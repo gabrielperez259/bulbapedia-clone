@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, computed, inject } from '@angular/core';
 import { PokemonListDataClient } from '../../services/pokemon-list-data-client';
 import { SelectByGenBar } from "../../components/select-by-gen-bar/select-by-gen-bar";
 import { PokemonListItem } from "../../components/pokemon-list-item/pokemon-list-item";
@@ -19,5 +19,6 @@ export class PokemonList {
   
   }
   
+  computedSetData = computed(() => this.data.pokemonList().map( pokemon => pokemon.name.includes("pikachu")));
 
 }

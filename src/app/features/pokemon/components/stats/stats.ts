@@ -1,4 +1,4 @@
-import { Component, computed, effect, inject, input, OnInit} from '@angular/core';
+import { Component, computed, effect, inject, input, OnInit, output} from '@angular/core';
 import * as Highcharts from 'highcharts';
 import { HighchartsChartComponent } from 'highcharts-angular';
 import { PokemonDetailsDataClient } from '../../services/pokemon-details.data-client';
@@ -12,15 +12,9 @@ import { PokemonDetailsDataClient } from '../../services/pokemon-details.data-cl
 export class Stats implements OnInit {
 
   stats = inject(PokemonDetailsDataClient).pokemonDetails()!.stats;
-  background = input.required<string>();
   total = computed(() => this.stats.reduce((acc, stat) => acc + stat.base_stat, 0));
-
-  backgroundColorEffect = effect(() => {
-    this.chartOptions.chart!.backgroundColor = this.background();
-  })
-
   Highcharts: typeof Highcharts = Highcharts;
-  chartOptions: Highcharts.Options = {};
+  chartOptions: Highcharts.Options = {};  
 
   ngOnInit(): void {
     console.log(this.stats);
@@ -28,7 +22,7 @@ export class Stats implements OnInit {
     this.chartOptions = {
       chart: {
         type: 'bar',
-        backgroundColor:  this.background(),
+        backgroundColor:  'white'
 
       },
       title: {
@@ -52,7 +46,7 @@ export class Stats implements OnInit {
         gridLineWidth: 0,
         title: { 
           text: 'Total: '+ this.total(),
-          x: -280,
+          x: -250,
           textAlign: 'left',
           style: {
             color: 'black',

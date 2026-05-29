@@ -1,23 +1,27 @@
 @use '../../../../styles/utils' as ds;
 
-.side-bar-container{
-    width: 100%;
-    border-radius: ds.$radius-lg;
-    background-color: ds.$accent-color;
-    color: white;
-}
 
 .side-bar-item-list{
-    margin: ds.$space-md;
+    background-color: ds.$accent-color;
+    border-radius: ds.$radius-md;
     color: white;
 }
 
+label{
+    color: white;   
+    display: flex;
+    padding-top: ds.$space-md;
+    justify-content: center; 
+    align-items: center;
+    
+}
 li{
-
-   margin: ds.$space-s; 
    color: white;
+   padding: ds.$space-xs;
 }
 
-a{
+
+a{  
+    padding: ds.$space-xs;
     color: white;
 }
