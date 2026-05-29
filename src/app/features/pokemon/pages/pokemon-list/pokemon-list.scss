@@ -1,5 +1,11 @@
 @use "../../../../styles/utils" as ds;
 
+.header-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .select-by-gen-bar-container{
     align-items: center;
     justify-content: center;

@@ -1,5 +1,9 @@
 <div class="pokemon-list-container">
-    <app-select-by-gen-bar (genValue)="setData($event)"> </app-select-by-gen-bar>
+    <div class="header-container">
+        <app-select-by-gen-bar (genValue)="setData($event)"> </app-select-by-gen-bar>
+        <app-search-bar (filterOutput)="this.search.set($event)"></app-search-bar>  
+    </div>
+
     @if (data.pokemonListLoading()) {
         <p> loading... </p>
 
@@ -7,8 +11,10 @@
         <p> error... </p>
     }@else {
          <app-grid [columns]="6">
-        @for(pokemon of data.pokemonList(); track $index) {            
-            <app-pokemon-list-item [pokemon]="pokemon" [route]="pokemon.name"> </app-pokemon-list-item>
+        @for(pokemon of this.computedData(); track $index) {            
+            @defer () {
+                <app-pokemon-list-item [pokemon]="pokemon" [route]="pokemon.name"> </app-pokemon-list-item>
+            }           
                
 
         }   
