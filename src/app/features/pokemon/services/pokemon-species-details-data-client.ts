@@ -15,7 +15,7 @@ export class PokemonSpeciesDetailsDataClient {
     public search = signal('');        
     
     public pokemonSpeciesDetails = computed(() => this.#pokemonSpeciesDetailsResource.value());
-    public specieVarieties = computed(() => this.#pokemonSpeciesDetailsResource.value()?.varieties)
+    public varietiesNames = computed(() => this.#pokemonSpeciesDetailsResource.value()?.varieties.map( (variety) => variety.pokemon.name as string));
     public pokemonSpeciesDetailsLoading = computed(() => this.#pokemonSpeciesDetailsResource.isLoading());
     public pokemonSpeciesDetailsError = computed(() => this.#pokemonSpeciesDetailsResource.error());
 

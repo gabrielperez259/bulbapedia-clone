@@ -5,12 +5,26 @@
     <p> error </p> 
 
 }@else {    
+    
     <div class="pokemon-details-container" >
         <app-flex>
             <div class="side-bar-container">
                 <app-side-bar [pokemon]="pokemonData.pokemonDetails()"></app-side-bar>  
             </div>
             <div class="router-container">
+                <div class="search-container">
+                    <app-selection-bar
+                        [labelText] = "'Variations: '"
+                        [initialValue]="this.pokemonData.pokemonDetails()!.name"
+                        [values]="this.speciesData.varietiesNames()!"
+                        (selectedOptionOutput)="this.pokemonData.search.set($event)"
+                    />
+                </div>
+
+
+
+               
+
                 <router-outlet></router-outlet>
             </div>          
             <div class="card-container">

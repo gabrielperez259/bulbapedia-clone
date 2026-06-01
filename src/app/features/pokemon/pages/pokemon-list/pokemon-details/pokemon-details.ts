@@ -5,11 +5,14 @@ import { SideBar } from "../../../components/side-bar/side-bar";
 import { RouterOutlet } from '@angular/router';
 import { Flex } from "../../../../../shared/components/flex/flex";
 import { PokemonSpeciesDetailsDataClient } from '../../../services/pokemon-species-details-data-client';
+import { MatButtonToggleGroup, MatButtonToggle } from "@angular/material/button-toggle";
+import { SelectionBar } from "../../../components/selection-bar/selection-bar";
+
 
 
 @Component({
   selector: 'app-pokemon-details',
-  imports: [PokemonDetailsCard, SideBar, RouterOutlet, Flex],
+  imports: [PokemonDetailsCard, SideBar, RouterOutlet, Flex, MatButtonToggleGroup, MatButtonToggle, SelectionBar],
   templateUrl: './pokemon-details.html',
   styleUrl: './pokemon-details.scss',
   
@@ -20,6 +23,14 @@ export class PokemonDetails implements OnInit {
   public name = input<string>('name');  
   pokemonData = inject(PokemonDetailsDataClient);  
   speciesData = inject(PokemonSpeciesDetailsDataClient)
+  
+
+
+  setPokemonName(name: string) {
+    this.pokemonData.search.set(name);    
+    
+  }
+
 
   
   ngOnInit(): void {

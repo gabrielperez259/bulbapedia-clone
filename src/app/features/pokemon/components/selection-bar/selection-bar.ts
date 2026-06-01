@@ -4,7 +4,7 @@ import { CleanTextPipe } from "../../../../shared/pipes/clean-text.pipe";
 
 @Component({
   selector: 'app-selection-bar',
-  imports: [FormsModule, CleanTextPipe],
+  imports: [FormsModule],
   templateUrl: './selection-bar.html',
   styleUrl: './selection-bar.scss'
 })

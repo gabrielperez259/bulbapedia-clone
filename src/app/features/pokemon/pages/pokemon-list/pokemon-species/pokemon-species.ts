@@ -15,7 +15,7 @@ export class PokemonSpecies implements OnInit {
 
 
   specieData = inject(PokemonSpeciesDetailsDataClient); 
-  public pokemonNames = input<Varieties[] | undefined>(this.specieData.specieVarieties());
+  public pokemonNames = input<Varieties[] | undefined>(this.specieData.pokemonSpeciesDetails()?.varieties);
   ngOnInit(): void {
     this.specieData.search.set(this.name());
   }
