@@ -1,25 +1,24 @@
-import {Component, computed, input, numberAttribute, ChangeDetectionStrategy} from '@angular/core';
+import {
+  Component,
+  computed,
+  input,
+  numberAttribute,
+  ChangeDetectionStrategy,
+} from '@angular/core';
 
 @Component({
   selector: 'app-sprite',
   imports: [],
   standalone: true,
   templateUrl: './sprite.html',
-  styleUrl: './sprite.scss'
+  styleUrl: './sprite.scss',
 })
 export class Sprite {
-
-
   id = input.required({ transform: numberAttribute });
   width = input.required();
   background = input.required();
 
-
-  url = computed(() =>{    
-    
-    return `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${this.id()}.png`
-  })
-
-
-
+  url = computed(() => {
+    return `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${this.id()}.png`;
+  });
 }

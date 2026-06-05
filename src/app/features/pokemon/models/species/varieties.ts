@@ -1,9 +1,7 @@
-
-export interface Varieties{
-    isDefault : boolean,
-    pokemon : {
-        name : string,
-        url : string
-    }
-
+export interface Varieties {
+  isDefault: boolean;
+  pokemon: {
+    name: string;
+    url: string;
+  };
 }

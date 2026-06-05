@@ -8,9 +8,8 @@ describe('SelectByGenBar', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [SelectByGenBar]
-    })
-    .compileComponents();
+      imports: [SelectByGenBar],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(SelectByGenBar);
     component = fixture.componentInstance;

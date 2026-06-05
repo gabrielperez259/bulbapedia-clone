@@ -1,4 +1,4 @@
 export interface MoveLearnMethod {
-    name : string
-    url : string
-}   
+  name: string;
+  url: string;
+}

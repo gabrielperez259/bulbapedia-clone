@@ -1,8 +1,1 @@
-export const LEARN_METHODS = [
-    'level-up',
-    'machine',
-    'egg',
-    'tutor'
-
-
-]
+export const LEARN_METHODS = ['level-up', 'machine', 'egg', 'tutor'];

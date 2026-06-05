@@ -1,5 +1,5 @@
 {
-    "java.project.sourcePaths": [
-        "src/app"
-    ]
+  "java.project.sourcePaths": ["src/app"],
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "notebook.defaultFormatter": "esbenp.prettier-vscode"
 }

@@ -1,4 +1,4 @@
 export interface VersionGroup {
-    name : string
-    url : string
+  name: string;
+  url: string;
 }

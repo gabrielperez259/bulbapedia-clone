@@ -8,9 +8,8 @@ describe('Moves', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [PokemonMoveList]
-    })
-    .compileComponents();
+      imports: [PokemonMoveList],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(PokemonMoveList);
     component = fixture.componentInstance;

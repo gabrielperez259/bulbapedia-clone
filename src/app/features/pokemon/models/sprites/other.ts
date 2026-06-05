@@ -1,6 +1,5 @@
-import { OfficialArtwork } from "./official-artwork"
+import { OfficialArtwork } from './official-artwork';
 
-export interface Other{
-    "official-artwork" : OfficialArtwork
-    
+export interface Other {
+  'official-artwork': OfficialArtwork;
 }

@@ -8,9 +8,8 @@ describe('LevelUpMoves', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [PokemonMoveDetails]
-    })
-    .compileComponents();
+      imports: [PokemonMoveDetails],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(PokemonMoveDetails);
     component = fixture.componentInstance;

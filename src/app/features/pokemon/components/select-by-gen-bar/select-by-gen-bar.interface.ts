@@ -1,4 +1,4 @@
 export interface SelectByGenBarInterface {
-    title : string
-    genValue : string
+  title: string;
+  genValue: string;
 }

@@ -2,7 +2,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
   name: 'extractId',
-  standalone: true
+  standalone: true,
 })
 export class ExtractIdPipe implements PipeTransform {
   transform(url: string): number | null {

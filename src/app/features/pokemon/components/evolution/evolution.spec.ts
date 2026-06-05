@@ -8,9 +8,8 @@ describe('Evolution', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [Evolution]
-    })
-    .compileComponents();
+      imports: [Evolution],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(Evolution);
     component = fixture.componentInstance;

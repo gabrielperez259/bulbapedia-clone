@@ -39,6 +39,4 @@ export class SortService {
       return array.sort((a, b) => b[property] - a[property]);
     }
   }
-
-
 }

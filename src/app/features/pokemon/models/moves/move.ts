@@ -1,10 +1,9 @@
-import { VersionGroupDetails } from "./version-group-details"
+import { VersionGroupDetails } from './version-group-details';
 
-export interface Move{
-    move : {
-        name : string,
-        url : string
-    } 
-    version_group_details : VersionGroupDetails[]
-
+export interface Move {
+  move: {
+    name: string;
+    url: string;
+  };
+  version_group_details: VersionGroupDetails[];
 }

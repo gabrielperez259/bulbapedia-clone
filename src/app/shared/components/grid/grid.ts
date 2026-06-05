@@ -1,15 +1,12 @@
-import { G, S } from '@angular/cdk/keycodes';
-import { Component, input, ChangeDetectionStrategy } from '@angular/core';
+import { Component, input } from '@angular/core';
 
 @Component({
   selector: 'app-grid',
   imports: [],
   templateUrl: './grid.html',
-  changeDetection: ChangeDetectionStrategy.Eager,
-  styleUrl: './grid.scss'
+  styleUrl: './grid.scss',
 })
 export class Grid {
-    columns = input.required<number>();
-    readonly gap = input<string>('1rem');
-
+  columns = input.required<number>();
+  readonly gap = input<string>('1rem');
 }

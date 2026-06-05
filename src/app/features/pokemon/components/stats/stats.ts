@@ -1,4 +1,13 @@
-import { Component, computed, effect, inject, input, OnInit, output, ChangeDetectionStrategy } from '@angular/core';
+import {
+  Component,
+  computed,
+  effect,
+  inject,
+  input,
+  OnInit,
+  output,
+  ChangeDetectionStrategy,
+} from '@angular/core';
 import * as Highcharts from 'highcharts';
 import { HighchartsChartComponent } from 'highcharts-angular';
 import { PokemonDetailsDataClient } from '../../services/pokemon-details.data-client';
@@ -7,23 +16,21 @@ import { PokemonDetailsDataClient } from '../../services/pokemon-details.data-cl
   selector: 'app-stats',
   imports: [HighchartsChartComponent],
   templateUrl: './stats.html',
-  styleUrl: './stats.scss'
+  styleUrl: './stats.scss',
 })
 export class Stats implements OnInit {
-
   stats = inject(PokemonDetailsDataClient).pokemonDetails()!.stats;
   total = computed(() => this.stats.reduce((acc, stat) => acc + stat.base_stat, 0));
   Highcharts: typeof Highcharts = Highcharts;
-  chartOptions: Highcharts.Options = {};  
+  chartOptions: Highcharts.Options = {};
 
   ngOnInit(): void {
     console.log(this.stats);
-    
+
     this.chartOptions = {
       chart: {
         type: 'bar',
-        backgroundColor:  'white'
-
+        backgroundColor: 'white',
       },
       title: {
         text: 'Stats',
@@ -31,37 +38,34 @@ export class Stats implements OnInit {
       xAxis: {
         categories: this.stats!.map((s) => s.stat.name.toUpperCase().replace('-', ' ')),
         labels: {
-          align: 'left',  
+          align: 'left',
           style: {
             color: 'black',
             fontWeight: 'bold',
           },
           x: 10,
-         
         },
       },
       yAxis: {
         min: 0,
         labels: { enabled: false },
         gridLineWidth: 0,
-        title: { 
-          text: 'Total: '+ this.total(),
+        title: {
+          text: 'Total: ' + this.total(),
           x: -250,
           textAlign: 'left',
           style: {
             color: 'black',
             fontWeight: 'bold',
-          }
-            
-        }
-  
+          },
+        },
       },
       series: [
         {
           type: 'bar',
           name: 'Base Stat',
-          pointPadding: 0.1,  
-          groupPadding: 0, 
+          pointPadding: 0.1,
+          groupPadding: 0,
           data: this.stats.map((s) => {
             let color = '#4285F4'; // cor padrão
 
@@ -89,7 +93,7 @@ export class Stats implements OnInit {
             return {
               y: s.base_stat,
               color,
-              name: s.stat.name.toLowerCase()
+              name: s.stat.name.toLowerCase(),
             };
           }),
           dataLabels: {
@@ -105,9 +109,4 @@ export class Stats implements OnInit {
       credits: { enabled: false },
     };
   }
-
-
-
-
-
 }

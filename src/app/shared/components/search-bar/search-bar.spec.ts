@@ -8,9 +8,8 @@ describe('SearchBar', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [SearchBar]
-    })
-    .compileComponents();
+      imports: [SearchBar],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(SearchBar);
     component = fixture.componentInstance;

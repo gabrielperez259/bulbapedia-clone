@@ -3,5 +3,5 @@ export const environment = {
   apiUrl: '',
   speciesUrl: '',
   movesUrl: '',
-  imageUrl: ''
+  imageUrl: '',
 };

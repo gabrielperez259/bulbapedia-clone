@@ -1,4 +1,4 @@
-export interface Results{
-    name: string,
-    url: string 
+export interface Results {
+  name: string;
+  url: string;
 }

@@ -1,7 +1,5 @@
-import { Results } from "./results";
+import { Results } from './results';
 
-export interface PokemonPayload{
-    results : Results[] 
-    
-
+export interface PokemonPayload {
+  results: Results[];
 }

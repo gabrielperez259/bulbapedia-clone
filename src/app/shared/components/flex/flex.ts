@@ -1,15 +1,12 @@
-import { Component, input, signal, ChangeDetectionStrategy } from '@angular/core';
+import { Component, input } from '@angular/core';
 
 @Component({
   selector: 'app-flex',
   imports: [],
   templateUrl: './flex.html',
-  changeDetection: ChangeDetectionStrategy.Eager,
-  styleUrl: './flex.scss'
+  styleUrl: './flex.scss',
 })
 export class Flex {
-
   display = input('flex');
   gap = input('10px');
-
 }
