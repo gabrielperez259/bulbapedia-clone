@@ -1,9 +1,10 @@
-import { Component, input, signal } from '@angular/core';
+import { Component, input, signal, ChangeDetectionStrategy } from '@angular/core';
 
 @Component({
   selector: 'app-flex',
   imports: [],
   templateUrl: './flex.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './flex.scss'
 })
 export class Flex {

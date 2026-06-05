@@ -1,4 +1,4 @@
-import { Component, input } from '@angular/core';
+import { Component, input, ChangeDetectionStrategy } from '@angular/core';
 import { Card } from "../../../../../shared/components/card/card";
 import { Flex } from "../../../../../shared/components/flex/flex";
 import { IndexNumber } from "../../index-number/index-number";

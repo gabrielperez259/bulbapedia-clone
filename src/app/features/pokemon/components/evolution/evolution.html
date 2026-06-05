@@ -1,5 +1,5 @@
 <h3> Base Form </h3>
-<p> {{ evolutionsData.pokemonDetails()?.chain?.species?.name | capitalizeWords }}</p>
+<p> {{ $safeNavigationMigration(evolutionsData.pokemonDetails()?.chain?.species?.name) | capitalizeWords }}</p>
 <h3> Evolutions </h3>
 @for (second of evolutionsData.pokemonDetails()?.chain?.evolves_to ; track $index ) {
     <p> {{second.species.name | capitalizeWords}}</p>
@@ -10,19 +10,19 @@
         <p> Gender: {{second.evolution_details[0].gender }}</p>
     }
     @if(second.evolution_details[0].held_item?.name ) {
-        <p> Held Item: {{second.evolution_details[0].held_item?.name | capitalizeWords}}</p>
+        <p> Held Item: {{$safeNavigationMigration(second.evolution_details[0].held_item?.name) | capitalizeWords}}</p>
     }
     @if(second.evolution_details[0].item?.name ) {
-        <p> Item: {{second.evolution_details[0].item?.name | capitalizeWords }}</p>
+        <p> Item: {{$safeNavigationMigration(second.evolution_details[0].item?.name) | capitalizeWords }}</p>
     }
     @if(second.evolution_details[0].known_move?.name) {
-        <p> Known Move: {{second.evolution_details[0].known_move?.name | capitalizeWords}}</p>
+        <p> Known Move: {{$safeNavigationMigration(second.evolution_details[0].known_move?.name) | capitalizeWords}}</p>
     }
     @if(second.evolution_details[0].known_move_type?.name) {
-        <p> Known Move Type: {{second.evolution_details[0].known_move_type?.name| capitalizeWords }}</p>
+        <p> Known Move Type: {{$safeNavigationMigration(second.evolution_details[0].known_move_type?.name)| capitalizeWords }}</p>
     }
     @if(second.evolution_details[0].location?.name ) {
-        <p> Location: {{second.evolution_details[0].location?.name | capitalizeWords}}</p>
+        <p> Location: {{$safeNavigationMigration(second.evolution_details[0].location?.name) | capitalizeWords}}</p>
     }
     @if(second.evolution_details[0].min_affection ) {
         <p> Min Affection: {{second.evolution_details[0].min_affection }}</p>
@@ -40,10 +40,10 @@
         <p> Needs Overworld Rain: {{second.evolution_details[0].needs_overworld_rain }}</p> 
     }
     @if(second.evolution_details[0].party_species?.name ) {
-        <p> Party Species: {{second.evolution_details[0].party_species?.name | capitalizeWords}}</p>
+        <p> Party Species: {{$safeNavigationMigration(second.evolution_details[0].party_species?.name) | capitalizeWords}}</p>
     }
     @if(second.evolution_details[0].party_type?.name) {
-        <p> Party Type: {{second.evolution_details[0].party_type?.name | capitalizeWords}}</p>
+        <p> Party Type: {{$safeNavigationMigration(second.evolution_details[0].party_type?.name) | capitalizeWords}}</p>
     }
     @if(second.evolution_details[0].region_id ) {
         <p> Region Id: {{second.evolution_details[0].region_id }}</p>
@@ -55,7 +55,7 @@
         <p> Time Of Day: {{second.evolution_details[0].time_of_day| capitalizeWords }}</p>
     }
     @if(second.evolution_details[0].trade_species?.name ) {
-        <p> Trade Species: {{second.evolution_details[0].trade_species?.name | capitalizeWords}}</p>
+        <p> Trade Species: {{$safeNavigationMigration(second.evolution_details[0].trade_species?.name) | capitalizeWords}}</p>
     }
     @if(second.evolution_details[0].trigger.name ) {
         <p> Trigger: {{second.evolution_details[0].trigger.name | capitalizeWords}}</p>
@@ -70,19 +70,19 @@
             <p> Gender: {{third.evolution_details[0].gender }}</p>
         }
         @if(third.evolution_details[0].held_item?.name ) {
-            <p> Held Item: {{third.evolution_details[0].held_item?.name | capitalizeWords}}</p>
+            <p> Held Item: {{$safeNavigationMigration(third.evolution_details[0].held_item?.name) | capitalizeWords}}</p>
         }
         @if(third.evolution_details[0].item?.name ) {
-            <p> Item: {{third.evolution_details[0].item?.name| capitalizeWords }}</p>
+            <p> Item: {{$safeNavigationMigration(third.evolution_details[0].item?.name)| capitalizeWords }}</p>
         }   
         @if(third.evolution_details[0].known_move?.name) {
-            <p> Known Move: {{third.evolution_details[0].known_move?.name | capitalizeWords}}</p>
+            <p> Known Move: {{$safeNavigationMigration(third.evolution_details[0].known_move?.name) | capitalizeWords}}</p>
         }
         @if(third.evolution_details[0].known_move_type?.name) {
-            <p> Known Move Type: {{third.evolution_details[0].known_move_type?.name| capitalizeWords }}</p>
+            <p> Known Move Type: {{$safeNavigationMigration(third.evolution_details[0].known_move_type?.name)| capitalizeWords }}</p>
         }
         @if(third.evolution_details[0].location?.name ) {
-            <p> Location: {{third.evolution_details[0].location?.name| capitalizeWords }}</p>
+            <p> Location: {{$safeNavigationMigration(third.evolution_details[0].location?.name)| capitalizeWords }}</p>
         }
         @if(third.evolution_details[0].min_affection ) {
             <p> Min Affection: {{third.evolution_details[0].min_affection }}</p>
@@ -100,10 +100,10 @@
             <p> NeedsOverworld Rain: {{third.evolution_details[0].needs_overworld_rain }}</p>
         }
         @if(third.evolution_details[0].party_species?.name ) {
-            <p> Party Species: {{third.evolution_details[0].party_species?.name | capitalizeWords }}</p>
+            <p> Party Species: {{$safeNavigationMigration(third.evolution_details[0].party_species?.name) | capitalizeWords }}</p>
         }
         @if(third.evolution_details[0].party_type?.name) {
-            <p> Party Type: {{third.evolution_details[0].party_type?.name| capitalizeWords}}</p>
+            <p> Party Type: {{$safeNavigationMigration(third.evolution_details[0].party_type?.name)| capitalizeWords}}</p>
         }
         @if(third.evolution_details[0].region_id ) {
             <p> Region Id: {{third.evolution_details[0].region_id }}</p>
@@ -115,7 +115,7 @@
             <p> Time Of Day: {{third.evolution_details[0].time_of_day | capitalizeWords}}</p>
         }
         @if(third.evolution_details[0].trade_species?.name ) {
-            <p> Trade Species: {{third.evolution_details[0].trade_species?.name | capitalizeWords}}</p>
+            <p> Trade Species: {{$safeNavigationMigration(third.evolution_details[0].trade_species?.name) | capitalizeWords}}</p>
         }
         @if(third.evolution_details[0].trigger.name ) {
             <p> Trigger: {{third.evolution_details[0].trigger.name | capitalizeWords }}</p>

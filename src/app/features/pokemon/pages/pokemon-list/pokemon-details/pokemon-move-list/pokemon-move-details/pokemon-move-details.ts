@@ -1,4 +1,4 @@
-import { Component, effect, inject, input } from '@angular/core';
+import { Component, effect, inject, input, ChangeDetectionStrategy } from '@angular/core';
 import { MovesDataClient } from '../../../../../services/moves-data-client';
 import { CleanTextPipe } from "../../../../../../../shared/pipes/clean-text.pipe";
 import { FormatStatPipe } from "../../../../../../../shared/pipes/format-stat.pipe";

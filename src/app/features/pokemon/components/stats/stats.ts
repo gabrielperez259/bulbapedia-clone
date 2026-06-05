@@ -1,4 +1,4 @@
-import { Component, computed, effect, inject, input, OnInit, output} from '@angular/core';
+import { Component, computed, effect, inject, input, OnInit, output, ChangeDetectionStrategy } from '@angular/core';
 import * as Highcharts from 'highcharts';
 import { HighchartsChartComponent } from 'highcharts-angular';
 import { PokemonDetailsDataClient } from '../../services/pokemon-details.data-client';

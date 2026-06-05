@@ -1,4 +1,4 @@
-import {Component, computed, input, numberAttribute} from '@angular/core';
+import {Component, computed, input, numberAttribute, ChangeDetectionStrategy} from '@angular/core';
 
 @Component({
   selector: 'app-sprite',

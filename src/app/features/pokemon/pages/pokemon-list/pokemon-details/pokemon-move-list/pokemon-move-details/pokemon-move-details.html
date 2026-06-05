@@ -1,11 +1,11 @@
 <td>{{this.learnedAtLevel()}}</td>
 <td>{{this.movesDataClient.moveName() | cleanText}}</td> 
-<td [style.background-color]="this.movesDataClient.moveType()?.name | cleanText | colorType" 
+<td [style.background-color]="$safeNavigationMigration(this.movesDataClient.moveType()?.name) | cleanText | colorType" 
     style="color: white;">
-    {{this.movesDataClient.moveType()?.name | cleanText}}</td>
-<td [style.background-color]="this.movesDataClient.moveDamageClass()?.name | cleanText | colorType"
+    {{$safeNavigationMigration(this.movesDataClient.moveType()?.name) | cleanText}}</td>
+<td [style.background-color]="$safeNavigationMigration(this.movesDataClient.moveDamageClass()?.name) | cleanText | colorType"
     style="color: white;">
-    {{this.movesDataClient.moveDamageClass()?.name | cleanText}}</td>
+    {{$safeNavigationMigration(this.movesDataClient.moveDamageClass()?.name) | cleanText}}</td>
 <td>{{this.movesDataClient.movePower()}}</td>
 <td>{{this.movesDataClient.moveAccuracy() | formatStat}}</td>
 <td>{{this.movesDataClient.movePP()}}</td>

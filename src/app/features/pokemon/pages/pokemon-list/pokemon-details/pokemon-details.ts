@@ -1,4 +1,4 @@
-import { Component, inject, input, OnInit, } from '@angular/core';
+import { Component, inject, input, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { PokemonDetailsDataClient } from '../../../services/pokemon-details.data-client';
 import { PokemonDetailsCard } from "../../../components/pokemon-card/pokemon-details-card/pokemon-details-card";
 import { SideBar } from "../../../components/side-bar/side-bar";

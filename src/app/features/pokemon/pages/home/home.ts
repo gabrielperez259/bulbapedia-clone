@@ -1,4 +1,4 @@
-import { Component } from "@angular/core";
+import { Component, ChangeDetectionStrategy } from "@angular/core";
 import { PokemonList } from "../pokemon-list/pokemon-list";
 
 
@@ -6,6 +6,7 @@ import { PokemonList } from "../pokemon-list/pokemon-list";
   selector: 'app-home',
   imports: [PokemonList],
   templateUrl: './home.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './home.scss'
 })
 export class Home {

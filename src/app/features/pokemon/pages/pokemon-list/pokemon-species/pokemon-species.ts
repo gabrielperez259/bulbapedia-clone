@@ -1,4 +1,4 @@
-import { Component, inject, input, OnInit } from '@angular/core';
+import { Component, inject, input, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { PokemonSpeciesDetailsDataClient } from '../../../services/pokemon-species-details-data-client';
 import {MatTabsModule} from '@angular/material/tabs';
 import { Varieties } from '../../../models/species/varieties';
@@ -7,6 +7,7 @@ import { Varieties } from '../../../models/species/varieties';
   selector: 'app-pokemon-species',
   imports: [MatTabsModule],
   templateUrl: './pokemon-species.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './pokemon-species.scss'
 })
 export class PokemonSpecies implements OnInit {

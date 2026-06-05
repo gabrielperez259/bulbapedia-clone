@@ -1,4 +1,4 @@
-import { Component, input, numberAttribute } from '@angular/core';
+import { Component, input, numberAttribute, ChangeDetectionStrategy } from '@angular/core';
 import { Transparency } from "../../../../shared/directives/transparency";
 
 @Component({

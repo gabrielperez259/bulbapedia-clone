@@ -1,4 +1,4 @@
-import { Component, input } from '@angular/core';
+import { Component, input, ChangeDetectionStrategy } from '@angular/core';
 import { CapitalizeWordsPipe } from "../../../../shared/pipes/capitalize-word.pipe";
 import { ColorTypePipe } from "../../../../shared/pipes/color-type.pipe";
 import { Pokemon } from '../../models/pokemon';

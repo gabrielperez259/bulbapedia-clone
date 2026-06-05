@@ -1,4 +1,4 @@
-import { Component, computed, inject, signal } from '@angular/core';
+import { Component, computed, inject, signal, ChangeDetectionStrategy } from '@angular/core';
 import { PokemonDetailsDataClient } from '../../../../services/pokemon-details.data-client';
 import { Grid } from "../../../../../../shared/components/grid/grid";
 import { MatButtonToggleGroup, MatButtonToggle } from "@angular/material/button-toggle";

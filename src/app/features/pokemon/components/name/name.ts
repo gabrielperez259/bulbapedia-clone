@@ -6,7 +6,7 @@ import { Transparency } from '../../../../shared/directives/transparency';
 @Component({
   selector: 'app-name',
   imports: [CapitalizeWordsPipe, RouterLink, Transparency],
-  templateUrl: './name.html',
+  templateUrl: './name.html',  
   styleUrl: './name.scss'
 })
 export class Name {

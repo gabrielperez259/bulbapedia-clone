@@ -1,4 +1,4 @@
-import { Component, input } from '@angular/core';
+import { Component, input, ChangeDetectionStrategy } from '@angular/core';
 import { Results } from '../../../models/results';
 import { Card } from "../../../../../shared/components/card/card";
 import { IndexNumber } from "../../index-number/index-number";

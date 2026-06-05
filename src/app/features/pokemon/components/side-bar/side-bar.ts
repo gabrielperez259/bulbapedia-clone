@@ -1,4 +1,4 @@
-import { Component, input } from '@angular/core';
+import { Component, input, ChangeDetectionStrategy } from '@angular/core';
 import {MatMenuModule} from '@angular/material/menu';
 import { RouterLink } from '@angular/router';
 import { Pokemon } from '../../models/pokemon';
