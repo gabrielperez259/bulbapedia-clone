@@ -1,4 +1,4 @@
-import { Component, input } from '@angular/core';
+import { Component, effect, input } from '@angular/core';
 import { Results } from '../../../models/results';
 import { Card } from '../../../../../shared/components/card/card';
 import { IndexNumber } from '../../index-number/index-number';
@@ -16,4 +16,8 @@ import { Flex } from '../../../../../shared/components/flex/flex';
 export class PokemonItemListCard {
   public pokemon = input.required<Results>();
   public route = input.required<string>();
+
+  routeEffect = effect(() => {
+    console.log(this.route());
+  });
 }

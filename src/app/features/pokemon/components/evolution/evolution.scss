@@ -1,0 +1,41 @@
+@use '../../../../styles/utils' as ds;
+
+.evolution-container{
+    margin-top: ds.$space-md;
+    display: flex;
+    
+}
+.base-form-container{
+    margin-top: ds.$space-md;    
+
+}
+
+.evolutions-container{
+    margin-top: ds.$space-md;
+
+}
+.evolution-trigger-container{
+    background-color: white;
+    background-color: ds.$accent-color;
+    border-radius: ds.$radius-md;
+    margin: ds.$space-xs;
+    padding: ds.$space-xs;      
+    border-color: ds.$accent-color;
+}
+
+label{
+    color: white;
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    margin: ds.$space-xs;
+    background-color: ds.$accent-color;
+    padding: ds.$space-xs;
+}
+p{   
+    
+    color: black;
+    background-color: white;
+    text-align: left;
+    
+}

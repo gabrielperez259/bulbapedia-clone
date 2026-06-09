@@ -1,194 +1,246 @@
-<h3>Base Form</h3>
-<p>
-  {{
-    $safeNavigationMigration(evolutionsData.pokemonDetails()?.chain?.species?.name)
-      | capitalizeWords
-  }}
-</p>
-<h3>Evolutions</h3>
-@for (second of evolutionsData.pokemonDetails()?.chain?.evolves_to; track $index) {
-  <p>{{ second.species.name | capitalizeWords }}</p>
-  @if (second.evolution_details[0].base_form_id) {
-    <p>Base Form Id: {{ second.evolution_details[0].base_form_id }}</p>
-  }
-  @if (second.evolution_details[0].gender) {
-    <p>Gender: {{ second.evolution_details[0].gender }}</p>
-  }
-  @if (second.evolution_details[0].held_item?.name) {
-    <p>
-      Held Item:
-      {{ $safeNavigationMigration(second.evolution_details[0].held_item?.name) | capitalizeWords }}
-    </p>
-  }
-  @if (second.evolution_details[0].item?.name) {
-    <p>
-      Item: {{ $safeNavigationMigration(second.evolution_details[0].item?.name) | capitalizeWords }}
-    </p>
-  }
-  @if (second.evolution_details[0].known_move?.name) {
-    <p>
-      Known Move:
-      {{ $safeNavigationMigration(second.evolution_details[0].known_move?.name) | capitalizeWords }}
-    </p>
-  }
-  @if (second.evolution_details[0].known_move_type?.name) {
-    <p>
-      Known Move Type:
-      {{
-        $safeNavigationMigration(second.evolution_details[0].known_move_type?.name)
-          | capitalizeWords
-      }}
-    </p>
-  }
-  @if (second.evolution_details[0].location?.name) {
-    <p>
-      Location:
-      {{ $safeNavigationMigration(second.evolution_details[0].location?.name) | capitalizeWords }}
-    </p>
-  }
-  @if (second.evolution_details[0].min_affection) {
-    <p>Min Affection: {{ second.evolution_details[0].min_affection }}</p>
-  }
-  @if (second.evolution_details[0].min_beauty) {
-    <p>Min Beauty: {{ second.evolution_details[0].min_beauty }}</p>
-  }
-  @if (second.evolution_details[0].min_happiness) {
-    <p>Min Happiness: {{ second.evolution_details[0].min_happiness }}</p>
-  }
-  @if (second.evolution_details[0].min_level) {
-    <p>Min Level: {{ second.evolution_details[0].min_level }}</p>
-  }
-  @if (second.evolution_details[0].needs_overworld_rain) {
-    <p>Needs Overworld Rain: {{ second.evolution_details[0].needs_overworld_rain }}</p>
-  }
-  @if (second.evolution_details[0].party_species?.name) {
-    <p>
-      Party Species:
-      {{
-        $safeNavigationMigration(second.evolution_details[0].party_species?.name) | capitalizeWords
-      }}
-    </p>
-  }
-  @if (second.evolution_details[0].party_type?.name) {
-    <p>
-      Party Type:
-      {{ $safeNavigationMigration(second.evolution_details[0].party_type?.name) | capitalizeWords }}
-    </p>
-  }
-  @if (second.evolution_details[0].region_id) {
-    <p>Region Id: {{ second.evolution_details[0].region_id }}</p>
-  }
-  @if (second.evolution_details[0].relative_physical_stats) {
-    <p>Relative Physical Stats: {{ second.evolution_details[0].relative_physical_stats }}</p>
-  }
-  @if (second.evolution_details[0].time_of_day) {
-    <p>Time Of Day: {{ second.evolution_details[0].time_of_day | capitalizeWords }}</p>
-  }
-  @if (second.evolution_details[0].trade_species?.name) {
-    <p>
-      Trade Species:
-      {{
-        $safeNavigationMigration(second.evolution_details[0].trade_species?.name) | capitalizeWords
-      }}
-    </p>
-  }
-  @if (second.evolution_details[0].trigger.name) {
-    <p>Trigger: {{ second.evolution_details[0].trigger.name | capitalizeWords }}</p>
-  }
-
-  @for (third of second.evolves_to; track $index) {
-    <p>{{ third.species.name | capitalizeWords }}</p>
-    @if (third.evolution_details[0].base_form_id) {
-      <p>Base Form Id: {{ third.evolution_details[0].base_form_id }}</p>
-    }
-    @if (third.evolution_details[0].gender) {
-      <p>Gender: {{ third.evolution_details[0].gender }}</p>
-    }
-    @if (third.evolution_details[0].held_item?.name) {
-      <p>
-        Held Item:
-        {{ $safeNavigationMigration(third.evolution_details[0].held_item?.name) | capitalizeWords }}
-      </p>
-    }
-    @if (third.evolution_details[0].item?.name) {
-      <p>
-        Item:
-        {{ $safeNavigationMigration(third.evolution_details[0].item?.name) | capitalizeWords }}
-      </p>
-    }
-    @if (third.evolution_details[0].known_move?.name) {
-      <p>
-        Known Move:
-        {{
-          $safeNavigationMigration(third.evolution_details[0].known_move?.name) | capitalizeWords
-        }}
-      </p>
-    }
-    @if (third.evolution_details[0].known_move_type?.name) {
-      <p>
-        Known Move Type:
-        {{
-          $safeNavigationMigration(third.evolution_details[0].known_move_type?.name)
-            | capitalizeWords
-        }}
-      </p>
-    }
-    @if (third.evolution_details[0].location?.name) {
-      <p>
-        Location:
-        {{ $safeNavigationMigration(third.evolution_details[0].location?.name) | capitalizeWords }}
-      </p>
-    }
-    @if (third.evolution_details[0].min_affection) {
-      <p>Min Affection: {{ third.evolution_details[0].min_affection }}</p>
-    }
-    @if (third.evolution_details[0].min_beauty) {
-      <p>Min Beauty: {{ third.evolution_details[0].min_beauty }}</p>
-    }
-    @if (third.evolution_details[0].min_happiness) {
-      <p>Min Happiness: {{ third.evolution_details[0].min_happiness }}</p>
-    }
-    @if (third.evolution_details[0].min_level) {
-      <p>Min Level: {{ third.evolution_details[0].min_level }}</p>
-    }
-    @if (third.evolution_details[0].needs_overworld_rain) {
-      <p>NeedsOverworld Rain: {{ third.evolution_details[0].needs_overworld_rain }}</p>
-    }
-    @if (third.evolution_details[0].party_species?.name) {
-      <p>
-        Party Species:
-        {{
-          $safeNavigationMigration(third.evolution_details[0].party_species?.name) | capitalizeWords
-        }}
-      </p>
-    }
-    @if (third.evolution_details[0].party_type?.name) {
-      <p>
-        Party Type:
-        {{
-          $safeNavigationMigration(third.evolution_details[0].party_type?.name) | capitalizeWords
-        }}
-      </p>
-    }
-    @if (third.evolution_details[0].region_id) {
-      <p>Region Id: {{ third.evolution_details[0].region_id }}</p>
-    }
-    @if (third.evolution_details[0].relative_physical_stats) {
-      <p>Relative Physical Stats: {{ third.evolution_details[0].relative_physical_stats }}</p>
-    }
-    @if (third.evolution_details[0].time_of_day) {
-      <p>Time Of Day: {{ third.evolution_details[0].time_of_day | capitalizeWords }}</p>
-    }
-    @if (third.evolution_details[0].trade_species?.name) {
-      <p>
-        Trade Species:
-        {{
-          $safeNavigationMigration(third.evolution_details[0].trade_species?.name) | capitalizeWords
-        }}
-      </p>
-    }
-    @if (third.evolution_details[0].trigger.name) {
-      <p>Trigger: {{ third.evolution_details[0].trigger.name | capitalizeWords }}</p>
-    }
-  }
+@if (evolutionsData.pokemonDetailsLoading()) {
+  <p>Loading...</p>
+} @else {
+  <div class="evolution-container">
+    <div class="base-form-container">
+      <label>Base Form</label>
+      <app-pokemon-list-item
+        [pokemon]="evolutionsData.pokemonDetails()?.chain?.species!"
+        [route]="'../../' + evolutionsData.pokemonDetails()?.chain?.species?.name!"
+      >
+      </app-pokemon-list-item>
+    </div>
+    <div class="evolutions-container">
+      <label>Evolutions</label>
+      @for (second of evolutionsData.pokemonDetails()?.chain?.evolves_to; track $index) {
+        <app-pokemon-list-item [pokemon]="second.species" [route]="'../../' + second.species.name">
+        </app-pokemon-list-item>
+        <div class="evolution-trigger-container">
+          @if (second.evolution_details[0].base_form_id) {
+            <p>Base Form Id: {{ second.evolution_details[0].base_form_id }}</p>
+          }
+          @if (second.evolution_details[0].gender) {
+            <p>Gender: {{ second.evolution_details[0].gender }}</p>
+          }
+          @if (second.evolution_details[0].held_item?.name) {
+            <p>
+              Held Item:
+              {{
+                $safeNavigationMigration(second.evolution_details[0].held_item?.name)
+                  | capitalizeWords
+              }}
+            </p>
+          }
+          @if (second.evolution_details[0].item?.name) {
+            <p>
+              Item:
+              {{
+                $safeNavigationMigration(second.evolution_details[0].item?.name) | capitalizeWords
+              }}
+            </p>
+          }
+          @if (second.evolution_details[0].known_move?.name) {
+            <p>
+              Known Move:
+              {{
+                $safeNavigationMigration(second.evolution_details[0].known_move?.name)
+                  | capitalizeWords
+              }}
+            </p>
+          }
+          @if (second.evolution_details[0].known_move_type?.name) {
+            <p>
+              Known Move Type:
+              {{
+                $safeNavigationMigration(second.evolution_details[0].known_move_type?.name)
+                  | capitalizeWords
+              }}
+            </p>
+          }
+          @if (second.evolution_details[0].location?.name) {
+            <p>
+              Location:
+              {{
+                $safeNavigationMigration(second.evolution_details[0].location?.name)
+                  | capitalizeWords
+              }}
+            </p>
+          }
+          @if (second.evolution_details[0].min_affection) {
+            <p>Min Affection: {{ second.evolution_details[0].min_affection }}</p>
+          }
+          @if (second.evolution_details[0].min_beauty) {
+            <p>Min Beauty: {{ second.evolution_details[0].min_beauty }}</p>
+          }
+          @if (second.evolution_details[0].min_happiness) {
+            <p>Min Happiness: {{ second.evolution_details[0].min_happiness }}</p>
+          }
+          @if (second.evolution_details[0].min_level) {
+            <p>Min Level: {{ second.evolution_details[0].min_level }}</p>
+          }
+          @if (second.evolution_details[0].needs_overworld_rain) {
+            <p>Needs Overworld Rain: {{ second.evolution_details[0].needs_overworld_rain }}</p>
+          }
+          @if (second.evolution_details[0].party_species?.name) {
+            <p>
+              Party Species:
+              {{
+                $safeNavigationMigration(second.evolution_details[0].party_species?.name)
+                  | capitalizeWords
+              }}
+            </p>
+          }
+          @if (second.evolution_details[0].party_type?.name) {
+            <p>
+              Party Type:
+              {{
+                $safeNavigationMigration(second.evolution_details[0].party_type?.name)
+                  | capitalizeWords
+              }}
+            </p>
+          }
+          @if (second.evolution_details[0].region_id) {
+            <p>Region Id: {{ second.evolution_details[0].region_id }}</p>
+          }
+          @if (second.evolution_details[0].relative_physical_stats) {
+            <p>
+              Relative Physical Stats: {{ second.evolution_details[0].relative_physical_stats }}
+            </p>
+          }
+          @if (second.evolution_details[0].time_of_day) {
+            <p>Time Of Day: {{ second.evolution_details[0].time_of_day | capitalizeWords }}</p>
+          }
+          @if (second.evolution_details[0].trade_species?.name) {
+            <p>
+              Trade Species:
+              {{
+                $safeNavigationMigration(second.evolution_details[0].trade_species?.name)
+                  | capitalizeWords
+              }}
+            </p>
+          }
+          @if (second.evolution_details[0].trigger.name) {
+            <p>Trigger: {{ second.evolution_details[0].trigger.name | capitalizeWords }}</p>
+          }
+        </div>
+        
+          @for (third of second.evolves_to; track $index) {
+            <app-pokemon-list-item
+              [pokemon]="third.species"
+              [route]="'../../' + third.species.name"
+            >
+            </app-pokemon-list-item>
+            <div class="evolution-trigger-container">
+            @if (third.evolution_details[0].base_form_id) {
+              <p>Base Form Id: {{ third.evolution_details[0].base_form_id }}</p>
+            }
+            @if (third.evolution_details[0].gender) {
+              <p>Gender: {{ third.evolution_details[0].gender }}</p>
+            }
+            @if (third.evolution_details[0].held_item?.name) {
+              <p>
+                Held Item:
+                {{
+                  $safeNavigationMigration(third.evolution_details[0].held_item?.name)
+                    | capitalizeWords
+                }}
+              </p>
+            }
+            @if (third.evolution_details[0].item?.name) {
+              <p>
+                Item:
+                {{
+                  $safeNavigationMigration(third.evolution_details[0].item?.name) | capitalizeWords
+                }}
+              </p>
+            }
+            @if (third.evolution_details[0].known_move?.name) {
+              <p>
+                Known Move:
+                {{
+                  $safeNavigationMigration(third.evolution_details[0].known_move?.name)
+                    | capitalizeWords
+                }}
+              </p>
+            }
+            @if (third.evolution_details[0].known_move_type?.name) {
+              <p>
+                Known Move Type:
+                {{
+                  $safeNavigationMigration(third.evolution_details[0].known_move_type?.name)
+                    | capitalizeWords
+                }}
+              </p>
+            }
+            @if (third.evolution_details[0].location?.name) {
+              <p>
+                Location:
+                {{
+                  $safeNavigationMigration(third.evolution_details[0].location?.name)
+                    | capitalizeWords
+                }}
+              </p>
+            }
+            @if (third.evolution_details[0].min_affection) {
+              <p>Min Affection: {{ third.evolution_details[0].min_affection }}</p>
+            }
+            @if (third.evolution_details[0].min_beauty) {
+              <p>Min Beauty: {{ third.evolution_details[0].min_beauty }}</p>
+            }
+            @if (third.evolution_details[0].min_happiness) {
+              <p>Min Happiness: {{ third.evolution_details[0].min_happiness }}</p>
+            }
+            @if (third.evolution_details[0].min_level) {
+              <p>Min Level: {{ third.evolution_details[0].min_level }}</p>
+            }
+            @if (third.evolution_details[0].needs_overworld_rain) {
+              <p>NeedsOverworld Rain: {{ third.evolution_details[0].needs_overworld_rain }}</p>
+            }
+            @if (third.evolution_details[0].party_species?.name) {
+              <p>
+                Party Species:
+                {{
+                  $safeNavigationMigration(third.evolution_details[0].party_species?.name)
+                    | capitalizeWords
+                }}
+              </p>
+            }
+            @if (third.evolution_details[0].party_type?.name) {
+              <p>
+                Party Type:
+                {{
+                  $safeNavigationMigration(third.evolution_details[0].party_type?.name)
+                    | capitalizeWords
+                }}
+              </p>
+            }
+            @if (third.evolution_details[0].region_id) {
+              <p>Region Id: {{ third.evolution_details[0].region_id }}</p>
+            }
+            @if (third.evolution_details[0].relative_physical_stats) {
+              <p>
+                Relative Physical Stats: {{ third.evolution_details[0].relative_physical_stats }}
+              </p>
+            }
+            @if (third.evolution_details[0].time_of_day) {
+              <p>Time Of Day: {{ third.evolution_details[0].time_of_day | capitalizeWords }}</p>
+            }
+            @if (third.evolution_details[0].trade_species?.name) {
+              <p>
+                Trade Species:
+                {{
+                  $safeNavigationMigration(third.evolution_details[0].trade_species?.name)
+                    | capitalizeWords
+                }}
+              </p>
+            }
+            @if (third.evolution_details[0].trigger.name) {
+              <p>Trigger: {{ third.evolution_details[0].trigger.name | capitalizeWords }}</p>
+            }
+            </div>
+          }
+        
+      }
+    </div>
+  </div>
 }
