@@ -1,7 +1,5 @@
 import { Component, computed, inject, signal, ChangeDetectionStrategy } from '@angular/core';
 import { PokemonDetailsDataClient } from '../../../../services/pokemon-details.data-client';
-import { Grid } from '../../../../../../shared/components/grid/grid';
-import { MatButtonToggleGroup, MatButtonToggle } from '@angular/material/button-toggle';
 import {
   ALL_VERSION_GROUPS,
   POKEMON_VERSION_GROUPS,
@@ -10,20 +8,15 @@ import { FormsModule } from '@angular/forms';
 import { MatTableModule } from '@angular/material/table';
 import { PokemonMoveDetails } from './pokemon-move-details/pokemon-move-details';
 import { SortService } from '../../../../../../shared/services/sort-service';
-import { CleanTextPipe } from '../../../../../../shared/pipes/clean-text.pipe';
 import { SelectionBar } from '../../../../components/selection-bar/selection-bar';
 import { LEARN_METHODS } from '../../../../../../shared/constants/learn.method';
 
 @Component({
   selector: 'app-pokemon-move-list',
   imports: [
-    Grid,
-    MatButtonToggleGroup,
-    MatButtonToggle,
     FormsModule,
     MatTableModule,
     PokemonMoveDetails,
-    CleanTextPipe,
     SelectionBar,
   ],
   templateUrl: './pokemon-move-list.html',

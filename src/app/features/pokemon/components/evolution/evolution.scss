@@ -15,27 +15,27 @@
 
 }
 .evolution-trigger-container{
-    background-color: white;
+    margin: ds.$space-md;
     background-color: ds.$accent-color;
+    display: flex;
+    justify-content: left; 
+    align-items: center;
     border-radius: ds.$radius-md;
-    margin: ds.$space-xs;
-    padding: ds.$space-xs;      
-    border-color: ds.$accent-color;
 }
 
 label{
     color: white;
+    background-color: ds.$accent-color;
     display: flex;
     justify-content: center; 
     align-items: center;
-    margin: ds.$space-xs;
-    background-color: ds.$accent-color;
-    padding: ds.$space-xs;
-}
+  }
+
 p{   
-    
-    color: black;
-    background-color: white;
-    text-align: left;
+    margin: ds.$space-md;
+    color: white;
+    background-color: ds.$accent-color;
+    text-align: center;
+    flex: 1
     
 }

@@ -1,12 +1,12 @@
 import { Component, effect, inject, signal } from '@angular/core';
 import { PokemonSpeciesDetailsDataClient } from '../../services/pokemon-species-details-data-client';
 import { EvolutionChainDataClient } from '../../services/evolution-chain-data-client';
-import { CapitalizeWordsPipe } from '../../../../shared/pipes/capitalize-word.pipe';
 import { PokemonListItem } from "../pokemon-list-item/pokemon-list-item";
+import { CleanTextPipe } from "../../../../shared/pipes/clean-text.pipe";
 
 @Component({
   selector: 'app-evolution',
-  imports: [CapitalizeWordsPipe, PokemonListItem],
+  imports: [ PokemonListItem, CleanTextPipe],
   templateUrl: './evolution.html',
   styleUrl: './evolution.scss',
 })

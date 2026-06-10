@@ -1,9 +1,28 @@
+@use "../../../styles/utils" as ds;
+
+:host {
+    display: block; /* Permite que o componente aceite altura e largura */
+    height: 100%;   /* Obriga o filho a ocupar 100% da altura que o pai der a ele */
+    
+}
+
 div{
-
+    background-color: ds.$accent-color;    
+    height: 100%;   /* Garante que a div interna também estique junto com o componente */
+    box-sizing: border-box; /* Evita que o padding aumente o tamanho da div interna */
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: center;
+    padding: ds.$space-md;
 
 }
 
-h1{
-    margin: 1%;
-    padding: 1%;
+a{
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    align-items: center;
+    justify-content: center;
 }
+
