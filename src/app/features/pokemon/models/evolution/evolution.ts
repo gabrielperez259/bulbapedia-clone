@@ -15,6 +15,10 @@ export interface ChainLink {
 }
 
 export interface EvolutionDetail {
+  base_form: {
+    name: string | null;
+    url: string | null;
+  }
   base_form_id: number | null;
   gender: number | null;
   held_item: ItemReference | null;
