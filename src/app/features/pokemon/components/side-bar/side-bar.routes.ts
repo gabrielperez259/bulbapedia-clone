@@ -14,6 +14,9 @@ export const SIDEBAR_ROUTES: Route[] = [
   },
   {
     path: 'evolution',
-    loadComponent: () => import('../evolution/evolution').then((m) => m.Evolution),
+    loadComponent: () =>
+      import('../../pages/pokemon-list/pokemon-details/pokemon-evolutions/pokemon-evolutions').then(
+        (m) => m.PokemonEvolutions,
+      ),
   },
 ];

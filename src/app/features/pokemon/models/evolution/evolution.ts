@@ -39,6 +39,10 @@ export interface EvolutionDetail {
   trade_species: ItemReference | null;
   trigger: Trigger;
   turn_upside_down: boolean;
+  evolves_to: ChainLink[];
+  is_baby: boolean;
+  species: Species;
+
 }
 
 export interface ItemReference {

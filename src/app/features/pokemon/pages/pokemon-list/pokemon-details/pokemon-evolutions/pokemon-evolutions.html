@@ -1,1 +1,92 @@
-<p>pokemon-evolutions works!</p>
+@if (evolutionsData.evolutionChainlsLoading()) {
+  <p>Loading...</p>
+} @else if (evolutionsData.evolutionChainlsError()) {
+  <p>error</p>
+} @else if (evolutionsData.evolutionChain()?.chain?.evolves_to!.length === 0) {
+  <p>This pokemon has no evolutions</p>
+} @else if (checkVariantPokemonName()) {
+  <div class="evolution-container">
+    <div class="base-form-container">
+      <span>Base Form</span>
+      <app-pokemon-list-item
+        [pokemon]="checkVariantPokemonName()?.baseForm!"
+        [route]="'../../' + speciesData.pokemonSpeciesDetails()?.name!"
+      >
+      </app-pokemon-list-item>
+    </div>
+    <div class="evolutions-container">
+      <span>Evolutions</span>
+      <app-pokemon-list-item
+        [pokemon]="checkVariantPokemonName()?.evolutions![0]!"
+        [route]="'../../'"
+      >
+      </app-pokemon-list-item>
+      <app-pokemon-evolutions-details
+        [isRegionalVairant]="true"
+        [isFirstEvolution]="true"
+        [isSecondEvolution]="false"
+        [evolutionChain]="evolutionsData.evolutionChain()!"
+        [pokemonName]="checkVariantPokemonName()?.evolutions![0]?.name!"
+      >
+      </app-pokemon-evolutions-details>
+      @if (checkVariantPokemonName()?.evolutions![1]!) {
+        <app-pokemon-list-item
+          [pokemon]="checkVariantPokemonName()?.evolutions![1]!"
+          [route]="'../../'"
+        ></app-pokemon-list-item>
+        <app-pokemon-evolutions-details
+          [pokemonName]="checkVariantPokemonName()?.evolutions![1]?.name!"
+          [isFirstEvolution]="false"
+          [isSecondEvolution]="true"
+          [isRegionalVairant]="true"
+          [evolutionChain]="evolutionsData.evolutionChain()!"
+        >
+        </app-pokemon-evolutions-details>
+      }
+    </div>
+  </div>
+} @else if (!checkVariantPokemonName()) {
+  <div class="evolution-container">
+    <div class="base-form-container">
+      <span>Base Form</span>
+      <app-pokemon-list-item
+        [pokemon]="evolutionsData.baseFormResults()!"
+        [route]="'../../' + evolutionsData.baseFormResults()?.name!"
+      >
+      </app-pokemon-list-item>
+    </div>
+    <div class="evolutions-container">
+      <span>Evolutions</span>
+      @for (results of evolutionsData.firstEvolutionsList(); track $index) {
+        <app-pokemon-list-item [pokemon]="results!" [route]="'../../' + results?.name!">
+        </app-pokemon-list-item>
+        <app-pokemon-evolutions-details
+          [isRegionalVairant]="false"
+          [isFirstEvolution]="true"
+          [isSecondEvolution]="false"
+          [evolutionChain]="evolutionsData.evolutionChain()!"
+          [pokemonName]="results?.name!"
+        >
+        </app-pokemon-evolutions-details>
+      }
+
+      @if (evolutionsData.secondEvolutionsList()) {
+        @for (results of evolutionsData.secondEvolutionsList(); track $index) {
+          <app-pokemon-list-item
+            [pokemon]="results!"
+            [route]="'../../' + results?.name!"
+          ></app-pokemon-list-item>
+          
+          <app-pokemon-evolutions-details
+            [isFirstEvolution]="false"
+            [isSecondEvolution]="true"
+            [isRegionalVairant]="false"
+            [evolutionChain]="evolutionsData.evolutionChain()!"
+            [pokemonName]="results?.name!"
+          >
+          </app-pokemon-evolutions-details>
+        }
+      }
+    </div>
+  </div>
+}

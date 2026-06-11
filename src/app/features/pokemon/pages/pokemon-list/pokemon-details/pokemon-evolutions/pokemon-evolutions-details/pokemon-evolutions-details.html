@@ -1,1 +1,25 @@
-<p>pokemon-evolutions-details works!</p>
+@for (first_evolution of evolutionChain()?.chain?.evolves_to; track first_evolution.species.name) {
+  @for (details of first_evolution.evolution_details; track details.trigger.name) {
+    @if (isFirstEvolution()) {
+      @if ((isRegionalVairant() && details.base_form?.name) || (!isRegionalVairant() && !details.base_form?.name && first_evolution.species?.name?.endsWith(pokemonName())) ) {
+        
+        <app-evolution-chain-details
+          [details]="details">
+        </app-evolution-chain-details>
+
+      }
+    }
+  }
+
+  @for (second_evolution of first_evolution.evolves_to; track second_evolution.species.name) {
+    @for (details of second_evolution.evolution_details; track details.trigger.name) {
+      @if (isSecondEvolution()) {
+        @if ((isRegionalVairant() && details.base_form?.name) || (!isRegionalVairant() && !details.base_form?.name && second_evolution.species?.name?.endsWith(pokemonName()))) {
+          <app-evolution-chain-details
+            [details]="details">
+          </app-evolution-chain-details>          
+        }
+      }
+    }
+  }
+}

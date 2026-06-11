@@ -1,4 +1,4 @@
-import { Component, input, ChangeDetectionStrategy } from '@angular/core';
+import { Component, input, ChangeDetectionStrategy, effect } from '@angular/core';
 import { Results } from '../../models/results';
 import { PokemonItemListCard } from '../pokemon-card/pokemon-item-list-card/pokemon-item-list-card';
 
@@ -11,4 +11,10 @@ import { PokemonItemListCard } from '../pokemon-card/pokemon-item-list-card/poke
 export class PokemonListItem {
   pokemon = input.required<Results>();
   route = input.required<string>();
+
+
+  eff = effect(() => {
+    console.log(this.route());
+    console.log(this.pokemon());
+  })
 }

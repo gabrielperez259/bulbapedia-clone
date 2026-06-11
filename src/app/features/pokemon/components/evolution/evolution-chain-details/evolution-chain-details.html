@@ -1,0 +1,83 @@
+<div class="evolution-container">
+  <div class="trigger-container">
+    <span>{{ details().trigger.name | cleanText }}</span>
+  </div>
+  
+  <div class="details-container">
+    <span>
+      @if (details().gender !== null && details().gender !== undefined) {
+        <div>Gender: {{ details().gender === 1 ? 'Female' : 'Male' }}</div>
+      } 
+
+      @if (details().held_item?.name) {
+        <div>Held Item: {{ $safeNavigationMigration(details().held_item?.name) | cleanText }}</div>
+      }
+
+      @if (details().item?.name) {
+        <div> {{ $safeNavigationMigration(details().item?.name) | cleanText }}</div>
+      }
+
+      @if (details().known_move?.name) {
+        <div>Known Move: {{ $safeNavigationMigration(details().known_move?.name) | cleanText }}</div>
+      }
+
+      @if (details().known_move_type?.name) {
+        <div>Known Move Type: {{ $safeNavigationMigration(details().known_move_type?.name) | cleanText }}</div>
+      }
+
+      @if (details().location?.name) {
+        <div>Location: {{ $safeNavigationMigration(details().location?.name) | cleanText }}</div>
+      }
+
+      @if (details().min_level) {
+        <div>Minimum Level: {{ details().min_level }}</div>
+      }
+
+      @if (details().min_affection) {
+        <div>Minimum Affection: {{ details().min_affection }}</div>
+      }
+
+      @if (details().min_beauty) {
+        <div>Minimum Beauty: {{ details().min_beauty }}</div>
+      }
+
+      @if (details().min_happiness) {
+        <div>Minimum Happiness: {{ details().min_happiness }}</div>
+      }
+
+      @if (details().needs_overworld_rain) {
+        <div>Needs Rain or Fog</div>
+      }
+
+      @if (details().party_species?.name) {
+        <div>Party Pokémon: {{ $safeNavigationMigration(details().party_species?.name) | cleanText }}</div>
+      }
+
+      @if (details().party_type?.name) {
+        <div>Party Type: {{ $safeNavigationMigration(details().party_type?.name) | cleanText }}</div>
+      }
+
+      @if (details().relative_physical_stats !== null && details().relative_physical_stats !== undefined) {
+        <div>
+          @if (details().relative_physical_stats === 1) { Attack > Defense }
+          @else if (details().relative_physical_stats === -1) { Defense > Attack }
+          @else { Attack = Defense }
+        </div>
+      }
+
+      @if (details().time_of_day) {
+        <div>Time of Day: {{ details().time_of_day | cleanText }}</div>
+      }
+
+      @if (details().trade_species?.name) {
+        <div>Trade with: {{ $safeNavigationMigration(details().trade_species?.name) | cleanText }}</div>
+      }
+
+      @if (details().turn_upside_down) {
+        <div>Turn Device Upside Down</div>
+      }
+
+ 
+    </span>
+  </div>
+</div>
