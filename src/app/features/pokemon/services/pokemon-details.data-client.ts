@@ -14,6 +14,8 @@ export class PokemonDetailsDataClient {
   public pokemonDetails = computed(() => this.#pokemonDeatilsResource.value());
   public pokemonDetailsLoading = computed(() => this.#pokemonDeatilsResource.isLoading());
   public pokemonDetailsError = computed(() => this.#pokemonDeatilsResource.error());
+  public pokemonName = computed(() => this.#pokemonDeatilsResource.value()?.name);
+  public pokemonIsDefault = computed(() => this.#pokemonDeatilsResource.value()?.is_default);
 
   readonly #pokemonDeatilsResource = httpResource<Pokemon>(() => ({
     url: `${this.#url}${this.search()}`,

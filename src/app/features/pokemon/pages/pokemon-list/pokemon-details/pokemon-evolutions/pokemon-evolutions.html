@@ -2,89 +2,133 @@
   <p>Loading...</p>
 } @else if (evolutionsData.evolutionChainlsError()) {
   <p>error</p>
-} @else if (evolutionsData.evolutionChain()?.chain?.evolves_to!.length === 0) {
-  <p>This pokemon has no evolutions</p>
 } @else if (checkVariantPokemonName()) {
+
   <div class="evolution-container">
-    <div class="base-form-container">
-      <span>Base Form</span>
+    <span class="grid-title">Base Form</span>
+    
+      <span class="grid-title">
+      @if (checkVariantPokemonName()?.firstEvolutions?.length) {
+        First Evolution
+    }
+    </span>
+    <span class="grid-title">
+      <!-- CORREÇÃO: Valida se a array realmente tem itens antes de exibir o título -->
+      @if (checkVariantPokemonName()?.secondEvolutions?.length) {
+        Second Evolution
+      }
+    </span>
+
+    <!-- COLUNA 1: BASE FORM -->
+    <div class="grid-content">
       <app-pokemon-list-item
         [pokemon]="checkVariantPokemonName()?.baseForm!"
         [route]="'../../' + speciesData.pokemonSpeciesDetails()?.name!"
-      >
-      </app-pokemon-list-item>
+      ></app-pokemon-list-item>
     </div>
-    <div class="evolutions-container">
-      <span>Evolutions</span>
-      <app-pokemon-list-item
-        [pokemon]="checkVariantPokemonName()?.evolutions![0]!"
-        [route]="'../../'"
-      >
-      </app-pokemon-list-item>
-      <app-pokemon-evolutions-details
-        [isRegionalVairant]="true"
-        [isFirstEvolution]="true"
-        [isSecondEvolution]="false"
-        [evolutionChain]="evolutionsData.evolutionChain()!"
-        [pokemonName]="checkVariantPokemonName()?.evolutions![0]?.name!"
-      >
-      </app-pokemon-evolutions-details>
-      @if (checkVariantPokemonName()?.evolutions![1]!) {
-        <app-pokemon-list-item
-          [pokemon]="checkVariantPokemonName()?.evolutions![1]!"
-          [route]="'../../'"
-        ></app-pokemon-list-item>
-        <app-pokemon-evolutions-details
-          [pokemonName]="checkVariantPokemonName()?.evolutions![1]?.name!"
-          [isFirstEvolution]="false"
-          [isSecondEvolution]="true"
-          [isRegionalVairant]="true"
-          [evolutionChain]="evolutionsData.evolutionChain()!"
-        >
-        </app-pokemon-evolutions-details>
+
+    <!-- COLUNA 2: FIRST EVOLUTIONS (Envolvidas em uma coluna única para o Grid não quebrar) -->
+    <div class="grid-content multipoke-column">
+      @for (
+        firstEvolution of checkVariantPokemonName()?.firstEvolutions!;
+        track firstEvolution.name
+      ) {
+        <div class="poke-evolution-block">
+          <span> {{ firstEvolution.name }}</span>
+          <app-pokemon-list-item
+            [pokemon]="firstEvolution!"
+            [route]="'../../' + speciesData.pokemonSpeciesDetails()?.name!"
+          ></app-pokemon-list-item>
+          <app-pokemon-evolutions-details
+            [isRegionalVairant]="true"
+            [isFirstEvolution]="true"
+            [isSecondEvolution]="false"
+            [evolutionChain]="evolutionsData.evolutionChain()!"
+            [pokemonName]="firstEvolution.name!"
+          ></app-pokemon-evolutions-details>
+        </div>
+      }
+    </div>
+
+    <!-- COLUNA 3: SECOND EVOLUTIONS -->
+    <div class="grid-content multipoke-column">
+
+      @if (checkVariantPokemonName()?.secondEvolutions?.length ) {
+        @for (
+          secondEvolution of checkVariantPokemonName()?.secondEvolutions!;
+          track secondEvolution.name
+        ) {
+          <div class="poke-evolution-block">
+            <app-pokemon-list-item
+              [pokemon]="secondEvolution!"
+              [route]="'../../' + speciesData.pokemonSpeciesDetails()?.name!"
+            ></app-pokemon-list-item>
+            <app-pokemon-evolutions-details
+              [pokemonName]="secondEvolution.name!"
+              [isFirstEvolution]="false"
+              [isSecondEvolution]="true"
+              [isRegionalVairant]="true"
+              [evolutionChain]="evolutionsData.evolutionChain()!"
+            ></app-pokemon-evolutions-details>
+          </div>
+        }
       }
     </div>
   </div>
 } @else if (!checkVariantPokemonName()) {
+
   <div class="evolution-container">
-    <div class="base-form-container">
-      <span>Base Form</span>
+    <span class="grid-title">Base Form</span>
+      <span class="grid-title">
+        @if (evolutionsData.firstEvolutionsList()?.length) {
+        First Evolution
+    }
+    </span>
+    <span class="grid-title">
+      @if (evolutionsData.secondEvolutionsList()?.length) {
+        Second Evolution
+      }
+    </span>
+
+    <div class="grid-content">
       <app-pokemon-list-item
         [pokemon]="evolutionsData.baseFormResults()!"
         [route]="'../../' + evolutionsData.baseFormResults()?.name!"
-      >
-      </app-pokemon-list-item>
+      ></app-pokemon-list-item>
     </div>
-    <div class="evolutions-container">
-      <span>Evolutions</span>
-      @for (results of evolutionsData.firstEvolutionsList(); track $index) {
-        <app-pokemon-list-item [pokemon]="results!" [route]="'../../' + results?.name!">
-        </app-pokemon-list-item>
-        <app-pokemon-evolutions-details
-          [isRegionalVairant]="false"
-          [isFirstEvolution]="true"
-          [isSecondEvolution]="false"
-          [evolutionChain]="evolutionsData.evolutionChain()!"
-          [pokemonName]="results?.name!"
-        >
-        </app-pokemon-evolutions-details>
-      }
 
-      @if (evolutionsData.secondEvolutionsList()) {
-        @for (results of evolutionsData.secondEvolutionsList(); track $index) {
-          <app-pokemon-list-item
-            [pokemon]="results!"
-            [route]="'../../' + results?.name!"
-          ></app-pokemon-list-item>
-          
+    <div class="grid-content multipoke-column">
+      @for (results of evolutionsData.firstEvolutionsList(); track $index) {
+        <div class="poke-evolution-block">
+          <app-pokemon-list-item [pokemon]="results!" [route]="'../../' + results?.name!">
+          </app-pokemon-list-item>
           <app-pokemon-evolutions-details
-            [isFirstEvolution]="false"
-            [isSecondEvolution]="true"
-            [isRegionalVairant]="false"
+            [isRegionalVairant]="true"
+            [isFirstEvolution]="true"
+            [isSecondEvolution]="false"
             [evolutionChain]="evolutionsData.evolutionChain()!"
             [pokemonName]="results?.name!"
-          >
-          </app-pokemon-evolutions-details>
+          ></app-pokemon-evolutions-details>
+        </div>
+      }
+    </div>
+
+    <div class="grid-content multipoke-column">
+      @if (evolutionsData.secondEvolutionsList()) {
+        @for (results of evolutionsData.secondEvolutionsList(); track $index) {
+          <div class="poke-evolution-block">
+            <app-pokemon-list-item
+              [pokemon]="results!"
+              [route]="'../../' + results?.name!"
+            ></app-pokemon-list-item>
+            <app-pokemon-evolutions-details
+              [isFirstEvolution]="false"
+              [isSecondEvolution]="true"
+              [isRegionalVairant]="true"
+              [evolutionChain]="evolutionsData.evolutionChain()!"
+              [pokemonName]="results?.name!"
+            ></app-pokemon-evolutions-details>
+          </div>
         }
       }
     </div>

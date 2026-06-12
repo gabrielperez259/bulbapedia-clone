@@ -36,22 +36,6 @@ export class EvolutionChainDataClient {
     }));
   });
 
-public secondEvolutions = computed(() => {
-  const chainData = this.evolutionChain();
-  const evolvesTo = chainData?.chain?.evolves_to;
-  
-  if (!evolvesTo || evolvesTo.length === 0) return [];
-
-  // Mapeia todas as primeiras evoluções e extrai as segundas evoluções delas
-  const seconds = evolvesTo.flatMap(firstEvo => 
-    firstEvo.evolves_to.map(secondEvo => ({
-      name: secondEvo.species.name,
-      url: secondEvo.species.url
-    }))
-  );
-
-  return seconds; // Retorna um array vazio se não houver (ex: Charmander retorna [Charizard], Applin retorna [Hydrapple])
-});
 
 public secondEvolutionsList = computed(() => {
   const chainData = this.evolutionChain();

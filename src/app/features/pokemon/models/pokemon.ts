@@ -8,6 +8,7 @@ import { Move } from './moves/move';
 export interface Pokemon {
   id: number;
   name: string;
+  is_default: boolean;
   species: Species;
   sprites: Sprite;
   types: Type[];

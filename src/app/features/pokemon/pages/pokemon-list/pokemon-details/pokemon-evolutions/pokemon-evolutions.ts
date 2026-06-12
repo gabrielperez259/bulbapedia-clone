@@ -6,6 +6,7 @@ import { REGIONAL_FAMILIES } from '../../../../../../shared/constants/regional-f
 import { PokemonListItem } from "../../../../components/pokemon-list-item/pokemon-list-item";
 import { PokemonEvolutionsDetails } from "./pokemon-evolutions-details/pokemon-evolutions-details";
 
+
 @Component({
   selector: 'app-pokemon-evolutions',
   imports: [PokemonListItem, PokemonEvolutionsDetails],
@@ -20,20 +21,25 @@ export class PokemonEvolutions {
 
 
 public checkVariantPokemonName = computed(() => {
-  const pokemonName = this.pokemonData.pokemonDetails()?.name; // Executa o sinal para obter a string
+  const pokemonName = this.pokemonData.pokemonName();
 
   if (!pokemonName) return null;
 
-  // Busca a família direta no mapa (funciona para base ou evolução)
   const family = REGIONAL_FAMILIES[pokemonName as keyof typeof REGIONAL_FAMILIES];
 
-  if (!family) {
-    return null; // Não é uma variação regional mapeada
-  }
+  if (!family) return null;
+
+  // Função auxiliar para garantir que o retorno seja SEMPRE uma array plana
+  const evelopeInArray = (evolutionData: any) => {
+    if (!evolutionData) return [];
+    // Se já for uma array (caso do Slowpoke), retorna ela mesma. Se for objeto, põe na array.
+    return Array.isArray(evolutionData) ? evolutionData : [evolutionData];
+  };
 
   return {
     baseForm: family.base,
-    evolutions: family.evolutions
+    firstEvolutions: evelopeInArray(family['first-evolution']),
+    secondEvolutions: evelopeInArray(family['second-evolution'])
   };
 });
   

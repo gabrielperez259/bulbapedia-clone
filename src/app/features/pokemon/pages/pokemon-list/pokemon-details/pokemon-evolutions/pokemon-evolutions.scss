@@ -1,34 +1,51 @@
 @use '../../../../../../styles/utils' as ds;
 
-.evolution-container{
-    margin-top: ds.$space-md;
-    display: flex;
-    
+.evolution-container {
+  display: grid;
+  /* Cria exatamente 3 colunas com tamanhos idênticos e fixos */
+  grid-template-columns: repeat(3, 1fr); 
+  align-items: start;
+  justify-content: center;
+  margin: ds.$space-md;  
 }
-.base-form-container{
-    margin-top: ds.$space-md;    
+
+/* Estilização dos títulos na Linha 1 */
+.grid-title {
+  font-weight: bold;
+  text-align: center;
+  padding: ds.$space-xs;
+  margin: ds.$space-xs;
+  color: ds.$accent-color;
+
 
 }
 
-.evolutions-container{
-    margin-top: ds.$space-md;
+/* Estilização dos blocos de conteúdo na Linha 2 */
+.grid-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: ds.$space-xs; /* Espaço entre o item do pokemon e os detalhes */
+  min-height: 100px; /* Garante estabilidade visual */
+}
 
+/* Caso uma evolução tenha ramificações (ex: Applin para Flapple/Appletun) 
+   isso vai empilhá-los verticalmente dentro da própria coluna */
+.multipoke-column {
+  display: flex;
+  flex-direction: column;
+  gap: ds.$space-xs; 
+  width: 100%;
+}
+
+.poke-evolution-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  gap: ds.$space-xs;
 }
 
 span{
-    color: white;
-    background-color: ds.$accent-color;
-    display: flex;
-    justify-content: center; 
-    align-items: center;
-    margin: ds.$space-xs;
-  }
-
-p{   
-    margin: ds.$space-md;
-    color: white;
-    background-color: ds.$accent-color;
-    text-align: center;
-    flex: 1
-    
+  display: block;
 }

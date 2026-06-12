@@ -1,0 +1,8 @@
+@use '../../../../../../../styles/utils' as ds;
+
+.pokemon-evolutions-details-container{
+    margin: ds.$space-xs;
+    border-radius: ds.$radius-xs;
+    background-color: white;
+    border-radius: ds.$radius-xs;
+}
