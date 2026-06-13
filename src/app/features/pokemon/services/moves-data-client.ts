@@ -1,17 +1,14 @@
-import { inject, Injectable } from '@angular/core';
+import {  Service } from '@angular/core';
 import { environment } from '../../../../environments/environment';
-import { HttpClient, httpResource } from '@angular/common/http';
+import { httpResource } from '@angular/common/http';
 import { computed, signal } from '@angular/core';
 import { MoveDetails } from '../models/moves/move-details';
 
-@Injectable({
-  providedIn: 'root',
-})
-export class MovesDataClient {
-  url = environment.movesUrl;
-  serch = signal('');
-  #http = inject(HttpClient);
 
+@Service()
+export class MovesDataClient {
+  #url = environment.movesUrl;  
+  
   public search = signal('');
   public moveDetailsLoading = computed(() => this.moveDetails.isLoading());
   public moveDetailsError = computed(() => this.moveDetails.error());
@@ -23,7 +20,7 @@ export class MovesDataClient {
   public moveDamageClass = computed(() => this.moveDetails.value()?.damage_class);
 
   readonly moveDetails = httpResource<MoveDetails>(() => ({
-    url: `${this.url}${this.search()}`,
+    url: `${this.#url}${this.search()}`,
     responseType: 'json',
     method: 'GET',
     transferCache: true,

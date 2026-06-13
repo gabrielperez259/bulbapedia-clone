@@ -1,10 +1,8 @@
-import { computed, Injectable, signal } from '@angular/core';
+import { computed, Service, signal } from '@angular/core';
 import { httpResource } from '@angular/common/http';
 import { EvolutionChain } from '../models/evolution/evolution';
 
-@Injectable({
-  providedIn: 'root',
-})
+@Service()
 export class EvolutionChainDataClient {
   public evolutionChain = computed(() => this.#evolutionChainResource.value());
   public evolutionChainlsLoading = computed(() => this.#evolutionChainResource.isLoading());
@@ -59,5 +57,6 @@ public secondEvolutionsList = computed(() => {
     url: `${this.evolutionChainUrl()}`,
     responseType: 'json',
     method: 'GET',
+    cache: 'force-cache',
   }));
 }

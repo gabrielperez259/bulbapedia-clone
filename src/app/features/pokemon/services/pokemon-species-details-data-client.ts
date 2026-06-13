@@ -1,11 +1,10 @@
-import { computed, Injectable, signal } from '@angular/core';
+import { computed, Service, signal } from '@angular/core';
 import { environment } from '../../../../environments/environment';
 import { httpResource } from '@angular/common/http';
 import { Specie } from '../models/species/specie';
 
-@Injectable({
-  providedIn: 'root',
-})
+
+@Service()
 export class PokemonSpeciesDetailsDataClient {
   #url = environment.speciesUrl;
 
@@ -26,5 +25,6 @@ export class PokemonSpeciesDetailsDataClient {
     url: `${this.#url}${this.search()}`,
     responseType: 'json',
     method: 'GET',
+    cache: 'force-cache'
   }));
 }
