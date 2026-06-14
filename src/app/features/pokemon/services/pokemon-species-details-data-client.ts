@@ -3,7 +3,6 @@ import { environment } from '../../../../environments/environment';
 import { httpResource } from '@angular/common/http';
 import { Specie } from '../models/species/specie';
 
-
 @Service()
 export class PokemonSpeciesDetailsDataClient {
   #url = environment.speciesUrl;
@@ -25,6 +24,13 @@ export class PokemonSpeciesDetailsDataClient {
     url: `${this.#url}${this.search()}`,
     responseType: 'json',
     method: 'GET',
-    cache: 'force-cache'
+    cache: 'force-cache',
+    // usando default value para evitar undefined já que sinal não é filtrado por um loading
+    defaultValue: {
+      name: '',
+      evolves_from_species: '',
+      evolution_chain: '',
+      varieties: [],
+    },
   }));
 }

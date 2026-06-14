@@ -13,6 +13,7 @@ export class PokemonEvolutionsDetails {
   evolutionChain = input.required<EvolutionChain>();
   isFirstEvolution = input.required<boolean>();
   isSecondEvolution = input.required<boolean>();
-  isRegionalVairant = input.required<boolean>();
+  isRegionalVariant = input.required<boolean>();
+  isBaseDefaultWithVariantEvolution = input.required<boolean>();
   pokemonName = input.required<string>();
 }

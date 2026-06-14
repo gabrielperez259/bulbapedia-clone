@@ -15,11 +15,11 @@ export class PokemonList {
   protected data = inject(PokemonListDataClient);
   public search = signal('');
 
-  setData(value: string) {
+  setGenValue(value: string) {
     this.data.search.set(value);
   }
 
-  computedData = computed(() =>
+  filteredPokemonList = computed(() =>
     this.data.pokemonList().filter((pokemon) => pokemon.name.includes(this.search().toLowerCase())),
   );
 }

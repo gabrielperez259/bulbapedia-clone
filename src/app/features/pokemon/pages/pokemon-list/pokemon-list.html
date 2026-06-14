@@ -1,6 +1,6 @@
 <div class="pokemon-list-container">
     <div class="header-container">
-        <app-select-by-gen-bar (genValue)="setData($event)"> </app-select-by-gen-bar>
+        <app-select-by-gen-bar (genValue)="setGenValue($event)"> </app-select-by-gen-bar>
         <app-search-bar (filterOutput)="this.search.set($event)"></app-search-bar>  
     </div>
 
@@ -11,7 +11,7 @@
         <p> error... </p>
     }@else {
          <app-grid [columns]="6">
-        @for(pokemon of this.computedData(); track $index) {            
+        @for(pokemon of this.filteredPokemonList(); track $index) {            
             @defer () {
                 <app-pokemon-list-item [pokemon]="pokemon" [route]="pokemon.name"> </app-pokemon-list-item>
             }           

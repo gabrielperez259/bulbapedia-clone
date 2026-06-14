@@ -12,9 +12,4 @@ export class PokemonListItem {
   pokemon = input.required<Results>();
   route = input.required<string>();
 
-
-  eff = effect(() => {
-    console.log(this.route());
-    console.log(this.pokemon());
-  })
 }

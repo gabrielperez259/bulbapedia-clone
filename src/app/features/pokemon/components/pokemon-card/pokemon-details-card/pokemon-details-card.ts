@@ -8,8 +8,8 @@ import { Pokemon } from '../../../models/pokemon';
 import { Types } from '../../types/types';
 import { Ability } from '../../ability/ability';
 import { ColorTypePipe } from '../../../../../shared/pipes/color-type.pipe';
-import { CapitalizeWordsPipe } from '../../../../../shared/pipes/capitalize-word.pipe';
 import { MatTabsModule } from '@angular/material/tabs';
+import { CleanTextPipe } from "../../../../../shared/pipes/clean-text.pipe";
 
 @Component({
   selector: 'app-pokemon-details-card',
@@ -22,9 +22,9 @@ import { MatTabsModule } from '@angular/material/tabs';
     Types,
     Ability,
     ColorTypePipe,
-    CapitalizeWordsPipe,
     MatTabsModule,
-  ],
+    CleanTextPipe
+],
   templateUrl: './pokemon-details-card.html',
   styleUrl: './pokemon-details-card.scss',
 })

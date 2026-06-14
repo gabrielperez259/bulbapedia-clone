@@ -1,10 +1,10 @@
 <app-flex>
     <div class="pokemon-details-card-container"
-        [style.background-color]="pokemon()!.types[0].type.name | capitalizeWords | colorType">
+        [style.background-color]="pokemon()!.types[0].type.name | cleanText | colorType">
         <app-card [isTransparent]="true">
             <app-flex>
                 <app-index-number select="card-header" [isTransparent]="true" [pokemonIndexNumber]="pokemon()!.id" />
-                <app-name select="card-header" [isTransparent]="true" [pokemonName]="pokemon()!.species.name" />
+                <app-name select="card-header" [isTransparent]="true" [pokemonName]="pokemon()!.name" />
             </app-flex>
             <app-sprite select="card-body" [title]="pokemon()!.species.name" [id]="pokemon()!.id "
                 [background]="'white'" [width]='"100%"'>

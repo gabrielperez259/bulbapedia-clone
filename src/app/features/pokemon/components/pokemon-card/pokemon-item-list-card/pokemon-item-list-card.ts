@@ -17,7 +17,5 @@ export class PokemonItemListCard {
   public pokemon = input.required<Results>();
   public route = input.required<string>();
 
-  routeEffect = effect(() => {
-    console.log(this.route());
-  });
+
 }

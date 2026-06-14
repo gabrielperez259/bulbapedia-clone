@@ -284,6 +284,14 @@ export const REGIONAL_FAMILIES = {
     ],
     'second-evolution': null
   },
+  'marowak': {
+    base: { name: 'cubone', url: 'https://pokeapi.co/api/v2/pokemon/104/' },
+    'first-evolution': [
+      { name: 'marowak', url: 'https://pokeapi.co/api/v2/pokemon/105/' },
+      { name: 'marowak-alola', url: 'https://pokeapi.co/api/v2/pokemon/10115/' }
+    ],
+    'second-evolution': null
+  },
   'marowak-alola': {
     base: { name: 'cubone', url: 'https://pokeapi.co/api/v2/pokemon/104/' },
     'first-evolution': [
@@ -328,6 +336,14 @@ export const REGIONAL_FAMILIES = {
       { name: 'typhlosion-hisui', url: 'https://pokeapi.co/api/v2/pokemon/10233/' }
     ]
   },
+  'typhlosion': {
+    base: { name: 'cyndaquil', url: 'https://pokeapi.co/api/v2/pokemon/155/' },
+    'first-evolution': { name: 'quilava', url: 'https://pokeapi.co/api/v2/pokemon/156/' },
+    'second-evolution': [
+      { name: 'typhlosion', url: 'https://pokeapi.co/api/v2/pokemon/157/' },
+      { name: 'typhlosion-hisui', url: 'https://pokeapi.co/api/v2/pokemon/10233/' }
+    ]
+  } ,
   'typhlosion-hisui': {
     base: { name: 'cyndaquil', url: 'https://pokeapi.co/api/v2/pokemon/155/' },
     'first-evolution': { name: 'quilava', url: 'https://pokeapi.co/api/v2/pokemon/156/' },
@@ -343,7 +359,7 @@ export const REGIONAL_FAMILIES = {
     'first-evolution': { name: 'dartrix', url: 'https://pokeapi.co/api/v2/pokemon/723/' },
     'second-evolution': [
       { name: 'decidueye', url: 'https://pokeapi.co/api/v2/pokemon/724/' },
-      { name: 'decidueye-hisui', url: 'https://pokeapi.co/api/v2/pokemon/10234/' }
+      { name: 'decidueye-hisui', url: 'https://pokeapi.co/api/v2/pokemon/10244/' }
     ]
   },
   'dartrix': {
@@ -351,7 +367,15 @@ export const REGIONAL_FAMILIES = {
     'first-evolution': { name: 'dartrix', url: 'https://pokeapi.co/api/v2/pokemon/723/' },
     'second-evolution': [
       { name: 'decidueye', url: 'https://pokeapi.co/api/v2/pokemon/724/' },
-      { name: 'decidueye-hisui', url: 'https://pokeapi.co/api/v2/pokemon/10234/' }
+      { name: 'decidueye-hisui', url: 'https://pokeapi.co/api/v2/pokemon/10244/' }
+    ]
+  },
+  'decidueye': {
+    base: { name: 'rowlet', url: 'https://pokeapi.co/api/v2/pokemon/722/' },
+    'first-evolution': { name: 'dartrix', url: 'https://pokeapi.co/api/v2/pokemon/723/' },
+    'second-evolution': [
+      { name: 'decidueye', url: 'https://pokeapi.co/api/v2/pokemon/724/' },
+      { name: 'decidueye-hisui', url: 'https://pokeapi.co/api/v2/pokemon/10244/' }
     ]
   },
   'decidueye-hisui': {
@@ -359,7 +383,7 @@ export const REGIONAL_FAMILIES = {
     'first-evolution': { name: 'dartrix', url: 'https://pokeapi.co/api/v2/pokemon/723/' },
     'second-evolution': [
       { name: 'decidueye', url: 'https://pokeapi.co/api/v2/pokemon/724/' },
-      { name: 'decidueye-hisui', url: 'https://pokeapi.co/api/v2/pokemon/10234/' }
+      { name: 'decidueye-hisui', url: 'https://pokeapi.co/api/v2/pokemon/10244/' }
     ]
   },
 
@@ -369,7 +393,7 @@ export const REGIONAL_FAMILIES = {
     'first-evolution': { name: 'dewott', url: 'https://pokeapi.co/api/v2/pokemon/502/' },
     'second-evolution': [
       { name: 'samurott', url: 'https://pokeapi.co/api/v2/pokemon/503/' },
-      { name: 'samurott-hisui', url: 'https://pokeapi.co/api/v2/pokemon/10244/' } // ID Corrigido
+      { name: 'samurott-hisui', url: 'https://pokeapi.co/api/v2/pokemon/10236/' } // ID Corrigido
     ]
   },
   'dewott': {
@@ -377,15 +401,24 @@ export const REGIONAL_FAMILIES = {
     'first-evolution': { name: 'dewott', url: 'https://pokeapi.co/api/v2/pokemon/502/' },
     'second-evolution': [
       { name: 'samurott', url: 'https://pokeapi.co/api/v2/pokemon/503/' },
-      { name: 'samurott-hisui', url: 'https://pokeapi.co/api/v2/pokemon/10244/' }
+      { name: 'samurott-hisui', url: 'https://pokeapi.co/api/v2/pokemon/10236/' }
     ]
+  },
+  'samurott': {     
+    base: { name: 'oshawott', url: 'https://pokeapi.co/api/v2/pokemon/501/' },
+    'first-evolution': { name: 'dewott', url: 'https://pokeapi.co/api/v2/pokemon/502/' },
+    'second-evolution': [
+      { name: 'samurott', url: 'https://pokeapi.co/api/v2/pokemon/503/' },
+      { name: 'samurott-hisui', url: 'https://pokeapi.co/api/v2/pokemon/10236/' }
+    ]
+  
   },
   'samurott-hisui': {
     base: { name: 'oshawott', url: 'https://pokeapi.co/api/v2/pokemon/501/' },
     'first-evolution': { name: 'dewott', url: 'https://pokeapi.co/api/v2/pokemon/502/' },
     'second-evolution': [
       { name: 'samurott', url: 'https://pokeapi.co/api/v2/pokemon/503/' },
-      { name: 'samurott-hisui', url: 'https://pokeapi.co/api/v2/pokemon/10244/' }
+      { name: 'samurott-hisui', url: 'https://pokeapi.co/api/v2/pokemon/10236/' }
     ]
   },
 
@@ -403,7 +436,15 @@ export const REGIONAL_FAMILIES = {
     'first-evolution': { name: 'pikachu', url: 'https://pokeapi.co/api/v2/pokemon/25/' },
     'second-evolution': [
       { name: 'raichu', url: 'https://pokeapi.co/api/v2/pokemon/26/' },
-      { name: 'raichu-alola', url: 'https://pokeapi.co/api/v2/pokemon/10113/' }
+      { name: 'raichu-alola', url: 'https://pokeapi.co/api/v2/pokemon/10100/' }
+    ]
+  },
+  'raichu': {
+    base: { name: 'pichu', url: 'https://pokeapi.co/api/v2/pokemon/172/' },
+    'first-evolution': { name: 'pikachu', url: 'https://pokeapi.co/api/v2/pokemon/25/' },
+    'second-evolution': [
+      { name: 'raichu', url: 'https://pokeapi.co/api/v2/pokemon/26/' },
+      { name: 'raichu-alola', url: 'https://pokeapi.co/api/v2/pokemon/10100/' }
     ]
   },
   'raichu-alola': {
@@ -411,7 +452,7 @@ export const REGIONAL_FAMILIES = {
     'first-evolution': { name: 'pikachu', url: 'https://pokeapi.co/api/v2/pokemon/25/' },
     'second-evolution': [
       { name: 'raichu', url: 'https://pokeapi.co/api/v2/pokemon/26/' },
-      { name: 'raichu-alola', url: 'https://pokeapi.co/api/v2/pokemon/10113/' }
+      { name: 'raichu-alola', url: 'https://pokeapi.co/api/v2/pokemon/10100/' }
     ]
   },
 
@@ -420,7 +461,15 @@ export const REGIONAL_FAMILIES = {
     base: { name: 'koffing', url: 'https://pokeapi.co/api/v2/pokemon/109/' },
     'first-evolution': [
       { name: 'weezing', url: 'https://pokeapi.co/api/v2/pokemon/110/' },
-      { name: 'weezing-galar', url: 'https://pokeapi.co/api/v2/pokemon/10174/' }
+      { name: 'weezing-galar', url: 'https://pokeapi.co/api/v2/pokemon/10167/' }
+    ],
+    'second-evolution': null
+  },
+  'weezing': {
+    base: { name: 'koffing', url: 'https://pokeapi.co/api/v2/pokemon/109/' },
+    'first-evolution': [
+      { name: 'weezing', url: 'https://pokeapi.co/api/v2/pokemon/110/' },
+      { name: 'weezing-galar', url: 'https://pokeapi.co/api/v2/pokemon/10167/' }
     ],
     'second-evolution': null
   },
@@ -428,7 +477,7 @@ export const REGIONAL_FAMILIES = {
     base: { name: 'koffing', url: 'https://pokeapi.co/api/v2/pokemon/109/' },
     'first-evolution': [
       { name: 'weezing', url: 'https://pokeapi.co/api/v2/pokemon/110/' },
-      { name: 'weezing-galar', url: 'https://pokeapi.co/api/v2/pokemon/10174/' }
+      { name: 'weezing-galar', url: 'https://pokeapi.co/api/v2/pokemon/10167/' }
     ],
     'second-evolution': null
   },
@@ -438,7 +487,17 @@ export const REGIONAL_FAMILIES = {
     base: { name: 'mime-jr', url: 'https://pokeapi.co/api/v2/pokemon/439/' },
     'first-evolution': [
       { name: 'mr-mime', url: 'https://pokeapi.co/api/v2/pokemon/122/' },
-      { name: 'mr-mime-galar', url: 'https://pokeapi.co/api/v2/pokemon/10179/' }
+      { name: 'mr-mime-galar', url: 'https://pokeapi.co/api/v2/pokemon/10168/' }
+    ],
+    'second-evolution': [
+      { name: 'mr-rime', url: 'https://pokeapi.co/api/v2/pokemon/866/' }
+    ]
+  },
+  'mr-mime': {
+    base: { name: 'mime-jr', url: 'https://pokeapi.co/api/v2/pokemon/439/' },
+    'first-evolution': [
+      { name: 'mr-mime', url: 'https://pokeapi.co/api/v2/pokemon/122/' },
+      { name: 'mr-mime-galar', url: 'https://pokeapi.co/api/v2/pokemon/10168/' }
     ],
     'second-evolution': [
       { name: 'mr-rime', url: 'https://pokeapi.co/api/v2/pokemon/866/' }
@@ -448,7 +507,7 @@ export const REGIONAL_FAMILIES = {
     base: { name: 'mime-jr', url: 'https://pokeapi.co/api/v2/pokemon/439/' },
     'first-evolution': [
       { name: 'mr-mime', url: 'https://pokeapi.co/api/v2/pokemon/122/' },
-      { name: 'mr-mime-galar', url: 'https://pokeapi.co/api/v2/pokemon/10179/' }
+      { name: 'mr-mime-galar', url: 'https://pokeapi.co/api/v2/pokemon/10168/' }
     ],
     'second-evolution': [
       { name: 'mr-rime', url: 'https://pokeapi.co/api/v2/pokemon/866/' }
@@ -458,7 +517,7 @@ export const REGIONAL_FAMILIES = {
     base: { name: 'mime-jr', url: 'https://pokeapi.co/api/v2/pokemon/439/' },
     'first-evolution': [
       { name: 'mr-mime', url: 'https://pokeapi.co/api/v2/pokemon/122/' },
-      { name: 'mr-mime-galar', url: 'https://pokeapi.co/api/v2/pokemon/10179/' }
+      { name: 'mr-mime-galar', url: 'https://pokeapi.co/api/v2/pokemon/10168/' }
     ],
     'second-evolution': [
       { name: 'mr-rime', url: 'https://pokeapi.co/api/v2/pokemon/866/' }
@@ -470,7 +529,15 @@ export const REGIONAL_FAMILIES = {
     base: { name: 'rufflet', url: 'https://pokeapi.co/api/v2/pokemon/627/' },
     'first-evolution': [
       { name: 'braviary', url: 'https://pokeapi.co/api/v2/pokemon/628/' },
-      { name: 'braviary-hisui', url: 'https://pokeapi.co/api/v2/pokemon/10237/' }
+      { name: 'braviary-hisui', url: 'https://pokeapi.co/api/v2/pokemon/10240/' }
+    ],
+    'second-evolution': null
+  },
+  'braviary': {
+    base: { name: 'rufflet', url: 'https://pokeapi.co/api/v2/pokemon/627/' },
+    'first-evolution': [
+      { name: 'braviary', url: 'https://pokeapi.co/api/v2/pokemon/628/' },
+      { name: 'braviary-hisui', url: 'https://pokeapi.co/api/v2/pokemon/10240/' }
     ],
     'second-evolution': null
   },
@@ -478,7 +545,7 @@ export const REGIONAL_FAMILIES = {
     base: { name: 'rufflet', url: 'https://pokeapi.co/api/v2/pokemon/627/' },
     'first-evolution': [
       { name: 'braviary', url: 'https://pokeapi.co/api/v2/pokemon/628/' },
-      { name: 'braviary-hisui', url: 'https://pokeapi.co/api/v2/pokemon/10237/' }
+      { name: 'braviary-hisui', url: 'https://pokeapi.co/api/v2/pokemon/10240/' }
     ],
     'second-evolution': null
   },
@@ -488,7 +555,7 @@ export const REGIONAL_FAMILIES = {
     base: { name: 'petilil', url: 'https://pokeapi.co/api/v2/pokemon/548/' },
     'first-evolution': [
       { name: 'lilligant', url: 'https://pokeapi.co/api/v2/pokemon/549/' },
-      { name: 'lilligant-hisui', url: 'https://pokeapi.co/api/v2/pokemon/10235/' }
+      { name: 'lilligant-hisui', url: 'https://pokeapi.co/api/v2/pokemon/10237/' }
     ],
     'second-evolution': null
   },
@@ -496,13 +563,21 @@ export const REGIONAL_FAMILIES = {
     base: { name: 'petilil', url: 'https://pokeapi.co/api/v2/pokemon/548/' },
     'first-evolution': [
       { name: 'lilligant', url: 'https://pokeapi.co/api/v2/pokemon/549/' },
-      { name: 'lilligant-hisui', url: 'https://pokeapi.co/api/v2/pokemon/10235/' }
+      { name: 'lilligant-hisui', url: 'https://pokeapi.co/api/v2/pokemon/10237/' }
     ],
     'second-evolution': null
   },
 
   // --- LINHA DO BERGMITE ---
   'bergmite': {
+    base: { name: 'bergmite', url: 'https://pokeapi.co/api/v2/pokemon/712/' },
+    'first-evolution': [
+      { name: 'avalugg', url: 'https://pokeapi.co/api/v2/pokemon/713/' },
+      { name: 'avalugg-hisui', url: 'https://pokeapi.co/api/v2/pokemon/10243/' } // ID Corrigido
+    ],
+    'second-evolution': null
+  },
+  'avalugg': {
     base: { name: 'bergmite', url: 'https://pokeapi.co/api/v2/pokemon/712/' },
     'first-evolution': [
       { name: 'avalugg', url: 'https://pokeapi.co/api/v2/pokemon/713/' },
@@ -524,7 +599,18 @@ export const REGIONAL_FAMILIES = {
     base: { name: 'goomy', url: 'https://pokeapi.co/api/v2/pokemon/704/' },
     'first-evolution': [
       { name: 'sliggoo', url: 'https://pokeapi.co/api/v2/pokemon/705/' },
-      { name: 'sliggoo-hisui', url: 'https://pokeapi.co/api/v2/pokemon/10236/' }
+      { name: 'sliggoo-hisui', url: 'https://pokeapi.co/api/v2/pokemon/10241/' }
+    ],
+    'second-evolution': [
+      { name: 'goodra', url: 'https://pokeapi.co/api/v2/pokemon/706/' },
+      { name: 'goodra-hisui', url: 'https://pokeapi.co/api/v2/pokemon/10242/' }
+    ]
+  },
+  'sliggoo': {
+    base: { name: 'goomy', url: 'https://pokeapi.co/api/v2/pokemon/704/' },
+    'first-evolution': [
+      { name: 'sliggoo', url: 'https://pokeapi.co/api/v2/pokemon/705/' },
+      { name: 'sliggoo-hisui', url: 'https://pokeapi.co/api/v2/pokemon/10241/' }
     ],
     'second-evolution': [
       { name: 'goodra', url: 'https://pokeapi.co/api/v2/pokemon/706/' },
@@ -535,7 +621,18 @@ export const REGIONAL_FAMILIES = {
     base: { name: 'goomy', url: 'https://pokeapi.co/api/v2/pokemon/704/' },
     'first-evolution': [
       { name: 'sliggoo', url: 'https://pokeapi.co/api/v2/pokemon/705/' },
-      { name: 'sliggoo-hisui', url: 'https://pokeapi.co/api/v2/pokemon/10236/' }
+      { name: 'sliggoo-hisui', url: 'https://pokeapi.co/api/v2/pokemon/10241/' }
+    ],
+    'second-evolution': [
+      { name: 'goodra', url: 'https://pokeapi.co/api/v2/pokemon/706/' },
+      { name: 'goodra-hisui', url: 'https://pokeapi.co/api/v2/pokemon/10242/' }
+    ]
+  },
+  'goodra': {
+    base: { name: 'goomy', url: 'https://pokeapi.co/api/v2/pokemon/704/' },
+    'first-evolution': [
+      { name: 'sliggoo', url: 'https://pokeapi.co/api/v2/pokemon/705/' },
+      { name: 'sliggoo-hisui', url: 'https://pokeapi.co/api/v2/pokemon/10241/' }
     ],
     'second-evolution': [
       { name: 'goodra', url: 'https://pokeapi.co/api/v2/pokemon/706/' },
@@ -546,7 +643,7 @@ export const REGIONAL_FAMILIES = {
     base: { name: 'goomy', url: 'https://pokeapi.co/api/v2/pokemon/704/' },
     'first-evolution': [
       { name: 'sliggoo', url: 'https://pokeapi.co/api/v2/pokemon/705/' },
-      { name: 'sliggoo-hisui', url: 'https://pokeapi.co/api/v2/pokemon/10236/' }
+      { name: 'sliggoo-hisui', url: 'https://pokeapi.co/api/v2/pokemon/10241/' }
     ],
     'second-evolution': [
       { name: 'goodra', url: 'https://pokeapi.co/api/v2/pokemon/706/' },

@@ -1,4 +1,4 @@
-import { Component, inject, input, OnInit, ChangeDetectionStrategy, effect } from '@angular/core';
+import { Component, inject, input, effect } from '@angular/core';
 import { PokemonDetailsDataClient } from '../../../services/pokemon-details.data-client';
 import { PokemonDetailsCard } from '../../../components/pokemon-card/pokemon-details-card/pokemon-details-card';
 import { SideBar } from '../../../components/side-bar/side-bar';
@@ -6,6 +6,7 @@ import { RouterOutlet } from '@angular/router';
 import { Flex } from '../../../../../shared/components/flex/flex';
 import { PokemonSpeciesDetailsDataClient } from '../../../services/pokemon-species-details-data-client';
 import { SelectionBar } from '../../../components/selection-bar/selection-bar';
+import { Pokemon } from '../../../models/pokemon';
 
 @Component({
   selector: 'app-pokemon-details',
@@ -21,13 +22,18 @@ import { SelectionBar } from '../../../components/selection-bar/selection-bar';
 })
 export class PokemonDetails {
   public name = input<string>('name');
-  pokemonData = inject(PokemonDetailsDataClient);
-  speciesData = inject(PokemonSpeciesDetailsDataClient);
+  // public pokemon = input.required<Pokemon>();
+  pokemonDetailsData = inject(PokemonDetailsDataClient);
+  speciesDetailsData = inject(PokemonSpeciesDetailsDataClient);
 
-  pokemonNameSearchValuesEffect = effect(() => {
-    this.pokemonData.search.set(this.name());
-    this.speciesData.search.set(this.name());
-
+  pokemonNameEffect = effect(() => {   
+    this.pokemonDetailsData.search.set(this.name());
+    console.log(this.pokemonDetailsData.pokemonSpecieName());
+    this.speciesDetailsData.search.set(this.name().split('-')[0]);
+    if(this.name() === 'mr-mime' || this.name() === 'kommo-o' || this.name() === 'hakamo-o'||this.name() === 'jangmo-o ' || this.name() === 'ho-oh') {
+      this.speciesDetailsData.search.set(this.name());
+    }
   });
-  
+
+
 }

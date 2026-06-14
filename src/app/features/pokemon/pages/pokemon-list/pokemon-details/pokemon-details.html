@@ -1,7 +1,7 @@
-@if(pokemonData.pokemonDetailsLoading()){
+@if(pokemonDetailsData.pokemonDetailsLoading()){
     <p> loading... </p>
 
-}@else if (pokemonData.pokemonDetailsError()) {
+}@else if (pokemonDetailsData.pokemonDetailsError()) {
     <p> error </p> 
 
 }@else {    
@@ -9,15 +9,15 @@
     <div class="pokemon-details-container" >
         <app-flex>
             <div class="side-bar-container">
-                <app-side-bar [pokemon]="pokemonData.pokemonDetails()"></app-side-bar>  
+                <app-side-bar [pokemon]="pokemonDetailsData.pokemonDetails()"></app-side-bar>  
             </div>
             <div class="router-container">
                 <div class="search-container">
                     <app-selection-bar
                         [labelText] = "'Variations: '"
-                        [initialValue]="this.pokemonData.pokemonDetails()!.name"
-                        [values]="this.speciesData.varietiesNames()!"
-                        (selectedOptionOutput)="this.pokemonData.search.set($event)"
+                        [initialValue]="this.pokemonDetailsData.pokemonName()!"
+                        [values]="this.speciesDetailsData.varietiesNames()!"
+                        (selectedOptionOutput)="this.pokemonDetailsData.search.set($event)"
                     />
                 </div>
 
@@ -28,7 +28,7 @@
                 <router-outlet></router-outlet>
             </div>          
             <div class="card-container">
-                <app-pokemon-details-card [pokemon]="pokemonData.pokemonDetails()"/>       
+                <app-pokemon-details-card [pokemon]="pokemonDetailsData.pokemonDetails()"/>       
             </div>            
         </app-flex>
 

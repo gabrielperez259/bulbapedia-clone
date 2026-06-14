@@ -12,7 +12,13 @@ export class PokemonDetailsDataClient {
   public pokemonDetails = computed(() => this.#pokemonDeatilsResource.value());
   public pokemonDetailsLoading = computed(() => this.#pokemonDeatilsResource.isLoading());
   public pokemonDetailsError = computed(() => this.#pokemonDeatilsResource.error());
+  public pokemonId = computed(() => this.#pokemonDeatilsResource.value()?.id);
   public pokemonName = computed(() => this.#pokemonDeatilsResource.value()?.name);
+  public pokemonSpecieName = computed(() => this.#pokemonDeatilsResource.value()?.species.name);
+  public pokemonImage = computed(() => this.#pokemonDeatilsResource.value()?.sprites.other['official-artwork'].front_default);
+  public pokemonTypes = computed(() => this.#pokemonDeatilsResource.value()?.types);
+  public pokemonsStats = computed(() => this.#pokemonDeatilsResource.value()?.stats);
+  public pokemonAbilities = computed(() => this.#pokemonDeatilsResource.value()?.abilities);
   public pokemonIsDefault = computed(() => this.#pokemonDeatilsResource.value()?.is_default);
 
   readonly #pokemonDeatilsResource = httpResource<Pokemon>(() => ({

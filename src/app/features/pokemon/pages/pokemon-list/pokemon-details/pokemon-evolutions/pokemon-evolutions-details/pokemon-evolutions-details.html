@@ -1,45 +1,39 @@
-<span>  DEBUG - {{this.pokemonName()}}</span> 
-<span>  DEBUG - {{this.isFirstEvolution()}} </span>
-<span>  DEBUG - {{this.isSecondEvolution()}} </span>
-<span>  DEBUG - {{this.isRegionalVairant()}} </span>
-
 <div class="pokemon-evolutions-details-container">
-    @for (
-      first_evolution of evolutionChain()?.chain?.evolves_to;
-      track first_evolution.species.name
-    ) {
-      @for (details of first_evolution.evolution_details; track details.trigger.name) {
-        @if (isFirstEvolution()) {
-          @if (
-            (isRegionalVairant() && details.base_form?.name) ||
-            (!isRegionalVairant() &&
-              !details.base_form?.name &&
-              first_evolution.species?.name?.includes(pokemonName()))
-          ) {
-            <span>  TRIGGER - {{details.trigger.name}} </span>
-            <div class="first-evolution-details-container">         
-              <app-evolution-chain-details [details]="details"/>
-             </div> 
-            }
+  @for (
+    first_evolution of evolutionChain()?.chain?.evolves_to;
+    track first_evolution.species.name
+  ) {
+    @for (details of first_evolution.evolution_details; track details.trigger.name) {
+      @if (isFirstEvolution()) {
+        @if (
+          (isRegionalVariant() && details.base_form?.name) ||
+          (!isRegionalVariant() &&
+            !details.base_form?.name &&
+            first_evolution.species?.name?.includes(pokemonName())) ||
+            (isBaseDefaultWithVariantEvolution() && details.region?.name)
+        ) {
+          <div class="first-evolution-details-container">
+            <app-evolution-chain-details [details]="details" />
+          </div>
         }
       }
+    }
     @for (second_evolution of first_evolution.evolves_to; track second_evolution.species.name) {
       @for (details of second_evolution.evolution_details; track details.trigger.name) {
         @if (isSecondEvolution()) {
           @if (
-            (isRegionalVairant() && details.base_form?.name) ||
-            (!isRegionalVairant() &&
+            (isRegionalVariant() && details.base_form?.name) ||
+            (!isRegionalVariant() &&
               !details.base_form?.name &&
-              second_evolution.species?.name?.includes(pokemonName()))
+              second_evolution.species?.name?.includes(pokemonName())) ||
+              (isBaseDefaultWithVariantEvolution() && details.region?.name)
           ) {
-            <span>  TRIGGER - {{details.trigger.name}} </span>
-            <div class="second-evolution-details-container">    
-              <app-evolution-chain-details [details]="details"/>
+            <div class="second-evolution-details-container">
+              <app-evolution-chain-details [details]="details" />
             </div>
           }
         }
       }
     }
-  }    
+  }
 </div>
-    

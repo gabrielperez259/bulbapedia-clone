@@ -15,10 +15,7 @@ export interface ChainLink {
 }
 
 export interface EvolutionDetail {
-  base_form: {
-    name: string | null;
-    url: string | null;
-  }
+  base_form: BaseForm | null;
   base_form_id: number | null;
   gender: number | null;
   held_item: ItemReference | null;
@@ -33,7 +30,7 @@ export interface EvolutionDetail {
   needs_overworld_rain: boolean;
   party_species: ItemReference | null;
   party_type: ItemReference | null;
-  region_id: number | null;
+  region: Region | null;
   relative_physical_stats: number | null;
   time_of_day: string;
   trade_species: ItemReference | null;
@@ -45,12 +42,21 @@ export interface EvolutionDetail {
 
 }
 
+export interface BaseForm {
+  name: string;
+  url: string;
+}
 export interface ItemReference {
   name: string;
   url: string;
 }
 
 export interface Trigger {
+  name: string;
+  url: string;
+}
+
+export interface Region {
   name: string;
   url: string;
 }
