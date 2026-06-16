@@ -23,7 +23,7 @@
     <div class="grid-content">
       <app-pokemon-list-item
         [pokemon]="checkVariantPokemonName()?.baseForm!"
-        [route]="'../../' + speciesData.pokemonSpeciesDetails()?.name!"
+        [route]="'../../' + checkVariantPokemonName()?.baseForm?.name!"
       ></app-pokemon-list-item>
     </div>
 
@@ -34,12 +34,9 @@
         track firstEvolution.name
       ) {
         <div class="poke-evolution-block">
-          <span> {{ firstEvolution.name }}</span>
-          <span> {{ pokemonData.pokemonName() }}</span>
-          <span> {{ speciesData.pokemonSpeciesDetails()?.name }} </span>
           <app-pokemon-list-item
             [pokemon]="firstEvolution"
-            [route]="'../../' + firstEvolution.name.split('-')[0]"
+            [route]="'../../' + firstEvolution.name"
           ></app-pokemon-list-item>
           <app-pokemon-evolutions-details
             [isRegionalVariant]="true"
@@ -65,7 +62,7 @@
           <div class="poke-evolution-block">
             <app-pokemon-list-item
               [pokemon]="secondEvolution!"
-              [route]="'../../' + secondEvolution.name.split('-')[0]"
+              [route]="'../../' + secondEvolution.name"
             ></app-pokemon-list-item>
             <app-pokemon-evolutions-details
               [pokemonName]="secondEvolution.name"
@@ -96,6 +93,7 @@
     </span>
 
     <div class="grid-content">
+      <span> pokemon name : {{ evolutionsData.baseFormResults()?.name}}</span> 
       <app-pokemon-list-item
         [pokemon]="evolutionsData.baseFormResults()!"
         [route]="'../../' + evolutionsData.baseFormResults()?.name!"

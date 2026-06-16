@@ -1,4 +1,4 @@
-@if(pokemonDetailsData.pokemonDetailsLoading()){
+@if(pokemonDetailsData.pokemonDetailsLoading() ) {
     <p> loading... </p>
 
 }@else if (pokemonDetailsData.pokemonDetailsError()) {
@@ -7,18 +7,21 @@
 }@else {    
     
     <div class="pokemon-details-container" >
-        <app-flex>
+        <app-flex>  
             <div class="side-bar-container">
                 <app-side-bar [pokemon]="pokemonDetailsData.pokemonDetails()"></app-side-bar>  
             </div>
             <div class="router-container">
                 <div class="search-container">
+                   @if(!speciesDetailsData.pokemonSpeciesDetailsLoading() && this.speciesDetailsData.varietiesNames()) {
                     <app-selection-bar
                         [labelText] = "'Variations: '"
-                        [initialValue]="this.pokemonDetailsData.pokemonName()!"
+                        [initialValue]="this.pokemonDetailsData.search()!"
                         [values]="this.speciesDetailsData.varietiesNames()!"
-                        (selectedOptionOutput)="this.pokemonDetailsData.search.set($event)"
+                        (selectedOptionOutput)="this.name.set($event)"
                     />
+                   }
+
                 </div>
 
 

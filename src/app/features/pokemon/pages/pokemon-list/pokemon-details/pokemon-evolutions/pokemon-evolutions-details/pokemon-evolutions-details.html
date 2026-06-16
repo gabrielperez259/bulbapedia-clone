@@ -12,6 +12,7 @@
             first_evolution.species?.name?.includes(pokemonName())) ||
             (isBaseDefaultWithVariantEvolution() && details.region?.name)
         ) {
+          <span> Pokemon Name {{ pokemonName() }}</span>
           <div class="first-evolution-details-container">
             <app-evolution-chain-details [details]="details" />
           </div>
@@ -28,6 +29,7 @@
               second_evolution.species?.name?.includes(pokemonName())) ||
               (isBaseDefaultWithVariantEvolution() && details.region?.name)
           ) {
+            <span> Pokemon Name {{ pokemonName() }}</span>
             <div class="second-evolution-details-container">
               <app-evolution-chain-details [details]="details" />
             </div>

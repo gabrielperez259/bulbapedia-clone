@@ -10,14 +10,12 @@ import { Varieties } from '../../../models/species/varieties';
   changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './pokemon-species.scss',
 })
-export class PokemonSpecies implements OnInit {
+export class PokemonSpecies  {
   public name = input<string>('name');
 
   specieData = inject(PokemonSpeciesDetailsDataClient);
   public pokemonNames = input<Varieties[] | undefined>(
     this.specieData.pokemonSpeciesDetails()?.varieties,
   );
-  ngOnInit(): void {
-    this.specieData.search.set(this.name());
-  }
+
 }
