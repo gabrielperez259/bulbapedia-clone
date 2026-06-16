@@ -18,7 +18,7 @@
                         [labelText] = "'Variations: '"
                         [initialValue]="this.pokemonDetailsData.search()!"
                         [values]="this.speciesDetailsData.varietiesNames()!"
-                        (selectedOptionOutput)="this.name.set($event)"
+                        (selectedOptionOutput)=" this.router.navigate([`/${$event}`])"
                     />
                    }
 

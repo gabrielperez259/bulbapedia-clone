@@ -651,3 +651,16 @@ export const REGIONAL_FAMILIES = {
     ]
   }
 } as const;
+
+export const POKEMON_FORM_MAP: Record<string, { name: string; id: string }> = {
+  'meloetta': { name: 'meloetta-aria', id: '648' },
+  'urshifu': { name: 'urshifu-single-strike', id: '892' },
+  'pumpkaboo': { name: 'pumpkaboo-average', id: '710' },
+  'gourgeist': { name: 'gourgeist-average', id: '711' },
+  'eiscue': { name: 'eiscue-ice', id: '875' },
+  'morpeko': { name: 'morpeko-full-belly', id: '877' },
+  'tornadus': { name: 'tornadus-incarnate', id: '641' },
+  'landorus': { name: 'landorus-incarnate', id: '645' },
+  'thundurus': {name: 'thundurus-incarnate', id: '642' },
+  'enamorus' : { name: 'enamorus-incarnate', id: '905' }
+} as const;

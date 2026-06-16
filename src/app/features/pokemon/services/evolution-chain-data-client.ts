@@ -1,6 +1,7 @@
 import { computed, Service, signal } from '@angular/core';
 import { httpResource } from '@angular/common/http';
 import { EvolutionChain } from '../models/evolution/evolution';
+import { POKEMON_FORM_MAP } from '../../../shared/constants/regional-families-map';
 
 @Service()
 export class EvolutionChainDataClient {
@@ -8,19 +9,25 @@ export class EvolutionChainDataClient {
   public evolutionChainlsLoading = computed(() => this.#evolutionChainResource.isLoading());
   public evolutionChainlsError = computed(() => this.#evolutionChainResource.error());
 
+  normalizePokemonData(speciesName: string, speciesUrl: string) {
+    if (POKEMON_FORM_MAP[speciesName]) {
+      const exception = POKEMON_FORM_MAP[speciesName];
+      return {
+        name: exception.name,
+        url: `https://pokeapi.co/api/v2/pokemon/${exception.id}/`,
+      };
+    }
+    return {
+      name: speciesName,
+      url: speciesUrl,
+    };
+  }
+
   public baseFormResults = computed(() => {
     const chainData = this.evolutionChain();
-
-    // Verifica se os dados existem para evitar erros de 'undefined'
-    if (!chainData || !chainData.chain) {
-      return null;
-    }
-
-    // Retorna um objeto contendo apenas o nome e a url da espécie base
-    return {
-      name: chainData.chain.species.name,
-      url: chainData.chain.species.url,
-    };
+    if (!chainData?.chain?.species) return null;
+   
+    return this.normalizePokemonData(chainData.chain.species.name, chainData.chain.species.url);
   });
 
   public firstEvolutionsList = computed(() => {
@@ -28,29 +35,28 @@ export class EvolutionChainDataClient {
 
     if (!chainData?.chain?.evolves_to) return [];
 
-    return chainData.chain.evolves_to.map((evo) => ({
-      name: evo.species.name,
-      url: evo.species.url,
-    }));
+    // Usamos o .map() e passamos cada evolução pela nossa função de normalização
+    return chainData.chain.evolves_to.map((evo) => {
+      return this.normalizePokemonData(evo.species.name, evo.species.url);
+    });
   });
 
+  public secondEvolutionsList = computed(() => {
+    const chainData = this.evolutionChain();
+    const evolvesTo = chainData?.chain?.evolves_to;
 
-public secondEvolutionsList = computed(() => {
-  const chainData = this.evolutionChain();
-  const evolvesTo = chainData?.chain?.evolves_to;
-  
-  if (!evolvesTo || evolvesTo.length === 0) return [];
+    if (!evolvesTo || evolvesTo.length === 0) return [];
 
-  // Mapeia todas as primeiras evoluções e extrai as segundas evoluções delas
-  const seconds = evolvesTo.flatMap(firstEvo => 
-    firstEvo.evolves_to.map(secondEvo => ({
-      name: secondEvo.species.name,
-      url: secondEvo.species.url
-    }))
-  );
+    // Mapeia todas as primeiras evoluções e extrai as segundas evoluções delas
+    const seconds = evolvesTo.flatMap((firstEvo) =>
+      firstEvo.evolves_to.map((secondEvo) => ({
+        name: secondEvo.species.name,
+        url: secondEvo.species.url,
+      })),
+    );
 
-  return seconds; // Retorna um array vazio se não houver (ex: Charmander retorna [Charizard], Applin retorna [Hydrapple])
-});
+    return seconds; // Retorna um array vazio se não houver (ex: Charmander retorna [Charizard], Applin retorna [Hydrapple])
+  });
 
   public evolutionChainUrl = signal<string>('');
   readonly #evolutionChainResource = httpResource<EvolutionChain>(() => ({

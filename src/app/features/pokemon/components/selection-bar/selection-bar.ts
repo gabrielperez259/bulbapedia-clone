@@ -14,8 +14,10 @@ export class SelectionBar {
   values = input<string[]>([]);
   selectedOption = model<string>(this.initialValue());
   selectedOptionOutput = output<string>();
+  route = input<string>('');
 
   initialValueEffect = effect(() => this.selectedOption.set(this.initialValue()));
 
   selectOptionEffect = effect(() => this.selectedOptionOutput.emit(this.selectedOption()));
+  
 }
