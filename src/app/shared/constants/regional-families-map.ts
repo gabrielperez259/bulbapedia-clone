@@ -87,6 +87,43 @@ export const REGIONAL_FAMILIES = {
   // ==========================================
   // GALAR
   // ==========================================
+  'corsola': {
+    base: { name: 'corsola', url: 'https://pokeapi.co/api/v2/pokemon/222/' },
+    'first-evolution': null,
+    'second-evolution': null
+  },
+  'corsola-galar': {
+    base: { name: 'corsola-galar', url: 'https://pokeapi.co/api/v2/pokemon/10173/' },
+    'first-evolution': { name: 'cursola', url: 'https://pokeapi.co/api/v2/pokemon/864/' },
+
+    'second-evolution': null
+  },
+  'cursola': {
+    base: { name: 'corsola-galar', url: 'https://pokeapi.co/api/v2/pokemon/10173/' },
+    'first-evolution': { name: 'cursola', url: 'https://pokeapi.co/api/v2/pokemon/864/' },
+    'second-evolution': null
+  },
+  'yamask' : {
+    base: { name: 'yamask', url: 'https://pokeapi.co/api/v2/pokemon/562/' },
+    'first-evolution': { name: 'cofagrigus', url: 'https://pokeapi.co/api/v2/pokemon/563/' },
+    'second-evolution': null
+  },
+  'cofagrigus': {  
+  
+    base: { name: 'yamask', url: 'https://pokeapi.co/api/v2/pokemon/562/' },
+    'first-evolution': { name: 'cofagrigus', url: 'https://pokeapi.co/api/v2/pokemon/563/' },
+    'second-evolution': null
+  },
+  'yamask-galar': {
+    base: { name: 'yamask-galar', url: 'https://pokeapi.co/api/v2/pokemon/10179/' },
+    'first-evolution': { name: 'runerigus', url: 'https://pokeapi.co/api/v2/pokemon/867/' },
+    'second-evolution': null
+  },
+  'runerigus': {
+    base: { name: 'yamask-galar', url: 'https://pokeapi.co/api/v2/pokemon/10179/' },
+    'first-evolution': { name: 'runerigus', url: 'https://pokeapi.co/api/v2/pokemon/867/' },
+    'second-evolution': null
+  },
   'zigzagoon-galar': {
     base: { name: 'zigzagoon-galar', url: 'https://pokeapi.co/api/v2/pokemon/10174/' },
     'first-evolution': { name: 'linoone-galar', url: 'https://pokeapi.co/api/v2/pokemon/10175/' },
@@ -443,7 +480,7 @@ export const REGIONAL_FAMILIES = {
     'first-evolution': { name: 'pikachu', url: 'https://pokeapi.co/api/v2/pokemon/25/' },
     'second-evolution': [
       { name: 'raichu', url: 'https://pokeapi.co/api/v2/pokemon/26/' },
-      { name: 'raichu-alola', url: 'https://pokeapi.co/api/v2/pokemon/10113/' }
+      { name: 'raichu-alola', url: 'https://pokeapi.co/api/v2/pokemon/10100/' }
     ]
   },
   'pikachu': {

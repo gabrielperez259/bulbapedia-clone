@@ -48,7 +48,10 @@
       @if (details().min_beauty) {
         <span>Minimum Beauty: {{ details().min_beauty }}</span>
       }
+      @if (details().min_damage_taken) {
+        <span> Min damage taken: {{ details().min_damage_taken }} </span>
 
+      }
       @if (details().min_happiness) {
         <span>with min happiness: {{ details().min_happiness }}</span>
       }

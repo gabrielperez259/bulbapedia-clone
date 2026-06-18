@@ -4,7 +4,7 @@
     track first_evolution.species.name
   ) {
     @for (details of first_evolution.evolution_details; track details.trigger.name) {
-      @if (isFirstEvolution() && getBaseName(pokemonName()) === first_evolution.species?.name) {
+      @if (isFirstEvolution() && getBaseName(pokemonName()) === first_evolution.species?.name ) {
         @if (
           (details.region?.name && isCurrentPokemonFromRegion(details.region.name)) ||
           (!details.region?.name && isCurrentPokemonDefaultForm() && !details.base_form?.name) ||

@@ -25,6 +25,7 @@ export interface EvolutionDetail {
   location: ItemReference | null;
   min_affection: number | null;
   min_beauty: number | null;
+  min_damage_taken: number | null;
   min_happiness: number | null;
   min_level: number | null;
   min_move_count: number | null;
