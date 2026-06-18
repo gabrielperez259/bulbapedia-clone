@@ -27,6 +27,7 @@ export interface EvolutionDetail {
   min_beauty: number | null;
   min_happiness: number | null;
   min_level: number | null;
+  min_move_count: number | null;
   needs_overworld_rain: boolean;
   party_species: ItemReference | null;
   party_type: ItemReference | null;
@@ -39,6 +40,8 @@ export interface EvolutionDetail {
   evolves_to: ChainLink[];
   is_baby: boolean;
   species: Species;
+  used_move: UsedMove | null;
+  used_move_type: ItemReference | null;
 
 }
 
@@ -57,6 +60,11 @@ export interface Trigger {
 }
 
 export interface Region {
+  name: string;
+  url: string;
+}
+
+export interface UsedMove {
   name: string;
   url: string;
 }

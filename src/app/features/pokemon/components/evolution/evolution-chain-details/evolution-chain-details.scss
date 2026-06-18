@@ -2,33 +2,31 @@
 
 .evolution-container{
     margin-top: ds.$space-md;
-    display: flex;
     background-color: ds.$accent-color;
 }
 .trigger-container{
     
     background-color: ds.$accent-color;
-    display: flex;
-    justify-content: left; 
-    align-items: center;
+
    
 }
 
 .details-container{
     
     background-color: ds.$accent-color;
-    display: flex;
-    justify-content: left; 
-    align-items: center;
+
 
 }
 
 span{
     color: white;
     background-color: ds.$accent-color;
-    display: flex;
-    justify-content: center; 
-    align-items: center;
     margin: ds.$space-xs;
+    padding: ds.$space-xs;    
+    align-items: center;
+    justify-content: center;
+    display: block;
   }
+
+ 
 

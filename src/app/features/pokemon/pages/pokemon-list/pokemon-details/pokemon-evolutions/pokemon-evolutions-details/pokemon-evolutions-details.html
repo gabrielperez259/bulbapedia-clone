@@ -4,13 +4,11 @@
     track first_evolution.species.name
   ) {
     @for (details of first_evolution.evolution_details; track details.trigger.name) {
-      @if (isFirstEvolution()) {
+      @if (isFirstEvolution() && getBaseName(pokemonName()) === first_evolution.species?.name) {
         @if (
-          (isRegionalVariant() && details.base_form?.name) ||
-          (!isRegionalVariant() &&
-            !details.base_form?.name &&
-            first_evolution.species?.name?.includes(pokemonName())) ||
-            (isBaseDefaultWithVariantEvolution() && details.region?.name)
+          (details.region?.name && isCurrentPokemonFromRegion(details.region.name)) ||
+          (!details.region?.name && isCurrentPokemonDefaultForm() && !details.base_form?.name) ||
+          (hasVariant() && details.base_form?.name && !details.region?.name)
         ) {
 
           <div class="first-evolution-details-container">
@@ -21,15 +19,12 @@
     }
     @for (second_evolution of first_evolution.evolves_to; track second_evolution.species.name) {
       @for (details of second_evolution.evolution_details; track details.trigger.name) {
-        @if (isSecondEvolution()) {
+        @if (isSecondEvolution() && getBaseName(pokemonName()) === second_evolution.species?.name) {
           @if (
-            (isRegionalVariant() && details.base_form?.name) ||
-            (!isRegionalVariant() &&
-              !details.base_form?.name &&
-              second_evolution.species?.name?.includes(pokemonName())) ||
-              (isBaseDefaultWithVariantEvolution() && details.region?.name)
+            (details.region?.name && isCurrentPokemonFromRegion(details.region.name)) ||
+            (!details.region?.name && isCurrentPokemonDefaultForm() && !details.base_form?.name) ||
+            (hasVariant() && details.base_form?.name && !details.region?.name)
           ) {
-
             <div class="second-evolution-details-container">
               <app-evolution-chain-details [details]="details" />
             </div>

@@ -198,6 +198,21 @@ export const REGIONAL_FAMILIES = {
     'first-evolution': { name: 'zoroark-hisui', url: 'https://pokeapi.co/api/v2/pokemon/10239/' },
     'second-evolution': null
   },
+  'qwilfish': {
+    base: { name: 'qwilfish', url: 'https://pokeapi.co/api/v2/pokemon/211/' },
+   'first-evolution': null,
+    'second-evolution': null
+  },
+  'qwilfish-hisui': {
+    base: { name: 'qwilfish-hisui', url: 'https://pokeapi.co/api/v2/pokemon/10234/' },
+    'first-evolution': { name: 'overqwil', url: 'https://pokeapi.co/api/v2/pokemon/904/' },
+    'second-evolution': null
+  },
+  'overqwil': {
+    base: { name: 'qwilfish-hisui', url: 'https://pokeapi.co/api/v2/pokemon/10234/' },
+    'first-evolution': { name: 'overqwil', url: 'https://pokeapi.co/api/v2/pokemon/904/' },
+    'second-evolution': null
+  },
 
   // ==========================================
   // PALDEA
@@ -659,6 +674,7 @@ export const POKEMON_FORM_MAP: Record<string, { name: string; id: string }> = {
   'gourgeist': { name: 'gourgeist-average', id: '711' },
   'eiscue': { name: 'eiscue-ice', id: '875' },
   'morpeko': { name: 'morpeko-full-belly', id: '877' },
+  'keldeo' : { name: 'keldeo-ordinary', id: '647' },
   'tornadus': { name: 'tornadus-incarnate', id: '641' },
   'landorus': { name: 'landorus-incarnate', id: '645' },
   'thundurus': {name: 'thundurus-incarnate', id: '642' },

@@ -3,14 +3,13 @@
 } @else if (evolutionsData.evolutionChainlsError()) {
   <p>error</p>
 } @else if (checkVariantPokemonName()) {
-  
   <div class="evolution-container">
     <span class="grid-title">Base Form</span>
-    
-      <span class="grid-title">
+
+    <span class="grid-title">
       @if (checkVariantPokemonName()?.firstEvolutions?.length) {
         First Evolution
-    }
+      }
     </span>
     <span class="grid-title">
       <!-- CORREÇÃO: Valida se a array realmente tem itens antes de exibir o título -->
@@ -38,23 +37,22 @@
             [pokemon]="firstEvolution"
             [route]="'../../' + firstEvolution.name"
           ></app-pokemon-list-item>
-          <app-pokemon-evolutions-details
-            [isRegionalVariant]="true"
-            [isFirstEvolution]="true"
-            [isBaseDefaultWithVariantEvolution]="!!pokemonData.pokemonIsDefault()"
-            [isSecondEvolution]="false"
-            [evolutionChain]="evolutionsData.evolutionChain()!"
-            [pokemonName]="firstEvolution.name"
-          ></app-pokemon-evolutions-details>
-
+          <div class="poke-evolution-details">
+            <app-pokemon-evolutions-details
+              [hasVariant]="true"
+              [isFirstEvolution]="true"
+              [isSecondEvolution]="false"
+              [evolutionChain]="evolutionsData.evolutionChain()!"
+              [pokemonName]="firstEvolution.name"
+            ></app-pokemon-evolutions-details>
+          </div>
         </div>
       }
     </div>
 
     <!-- COLUNA 3: SECOND EVOLUTIONS -->
     <div class="grid-content multipoke-column">
-
-      @if (checkVariantPokemonName()?.secondEvolutions?.length ) {
+      @if (checkVariantPokemonName()?.secondEvolutions?.length) {
         @for (
           secondEvolution of checkVariantPokemonName()?.secondEvolutions!;
           track secondEvolution.name
@@ -64,27 +62,27 @@
               [pokemon]="secondEvolution!"
               [route]="'../../' + secondEvolution.name"
             ></app-pokemon-list-item>
-            <app-pokemon-evolutions-details
-              [pokemonName]="secondEvolution.name"
-              [isFirstEvolution]="false"
-              [isSecondEvolution]="true"
-              [isRegionalVariant]="true"
-              [isBaseDefaultWithVariantEvolution]="!!pokemonData.pokemonIsDefault()"
-              [evolutionChain]="evolutionsData.evolutionChain()!"
-            ></app-pokemon-evolutions-details>
-
+            <div class="poke-evolution-details">
+              <app-pokemon-evolutions-details
+                [pokemonName]="secondEvolution.name"
+                [isFirstEvolution]="false"
+                [isSecondEvolution]="true"
+                [hasVariant]="true"
+                [evolutionChain]="evolutionsData.evolutionChain()!"
+              ></app-pokemon-evolutions-details>
+            </div>
           </div>
         }
       }
     </div>
   </div>
-} @else if (!checkVariantPokemonName()) {  
+} @else if (!checkVariantPokemonName()) {
   <div class="evolution-container">
     <span class="grid-title">Base Form</span>
-      <span class="grid-title">
-        @if (evolutionsData.firstEvolutionsList()?.length) {
+    <span class="grid-title">
+      @if (evolutionsData.firstEvolutionsList()?.length) {
         First Evolution
-    }
+      }
     </span>
     <span class="grid-title">
       @if (evolutionsData.secondEvolutionsList()?.length) {
@@ -104,14 +102,15 @@
         <div class="poke-evolution-block">
           <app-pokemon-list-item [pokemon]="results!" [route]="'../../' + results?.name!">
           </app-pokemon-list-item>
-          <app-pokemon-evolutions-details
-            [isRegionalVariant]="false"
-            [isBaseDefaultWithVariantEvolution]="false"
-            [isFirstEvolution]="true"
-            [isSecondEvolution]="false"
-            [evolutionChain]="evolutionsData.evolutionChain()!"
-            [pokemonName]="results?.name!"
-          ></app-pokemon-evolutions-details>
+          <div class="poke-evolution-details">
+            <app-pokemon-evolutions-details
+              [hasVariant]="false"
+              [isFirstEvolution]="true"
+              [isSecondEvolution]="false"
+              [evolutionChain]="evolutionsData.evolutionChain()!"
+              [pokemonName]="results?.name!"
+            ></app-pokemon-evolutions-details>
+          </div>
         </div>
       }
     </div>
@@ -124,14 +123,15 @@
               [pokemon]="results!"
               [route]="'../../' + results?.name!"
             ></app-pokemon-list-item>
-            <app-pokemon-evolutions-details
-              [isFirstEvolution]="false"
-              [isSecondEvolution]="true"
-              [isRegionalVariant]="false"
-              [isBaseDefaultWithVariantEvolution]="false"
-              [evolutionChain]="evolutionsData.evolutionChain()!"
-              [pokemonName]="results?.name!"
-            ></app-pokemon-evolutions-details>
+            <div class="poke-evolution-details">
+              <app-pokemon-evolutions-details
+                [isFirstEvolution]="false"
+                [isSecondEvolution]="true"
+                [hasVariant]="false"
+                [evolutionChain]="evolutionsData.evolutionChain()!"
+                [pokemonName]="results?.name!"
+              ></app-pokemon-evolutions-details>
+            </div>
           </div>
         }
       }

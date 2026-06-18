@@ -1,83 +1,100 @@
 <div class="evolution-container">
-  <div class="trigger-container">
-    <span>{{ details().trigger.name | cleanText }}</span>
-  </div>
+
   
   <div class="details-container">
-    <span>
+      @if (details().trigger?.name === 'trade') {
+        <span> {{details().trigger?.name | cleanText}}</span>
+      }
+
       @if (details().gender !== null && details().gender !== undefined) {
-        <div>Gender: {{ details().gender === 1 ? 'Female' : 'Male' }}</div>
+
+        <span> {{ details().gender === 1 ? 'Female' : 'Male' }} </span>  
+
       } 
 
       @if (details().held_item?.name) {
-        <div>Held Item: {{ $safeNavigationMigration(details().held_item?.name) | cleanText }}</div>
+          <span> holding {{details().held_item?.name }} </span>
+
+
+    
       }
 
       @if (details().item?.name) {
-        <div> {{ $safeNavigationMigration(details().item?.name) | cleanText }}</div>
+        <span> {{ $safeNavigationMigration(details().item?.name) | cleanText }}</span>
       }
 
       @if (details().known_move?.name) {
-        <div>Known Move: {{ $safeNavigationMigration(details().known_move?.name) | cleanText }}</div>
+        <span>  Level up while knowing </span>
+        <span> {{ $safeNavigationMigration(details().known_move?.name) | cleanText }}</span>
       }
 
       @if (details().known_move_type?.name) {
-        <div>Known Move Type: {{ $safeNavigationMigration(details().known_move_type?.name) | cleanText }}</div>
+        <span> Level up with knowing move type {{ $safeNavigationMigration(details().known_move_type?.name) }}</span>
+        <span></span>
       }
 
       @if (details().location?.name) {
-        <div>Location: {{ $safeNavigationMigration(details().location?.name) | cleanText }}</div>
+        <span> At {{ $safeNavigationMigration(details().location?.name) | cleanText }}</span>
       }
 
       @if (details().min_level) {
-        <div>Minimum Level: {{ details().min_level }}</div>
+        <span> Level {{ details().min_level }}</span>
       }
 
       @if (details().min_affection) {
-        <div>Minimum Affection: {{ details().min_affection }}</div>
+        <span> with min affection: {{ details().min_affection }}</span>
       }
 
       @if (details().min_beauty) {
-        <div>Minimum Beauty: {{ details().min_beauty }}</div>
+        <span>Minimum Beauty: {{ details().min_beauty }}</span>
       }
 
       @if (details().min_happiness) {
-        <div>Minimum Happiness: {{ details().min_happiness }}</div>
+        <span>with min happiness: {{ details().min_happiness }}</span>
       }
 
       @if (details().needs_overworld_rain) {
-        <div>Needs Rain or Fog</div>
+        <span>Needs Rain or Fog</span>
       }
 
       @if (details().party_species?.name) {
-        <div>Party Pokémon: {{ $safeNavigationMigration(details().party_species?.name) | cleanText }}</div>
+        <span>Party Pokémon: {{ $safeNavigationMigration(details().party_species?.name) | cleanText }}</span>
       }
 
       @if (details().party_type?.name) {
-        <div>Party Type: {{ $safeNavigationMigration(details().party_type?.name) | cleanText }}</div>
+        <span>Party Type: {{ $safeNavigationMigration(details().party_type?.name) | cleanText }}</span>
       }
 
       @if (details().relative_physical_stats !== null && details().relative_physical_stats !== undefined) {
-        <div>
+        <span>
           @if (details().relative_physical_stats === 1) { Attack > Defense }
           @else if (details().relative_physical_stats === -1) { Defense > Attack }
           @else { Attack = Defense }
-        </div>
+        </span>
+      }
+      @if(details().region?.name) {
+
+ 
+          <span> in {{ $safeNavigationMigration(details().region?.name) | cleanText }} </span>
+    
       }
 
       @if (details().time_of_day) {
-        <div>Time of Day: {{ details().time_of_day | cleanText }}</div>
+        <span>Time of Day: {{ details().time_of_day | cleanText }}</span>
       }
 
-      @if (details().trade_species?.name) {
-        <div>Trade with: {{ $safeNavigationMigration(details().trade_species?.name) | cleanText }}</div>
-      }
-
+  
       @if (details().turn_upside_down) {
-        <div>Turn Device Upside Down</div>
+        <span>Turn Device Upside Down</span>
+      }
+      @if (details().used_move) {
+        <span> Level up after  </span>
+        <span> using {{ details().used_move?.name }} </span >
+        @if (details().min_move_count) {
+           <span>  {{details()?.min_move_count }} times </span>
+        }
+       
       }
 
- 
-    </span>
   </div>
 </div>
