@@ -2,7 +2,7 @@
 
   
   <div class="details-container">
-      @if (details().trigger?.name === 'trade') {
+      @if (details().trigger?.name === 'trade' || 'shad' || 'recoil-damage') {
         <span> {{details().trigger?.name | cleanText}}</span>
       }
 

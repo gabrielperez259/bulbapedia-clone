@@ -44,19 +44,16 @@
   align-items: center;
   width: 100%;
   gap: ds.$space-xs;
+  
 }
 
 .poke-evolution-details{
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: ds.$space-xs;
-  margin: ds.$space-xs;
-  padding: ds.$space-xs;
   border-radius: ds.$radius-xs;
   background-color: ds.$accent-color;
+  width: 95%;
 }
 
-span{
-  display: block;
-}
+  

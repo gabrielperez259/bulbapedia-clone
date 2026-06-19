@@ -95,7 +95,6 @@ export const REGIONAL_FAMILIES = {
   'corsola-galar': {
     base: { name: 'corsola-galar', url: 'https://pokeapi.co/api/v2/pokemon/10173/' },
     'first-evolution': { name: 'cursola', url: 'https://pokeapi.co/api/v2/pokemon/864/' },
-
     'second-evolution': null
   },
   'cursola': {
@@ -701,6 +700,24 @@ export const REGIONAL_FAMILIES = {
       { name: 'goodra', url: 'https://pokeapi.co/api/v2/pokemon/706/' },
       { name: 'goodra-hisui', url: 'https://pokeapi.co/api/v2/pokemon/10242/' }
     ]
+  },
+  'basculin-red-striped': {
+    base: { name: 'basculin-red-striped', url: 'https://pokeapi.co/api/v2/pokemon/550/' },
+    'first-evolution':   null,
+    'second-evolution': null
+  },
+  'basculin-blue-striped': {
+    base: { name: 'basculin-blue-striped', url: 'https://pokeapi.co/api/v2/pokemon/10016/' },
+    'first-evolution':   null,
+    'second-evolution': null
+  },
+  'basculin-white-striped': {
+    base: { name: 'basculin-white-striped', url: 'https://pokeapi.co/api/v2/pokemon/10247/' },
+    'first-evolution':  [ 
+      {name: 'basculegion-male', url: 'https://pokeapi.co/api/v2/pokemon/902/' }, 
+      {name: 'basculegion-female', url: 'https://pokeapi.co/api/v2/pokemon/10248/' }
+    ],
+    'second-evolution': null
   }
 } as const;
 
