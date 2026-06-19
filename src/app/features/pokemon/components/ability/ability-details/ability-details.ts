@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, input } from '@angular/core';
 
 @Component({
   selector: 'app-ability-details',
@@ -6,4 +6,8 @@ import { Component } from '@angular/core';
   templateUrl: './ability-details.html',
   styleUrl: './ability-details.scss',
 })
-export class AbilityDetails {}
+export class AbilityDetails {
+
+  public name = input<string>('');
+
+}
