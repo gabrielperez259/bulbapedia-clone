@@ -4,21 +4,20 @@
         <app-search-bar (filterOutput)="this.search.set($event)"></app-search-bar>  
     </div>
 
-    @if (data.pokemonListLoading()) {
-        <p> loading... </p>
-
-    }@else if (data.pokemonListError()) {
-        <p> error... </p>
-    }@else {
-         <app-grid [columns]="6">
-        @for(pokemon of this.filteredPokemonList(); track $index) {            
-            @defer () {
-                <app-pokemon-list-item [pokemon]="pokemon" [route]="pokemon.name"> </app-pokemon-list-item>
-            }           
-               
-
-        }   
-        </app-grid>
+  @if (data.pokemonListLoading()) {
+        <div class="feedback-message"><p>Carregando...</p></div>
+    } @else if (data.pokemonListError()) {
+        <div class="feedback-message"><p>Erro ao carregar os Pokémon.</p></div>
+    } @else {
+        <div class="pokemon-grid">
+            @for(pokemon of this.filteredPokemonList(); track $index) {            
+                @defer (on viewport) {
+                    <app-pokemon-list-item [pokemon]="pokemon" [route]="pokemon.name"></app-pokemon-list-item>
+                } @placeholder {
+                    <div class="placeholder-item"></div>
+                }          
+            }   
+        </div>
     }
 
 </div>

@@ -1,28 +1,77 @@
 @use "../../../../styles/utils" as ds;
 
-.header-container{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.select-by-gen-bar-container{
-    align-items: center;
-    justify-content: center;
+// Container principal da listagem
+.pokemon-list-container {
     background-color: ds.$primary-color;
+    padding: 1rem;
+    min-height: 100vh;
+    box-sizing: border-box;
     
-    
+    @media (min-width: 768px) {
+        padding: 2rem;
+    }
 }
 
-.pokemon-list-container{
-    background-color: ds.$primary-color;
-   
-
-}
-
-
-.pokemon-name   {
+// Cabeçalho com o select e a barra de pesquisa
+.header-container {
     display: flex;
-    align-items: center;
-    justify-content: center;
+    flex-direction: column; // Celular: um embaixo do outro, ocupando tudo
+    gap: 1rem;
+    width: 100%;
+    margin-bottom: 2.5rem;
+
+    .select-wrapper,
+    app-select-by-gen-bar{
+        width: 100%;
+    } 
+
+    app-search-bar {
+        width: 100%;
+    }
+
+  
+    // 🔥 ALTERADO: Telas médias e grandes (Tablets e Desktops)
+    @media (min-width: 768px) {
+        flex-direction: row;     // Mantém os dois na mesma linha
+        justify-content: center; // 👈 Centraliza os dois elementos no meio da tela
+        align-items: center;
+        gap: 1.5rem;             // Espaçamento firme entre a barra de busca e o select
+
+        .select-wrapper,
+        app-select-by-gen-bar{
+            width: auto;
+        } 
+        app-search-bar {
+            width: 100%;
+            max-width: 300px;    // 👈 Limita o tamanho deles para não ficarem esticados demais ao centro
+        }
+    }
+}
+// A Mágica da Grid Responsiva Nativa
+.pokemon-grid {
+    display: grid;
+    // auto-fill calcula sozinho quantas colunas cabem com o tamanho mínimo de 140px por item
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); 
+    gap: 1rem;
+    width: 100%;
+
+    // Em telas grandes, se quiser forçar o limite máximo de 6 colunas que você tinha antes:
+    @media (min-width: 1200px) {
+        grid-template-columns: repeat(6, 1fr);
+    }
+}
+
+// Estilos de feedback (Loading / Erro)
+.feedback-message {
+    text-align: center;
+    padding: 3rem;
+    font-size: 1.2rem;
+    color: #7f8c8d;
+}
+
+// Item temporário enquanto o defer carrega
+.placeholder-item {
+    height: 120px; // Altura aproximada do seu card
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
 }

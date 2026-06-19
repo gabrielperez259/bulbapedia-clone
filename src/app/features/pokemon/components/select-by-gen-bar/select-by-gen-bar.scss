@@ -1,21 +1,62 @@
 @use '../../../../styles/utils' as ds;
 
-.container{
+.container {
     display: flex;
     align-items: center;
     justify-content: center;
     margin: ds.$space-xs;
     background-color: ds.$primary-color;
-    
+    width: 100%;
 }
 
 mat-button-toggle-group {
     background-color: ds.$accent-color;
     margin: ds.$space-s;
+    border: none !important;
+    width: 100%;
+
+
+    // 🔥 TROCADO PARA GRID: Controla o alinhamento perfeito
+    display: grid !important; 
+    
+    // 1. Configuração para Computador/Telas Grandes: Todos os 9 na mesma linha com tamanhos iguais
+    grid-template-columns: repeat(9, 1fr); 
+    gap: 1px; // Uma leve fresta entre eles se quiser destacar as divisões
+
+    // 2. Configuração para Tablets (Telas médias): Quebra em 3 linhas com 3 botões idênticos cada
+    @media (max-width: 992px) {
+        grid-template-columns: repeat(3, 1fr); // 3 colunas perfeitas (3x3 = 9 botões)
+    }
+
+    // 3. Configuração para Celulares: Quebra em 2 colunas? Como 9 é ímpar, o ideal é usar 3 colunas com fonte menor
+    @media (max-width: 480px) {
+        grid-template-columns: repeat(3, 1fr); // Mantém 3 colunas para ficar simétrico, mas encolhe o botão
+        margin: ds.$space-xs;
+    }
 }
 
 mat-button-toggle {
-    color: white;
-    background-color: ds.$accent-color;    
-    
+    color: white;   
+    background-color: ds.$accent-color;
+    text-align: center;
+    width: 100%; // Faz o botão ocupar o espaço exato da célula do Grid
+    font-size: 0.9rem;
+
+    // Remove as bordas padrão do Material que podem desalinhá-los no Grid
+    border: none !important; 
+
+    ::v-deep(.mat-button-toggle-label-content) {
+        padding: 0 8px !important;
+        line-height: 40px !important;
+    }
+
+    // Ajuste de fonte para telas menores para o texto não vazar
+    @media (max-width: 767px) {
+        font-size: 0.75rem; // Fonte menor para caber nas 3 colunas do celular
+        
+        ::v-deep(.mat-button-toggle-label-content) {
+            padding: 0 4px !important;
+            line-height: 36px !important; // Botão ligeiramente mais compacto
+        }
+    }
 }
