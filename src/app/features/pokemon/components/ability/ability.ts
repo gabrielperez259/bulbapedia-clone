@@ -3,10 +3,11 @@ import { CapitalizeWordsPipe } from '../../../../shared/pipes/capitalize-word.pi
 import { Pokemon } from '../../models/pokemon';
 import { Flex } from '../../../../shared/components/flex/flex';
 import { Transparency } from '../../../../shared/directives/transparency';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-ability',
-  imports: [CapitalizeWordsPipe, Flex, Transparency],
+  imports: [CapitalizeWordsPipe, Flex, Transparency, RouterLink],
   templateUrl: './ability.html',
   styleUrl: './ability.scss',
 })

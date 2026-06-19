@@ -12,4 +12,9 @@ export const POKEMON_ROUTES: Route[] = [
     loadChildren: () =>
       import('../components/side-bar/side-bar.routes').then((m) => m.SIDEBAR_ROUTES),
   },
+  {
+    path: 'ability/:name',
+    loadChildren: () => 
+      import('../components/ability/ability.route').then((m) => m.ABILITY_ROUTE),
+  },
 ];

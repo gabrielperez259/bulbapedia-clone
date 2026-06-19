@@ -4,7 +4,9 @@
     @for (ability of abilities(); track $index) {
     
         <button class="ability-button">  
-            <span> {{ability.ability.name.split('-').join(' ') | capitalizeWords }}</span>    
+            <a routerLink='../ability/{{ability.ability.name}}'>
+                <span> {{ability.ability.name.split('-').join(' ') | capitalizeWords }}</span>    
+            </a>    
         </button>
     
     }
