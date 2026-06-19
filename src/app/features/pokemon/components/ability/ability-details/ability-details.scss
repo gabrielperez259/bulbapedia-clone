@@ -1,0 +1,135 @@
+// Container principal que envelopa todo o conteúdo após o loading/error
+@use '../../../../../styles/utils' as ds;
+.ability-container {
+  display: grid;
+  grid-template-columns: 1fr; // Padrão para celular: uma única coluna ocupando tudo
+  gap: 2rem;
+  padding: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background-color: ds.$primary-color;
+
+  h1 {
+    grid-column: 1; // O título principal ocupa a primeira linha inteira
+    font-size: 2.5rem;
+    color: ds.$accent-color;
+    margin-bottom: 1rem;
+    border-bottom: 3px solid ds.$accent-color;
+    padding-bottom: 0.5rem;
+  }
+
+  // Configuração para telas maiores (Desktop/Tablet deitado)
+  @media (min-width: 768px) {
+    grid-template-columns: 1fr 1fr; // Divide a tela exatamente ao meio (50% / 50%)
+    align-items: start; // Alinha o topo dos dois containers
+
+    h1 {
+      grid-column: 1 / span 2; // Faz o título cruzar as duas colunas no topo
+    }
+  }
+}
+
+// 1. Container da Lista de Pokémon (Lado Esquerdo)
+.pokemon-list-container {
+  background-color: #f8f9fa;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e9ecef;
+  max-height: 70vh; // Limita a altura para criar scroll interno se a lista for gigante
+  overflow-y: auto;
+
+  h2 {
+    font-size: 1.5rem;
+    color: ds.$accent-color;
+    margin-top: 0;
+    margin-bottom: 1.2rem;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); // Mini grid para os cards dos pokémons
+    gap: 0.75rem;
+  }
+
+  li {  
+    border-radius: 8px;
+    text-align: center;
+    font-weight: 500;  
+    background-color: ds.$accent-color;
+    border: 1px solid ds.$accent-color;
+    transition: transform 0.2s, box-shadow 0.2s;
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      border-color: #3498db;
+    }
+  }
+}
+
+// 2. Container dos Textos de Descrição (Lado Direito)
+.flavor-text-container {
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e9ecef;
+  max-height: 70vh; // Mantém a mesma altura simétrica do container da esquerda
+  overflow-y: auto; // Cria scroll independente para as descrições
+
+  h2 {
+    font-size: 1.5rem;
+    color: ds.$accent-color;
+    margin-top: 0;
+    margin-bottom: 1.2rem;
+  }
+
+  .flavor-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .flavor-card {
+    background-color: #f8f9fa;
+    padding: 1rem;
+    border-radius: 8px;
+    background-color: ds.$accent-color;
+
+    .version-title {
+      display: block;
+      color: white;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 0.25rem;
+    }
+
+    .version-text {
+      margin: 0;
+      color: white;
+      line-height: 1.4;
+      white-space: pre-line; // Preserva as quebras de linha (\n) que vêm nativas da PokéAPI
+    }
+  }
+}
+
+// Estados auxiliares de feedback visual (Loading e Erro)
+.loading-spinner, .error-banner {
+  text-align: center;
+  padding: 3rem;
+  font-size: 1.2rem;
+  color: #7f8c8d;
+}
+
+.error-banner {
+  color: #c0392b;
+  background-color: #fdf2f2;
+  border-radius: 8px;
+  margin: 2rem;
+}

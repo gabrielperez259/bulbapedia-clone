@@ -5,4 +5,6 @@ export const environment = {
   movesUrl: 'https://pokeapi.co/api/v2/move/',
   imageUrl:
     'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/',
-};
+  AbilitiesUrl: 'https://pokeapi.co/api/v2/ability/',
+
+  };

@@ -1,1 +1,54 @@
-<span> {{ name() }}</span>   
+<!-- 1. Estado de Carregamento -->
+@if (abilityDataDetails.abilityDetailsLoading()) {
+    <div class="loading-spinner">
+        <p>Carregando detalhes da habilidade...</p>
+    </div>
+}
+
+<!-- 2. Estado de Erro -->
+@else if (abilityDataDetails.abilityDetailsError()) {
+    <div class="error-banner">
+        <p>Houve um erro ao carregar os dados desta habilidade. Verifique se o nome está correto.</p>
+    </div>
+}
+
+<!-- 3. Estado de Sucesso (Exibição dos Dados) -->
+@else {
+    <div class="ability-container">
+        <h1>Ability: {{ abilityDataDetails.abilityName() | cleanText  }}</h1>
+
+        <!-- Seção dos Pokémon -->
+        <div class="pokemon-list-container">
+            <h2>Pokémons with {{ abilityDataDetails.abilityName()  }}</h2>
+            @if (abilityDataDetails.pokemonsWithAbility().length > 0) {
+                <ul>
+                    @for (pokemon of abilityDataDetails.pokemonsWithAbility(); track pokemon) {
+                        <li>
+                            <app-pokemon-list-item [pokemon]="pokemon" [route]='"../../" + pokemon.name'> </app-pokemon-list-item>
+                        </li>
+                    }
+                </ul>
+            } @else {
+                <p>Nenhum Pokémon encontrado com esta habilidade.</p>
+            }
+        </div>
+
+        <!-- Seção das descrições por Versão (Jogos) -->
+        <div class="flavor-text-container">
+            <h2>Flavor text</h2>
+            @if (abilityDataDetails.abilityFlavorText().length > 0) {
+                <div class="flavor-grid">
+                    @for (entry of abilityDataDetails.abilityFlavorText(); track entry.version_group.name) {
+                        <div class="flavor-card">
+                            <strong class="version-title">{{ entry.version_group.name  }}:</strong>
+                            <p class="version-text">{{ entry.flavor_text }}</p>
+                        </div>
+                    }
+                </div>
+            } @else {
+                <p>Nenhuma descrição disponível para esta habilidade.</p>
+            }
+        </div>
+    </div>
+}
+
