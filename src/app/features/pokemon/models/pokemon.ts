@@ -1,8 +1,8 @@
 import { Type } from './types/type';
 import { Sprite } from './sprites/sprites';
-import { PoKemonAbilityList } from './abilities/ability';
+import { PokemonAbilityList } from './abilities/ability';
 import { Stats } from './stats/stats';
-import { Species } from './species/spicies';
+import { Species } from './species/species';
 import { Move } from './moves/move';
 
 export interface Pokemon {
@@ -12,7 +12,7 @@ export interface Pokemon {
   species: Species;
   sprites: Sprite;
   types: Type[];
-  abilities: PoKemonAbilityList[];
+  abilities: PokemonAbilityList[];
   stats: Stats[];
   moves: Move[];
 }

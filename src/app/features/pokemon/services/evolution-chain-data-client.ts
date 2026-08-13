@@ -1,13 +1,13 @@
-import { computed, Service, signal } from '@angular/core';
+import { computed, Injectable, signal } from '@angular/core';
 import { httpResource } from '@angular/common/http';
 import { EvolutionChain } from '../models/evolution/evolution';
 import { POKEMON_FORM_MAP } from '../../../shared/constants/regional-families-map';
 
-@Service()
+@Injectable({ providedIn: 'root' })
 export class EvolutionChainDataClient {
   public evolutionChain = computed(() => this.#evolutionChainResource.value());
-  public evolutionChainlsLoading = computed(() => this.#evolutionChainResource.isLoading());
-  public evolutionChainlsError = computed(() => this.#evolutionChainResource.error());
+  public evolutionChainIsLoading = computed(() => this.#evolutionChainResource.isLoading());
+  public evolutionChainIsError = computed(() => this.#evolutionChainResource.error());
 
   normalizePokemonData(speciesName: string, speciesUrl: string) {
     if (POKEMON_FORM_MAP[speciesName]) {

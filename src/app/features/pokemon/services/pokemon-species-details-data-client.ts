@@ -1,8 +1,8 @@
-import { computed, Service, signal } from '@angular/core';
+import { computed, Injectable, signal } from '@angular/core';
 import { httpResource } from '@angular/common/http';
 import { Specie } from '../models/species/specie';
 
-@Service()
+@Injectable({ providedIn: 'root' })
 export class PokemonSpeciesDetailsDataClient {
   public url = signal('');
 

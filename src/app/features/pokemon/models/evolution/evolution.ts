@@ -1,4 +1,4 @@
-import { Species } from '../species/spicies';
+import { Species } from '../species/species';
 
 export interface EvolutionChain {
   baby_trigger_item: any | null;

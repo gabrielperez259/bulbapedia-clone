@@ -42,7 +42,7 @@ export interface AbilityPokemon {
   slot: number;
   pokemon: NamedAPIResource;
 }
-export interface PoKemonAbilityList {
+export interface PokemonAbilityList {
   ability: {
     name: string;
     url: string;

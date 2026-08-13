@@ -1,11 +1,10 @@
-import {  Service } from '@angular/core';
 import { environment } from '../../../../environments/environment';
 import { httpResource } from '@angular/common/http';
-import { computed, signal } from '@angular/core';
+import { computed, Injectable, signal } from '@angular/core';
 import { MoveDetails } from '../models/moves/move-details';
 
 
-@Service()
+@Injectable({ providedIn: 'root' })
 export class MovesDataClient {
   #url = environment.movesUrl;  
   

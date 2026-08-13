@@ -1,9 +1,9 @@
-import { computed, Service, signal } from "@angular/core";
+import { computed, Injectable, signal } from "@angular/core";
 import { environment } from "../../../../environments/environment";
 import { httpResource } from "@angular/common/http";
 import { AbilityFlavorTextEntry, AbilityRoot } from "../models/abilities/ability";
 
-@Service()
+@Injectable({ providedIn: 'root' })
 export class AbilityDataClient {
     
     #url = environment.AbilitiesUrl;

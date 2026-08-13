@@ -1,6 +1,6 @@
-@if (evolutionsData.evolutionChainlsLoading()) {
+@if (evolutionsData.evolutionChainIsLoading()) {
   <p>Loading...</p>
-} @else if (evolutionsData.evolutionChainlsError()) {
+} @else if (evolutionsData.evolutionChainIsError()) {
   <p>error</p>
 } @else if (checkVariantPokemonName()) {
   <div class="evolution-container">

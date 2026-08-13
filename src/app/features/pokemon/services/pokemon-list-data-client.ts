@@ -1,10 +1,10 @@
 import { httpResource } from '@angular/common/http';
-import { computed, Service, signal } from '@angular/core';
+import { computed, Injectable, signal } from '@angular/core';
 import { environment } from '../../../../environments/environment';
 import { GenValues } from '../../../shared/utils/gen-values';
 import { PokemonPayload } from '../models/pokemon-payload';
 
-@Service()
+@Injectable({ providedIn: 'root' })
 export class PokemonListDataClient {
   #url = environment.apiUrl;
   #initialValue = GenValues.GenOne;
