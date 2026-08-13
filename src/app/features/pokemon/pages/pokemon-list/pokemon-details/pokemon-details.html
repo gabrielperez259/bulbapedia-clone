@@ -7,7 +7,7 @@
 }@else {    
     
     <div class="pokemon-details-container" >
-        <app-flex>  
+        <div class="details-layout">  
             <div class="side-bar-container">
                 <app-side-bar [pokemon]="pokemonDetailsData.pokemonDetails()"></app-side-bar>  
             </div>
@@ -24,16 +24,12 @@
 
                 </div>
 
-
-
-               
-
                 <router-outlet></router-outlet>
             </div>          
             <div class="card-container">
                 <app-pokemon-details-card [pokemon]="pokemonDetailsData.pokemonDetails()"/>       
             </div>            
-        </app-flex>
+        </div>
 
     </div>    
    

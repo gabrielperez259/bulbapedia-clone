@@ -1,12 +1,14 @@
 <td>{{this.learnedAtLevel()}}</td>
 <td>{{this.movesDataClient.moveName() | cleanText}}</td> 
 <td [style.background-color]="$safeNavigationMigration(this.movesDataClient.moveType()?.name) | cleanText | colorType" 
-    style="color: white;">
-    {{$safeNavigationMigration(this.movesDataClient.moveType()?.name) | cleanText}}</td>
+    style="color: white; font-weight: 600;">
+    {{$safeNavigationMigration(this.movesDataClient.moveType()?.name) | cleanText}}
+</td>
 <td [style.background-color]="$safeNavigationMigration(this.movesDataClient.moveDamageClass()?.name) | cleanText | colorType"
-    style="color: white;">
-    {{$safeNavigationMigration(this.movesDataClient.moveDamageClass()?.name) | cleanText}}</td>
-<td>{{this.movesDataClient.movePower()}}</td>
+    style="color: white; font-weight: 600;">
+    {{$safeNavigationMigration(this.movesDataClient.moveDamageClass()?.name) | cleanText}}
+</td>
+<td>{{this.movesDataClient.movePower() ?? '-'}}</td>
 <td>{{this.movesDataClient.moveAccuracy() | formatStat}}</td>
-<td>{{this.movesDataClient.movePP()}}</td>
+<td>{{this.movesDataClient.movePP() ?? '-'}}</td>
 
