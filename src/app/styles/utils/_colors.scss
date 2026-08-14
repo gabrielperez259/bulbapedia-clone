@@ -1,37 +1,24 @@
-// Theme Palette (Sleek Glassmorphic Dark Theme)
-$bg-dark: #0b132b;
-$bg-surface: #1c2541;
-$bg-card: rgba(30, 41, 59, 0.7);
-$bg-card-hover: rgba(51, 65, 85, 0.85);
+$primary-color: #2bec89;
+$accent-color: #8a5cc2;
+$alert-color: #ff9012;
+$error-color: #e11b1b;
 
-$primary-color: #0f172a;
-$accent-color: #6366f1;
-$accent-hover: #4f46e5;
-$accent-gradient: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
-$alert-color: #f59e0b;
-$error-color: #ef4444;
 
-$text-main: #f8fafc;
-$text-muted: #94a3b8;
-$glass-border: rgba(255, 255, 255, 0.1);
-$glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
-
-// Vibrant Pokemon Type Colors
-$normal-type-color: #a8a77a;
-$fire-type-color: #ee8130;
-$water-type-color: #6390f0;
-$electric-type-color: #f7d02c;
-$grass-type-color: #7ac74c;
-$ice-type-color: #96d9d6;
-$fighting-type-color: #c22e28;
-$poison-type-color: #a33ea1;
-$ground-type-color: #e2bf65;
-$flying-type-color: #a98ff3;
-$psychic-type-color: #f95587;
-$bug-type-color: #a6b91a;
-$rock-type-color: #b6a136;
-$ghost-type-color: #735797;
-$dragon-type-color: #6f35fc;
-$dark-type-color: #705746;
-$steel-type-color: #b7b7ce;
-$fairy-type-color: #d685ad;
+$normal-type-color: #e6e6e6;
+$fire-type-color: #f08030;
+$water-type-color: #6890f0;
+$electric-type-color: #f8d030;
+$grass-type-color: #78c850;
+$ice-type-color: #98d8d8;
+$fighting-type-color: #c03028;
+$poison-type-color: #a040a0;
+$ground-type-color: #e0c068;
+$flying-type-color: #a890f0;
+$psychic-type-color: #f85888;
+$bug-type-color: #a8b820;
+$rock-type-color: #b8a038;
+$ghost-type-color: #705898;
+$dragon-type-color: #7038f8;
+$dark-type-color: #705848;
+$steel-type-color: #b8b8d0;
+$fairy-type-color: #f0b6bc;

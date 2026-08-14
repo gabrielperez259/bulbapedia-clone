@@ -1,31 +1,10 @@
 @use "../../../styles/utils" as ds;
 
-:host {
-  display: block;
-  height: 100%;
-}
+.card-container{
+    margin: ds.$space-xs;
+    background-color: ds.$accent-color;
+    border-radius: ds.$radius-md;
 
-.card-container {
-  background: ds.$bg-card;
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid ds.$glass-border;
-  border-radius: ds.$radius-lg;
-  padding: ds.$space-md;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
-              box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1),
-              border-color 0.3s ease;
-
-  &:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 12px 30px rgba(99, 102, 241, 0.25);
-    border-color: rgba(99, 102, 241, 0.4);
-    background: ds.$bg-card-hover;
-  }
 }
 
 

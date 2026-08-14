@@ -1,68 +1,27 @@
 @use '../../../../styles/utils' as ds;
 
-:host {
-  display: block;
-  width: 100%;
+
+.side-bar-item-list{
+    background-color: ds.$accent-color;
+    border-radius: ds.$radius-md;
+    color: white;
 }
 
-.side-bar-card {
-  background: ds.$bg-card;
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid ds.$glass-border;
-  border-radius: ds.$radius-lg;
-  padding: ds.$space-md;
-  box-shadow: ds.$glass-shadow;
+span{
+    color: white;   
+    display: flex;
+    padding-top: ds.$space-md;
+    justify-content: center; 
+    align-items: center;
+    
+}
+li{
+   color: white;
+   padding: ds.$space-xs;
 }
 
-.side-bar-title {
-  display: block;
-  font-weight: 700;
-  font-size: 0.95rem;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  color: ds.$text-muted;
-  text-align: center;
-  padding-bottom: ds.$space-xs;
-}
 
-.side-bar-divider {
-  border: 0;
-  height: 1px;
-  background: ds.$glass-border;
-  margin: ds.$space-xs 0 ds.$space-sm 0;
-}
-
-.side-bar-item-list {
-  display: flex;
-  flex-direction: column;
-  gap: 0.4rem;
-
-  li {
-    width: 100%;
-
-    a {
-      display: flex;
-      align-items: center;
-      padding: 0.65rem 1rem;
-      border-radius: ds.$radius-md;
-      color: ds.$text-muted;
-      font-weight: 600;
-      font-size: 0.95rem;
-      transition: all 0.2s ease;
-      background: transparent;
-
-      &:hover {
-        color: white;
-        background: rgba(255, 255, 255, 0.07);
-        transform: translateX(4px);
-      }
-
-      &.active {
-        color: white;
-        background: ds.$accent-gradient;
-        box-shadow: 0 4px 15px rgba(99, 102, 241, 0.35);
-      }
-    }
-  }
+a{  
+    padding: ds.$space-xs;
+    color: white;
 }

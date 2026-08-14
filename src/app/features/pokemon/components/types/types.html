@@ -2,7 +2,7 @@
     <div class="type-title-container">
         <span> TYPE </span>
     </div>
-    <div style="display: flex; flex-wrap: wrap; gap: 10px;">
+    <app-flex>
         @for(type of types(); track $index ) {
             <button 
                 class="type-button" 
@@ -10,7 +10,7 @@
                 <span>  {{type.type.name | capitalizeWords}} </span>
             </button>
         }
-    </div>
+    </app-flex>
 </div>
 
     

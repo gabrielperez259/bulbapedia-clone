@@ -1,15 +1,16 @@
-import { Component, inject, effect, model } from '@angular/core';
+import { Component, inject, input, effect, model, untracked } from '@angular/core';
 import { PokemonDetailsDataClient } from '../../../services/pokemon-details.data-client';
 import { PokemonDetailsCard } from '../../../components/pokemon-card/pokemon-details-card/pokemon-details-card';
 import { SideBar } from '../../../components/side-bar/side-bar';
 import { RouterOutlet } from '@angular/router';
+import { Flex } from '../../../../../shared/components/flex/flex';
 import { PokemonSpeciesDetailsDataClient } from '../../../services/pokemon-species-details-data-client';
 import { SelectionBar } from '../../../components/selection-bar/selection-bar';
 import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-pokemon-details',
-  imports: [PokemonDetailsCard, SideBar, RouterOutlet, SelectionBar],
+  imports: [PokemonDetailsCard, SideBar, RouterOutlet, Flex, SelectionBar],
   templateUrl: './pokemon-details.html',
   styleUrl: './pokemon-details.scss',
 })

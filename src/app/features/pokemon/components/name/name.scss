@@ -1,6 +1,7 @@
 @use '../../../../styles/utils' as ds;
 
 .name-container{    
+    background-color: ds.$accent-color;
     margin: ds.$space-xs;
     border-radius: ds.$radius-xs;
 }

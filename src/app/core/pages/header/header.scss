@@ -1,38 +1,28 @@
 @use "../../../styles/utils" as ds;
 
 :host {
-  display: block;
-  width: 100%;
+    display: block; /* Permite que o componente aceite altura e largura */
+    height: 100%;   /* Obriga o filho a ocupar 100% da altura que o pai der a ele */
+    
 }
 
-div {
-  background: rgba(15, 23, 42, 0.85);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border-bottom: 1px solid ds.$glass-border;
-  box-shadow: ds.$glass-shadow;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0.85rem 1.5rem;
-  width: 100%;
+div{
+    background-color: ds.$accent-color;    
+    height: 100%;   /* Garante que a div interna também estique junto com o componente */
+    box-sizing: border-box; /* Evita que o padding aumente o tamanho da div interna */
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: center;
+    padding: ds.$space-md;
+
 }
 
-a {
-  font-size: 1.4rem;
-  font-weight: 800;
-  letter-spacing: -0.02em;
-  background: linear-gradient(135deg, #38bdf8 0%, #818cf8 50%, #c084fc 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  transition: transform 0.2s ease, opacity 0.2s ease;
-
-  &:hover {
-    transform: translateY(-1px);
-    opacity: 0.9;
-  }
+a{
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    align-items: center;
+    justify-content: center;
 }
 
