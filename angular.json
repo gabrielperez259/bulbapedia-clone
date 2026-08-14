@@ -76,11 +76,8 @@
           "builder": "@angular/build:extract-i18n"
         },
         "test": {
-          "builder": "@angular/build:unit-test",
-          "options": {
-          "tsConfig": "tsconfig.spec.json",
-          "setupFiles": ["src/test-setup.ts"]
-       }
+          "builder": "@angular/build:unit-test"
+
      },
         "lint": {
           "builder": "@angular-eslint/builder:lint",
