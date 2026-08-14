@@ -14,6 +14,7 @@ import { Flex } from '../../../../../shared/components/flex/flex';
   styleUrl: './pokemon-item-list-card.scss',
 })
 export class PokemonItemListCard {
+  // TODO(#006) : No html, substituir o component "app-flex" por uma tag <div> com display: flex 
   public pokemon = input.required<Results>();
   public route = input.required<string>();
 

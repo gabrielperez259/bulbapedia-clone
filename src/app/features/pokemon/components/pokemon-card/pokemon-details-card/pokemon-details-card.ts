@@ -29,5 +29,6 @@ import { CleanTextPipe } from "../../../../../shared/pipes/clean-text.pipe";
   styleUrl: './pokemon-details-card.scss',
 })
 export class PokemonDetailsCard {
+  // TODO(#004) : No html, substituir o component "app-flex" por uma tag <div> com display: flex 
   public pokemon = input.required<Pokemon | undefined>();
 }

@@ -12,6 +12,7 @@ import { RouterLink } from '@angular/router';
   styleUrl: './ability.scss',
 })
 export class Ability {
+  // TODO(#004) : No html, substituir o component "app-flex" por uma tag <div> com display: flex 
   public abilities = input.required<Pokemon['abilities'] | undefined>();
   public isTransparent = input.required<boolean>();
 }

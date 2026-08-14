@@ -23,6 +23,7 @@ import { LEARN_METHODS } from '../../../../../../shared/constants/learn.method';
   styleUrl: './pokemon-move-list.scss',
 })
 export class PokemonMoveList {
+  // TODO (#005): No html, quando em tela cheia, deixar "Game Version" e "Learn Method" na mesma linha
   moves = inject(PokemonDetailsDataClient).pokemonDetails()!.moves;
   sortService = inject(SortService);
 

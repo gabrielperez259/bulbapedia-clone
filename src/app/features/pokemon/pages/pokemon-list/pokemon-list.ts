@@ -18,6 +18,7 @@ export class PokemonList {
     this.data.search.set(value);
   }
 
+  // TODO(#001) : Refinar a busca para encontrar o termo digitado independentemente de qual gen esteja selecionada.
   filteredPokemonList = computed(() =>
     this.data.pokemonList().filter((pokemon) => pokemon.name.includes(this.search().toLowerCase())),
   );

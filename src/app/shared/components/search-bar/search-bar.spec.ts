@@ -7,16 +7,17 @@ describe('SearchBar', () => {
   let fixture: ComponentFixture<SearchBar>;
 
   beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      imports: [SearchBar],
-    }).compileComponents();
-
     fixture = TestBed.createComponent(SearchBar);
     component = fixture.componentInstance;
-    fixture.detectChanges();
+  
+    await fixture.whenStable();
+  
   });
 
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+
+
 });

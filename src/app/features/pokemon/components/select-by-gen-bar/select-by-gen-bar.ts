@@ -16,6 +16,7 @@ export class SelectByGenBar {
     this.genValue.emit(value);
   }
 
+  // TODO(#002) : No html, trocar a seleção de gen de botoẽs por um select
   readonly genOneIoButton = signal<SelectByGenBarInterface>({
     title: 'Gen 1',
     genValue: GenValues.GenOne,
