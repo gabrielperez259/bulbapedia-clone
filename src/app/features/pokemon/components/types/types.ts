@@ -1,12 +1,12 @@
-import { Component, input, ChangeDetectionStrategy } from '@angular/core';
+import { Component, input  } from '@angular/core';
 import { CapitalizeWordsPipe } from '../../../../shared/pipes/capitalize-word.pipe';
 import { ColorTypePipe } from '../../../../shared/pipes/color-type.pipe';
 import { Pokemon } from '../../models/pokemon';
-import { Flex } from '../../../../shared/components/flex/flex';
+
 
 @Component({
   selector: 'app-types',
-  imports: [CapitalizeWordsPipe, ColorTypePipe, Flex],
+  imports: [CapitalizeWordsPipe, ColorTypePipe],
   templateUrl: './types.html',
   styleUrl: './types.scss',
 })

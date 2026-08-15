@@ -1,9 +1,22 @@
-.app-header-container{   
-    height: 7%;
-    display: flex-box;
+@use './styles/utils' as ds;
 
+:host {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: ds.$bg-dark;
 }
 
-app-header{
-    flex: 1
+.app-header-container {   
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  width: 100%;
+}
+
+.router-outlet-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
 }

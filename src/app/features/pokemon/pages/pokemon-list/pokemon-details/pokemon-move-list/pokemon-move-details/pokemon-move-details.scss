@@ -1,7 +1,14 @@
 @use '../../../../../../../styles/utils' as ds;
 
-td{
-    margin: ds.$space-xs;    
-    padding: ds.$space-xs;
-    background-color: white;
+:host {
+  display: table-row;
+}
+
+td {
+  padding: 0.75rem 0.85rem;
+  color: ds.$text-main;
+  text-align: center;
+  font-size: 0.9rem;
+  background: transparent;
+  border-bottom: 1px solid ds.$glass-border;
 }

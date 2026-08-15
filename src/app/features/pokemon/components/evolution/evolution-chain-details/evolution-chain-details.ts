@@ -1,5 +1,5 @@
 import { Component, input } from '@angular/core';
-import { EvolutionChain, EvolutionDetail } from '../../../models/evolution/evolution';
+import {  EvolutionDetail } from '../../../models/evolution/evolution';
 import { CleanTextPipe } from "../../../../../shared/pipes/clean-text.pipe";
 
 @Component({

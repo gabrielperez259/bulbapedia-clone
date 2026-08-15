@@ -1,7 +1,11 @@
 @use '../../../../styles/utils' as ds;
 
+:host {
+  display: block;
+  width: 100%;
+}
 
-.stats-container{
-    margin-top: ds.$space-md;    
-    
+.stats-container {
+  margin-top: ds.$space-md;    
+  width: 100%;
 }
