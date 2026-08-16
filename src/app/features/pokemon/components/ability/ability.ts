@@ -7,7 +7,7 @@ import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-ability',
-  imports: [CapitalizeWordsPipe, Flex, Transparency, RouterLink],
+  imports: [CapitalizeWordsPipe, Flex, Transparency, RouterLink ],
   templateUrl: './ability.html',
   styleUrl: './ability.scss',
 })
