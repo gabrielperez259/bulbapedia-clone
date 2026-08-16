@@ -11,11 +11,11 @@ import { CleanTextPipe } from "../../../../../shared/pipes/clean-text.pipe";
 })
 export class AbilityDetails {
 
-  public name = input<string>('');
+  public abilityName = input<string>('');
   public abilityDataDetails = inject(AbilityDataClient);
 
   abilityDetailsEffect = effect(() => {
-    this.abilityDataDetails.abilityName.set(this.name());
+    this.abilityDataDetails.abilityName.set(this.abilityName());
   })
 
 }

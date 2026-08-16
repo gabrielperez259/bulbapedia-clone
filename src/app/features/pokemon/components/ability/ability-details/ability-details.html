@@ -19,7 +19,7 @@
 
         <!-- Seção dos Pokémon -->
         <div class="pokemon-list-container">
-            <h2>Pokémons with {{ abilityDataDetails.abilityName()  }}</h2>
+            <h2>Pokémons with: {{ abilityDataDetails.abilityName() | cleanText}}</h2>
             @if (abilityDataDetails.pokemonsWithAbility().length > 0) {
                 <ul>
                     @for (pokemon of abilityDataDetails.pokemonsWithAbility(); track pokemon) {
