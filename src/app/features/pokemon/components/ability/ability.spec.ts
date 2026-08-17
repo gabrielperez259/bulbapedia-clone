@@ -8,6 +8,7 @@ import { provideRouter, Router } from '@angular/router';
 import { By } from '@angular/platform-browser';
 import { provideHttpClientTesting } from '@angular/common/http/testing';
 import { ABILITY_ROUTE } from './ability.route';
+import { Transparency } from '../../../../shared/directives/transparency';
 
 describe('Ability', () => {
   let component: Ability;
@@ -43,11 +44,15 @@ describe('Ability', () => {
     expect(component.abilities()).toBeTruthy();
   });
 
-  it('should apply expected transparent value', async () => {
-    transparentBinding.set(false);
+  it('should apply expected transparent value to transparency directive', async () => {
+    const element = fixture.debugElement.query(By.directive(Transparency));
+
+    transparentBinding.set(true);
     compiled.dispatchEvent(new Event('input'));
     await fixture.whenStable();
-    expect(compiled.classList.contains('transparent')).toBe(false);
+
+    expect(component.isTransparent()).toBe(true);
+    expect(element.injector.get(Transparency).transparency()).toBe(true);
   });
 
   it('should render name ability on the dom', async () => {
