@@ -1,0 +1,17 @@
+@if (isLoading()) {
+  <div class="loading-container">
+    <p>Carregando estatísticas do Pokémon...</p>
+  </div>
+} @else if (error()) {
+  <div class="error-container">
+    <p>Erro ao carregar as estatísticas deste Pokémon.</p>
+  </div>
+} @else {
+  @if (stats().length > 0) {
+    <app-stats [stats]="stats()"></app-stats>
+  } @else {
+    <div class="no-stats">
+      <p>Nenhuma estatística disponível para este Pokémon.</p>
+    </div>
+  }
+}

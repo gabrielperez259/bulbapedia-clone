@@ -3,7 +3,10 @@ import { Route } from '@angular/router';
 export const SIDEBAR_ROUTES: Route[] = [
   {
     path: 'stats',
-    loadComponent: () => import('../stats/stats').then((m) => m.Stats),
+    loadComponent: () =>
+      import('../../pages/pokemon-list/pokemon-details/pokemon-stats/pokemon-stats').then(
+        (m) => m.PokemonStats,
+      ),
   },
   {
     path: 'moves',

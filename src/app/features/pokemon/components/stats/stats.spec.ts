@@ -14,6 +14,10 @@ describe('Stats', () => {
 
     fixture = TestBed.createComponent(Stats);
     component = fixture.componentInstance;
+    fixture.componentRef.setInput('stats', [
+      { base_stat: 45, effort: 0, stat: { name: 'hp', url: '' } },
+      { base_stat: 49, effort: 0, stat: { name: 'attack', url: '' } },
+    ]);
     fixture.detectChanges();
   });
 
