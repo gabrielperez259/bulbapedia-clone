@@ -1,6 +1,7 @@
 import { Component, computed, inject } from '@angular/core';
 import { PokemonDetailsDataClient } from '../../../../services/pokemon-details.data-client';
 import { SpriteCard } from '../../../../components/sprite-card/sprite-card';
+import { GenerationSpritesCard } from "../../../../components/generation-sprites-card/generation-sprites-card";
 
 export interface SpriteItem {
   url: string;
@@ -10,7 +11,7 @@ export interface SpriteItem {
 @Component({
   selector: 'app-pokemon-sprites',
   standalone: true,
-  imports: [SpriteCard],
+  imports: [SpriteCard, GenerationSpritesCard],
   templateUrl: './pokemon-sprites.html',
   styleUrl: './pokemon-sprites.scss',
 })
