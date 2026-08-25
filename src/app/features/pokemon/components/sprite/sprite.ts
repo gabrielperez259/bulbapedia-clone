@@ -3,7 +3,6 @@ import {
   computed,
   input,
   numberAttribute,
-  ChangeDetectionStrategy,
 } from '@angular/core';
 
 @Component({

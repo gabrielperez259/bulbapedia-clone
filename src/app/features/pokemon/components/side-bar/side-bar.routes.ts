@@ -19,4 +19,11 @@ export const SIDEBAR_ROUTES: Route[] = [
         (m) => m.PokemonEvolutions,
       ),
   },
+  {
+    path: 'sprites',
+    loadComponent: () =>
+      import('../../pages/pokemon-list/pokemon-details/pokemon-sprites/pokemon-sprites').then(
+        (m) => m.PokemonSprites,
+      ),
+  },
 ];

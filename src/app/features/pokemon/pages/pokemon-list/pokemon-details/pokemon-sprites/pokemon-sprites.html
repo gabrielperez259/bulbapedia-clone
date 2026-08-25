@@ -1,0 +1,23 @@
+@if (isLoading()) {
+  <div class="loading-container">
+    <p>Carregando sprites do Pokémon...</p>
+  </div>
+} @else if (error()) {
+  <div class="error-container">
+    <p>Erro ao carregar os sprites deste Pokémon.</p>
+  </div>
+} @else {
+  <div class="sprites-page-container">
+    <h2 class="sprites-title">Sprites Gallery</h2>
+    
+    @if (spriteList().length > 0) {
+      <div class="sprites-grid">
+        @for (sprite of spriteList(); track sprite.url) {
+          <app-sprite-card [imageUrl]="sprite.url" [label]="sprite.label" />
+        }
+      </div>
+    } @else {
+      <p class="no-sprites">Nenhum sprite disponível para este Pokémon.</p>
+    }
+  </div>
+}
