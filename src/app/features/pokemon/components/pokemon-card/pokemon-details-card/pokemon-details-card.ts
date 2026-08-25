@@ -1,6 +1,5 @@
 import { Component, input } from '@angular/core';
 import { Card } from '../../../../../shared/components/card/card';
-import { Flex } from '../../../../../shared/components/flex/flex';
 import { IndexNumber } from '../../index-number/index-number';
 import { Name } from '../../name/name';
 import { Sprite } from '../../sprite/sprite';
@@ -15,7 +14,6 @@ import { CleanTextPipe } from "../../../../../shared/pipes/clean-text.pipe";
   selector: 'app-pokemon-details-card',
   imports: [
     Card,
-    Flex,
     IndexNumber,
     Name,
     Sprite,
@@ -29,6 +27,5 @@ import { CleanTextPipe } from "../../../../../shared/pipes/clean-text.pipe";
   styleUrl: './pokemon-details-card.scss',
 })
 export class PokemonDetailsCard {
-  // TODO(#004) : No html, substituir o component "app-flex" por uma tag <div> com display: flex 
   public pokemon = input.required<Pokemon | undefined>();
 }

@@ -1,18 +1,16 @@
 import { Component, input } from '@angular/core';
-import { CapitalizeWordsPipe } from '../../../../shared/pipes/capitalize-word.pipe';
 import { Pokemon } from '../../models/pokemon';
-import { Flex } from '../../../../shared/components/flex/flex';
 import { Transparency } from '../../../../shared/directives/transparency';
 import { RouterLink } from '@angular/router';
+import { CleanTextPipe } from "../../../../shared/pipes/clean-text.pipe";
 
 @Component({
   selector: 'app-ability',
-  imports: [CapitalizeWordsPipe, Flex, Transparency, RouterLink ],
+  imports: [Transparency, RouterLink, CleanTextPipe],
   templateUrl: './ability.html',
   styleUrl: './ability.scss',
 })
 export class Ability {
-  // TODO(#004) : No html, substituir o component "app-flex" por uma tag <div> com display: flex 
   public abilities = input.required<Pokemon['abilities'] | undefined>();
   public isTransparent = input.required<boolean>();
 }

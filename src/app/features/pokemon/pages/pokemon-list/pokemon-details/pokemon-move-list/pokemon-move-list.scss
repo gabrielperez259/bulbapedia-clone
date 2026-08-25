@@ -12,8 +12,8 @@
 
 .search-container {    
   display: flex;
-  flex-wrap: wrap;
-  align-items: center;
+  flex-direction: column;
+  align-items: stretch;
   justify-content: center;
   background: ds.$bg-card;
   backdrop-filter: blur(10px);
@@ -23,12 +23,17 @@
   gap: ds.$space-sm;
   width: 100%;    
   box-shadow: ds.$glass-shadow;
+
+  @media (min-width: 768px) {
+    flex-direction: row;
+    align-items: center;
+  }
 }
 
 .selection-bar-container {
   color: ds.$text-main;
   flex: 1;
-  min-width: 160px;
+  width: 100%;
 }
 
 table {

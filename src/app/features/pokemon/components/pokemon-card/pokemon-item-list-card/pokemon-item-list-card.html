@@ -1,5 +1,5 @@
 <app-card [isTransparent]="false">
-    <app-flex>
+    <div style="display: flex; gap: 10px;">
         <app-index-number
             select="card-header"
             [isTransparent]="false"
@@ -10,7 +10,7 @@
             [pokemonName]="pokemon()?.name" 
             [route]="route()"
         />
-    </app-flex>
+    </div>
     <app-sprite select="card-body" 
         [title]="pokemon()?.name" 
         [id]="pokemon()?.url | extractId" 

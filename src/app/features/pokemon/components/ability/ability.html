@@ -1,15 +1,15 @@
 <div class="ability-container" [transparency]="isTransparent()">
     <span class="ability-title"> ABILITIES </span>
-    <app-flex>
+    <div class="abilities-flex">
     @for (ability of abilities(); track $index) {
     
         <button class="ability-button">  
-            <a class="ability-link" routerLink='../ability/{{ability.ability.name}}'>
-                <span class="ability-name-span"> {{ability.ability.name.split('-').join(' ') | capitalizeWords }}</span>    
+            <a class="ability-link" [routerLink]="['../ability', ability.ability.name]">
+                <span class="ability-name-span"> {{ability.ability.name | cleanText }}</span>    
             </a>    
         </button>
     
     }
-    </app-flex> 
+    </div> 
 </div>
 

@@ -12,59 +12,26 @@
   width: 100%;
 }
 
-mat-button-toggle-group {
+.gen-select {
+  width: 100%;
+  padding: ds.$space-sm ds.$space-md;
   background: ds.$bg-card;
+  color: ds.$text-main;
   backdrop-filter: blur(10px);
-  border: 1px solid ds.$glass-border !important;
-  border-radius: ds.$radius-lg !important;
-  margin: 0;
-  width: 100%;
+  border: 1px solid ds.$glass-border;
+  border-radius: ds.$radius-md;
   box-shadow: ds.$glass-shadow;
-  overflow: hidden;
-  display: grid !important; 
-  grid-template-columns: repeat(9, 1fr); 
-
-  @media (max-width: 992px) {
-    grid-template-columns: repeat(3, 1fr);
-  }
-
-  @media (max-width: 480px) {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-mat-button-toggle {
-  color: ds.$text-muted;   
-  background: transparent;
-  text-align: center;
-  width: 100%;
-  font-size: 0.85rem;
-  font-weight: 600;
-  border: none !important; 
+  font-size: 0.95rem;
+  outline: none;
+  cursor: pointer;
   transition: all 0.2s ease;
 
-  ::ng-deep .mat-button-toggle-label-content {
-    padding: 0 8px !important;
-    line-height: 38px !important;
+  &:hover, &:focus {
+    border-color: ds.$accent-color;
   }
 
-  &.mat-button-toggle-checked {
-    color: white;
-    background: ds.$accent-gradient;
-    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.2);
-  }
-
-  &:hover:not(.mat-button-toggle-checked) {
-    color: white;
-    background: rgba(255, 255, 255, 0.05);
-  }
-
-  @media (max-width: 767px) {
-    font-size: 0.75rem;
-    
-    ::ng-deep .mat-button-toggle-label-content {
-      padding: 0 4px !important;
-      line-height: 34px !important;
-    }
+  option {
+    background-color: #0f172a;
+    color: ds.$text-main;
   }
 }

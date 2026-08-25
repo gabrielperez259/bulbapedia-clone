@@ -1,6 +1,5 @@
-import { Component, effect, input, model, output, ChangeDetectionStrategy } from '@angular/core';
+import { Component, effect, input, model, output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { CleanTextPipe } from '../../../../shared/pipes/clean-text.pipe';
 
 @Component({
   selector: 'app-selection-bar',
@@ -14,7 +13,6 @@ export class SelectionBar {
   values = input<string[]>([]);
   selectedOption = model<string>(this.initialValue());
   selectedOptionOutput = output<string>();
-  route = input<string>('');
 
   initialValueEffect = effect(() => this.selectedOption.set(this.initialValue()));
 

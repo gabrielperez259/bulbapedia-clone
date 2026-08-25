@@ -14,6 +14,7 @@ describe('Name', () => {
   let transparentBinding = signal<boolean | null>(null);
   let pokemonNameBinding = signal<string | null>(null);
   let routeBinding = signal<string | null>(null);
+  
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [Name],
