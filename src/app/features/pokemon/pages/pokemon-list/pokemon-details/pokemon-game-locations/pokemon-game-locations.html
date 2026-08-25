@@ -1,0 +1,21 @@
+@if (isLoading()) {
+  <div class="loading-container">
+    <p>Carregando locais de jogo do Pokémon...</p>
+  </div>
+} @else if (error()) {
+  <div class="error-container">
+    <p>Erro ao carregar os locais de jogo deste Pokémon.</p>
+  </div>
+} @else {
+  <div class="locations-page-container">
+    @if (generationGroups().length > 0) {
+      @for (group of generationGroups(); track group.generationTitle) {
+        <app-game-locations-card [group]="group" />
+      }
+    } @else {
+      <div class="no-locations">
+        <p>Nenhum local de encontro em jogos encontrado para este Pokémon.</p>
+      </div>
+    }
+  </div>
+}

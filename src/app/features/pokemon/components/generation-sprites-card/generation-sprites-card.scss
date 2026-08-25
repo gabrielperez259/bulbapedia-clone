@@ -1,0 +1,40 @@
+@use '../../../../styles/utils' as ds;
+
+:host {
+  display: block;
+  width: 100%;
+}
+
+.generation-card-container {
+  background: ds.$bg-card;
+  backdrop-filter: blur(10px);
+  border: 1px solid ds.$glass-border;
+  border-radius: ds.$radius-md;
+  box-shadow: ds.$glass-shadow;
+  overflow: hidden;
+  margin-bottom: ds.$space-md;
+}
+
+.card-header {
+  background: rgba(15, 23, 42, 0.8);
+  padding: ds.$space-sm ds.$space-md;
+  border-bottom: 1px solid ds.$glass-border;
+
+  .generation-title {
+    color: ds.$text-main;
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin: 0;
+  }
+}
+
+.card-body {
+  padding: ds.$space-md;
+}
+
+.sprites-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+  gap: ds.$space-md;
+  align-items: stretch;
+}

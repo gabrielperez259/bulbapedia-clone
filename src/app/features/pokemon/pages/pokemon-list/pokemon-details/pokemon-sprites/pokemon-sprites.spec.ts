@@ -48,18 +48,19 @@ describe('PokemonSprites', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should generate spriteList correctly from details', () => {
-    const list = component.spriteList();
-    expect(list.length).toBe(5);
-    expect(list[0]).toEqual({
-      url: 'artwork_url',
-      label: 'Official Artwork',
-      category: 'artwork',
-    });
-    expect(list[1]).toEqual({
-      url: 'front_default_url',
-      label: 'Front Default',
-      category: 'default',
-    });
+  it('should generate generationGroups with Official Artwork and Default groups', () => {
+    const groups = component.generationGroups();
+    // Deve ter pelo menos o grupo 'Official Artwork' e 'Default & Latest Sprites'
+    expect(groups.length).toBeGreaterThanOrEqual(2);
+
+    const artworkGroup = groups.find((g) => g.generationTitle === 'Official Artwork');
+    expect(artworkGroup).toBeTruthy();
+    expect(artworkGroup!.sprites[0].url).toBe('artwork_url');
+    expect(artworkGroup!.sprites[0].label).toBe('Official Artwork');
+
+    const defaultGroup = groups.find((g) => g.generationTitle === 'Default & Latest Sprites');
+    expect(defaultGroup).toBeTruthy();
+    const frontDefault = defaultGroup!.sprites.find((s) => s.label === 'Front Default');
+    expect(frontDefault?.url).toBe('front_default_url');
   });
 });

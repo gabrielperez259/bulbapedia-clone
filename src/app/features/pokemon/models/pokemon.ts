@@ -9,6 +9,7 @@ export interface Pokemon {
   id: number;
   name: string;
   is_default: boolean;
+  location_area_encounters: string;
   species: Species;
   sprites: Sprite;
   types: Type[];

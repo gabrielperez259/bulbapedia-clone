@@ -1,0 +1,25 @@
+<div class="locations-card-container">
+  <div class="card-header">
+    <h3 class="generation-title">{{ group().generationTitle }}</h3>
+  </div>
+  <div class="card-body">
+    @for (gameRow of group().games; track gameRow.gameName) {
+      <div class="game-row">
+        <div class="game-name-col">
+          <span class="game-badge">{{ gameRow.gameName | cleanText }}</span>
+        </div>
+        <div class="locations-col">
+          @if (gameRow.locations.length > 0) {
+            <ul class="location-list">
+              @for (loc of gameRow.locations; track loc) {
+                <li class="location-item">{{ loc | cleanText }}</li>
+              }
+            </ul>
+          } @else {
+            <span class="no-location">Não encontrado neste jogo</span>
+          }
+        </div>
+      </div>
+    }
+  </div>
+</div>

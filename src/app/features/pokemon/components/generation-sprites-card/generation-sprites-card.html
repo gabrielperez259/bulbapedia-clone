@@ -1,0 +1,12 @@
+<div class="generation-card-container">
+  <div class="card-header">
+    <h3 class="generation-title">{{ group().generationTitle }}</h3>
+  </div>
+  <div class="card-body">
+    <div class="sprites-grid">
+      @for (item of group().sprites; track item.url) {
+        <app-sprite-card [imageUrl]="item.url" [label]="item.label" />
+      }
+    </div>
+  </div>
+</div>

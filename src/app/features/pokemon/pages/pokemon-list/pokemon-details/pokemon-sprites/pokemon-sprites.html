@@ -8,14 +8,10 @@
   </div>
 } @else {
   <div class="sprites-page-container">
-    <h2 class="sprites-title">Sprites Gallery</h2>
-    
-    @if (spriteList().length > 0) {
-      <div class="sprites-grid">
-        @for (sprite of spriteList(); track sprite.url) {
-          <app-sprite-card [imageUrl]="sprite.url" [label]="sprite.label" />
-        }
-      </div>
+    @if (generationGroups().length > 0) {
+      @for (group of generationGroups(); track group.generationTitle) {
+        <app-generation-sprites-card [group]="group" />
+      }
     } @else {
       <p class="no-sprites">Nenhum sprite disponível para este Pokémon.</p>
     }

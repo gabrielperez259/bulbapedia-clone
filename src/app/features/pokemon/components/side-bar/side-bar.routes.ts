@@ -29,4 +29,11 @@ export const SIDEBAR_ROUTES: Route[] = [
         (m) => m.PokemonSprites,
       ),
   },
+  {
+    path: 'locations',
+    loadComponent: () =>
+      import('../../pages/pokemon-list/pokemon-details/pokemon-game-locations/pokemon-game-locations').then(
+        (m) => m.PokemonGameLocations,
+      ),
+  },
 ];

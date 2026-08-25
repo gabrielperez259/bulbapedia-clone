@@ -5,7 +5,6 @@ import { SpriteCard } from '../../../../components/sprite-card/sprite-card';
 export interface SpriteItem {
   url: string;
   label: string;
-  category: 'default' | 'shiny' | 'female' | 'artwork';
 }
 
 @Component({
@@ -29,44 +28,10 @@ export class PokemonSprites {
     const items: SpriteItem[] = [];
     const s = details.sprites;
 
-    // Official Artwork
-    if (s.other?.['official-artwork']?.front_default) {
-      items.push({
-        url: s.other['official-artwork'].front_default,
-        label: 'Official Artwork',
-        category: 'artwork',
-      });
-    }
-
-    // Default
-    if (s.front_default) {
-      items.push({ url: s.front_default, label: 'Front Default', category: 'default' });
-    }
-    if (s.back_default) {
-      items.push({ url: s.back_default, label: 'Back Default', category: 'default' });
-    }
-
-    // Shiny
-    if (s.front_shiny) {
-      items.push({ url: s.front_shiny, label: 'Front Shiny', category: 'shiny' });
-    }
-    if (s.back_shiny) {
-      items.push({ url: s.back_shiny, label: 'Back Shiny', category: 'shiny' });
-    }
-
-    // Female
-    if (s.front_female) {
-      items.push({ url: s.front_female, label: 'Front Female', category: 'female' });
-    }
-    if (s.back_female) {
-      items.push({ url: s.back_female, label: 'Back Female', category: 'female' });
-    }
-    if (s.front_shiny_female) {
-      items.push({ url: s.front_shiny_female, label: 'Front Shiny Female', category: 'female' });
-    }
-    if (s.back_shiny_female) {
-      items.push({ url: s.back_shiny_female, label: 'Back Shiny Female', category: 'female' });
-    }
+    if (s.front_default) items.push({ url: s.front_default, label: 'Front Default' });
+    if (s.back_default) items.push({ url: s.back_default, label: 'Back Default' });
+    if (s.front_shiny) items.push({ url: s.front_shiny, label: 'Front Shiny' });
+    if (s.back_shiny) items.push({ url: s.back_shiny, label: 'Back Shiny' });
 
     return items;
   });
