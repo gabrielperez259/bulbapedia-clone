@@ -29,7 +29,24 @@
 }
 
 .card-body {
+  display: flex;
+  flex-direction: column;
+}
+
+.game-sprites {
   padding: ds.$space-md;
+  border-bottom: 1px solid ds.$glass-border;
+
+  &:last-child {
+    border-bottom: none;
+  }
+}
+
+.game-title {
+  color: ds.$accent-color;
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin: 0 0 ds.$space-sm;
 }
 
 .sprites-grid {

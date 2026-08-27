@@ -7,30 +7,11 @@
 
 .sprites-page-container {
   width: 100%;
-  background: ds.$bg-card;
-  backdrop-filter: blur(10px);
-  border: 1px solid ds.$glass-border;
-  border-radius: ds.$radius-md;
-  padding: ds.$space-md;
-  box-shadow: ds.$glass-shadow;
 }
 
-.sprites-title {
-  color: ds.$text-main;
-  font-size: 1.25rem;
-  font-weight: bold;
-  margin-bottom: ds.$space-md;
-  border-bottom: 1px solid ds.$glass-border;
-  padding-bottom: ds.$space-xs;
-}
-
-.sprites-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
-  gap: ds.$space-md;
-}
-
-.loading-container, .error-container, .no-sprites {
+.loading-container,
+.error-container,
+.no-sprites {
   color: ds.$text-muted;
   text-align: center;
   padding: ds.$space-lg;

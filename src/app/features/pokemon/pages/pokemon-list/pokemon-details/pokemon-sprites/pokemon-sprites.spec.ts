@@ -17,9 +17,23 @@ describe('PokemonSprites', () => {
         back_default: 'back_default_url',
         front_shiny: 'front_shiny_url',
         back_shiny: 'back_shiny_url',
-        other: {
-          'official-artwork': {
-            front_default: 'artwork_url',
+        versions: {
+          'generation-ix': {
+            'scarlet-violet': {
+              front_default: 'sv_front',
+            },
+          },
+          'generation-i': {
+            'red-blue': {
+              front_default: 'rb_front',
+              back_default: 'rb_back',
+              front_shiny: null,
+              back_shiny: null,
+            },
+            yellow: {
+              front_default: null,
+              back_default: null,
+            },
           },
         },
       },
@@ -41,26 +55,37 @@ describe('PokemonSprites', () => {
 
     fixture = TestBed.createComponent(PokemonSprites);
     component = fixture.componentInstance;
-    fixture.detectChanges();
+    await fixture.whenStable();
   });
 
   it('should create', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should generate generationGroups with Official Artwork and Default groups', () => {
+  it('should group sprites by generation and game, omitting missing sprites', () => {
     const groups = component.generationGroups();
-    // Deve ter pelo menos o grupo 'Official Artwork' e 'Default & Latest Sprites'
-    expect(groups.length).toBeGreaterThanOrEqual(2);
 
-    const artworkGroup = groups.find((g) => g.generationTitle === 'Official Artwork');
-    expect(artworkGroup).toBeTruthy();
-    expect(artworkGroup!.sprites[0].url).toBe('artwork_url');
-    expect(artworkGroup!.sprites[0].label).toBe('Official Artwork');
+    expect(groups.map((group) => group.generationTitle)).toEqual([
+      'Generation I',
+      'Generation IX',
+    ]);
 
-    const defaultGroup = groups.find((g) => g.generationTitle === 'Default & Latest Sprites');
-    expect(defaultGroup).toBeTruthy();
-    const frontDefault = defaultGroup!.sprites.find((s) => s.label === 'Front Default');
-    expect(frontDefault?.url).toBe('front_default_url');
+    expect(groups[0].games).toHaveLength(1);
+    expect(groups[0].games[0].gameName).toBe('red-blue');
+    expect(groups[0].games[0].sprites).toEqual([
+      { url: 'rb_front', label: 'Front Default' },
+      { url: 'rb_back', label: 'Back Default' },
+    ]);
+
+    expect(groups[1].games[0].gameName).toBe('scarlet-violet');
+    expect(groups[1].games[0].sprites).toEqual([{ url: 'sv_front', label: 'Front Default' }]);
+  });
+
+  it('should render generation cards', () => {
+    const titles = Array.from(
+      fixture.nativeElement.querySelectorAll('.generation-title') as NodeListOf<HTMLElement>,
+    ).map((el) => el.textContent);
+
+    expect(titles).toEqual(['Generation I', 'Generation IX']);
   });
 });

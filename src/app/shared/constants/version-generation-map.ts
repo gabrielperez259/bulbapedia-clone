@@ -15,6 +15,18 @@ export const GENERATION_ORDER: Record<string, GenerationMeta> = {
   'gen-9': { order: 9, title: 'Generation IX' },
 };
 
+export const SPRITE_VERSION_GENERATION: Record<string, string> = {
+  'generation-i': 'gen-1',
+  'generation-ii': 'gen-2',
+  'generation-iii': 'gen-3',
+  'generation-iv': 'gen-4',
+  'generation-v': 'gen-5',
+  'generation-vi': 'gen-6',
+  'generation-vii': 'gen-7',
+  'generation-viii': 'gen-8',
+  'generation-ix': 'gen-9',
+};
+
 export const VERSION_TO_GENERATION: Record<string, string> = {
   // Gen 1
   red: 'gen-1',

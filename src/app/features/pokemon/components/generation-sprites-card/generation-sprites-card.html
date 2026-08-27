@@ -1,12 +1,17 @@
-<div class="generation-card-container">
+<section class="generation-card-container" [attr.aria-labelledby]="headingId()">
   <div class="card-header">
-    <h3 class="generation-title">{{ group().generationTitle }}</h3>
+    <h3 class="generation-title" [id]="headingId()">{{ group().generationTitle }}</h3>
   </div>
   <div class="card-body">
-    <div class="sprites-grid">
-      @for (item of group().sprites; track item.url) {
-        <app-sprite-card [imageUrl]="item.url" [label]="item.label" />
-      }
-    </div>
+    @for (game of group().games; track game.gameName) {
+      <section class="game-sprites" [attr.aria-labelledby]="gameHeadingId(game.gameName)">
+        <h4 class="game-title" [id]="gameHeadingId(game.gameName)">{{ game.gameName | cleanText }}</h4>
+        <div class="sprites-grid">
+          @for (item of game.sprites; track item.url) {
+            <app-sprite-card [imageUrl]="item.url" [label]="item.label" />
+          }
+        </div>
+      </section>
+    }
   </div>
-</div>
+</section>

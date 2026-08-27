@@ -8,9 +8,9 @@
   </div>
 } @else {
   <div class="sprites-page-container">
-    @if (spriteList().length > 0) {
-      @for (sprite of spriteList(); track sprite.label) {
-        <app-sprite-card [imageUrl]="sprite.url" [label]="sprite.label" />
+    @if (generationGroups().length > 0) {
+      @for (group of generationGroups(); track group.generationTitle) {
+        <app-generation-sprites-card [group]="group" />
       }
     } @else {
       <p class="no-sprites">Nenhum sprite disponível para este Pokémon.</p>

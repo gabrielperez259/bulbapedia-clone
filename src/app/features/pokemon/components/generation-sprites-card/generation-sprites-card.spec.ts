@@ -15,28 +15,43 @@ describe('GenerationSpritesCard', () => {
     component = fixture.componentInstance;
   });
 
-  it('should create', () => {
+  it('should create', async () => {
     fixture.componentRef.setInput('group', {
       generationTitle: 'Generation I',
-      sprites: [
-        { url: 'https://example.com/front.png', label: 'Front Default' },
-        { url: 'https://example.com/back.png', label: 'Back Default' },
+      games: [
+        {
+          gameName: 'red-blue',
+          sprites: [
+            { url: 'https://example.com/front.png', label: 'Front Default' },
+            { url: 'https://example.com/back.png', label: 'Back Default' },
+          ],
+        },
       ],
     });
-    fixture.detectChanges();
+    await fixture.whenStable();
     expect(component).toBeTruthy();
   });
 
-  it('should render title and sprites', () => {
+  it('should render generation title, game name, and sprites', async () => {
     fixture.componentRef.setInput('group', {
       generationTitle: 'Generation I',
-      sprites: [
-        { url: 'https://example.com/front.png', label: 'Front Default' },
+      games: [
+        {
+          gameName: 'red-blue',
+          sprites: [{ url: 'https://example.com/front.png', label: 'Front Default' }],
+        },
       ],
     });
-    fixture.detectChanges();
+    await fixture.whenStable();
 
     const titleEl: HTMLElement = fixture.nativeElement.querySelector('.generation-title');
+    const gameTitleEl: HTMLElement = fixture.nativeElement.querySelector('.game-title');
+    const imgEl: HTMLImageElement = fixture.nativeElement.querySelector('img');
+    const labelEl: HTMLElement = fixture.nativeElement.querySelector('.sprite-label');
+
     expect(titleEl.textContent).toBe('Generation I');
+    expect(gameTitleEl.textContent).toContain('Red Blue');
+    expect(imgEl.src).toContain('https://example.com/front.png');
+    expect(labelEl.textContent).toBe('Front Default');
   });
 });
