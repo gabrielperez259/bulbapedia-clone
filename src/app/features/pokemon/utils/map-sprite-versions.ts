@@ -1,4 +1,7 @@
-import { GENERATION_ORDER, SPRITE_VERSION_GENERATION } from '../../../shared/constants/version-generation-map';
+import {
+  GENERATION_ORDER,
+  SPRITE_VERSION_GENERATION,
+} from '../../../shared/constants/version-generation-map';
 import { SpriteVersionSet, SpriteVersions } from '../models/sprites/sprites';
 import {
   GameSpriteGroup,
@@ -33,7 +36,9 @@ function spritesFromVersionSet(set: SpriteVersionSet | undefined): SpriteGroupIt
   return items;
 }
 
-function gamesFromGeneration(games: Record<string, SpriteVersionSet> | undefined): GameSpriteGroup[] {
+function gamesFromGeneration(
+  games: Record<string, SpriteVersionSet> | undefined,
+): GameSpriteGroup[] {
   if (!games) return [];
 
   const groups: GameSpriteGroup[] = [];
@@ -48,17 +53,30 @@ function gamesFromGeneration(games: Record<string, SpriteVersionSet> | undefined
 
 export function mapSpriteVersionsToGroups(
   versions: SpriteVersions | null | undefined,
+  introducedGeneration?: string,
 ): GenerationSpriteGroup[] {
   if (!versions) return [];
 
+  const introducedGenerationKey = introducedGeneration
+    ? SPRITE_VERSION_GENERATION[introducedGeneration]
+    : undefined;
+  const introducedGenerationOrder = introducedGenerationKey
+    ? GENERATION_ORDER[introducedGenerationKey]?.order
+    : undefined;
   const groups: (GenerationSpriteGroup & { order: number })[] = [];
 
   for (const [generationKey, games] of Object.entries(versions)) {
-    const gameGroups = gamesFromGeneration(games);
-    if (gameGroups.length === 0) continue;
-
     const genKey = SPRITE_VERSION_GENERATION[generationKey];
     const genMeta = genKey ? GENERATION_ORDER[genKey] : undefined;
+    if (
+      introducedGenerationOrder !== undefined &&
+      (genMeta?.order ?? 999) < introducedGenerationOrder
+    ) {
+      continue;
+    }
+
+    const gameGroups = gamesFromGeneration(games);
+    if (gameGroups.length === 0) continue;
 
     groups.push({
       generationTitle: genMeta?.title ?? generationKey,

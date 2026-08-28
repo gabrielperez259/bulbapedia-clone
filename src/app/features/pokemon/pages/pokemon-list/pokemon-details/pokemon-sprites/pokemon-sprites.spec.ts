@@ -3,6 +3,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { signal } from '@angular/core';
 import { PokemonSprites } from './pokemon-sprites';
 import { PokemonDetailsDataClient } from '../../../../services/pokemon-details.data-client';
+import { PokemonSpeciesDetailsDataClient } from '../../../../services/pokemon-species-details-data-client';
 
 describe('PokemonSprites', () => {
   let component: PokemonSprites;
@@ -42,6 +43,14 @@ describe('PokemonSprites', () => {
     pokemonDetailsError: signal(false),
   };
 
+  const mockPokemonSpeciesDetailsDataClient = {
+    pokemonSpeciesDetails: signal({
+      generation: { name: 'generation-i', url: 'https://pokeapi.co/api/v2/generation/1/' },
+    }),
+    pokemonSpeciesDetailsLoading: signal(false),
+    pokemonSpeciesDetailsError: signal(null),
+  };
+
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [PokemonSprites],
@@ -49,6 +58,10 @@ describe('PokemonSprites', () => {
         {
           provide: PokemonDetailsDataClient,
           useValue: mockPokemonDetailsDataClient,
+        },
+        {
+          provide: PokemonSpeciesDetailsDataClient,
+          useValue: mockPokemonSpeciesDetailsDataClient,
         },
       ],
     }).compileComponents();
@@ -65,10 +78,7 @@ describe('PokemonSprites', () => {
   it('should group sprites by generation and game, omitting missing sprites', () => {
     const groups = component.generationGroups();
 
-    expect(groups.map((group) => group.generationTitle)).toEqual([
-      'Generation I',
-      'Generation IX',
-    ]);
+    expect(groups.map((group) => group.generationTitle)).toEqual(['Generation I', 'Generation IX']);
 
     expect(groups[0].games).toHaveLength(1);
     expect(groups[0].games[0].gameName).toBe('red-blue');

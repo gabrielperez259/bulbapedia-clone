@@ -65,7 +65,9 @@ describe('mapSpriteVersionsToGroups', () => {
     const labels = groups[0].games[0].sprites.map((sprite) => sprite.label);
 
     expect(labels).toEqual(['Front Default', 'Back Default', 'Front Shiny', 'Back Shiny']);
-    expect(groups[0].games[0].sprites.some((sprite) => sprite.url.includes('animated'))).toBe(false);
+    expect(groups[0].games[0].sprites.some((sprite) => sprite.url.includes('animated'))).toBe(
+      false,
+    );
   });
 
   it('should keep generation I without shiny sprites when they do not exist', () => {
@@ -122,4 +124,34 @@ describe('mapSpriteVersionsToGroups', () => {
     const titles = mapSpriteVersionsToGroups(versions).map((group) => group.generationTitle);
     expect(titles).toEqual(['Generation I', 'Generation V', 'Generation IX']);
   });
+
+  it.each([
+    ['generation-vi', ['Generation VI', 'Generation VII', 'Generation VIII']],
+    ['generation-vii', ['Generation VII', 'Generation VIII']],
+    ['generation-viii', ['Generation VIII']],
+  ])(
+    'should discard sprite generations before a Pokémon introduced in %s',
+    (introducedGeneration, expectedTitles) => {
+      const versions: SpriteVersions = {
+        'generation-v': {
+          'black-white': { front_default: 'https://example.com/bw.png' },
+        },
+        'generation-vi': {
+          'x-y': { front_default: 'https://example.com/xy.png' },
+        },
+        'generation-vii': {
+          'ultra-sun-ultra-moon': { front_default: 'https://example.com/usum.png' },
+        },
+        'generation-viii': {
+          'sword-shield': { front_default: 'https://example.com/swsh.png' },
+        },
+      };
+
+      const titles = mapSpriteVersionsToGroups(versions, introducedGeneration).map(
+        (group) => group.generationTitle,
+      );
+
+      expect(titles).toEqual(expectedTitles);
+    },
+  );
 });
