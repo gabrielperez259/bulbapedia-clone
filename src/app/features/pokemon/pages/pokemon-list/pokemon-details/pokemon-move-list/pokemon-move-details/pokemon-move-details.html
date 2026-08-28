@@ -1,14 +1,13 @@
 <td>{{this.learnedAtLevel()}}</td>
 <td>{{this.movesDataClient.moveName() | cleanText}}</td> 
-<td [style.background-color]="$safeNavigationMigration(this.movesDataClient.moveType()?.name) | cleanText | colorType" 
+<td [style.background-color]="$safeNavigationMigration(this.moveDetails()?.type?.name) | cleanText | colorType"
     style="color: white; font-weight: 600;">
-    {{$safeNavigationMigration(this.movesDataClient.moveType()?.name) | cleanText}}
+    {{$safeNavigationMigration(this.moveDetails()?.type?.name) | cleanText}}
 </td>
-<td [style.background-color]="$safeNavigationMigration(this.movesDataClient.moveDamageClass()?.name) | cleanText | colorType"
+<td [style.background-color]="$safeNavigationMigration(this.moveDetails()?.damage_class?.name) | cleanText | colorType"
     style="color: white; font-weight: 600;">
-    {{$safeNavigationMigration(this.movesDataClient.moveDamageClass()?.name) | cleanText}}
+    {{$safeNavigationMigration(this.moveDetails()?.damage_class?.name) | cleanText}}
 </td>
-<td>{{this.movesDataClient.movePower() ?? '-'}}</td>
-<td>{{this.movesDataClient.moveAccuracy() | formatStat}}</td>
-<td>{{this.movesDataClient.movePP() ?? '-'}}</td>
-
+<td>{{this.moveDetails()?.power ?? '-'}}</td>
+<td>{{this.moveDetails()?.accuracy | formatStat}}</td>
+<td>{{this.moveDetails()?.pp ?? '-'}}</td>

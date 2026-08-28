@@ -35,14 +35,12 @@
                 <tr app-pokemon-move-details 
                     [moveName]="move.move.name" 
                     [learnedAtLevel]="move.level"
-                    [learnMethod]="move.method"> 
+                    [learnMethod]="move.method"
+                    [versionGroup]="this.version()">
                 </tr>
             }   
 
         </tbody>
     </table>    
-</div>
-
-
-
-
+    </div>
+  </div>
