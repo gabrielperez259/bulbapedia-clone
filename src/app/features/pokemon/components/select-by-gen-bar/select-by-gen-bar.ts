@@ -1,4 +1,4 @@
-import { Component, output } from '@angular/core';
+import { Component, input, output } from '@angular/core';
 import { GenValues } from '../../../../shared/utils/gen-values';
 import { SelectByGenBarInterface } from './select-by-gen-bar.interface';
 
@@ -9,11 +9,11 @@ import { SelectByGenBarInterface } from './select-by-gen-bar.interface';
   styleUrl: './select-by-gen-bar.scss',
 })
 export class SelectByGenBar {
-  readonly genValue = output<string>();
+  readonly selectedGeneration = input.required<GenValues>();
+  readonly genValue = output<GenValues>();
 
   public onGenChange(event: Event) {
-    const value = (event.target as HTMLSelectElement).value;
-    this.genValue.emit(value);
+    this.genValue.emit((event.target as HTMLSelectElement).value as GenValues);
   }
 
   readonly genOptions: SelectByGenBarInterface[] = [

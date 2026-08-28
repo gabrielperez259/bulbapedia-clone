@@ -1,5 +1,10 @@
 <div class="container">
-  <select class="gen-select" (change)="onGenChange($event)" aria-label="Select Generation">
+  <select
+    class="gen-select"
+    [value]="selectedGeneration()"
+    (change)="onGenChange($event)"
+    aria-label="Select Generation"
+  >
     @for (gen of genOptions; track gen.genValue) {
       <option [value]="gen.genValue">{{ gen.title }}</option>
     }

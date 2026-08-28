@@ -1,4 +1,4 @@
-@use "../../../../styles/utils" as ds;
+@use '../../../../styles/utils' as ds;
 
 // Container principal da listagem
 .pokemon-list-container {
@@ -27,7 +27,7 @@
   .select-wrapper,
   app-select-by-gen-bar {
     width: 100%;
-  } 
+  }
 
   app-search-bar {
     width: 100%;
@@ -42,7 +42,7 @@
     .select-wrapper,
     app-select-by-gen-bar {
       width: auto;
-    } 
+    }
 
     app-search-bar {
       width: 100%;
@@ -54,7 +54,7 @@
 // Grid Responsiva Nativa
 .pokemon-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); 
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
   gap: 1rem;
   width: 100%;
 
@@ -82,10 +82,38 @@
   max-width: 500px;
 }
 
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 2rem;
+  color: ds.$text-muted;
+
+  button {
+    padding: 0.5rem 0.75rem;
+    border: 1px solid ds.$glass-border;
+    border-radius: ds.$radius-lg;
+    background: ds.$bg-card;
+    color: inherit;
+    cursor: pointer;
+
+    &:disabled {
+      cursor: not-allowed;
+      opacity: 0.5;
+    }
+  }
+}
+
 // Item temporário enquanto o defer carrega (Skeleton Loading)
 .placeholder-item {
   height: 180px;
-  background: linear-gradient(90deg, rgba(30, 41, 59, 0.5) 0%, rgba(51, 65, 85, 0.6) 50%, rgba(30, 41, 59, 0.5) 100%);
+  background: linear-gradient(
+    90deg,
+    rgba(30, 41, 59, 0.5) 0%,
+    rgba(51, 65, 85, 0.6) 50%,
+    rgba(30, 41, 59, 0.5) 100%
+  );
   background-size: 200% 100%;
   border-radius: ds.$radius-lg;
   animation: skeleton-pulse 1.5s infinite ease-in-out;

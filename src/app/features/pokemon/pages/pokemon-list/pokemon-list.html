@@ -1,23 +1,48 @@
 <div class="pokemon-list-container">
-    <div class="header-container">
-        <app-select-by-gen-bar (genValue)="setGenValue($event)"> </app-select-by-gen-bar>
-        <app-search-bar (filterOutput)="this.search.set($event)"></app-search-bar>  
-    </div>
+  <div class="header-container">
+    <app-select-by-gen-bar
+      [selectedGeneration]="data.selectedGeneration()"
+      (genValue)="setGenValue($event)"
+    />
+    <app-search-bar (filterOutput)="data.setSearchTerm($event)" />
+  </div>
 
   @if (data.pokemonListLoading()) {
-        <div class="feedback-message"><p>Carregando...</p></div>
-    } @else if (data.pokemonListError()) {
-        <div class="feedback-message"><p>Erro ao carregar os Pokémon.</p></div>
-    } @else {
-        <div class="pokemon-grid">
-            @for(pokemon of this.filteredPokemonList(); track $index) {            
-                @defer (on viewport) {
-                    <app-pokemon-list-item [pokemon]="pokemon" [route]="pokemon.name"></app-pokemon-list-item>
-                } @placeholder {
-                    <div class="placeholder-item"></div>
-                }          
-            }   
-        </div>
+    <div class="feedback-message"><p>Carregando...</p></div>
+  } @else if (data.pokemonListError()) {
+    <div class="feedback-message"><p>Erro ao carregar os Pokémon.</p></div>
+  } @else {
+    <div class="pokemon-grid">
+      @for (pokemon of data.filteredPokemonList(); track pokemon.name) {
+        @defer (on viewport) {
+          <app-pokemon-list-item [pokemon]="pokemon" [route]="pokemon.name"></app-pokemon-list-item>
+        } @placeholder {
+          <div class="placeholder-item"></div>
+        }
+      }
+    </div>
+    @if (!data.isSearching()) {
+      <nav class="pagination" aria-label="Paginação dos Pokémon">
+        <button
+          type="button"
+          data-testid="previous-page"
+          [disabled]="data.currentPage() === 1"
+          (click)="goToPreviousPage()"
+        >
+          Anterior
+        </button>
+        <span data-testid="current-page" aria-live="polite">
+          Página {{ data.currentPage() }} de {{ data.totalPages() }}
+        </span>
+        <button
+          type="button"
+          data-testid="next-page"
+          [disabled]="data.currentPage() === data.totalPages()"
+          (click)="goToNextPage()"
+        >
+          Próxima
+        </button>
+      </nav>
     }
-
+  }
 </div>
