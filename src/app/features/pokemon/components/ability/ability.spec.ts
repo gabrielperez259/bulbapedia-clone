@@ -48,7 +48,7 @@ describe('Ability', () => {
     const element = fixture.debugElement.query(By.directive(Transparency));
 
     transparentBinding.set(true);
-    compiled.dispatchEvent(new Event('input'));
+    
     await fixture.whenStable();
 
     expect(component.isTransparent()).toBe(true);
