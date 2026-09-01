@@ -1,0 +1,96 @@
+@use '../../../../../styles/utils' as ds;
+
+:host {
+  display: block;
+  width: 100%;
+  min-height: calc(100vh - 60px);
+  background-color: ds.$bg-dark;
+}
+
+.move-details-container {
+  background-color: ds.$bg-dark;
+  padding: 1rem;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+
+  @media (min-width: 768px) {
+    padding: 1.5rem 2rem;
+  }
+}
+
+// ── 3-column layout ────────────────────────────────────────────────────────────
+
+.details-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  width: 100%;
+
+  @media (min-width: 1024px) {
+    display: grid;
+    grid-template-columns: 20% 50% 30%;
+    gap: 1.5rem;
+    align-items: start;
+    width: 100%;
+    min-width: 0;
+  }
+}
+
+// ── Side bar ───────────────────────────────────────────────────────────────────
+
+.side-bar-container {
+  width: 100%;
+  order: 2;
+  min-width: 0;
+  overflow: hidden;
+
+  @media (min-width: 1024px) {
+    order: 1;
+    grid-column: 1;
+    width: 100%;
+    position: sticky;
+    top: 80px;
+  }
+}
+
+// ── Router outlet (main content) ───────────────────────────────────────────────
+
+.router-container {
+  width: 100%;
+  order: 3;
+  min-width: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  > * {
+    width: 100%;
+    box-sizing: border-box;
+    min-width: 0;
+  }
+
+  @media (min-width: 1024px) {
+    order: 2;
+    grid-column: 2;
+    width: 100%;
+  }
+}
+
+// ── Move details card (sticky right panel) ─────────────────────────────────────
+
+.card-container {
+  width: 100%;
+  order: 1;
+  min-width: 0;
+  overflow: hidden;
+
+  @media (min-width: 1024px) {
+    order: 3;
+    grid-column: 3;
+    width: 100%;
+    position: sticky;
+    top: 80px;
+  }
+}

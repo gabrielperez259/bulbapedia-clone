@@ -1,3 +1,23 @@
-<app-moves-side-bar></app-moves-side-bar> 
-<router-outlet></router-outlet>
-<app-move-details-card [move]="movesDataDetails.details()" ></app-move-details-card>
+@if (movesDataDetails.moveDetailsLoading()) {
+  <p> loading... </p>
+
+}@else if (movesDataDetails.moveDetailsError()) {
+  <p> error </p>
+}@else {
+  <div class="move-details-container">
+    <div class="details-layout">
+      <div class="side-bar-container">
+        <app-moves-side-bar />
+      </div>
+
+    <div class="router-container">
+      <router-outlet />
+    </div>
+
+    <div class="card-container">
+      <app-move-details-card [move]="movesDataDetails.details()" />
+    </div>
+  </div>
+</div>
+}
+

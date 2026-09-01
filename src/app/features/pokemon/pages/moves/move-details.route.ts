@@ -4,7 +4,11 @@ export const MOVE_DETAILS_ROUTES: Route[] = [
   {
     path: '',
     loadComponent: () => import('./move-description/move-description').then((m) => m.MoveDescription),
-  },
+  },{
+    path: 'description',
+    loadComponent: () => import('./move-description/move-description').then((m) => m.MoveDescription),
+  },   
+  
   {
     path: 'past-values',
     loadComponent: () => import('./past-values/past-values').then((m) => m.PastValues),
