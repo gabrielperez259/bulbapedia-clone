@@ -1,0 +1,70 @@
+@use '../../../../../styles/utils' as ds;
+
+:host {
+  display: block;
+  width: 100%;
+}
+
+.evolution-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  align-items: start;
+  justify-content: center;
+  margin: 0;
+  width: 100%;
+
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
+}
+
+.grid-title {
+  font-weight: 700;
+  font-size: 0.95rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  text-align: center;
+  padding: ds.$space-xs;
+  color: #c084fc;
+  display: block;
+}
+
+.grid-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: ds.$space-sm;
+  min-height: 100px;
+  width: 100%;
+}
+
+.multipoke-column {
+  display: flex;
+  flex-direction: column;
+  gap: ds.$space-sm; 
+  width: 100%;
+}
+
+.poke-evolution-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  gap: ds.$space-xs;
+}
+
+.poke-evolution-details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: ds.$radius-md;
+  background: ds.$bg-card;
+  border: 1px solid ds.$glass-border;
+  padding: ds.$space-xs ds.$space-sm;
+  width: 100%;
+  box-shadow: ds.$glass-shadow;
+}
+
+  

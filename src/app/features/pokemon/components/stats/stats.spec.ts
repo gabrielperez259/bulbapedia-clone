@@ -2,6 +2,7 @@ import { beforeEach, describe, expect, it } from "vitest";
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { Stats } from './stats';
+import { HighchartsChartComponent } from "highcharts-angular";
 
 describe('Stats', () => {
   let component: Stats;

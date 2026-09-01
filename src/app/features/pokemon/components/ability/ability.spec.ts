@@ -7,7 +7,6 @@ import { createMockPokemonAbilities } from '../../../../../testing/factories/abi
 import { provideRouter, Router } from '@angular/router';
 import { By } from '@angular/platform-browser';
 import { provideHttpClientTesting } from '@angular/common/http/testing';
-import { ABILITY_ROUTE } from './ability.route';
 import { Transparency } from '../../../../shared/directives/transparency';
 
 describe('Ability', () => {
@@ -20,7 +19,7 @@ describe('Ability', () => {
     await TestBed.configureTestingModule({
       imports: [Ability],
       providers: [
-        provideRouter([{ path: ':name', children: ABILITY_ROUTE }]),
+        provideRouter([]),
         provideHttpClientTesting(),
       ],
     }).compileComponents();

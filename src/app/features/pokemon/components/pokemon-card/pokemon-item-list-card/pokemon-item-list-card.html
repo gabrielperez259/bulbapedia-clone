@@ -3,17 +3,17 @@
         <app-index-number
             select="card-header"
             [isTransparent]="false"
-            [pokemonIndexNumber]="pokemon()?.url | extractId"
+            [pokemonIndexNumber]="pokemon().url | extractId"
         />
         <app-name select="card-header"
             [isTransparent]="false" 
-            [pokemonName]="pokemon()?.name" 
+            [pokemonName]="pokemon().name" 
             [route]="route()"
         />
     </div>
     <app-sprite select="card-body" 
-        [title]="pokemon()?.name" 
-        [id]="pokemon()?.url | extractId" 
+        [title]="pokemon().name" 
+        [id]="pokemon().url | extractId" 
         [background]="'white'" [width]='"100%"'>
     </app-sprite>
 </app-card>

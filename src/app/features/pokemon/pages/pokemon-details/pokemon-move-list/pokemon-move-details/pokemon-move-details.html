@@ -1,0 +1,17 @@
+<td>{{this.learnedAtLevel()}}</td>
+<td> 
+    <a [routerLink]="['/move', this.moveName()]">
+        {{this.movesDataClient.moveName() | cleanText}} 
+    </a>
+</td> 
+<td [style.background-color]="$safeNavigationMigration(this.moveDetails()?.type?.name) | cleanText | colorType"
+    style="color: white; font-weight: 600;">
+    {{$safeNavigationMigration(this.moveDetails()?.type?.name) | cleanText}}
+</td>
+<td [style.background-color]="$safeNavigationMigration(this.moveDetails()?.damage_class?.name) | cleanText | colorType"
+    style="color: white; font-weight: 600;">
+    {{$safeNavigationMigration(this.moveDetails()?.damage_class?.name) | cleanText}}
+</td>
+<td>{{this.moveDetails()?.power ?? '-'}}</td>
+<td>{{this.moveDetails()?.accuracy | formatStat}}</td>
+<td>{{this.moveDetails()?.pp ?? '-'}}</td>

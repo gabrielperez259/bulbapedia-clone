@@ -8,9 +8,8 @@ export const POKEMON_ROUTES: Route[] = [
   {
     path: ':name',
     loadComponent: () =>
-      import('../pages/pokemon-list/pokemon-details/pokemon-details').then((m) => m.PokemonDetails),
+      import('../pages/pokemon-details/pokemon-details').then((m) => m.PokemonDetails),
     loadChildren: () =>
-      import('../components/side-bar/side-bar.routes').then((m) => m.SIDEBAR_ROUTES),
+      import('../pages/side-bar/side-bar.routes').then((m) => m.SIDEBAR_ROUTES),
   },
-
 ];
