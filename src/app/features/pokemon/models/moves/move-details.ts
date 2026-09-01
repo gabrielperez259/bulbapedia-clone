@@ -15,16 +15,37 @@ interface MoveEffectEntry {
   language: NamedApiResource;
 }
 
+interface Normal {
+  use_before: NamedApiResource[];
+  use_after: NamedApiResource[];
+}
+interface Super {
+  use_before: NamedApiResource[];
+  use_after: NamedApiResource[];
+}
+interface ContestCombos {
+  normal: Normal;
+  super: Super;
+}
+
+interface contextEffect {
+  url: string
+}
 export interface MoveDetails {
   name: string;
   power: number | null;
   pp: number;
+  priority: number;
   type: NamedApiResource;
   accuracy: number | null;
   effect_chance: number | null;
   effect_entries: MoveEffectEntry[];
   damage_class: NamedApiResource;
   past_values: PastMoveValues[];
+  generation: NamedApiResource;
+  contest_combos: ContestCombos;
+  contest_type: NamedApiResource;
+  contest_effect: string;
 }
 
 export interface PastMoveValues {

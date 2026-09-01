@@ -1,0 +1,22 @@
+@if (movesDataDetails.movePastValues()?.length) {
+    <div class="past-values-container">
+        <div>
+            <span> Past Values: </span>
+        </div>
+        @for (pastValue of movesDataDetails.movePastValues(); track $index) {
+        <div class="past-value-version-group">
+            <span> From {{ pastValue?.version_group.name }} onwards: </span>
+        </div>
+        <div class="past-value-details">
+            <span> Power: {{ pastValue?.power }} </span>
+            <span> Accuracy: {{ pastValue?.accuracy }} </span>
+            <span> PP: {{ pastValue?.pp }} </span>
+            <span> Type: {{ pastValue?.type }} </span>
+            <span> Effect Chance: {{ pastValue?.effect_chance }} </span>
+            @for (effectEntry of pastValue?.effect_entries; track $index) {
+            <span> Effect Entry: {{ effectEntry }} </span>
+            }
+        </div>
+        }
+    </div>
+    }

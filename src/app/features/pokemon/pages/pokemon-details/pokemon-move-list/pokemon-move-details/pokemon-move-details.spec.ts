@@ -19,10 +19,12 @@ describe('PokemonMoveDetails', () => {
     power: 120,
     accuracy: 90,
     pp: 5,
+    priority: 0,
     effect_chance: 30,
     effect_entries: [],
     type: { name: 'fire', url: '/type/10' },
     damage_class: { name: 'special', url: '/move-damage-class/3' },
+    generation: { name: 'generation-i', url: '/generation/1' },
     past_values: [
       {
         version_group: { name: 'x-y', url: '/version-group/12' },
@@ -34,6 +36,18 @@ describe('PokemonMoveDetails', () => {
         type: { name: 'normal', url: '/type/1' },
       },
     ],
+    contest_combos: {
+      normal: {
+        use_before: [],
+        use_after: [],
+      },
+      super: {
+        use_before: [],
+        use_after: [],
+      },
+    },
+    contest_type: { name: 'cool', url: '/contest-type/1' },
+    contest_effect: '',
   });
 
   const movesDataClientMock = {

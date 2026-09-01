@@ -1,26 +1,22 @@
-import { beforeEach, describe, expect, it } from 'vitest';
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { inputBinding, signal } from '@angular/core';
-import { MovesDataClient } from '../../../services/moves-data-client';
-import { MoveDetailsComponent } from './move-details';
-import { MOVE_DETAILS_MOCK } from '../../../../../../testing/factories/move-factory';
-import { provideRouter } from '@angular/router';
+import { ComponentFixture, TestBed } from "@angular/core/testing";
+import { MovesDataClient } from "../../../services/moves-data-client";
+import { MoveDescription } from "./move-description";
+import { MOVE_DETAILS_MOCK } from "../../../../../../testing/factories/move-factory";
+import { provideRouter } from "@angular/router";
 
 describe('MoveDetailsComponent', () => {
-  let component: MoveDetailsComponent;
-  let fixture: ComponentFixture<MoveDetailsComponent>;
+  let component: MoveDescription;
+  let fixture: ComponentFixture<MoveDescription>;
   let moveDetailsDataClient: MovesDataClient;
   let compiled: HTMLElement;
-
-  const moveName = signal('');
 
   const moveDetailsMock = MOVE_DETAILS_MOCK;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [MoveDetailsComponent],
+      imports: [MoveDescription],
       providers: [
-        provideRouter([]),
+      //  provideRouter([]),
         {
           provide: MovesDataClient,
           useValue: moveDetailsMock,
@@ -28,9 +24,7 @@ describe('MoveDetailsComponent', () => {
       ],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(MoveDetailsComponent, {
-      bindings: [inputBinding('name', moveName)],
-    });
+    fixture = TestBed.createComponent(MoveDescription);
 
     component = fixture.componentInstance;
     compiled = fixture.nativeElement as HTMLElement;
@@ -53,6 +47,5 @@ describe('MoveDetailsComponent', () => {
       'Astral Barrage is a ghost type move introduced in GENERATION-VIII that inflicts regular damage.',
     );
   });
-
 
 });

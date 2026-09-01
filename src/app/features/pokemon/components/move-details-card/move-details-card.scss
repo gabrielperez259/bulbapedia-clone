@@ -1,0 +1,100 @@
+@use '../../../../styles/utils' as ds;
+
+:host {
+  display: block;
+}
+
+.move-card {
+  background: ds.$bg-card;
+  backdrop-filter: blur(10px);
+  border: 2px solid ds.$glass-border;
+  border-radius: ds.$radius-md;
+  box-shadow: ds.$glass-shadow;
+  overflow: hidden;
+  transition: border-color 0.3s ease;
+}
+
+// ── Header ────────────────────────────────────────────────────────────────────
+
+.move-card__header {
+  background: rgba(15, 23, 42, 0.85);
+  padding: ds.$space-md ds.$space-lg;
+  border-bottom: 1px solid ds.$glass-border;
+}
+
+.move-card__name {
+  margin: 0;
+  color: ds.$text-main;
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-transform: capitalize;
+}
+
+// ── Stats table ───────────────────────────────────────────────────────────────
+
+.move-card__stats {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.move-card__row {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  align-items: center;
+  padding: ds.$space-sm ds.$space-lg;
+  border-bottom: 1px solid ds.$glass-border;
+  gap: ds.$space-md;
+
+  &:last-child {
+    border-bottom: none;
+  }
+}
+
+.move-card__label {
+  color: ds.$text-muted;
+  font-size: 0.875rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.move-card__value {
+  color: ds.$text-main;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+// ── Type / Category badge ─────────────────────────────────────────────────────
+
+.move-card__badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2px ds.$space-sm;
+  border-radius: ds.$radius-xs;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #fff;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+  letter-spacing: 0.03em;
+  min-width: 72px;
+}
+
+// ── Dash placeholder ──────────────────────────────────────────────────────────
+
+.move-card__dash {
+  color: ds.$text-muted;
+  font-size: 1.1rem;
+}
+
+// ── Empty state ───────────────────────────────────────────────────────────────
+
+.move-card__empty {
+  padding: ds.$space-lg;
+  color: ds.$text-muted;
+  font-style: italic;
+  text-align: center;
+  margin: 0;
+}

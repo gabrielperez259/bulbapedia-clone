@@ -10,6 +10,8 @@ export const POKEMON_ROUTES: Route[] = [
     loadComponent: () =>
       import('../pages/pokemon-details/pokemon-details').then((m) => m.PokemonDetails),
     loadChildren: () =>
-      import('../pages/side-bar/side-bar.routes').then((m) => m.SIDEBAR_ROUTES),
+      import('../pages/pokemon-details/pokemon-details.routes.').then(
+        (m) => m.POKEMON_DETAILS_ROUTES,
+      ),
   },
 ];

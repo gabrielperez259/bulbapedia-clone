@@ -1,0 +1,78 @@
+<article
+  class="move-card"
+  [style.border-color]="typeColor() | colorType"
+  [attr.aria-label]="move() ? (move()!.name | cleanText) + ' move details' : 'Move details'"
+>
+  @if (move()) {
+    <header class="move-card__header">
+      <h2 class="move-card__name">{{ move()!.name | cleanText }}</h2>
+    </header>
+
+    <dl class="move-card__stats">
+      <div class="move-card__row">
+        <dt class="move-card__label">Type</dt>
+        <dd
+          class="move-card__value move-card__badge"
+          [style.background-color]="typeColor() | colorType"
+        >
+          {{ typeColor() }}
+        </dd>
+      </div>
+
+      <div class="move-card__row">
+        <dt class="move-card__label">Category</dt>
+        <dd
+          class="move-card__value move-card__badge"
+          [style.background-color]="categoryName() | colorType"
+        >
+          {{ categoryName() }}
+        </dd>
+      </div>
+
+      <div class="move-card__row">
+        <dt class="move-card__label">Power</dt>
+        <dd class="move-card__value">
+          @if (move()!.power !== null) {
+            {{ move()!.power }}
+          } @else {
+            <span class="move-card__dash" aria-label="Not applicable">—</span>
+          }
+        </dd>
+      </div>
+
+      <div class="move-card__row">
+        <dt class="move-card__label">Accuracy</dt>
+        <dd class="move-card__value">
+          @if (move()!.accuracy !== null) {
+            {{ move()!.accuracy }}%
+          } @else {
+            <span class="move-card__dash" aria-label="Not applicable">—</span>
+          }
+        </dd>
+      </div>
+
+      <div class="move-card__row">
+        <dt class="move-card__label">PP</dt>
+        <dd class="move-card__value">{{ move()!.pp }}</dd>
+      </div>
+
+      <div class="move-card__row">
+        <dt class="move-card__label">Priority</dt>
+        <dd class="move-card__value">{{ move()!.priority }}</dd>
+      </div>
+
+      <div class="move-card__row">
+        <dt class="move-card__label">Eff. Chance</dt>
+        <dd class="move-card__value">
+          @if (move()!.effect_chance !== null) {
+            {{ move()!.effect_chance }}%
+          } @else {
+            <span class="move-card__dash" aria-label="Not applicable">—</span>
+          }
+        </dd>
+      </div>
+    </dl>
+  } @else {
+    <p class="move-card__empty">No move data available.</p>
+  }
+</article>

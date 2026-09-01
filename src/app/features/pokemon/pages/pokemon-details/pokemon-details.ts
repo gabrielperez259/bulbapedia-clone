@@ -5,7 +5,7 @@ import { RouterOutlet } from '@angular/router';
 import { PokemonSpeciesDetailsDataClient } from '../../services/pokemon-species-details-data-client';
 import { SelectionBar } from '../../components/selection-bar/selection-bar';
 import { Router } from '@angular/router';
-import { SideBar } from '../side-bar/side-bar';
+import { SideBar } from '../../components/side-bar/side-bar';
 
 @Component({
   selector: 'app-pokemon-details',
