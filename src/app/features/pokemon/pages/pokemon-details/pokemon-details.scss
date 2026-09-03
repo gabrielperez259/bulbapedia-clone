@@ -19,7 +19,6 @@
   }
 }
 
-// Container do layout de 3 colunas fixas
 .details-layout {
   display: flex;
   flex-direction: column;
@@ -28,7 +27,7 @@
 
   @media (min-width: 1024px) {
     display: grid;
-    grid-template-columns: 20% 50% 30%;
+    grid-template-columns: 1fr 2.5fr 1.5fr;
     gap: 1.5rem;
     align-items: start;
     width: 100%;
@@ -88,7 +87,7 @@
   }
 }
 
-.search-container {    
+.search-container {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -116,7 +115,7 @@ mat-button-toggle-group {
 mat-button-toggle {
   color: ds.$text-muted;
   background: transparent;
-  
+
   &.mat-button-toggle-checked {
     color: white;
     background: ds.$accent-gradient;
