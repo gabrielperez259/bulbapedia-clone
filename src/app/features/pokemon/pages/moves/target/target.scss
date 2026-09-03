@@ -1,0 +1,131 @@
+@use '../../../../../styles/utils' as ds;
+
+:host {
+  display: block;
+  width: 100%;
+  min-height: calc(100vh - 60px);
+  background-color: ds.$bg-dark;
+  box-sizing: border-box;
+}
+
+.target-page {
+  width: 100%;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+.range-card {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+
+  background-color: #fff;
+
+  border: 1px solid #aaa;
+  border-radius: 4px;
+
+  overflow: hidden;
+
+  box-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.12),
+    0 2px 4px rgba(0, 0, 0, 0.06);
+}
+
+.range-card-header {
+  display: flex;
+  align-items: center;
+
+  min-height: 42px;
+  padding: 0.65rem 1rem;
+
+  box-sizing: border-box;
+
+  background: linear-gradient(
+    to bottom,
+    #e8e8e8,
+    #d5d5d5
+  );
+
+  border-bottom: 1px solid #aaa;
+
+  h2 {
+    margin: 0;
+
+    color: #222;
+
+    font-size: 1.15rem;
+    font-weight: 700;
+    line-height: 1.2;
+  }
+}
+
+.range-card-content {
+  padding: 1rem;
+}
+
+.range-info {
+  margin-bottom: 1.5rem;
+
+  h3 {
+    margin: 0 0 0.35rem;
+
+    color: #222;
+
+    font-size: 1rem;
+    font-weight: 700;
+  }
+
+  p {
+    margin: 0;
+
+    color: #555;
+
+    font-size: 0.9rem;
+    line-height: 1.45;
+  }
+}
+
+.range-legend {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+
+  gap: 1.5rem;
+
+  margin-top: 1.5rem;
+  padding-top: 0.85rem;
+
+  border-top: 1px solid #ddd;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+
+  gap: 0.45rem;
+
+  color: #555;
+
+  font-size: 0.8rem;
+}
+
+.legend-indicator {
+  display: inline-block;
+
+  width: 13px;
+  height: 13px;
+
+  box-sizing: border-box;
+
+  border-radius: 3px;
+}
+
+.legend-indicator.target {
+  background-color: #f5b36b;
+  border: 1px solid #d47720;
+}
+
+.legend-indicator.user {
+  background-color: #8bb8d8;
+  border: 1px solid #467da5;
+}

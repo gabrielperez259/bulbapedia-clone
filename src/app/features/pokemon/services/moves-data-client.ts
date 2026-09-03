@@ -39,6 +39,7 @@ export class MovesDataClient {
   public moveDamageClass = computed(() => this.moveDetails.value()?.damage_class);
   public moveGenerationIntroduced = computed(() => this.moveDetails.value()?.generation);
   public movePastValues = computed(() => this.moveDetails.value()?.past_values);
+  public moveTarget = computed(() => this.moveDetails.value()?.target.name);
   
   public moveEffectEntry = computed(() =>
     this.moveDetails.value()?.effect_entries?.find((entry) => entry.language.name === 'en'),

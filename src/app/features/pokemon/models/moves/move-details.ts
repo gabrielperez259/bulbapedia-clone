@@ -46,6 +46,7 @@ export interface MoveDetails {
   contest_combos: ContestCombos;
   contest_type: NamedApiResource;
   contest_effect: string;
+  target: NamedApiResource;
 }
 
 export interface PastMoveValues {

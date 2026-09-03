@@ -1,0 +1,48 @@
+<div class="range-diagrams">
+  @for (scenario of scenarios(); track scenario.scenario.format + '-' + scenario.scenario.userPosition) {
+    <div class="battle-scenario">
+
+      <h3>
+        {{ scenario.scenario.format === 'double' ? 'Double Battle' : 'Triple Battle' }}
+        — User {{ scenario.scenario.userPosition }}
+      </h3>
+
+      <div class="battle-field">
+
+        <div class="pokemon-side opponent-side">
+          @for (slot of scenario.slots; track slot.position) {
+            @if (slot.position.startsWith('opponent-')) {
+              <div
+                class="pokemon-slot"
+                [class.target]="slot.state === 'target'"
+                [class.user-target]="slot.state === 'user-target'"
+              >
+                <span class="pokemon-icon">●</span>
+              </div>
+            }
+          }
+        </div>
+
+        <div class="battle-divider"></div>
+
+        <div class="pokemon-side user-side">
+          @for (slot of scenario.slots; track slot.position) {
+            @if (slot.position.startsWith('user-')) {
+              <div
+                class="pokemon-slot"
+                [class.user]="slot.state === 'user'"
+                [class.target]="slot.state === 'target'"
+                [class.user-target]="slot.state === 'user-target'"
+              >
+                <span class="pokemon-icon">
+                  {{ slot.state === 'user' ? '◆' : '●' }}
+                </span>
+              </div>
+            }
+          }
+        </div>
+
+      </div>
+    </div>
+  }
+</div>

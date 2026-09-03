@@ -1,1 +1,33 @@
-<p>target works!</p>
+<div class="target-page">
+  <section class="range-card">
+    <header class="range-card-header">
+      <h2>Range</h2>
+    </header>
+
+    <div class="range-card-content">
+      <div class="range-info">
+        <h3>{{ moveTarget().label }}</h3>
+
+        <p>
+          {{ moveTarget().description }}
+        </p>
+      </div>
+
+      <app-range-diagram
+        [type]="moveTarget().diagram"
+      />
+
+      <div class="range-legend">
+        <div class="legend-item">
+          <span class="legend-indicator target"></span>
+          <span>Target</span>
+        </div>
+
+        <div class="legend-item">
+          <span class="legend-indicator user"></span>
+          <span>User</span>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
