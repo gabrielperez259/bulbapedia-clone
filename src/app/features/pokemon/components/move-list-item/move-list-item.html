@@ -1,0 +1,23 @@
+@if (showLevel()) {
+  <td>{{ learnedAtLevel() ?? '-' }}</td>
+}
+<td>
+  <a [routerLink]="['/move', moveName()]">
+    {{ (movesDataClient.moveName() || moveName()) | cleanText }}
+  </a>
+</td>
+<td
+  [style.background-color]="(moveDetails()?.type?.name ?? '') | cleanText | colorType"
+  style="color: white; font-weight: 600;"
+>
+  {{ (moveDetails()?.type?.name ?? '') | cleanText }}
+</td>
+<td
+  [style.background-color]="(moveDetails()?.damage_class?.name ?? '') | cleanText | colorType"
+  style="color: white; font-weight: 600;"
+>
+  {{ (moveDetails()?.damage_class?.name ?? '') | cleanText }}
+</td>
+<td>{{ moveDetails()?.power ?? '-' }}</td>
+<td>{{ moveDetails()?.accuracy | formatStat }}</td>
+<td>{{ moveDetails()?.pp ?? '-' }}</td>

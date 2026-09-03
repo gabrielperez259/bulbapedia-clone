@@ -4,7 +4,7 @@
     @for (ability of abilities(); track $index) {
     
         <button class="ability-button">  
-            <a class="ability-link" [routerLink]="['../ability', ability.ability.name]">
+            <a class="ability-link" [routerLink]="['../../ability', ability.ability.name]">
                 <span class="ability-name-span"> {{ability.ability.name | cleanText }}</span>    
             </a>    
         </button>

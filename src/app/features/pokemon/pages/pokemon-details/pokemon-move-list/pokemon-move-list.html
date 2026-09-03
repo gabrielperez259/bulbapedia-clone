@@ -32,10 +32,9 @@
         </thead>
         <tbody>
             @for (move of this.computedMoveList(); track $index) {
-                <tr app-pokemon-move-details 
+                <tr app-move-list-item 
                     [moveName]="move.move.name" 
                     [learnedAtLevel]="move.level"
-                    [learnMethod]="move.method"
                     [versionGroup]="this.version()">
                 </tr>
             }   

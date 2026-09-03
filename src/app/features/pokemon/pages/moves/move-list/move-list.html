@@ -1,0 +1,93 @@
+<div class="move-list-container">
+  <div class="move-list-header">
+    <h1>Pokémon Moves</h1>
+    <p>Explore all available moves in the Pokémon world</p>
+  </div>
+
+  <div class="search-container">
+    <div class="selection-bar-container">
+      <app-selection-bar
+        [labelText]="'Type: '"
+        [initialValue]="selectedType()"
+        [values]="types()"
+        (selectedOptionOutput)="onTypeChange($event)"
+      />
+    </div>
+
+    <div class="selection-bar-container">
+      <app-selection-bar
+        [labelText]="'Category: '"
+        [initialValue]="selectedCategory()"
+        [values]="categories()"
+        (selectedOptionOutput)="onCategoryChange($event)"
+      />
+    </div>
+
+    <div class="search-bar-container">
+      <app-search-bar
+        [filter]="searchQuery()"
+        (filterOutput)="onSearchChange($event)"
+      />
+    </div>
+  </div>
+
+  @if (movesData.movesListLoading()) {
+    <div class="feedback-message">
+      <p>Carregando golpes...</p>
+    </div>
+  } @else if (movesData.movesListError()) {
+    <div class="feedback-message">
+      <p>Erro ao carregar os golpes.</p>
+    </div>
+  } @else {
+    <div class="table-container">
+      <table>
+        <thead>
+          <tr>
+            <th (click)="toggleSort('name')" class="sortable" tabindex="0" role="button" (keydown.enter)="toggleSort('name')">
+              Move
+              @if (sortColumn() === 'name') {
+                <span class="sort-icon">{{ sortDirection() === 'asc' ? '▲' : '▼' }}</span>
+              }
+            </th>
+            <th (click)="toggleSort('type')" class="sortable" tabindex="0" role="button" (keydown.enter)="toggleSort('type')">
+              Type
+              @if (sortColumn() === 'type') {
+                <span class="sort-icon">{{ sortDirection() === 'asc' ? '▲' : '▼' }}</span>
+              }
+            </th>
+            <th (click)="toggleSort('category')" class="sortable" tabindex="0" role="button" (keydown.enter)="toggleSort('category')">
+              Cat
+              @if (sortColumn() === 'category') {
+                <span class="sort-icon">{{ sortDirection() === 'asc' ? '▲' : '▼' }}</span>
+              }
+            </th>
+            <th (click)="toggleSort('power')" class="sortable" tabindex="0" role="button" (keydown.enter)="toggleSort('power')">
+              Pwr
+              @if (sortColumn() === 'power') {
+                <span class="sort-icon">{{ sortDirection() === 'asc' ? '▲' : '▼' }}</span>
+              }
+            </th>
+            <th (click)="toggleSort('accuracy')" class="sortable" tabindex="0" role="button" (keydown.enter)="toggleSort('accuracy')">
+              Acc
+              @if (sortColumn() === 'accuracy') {
+                <span class="sort-icon">{{ sortDirection() === 'asc' ? '▲' : '▼' }}</span>
+              }
+            </th>
+            <th (click)="toggleSort('pp')" class="sortable" tabindex="0" role="button" (keydown.enter)="toggleSort('pp')">
+              PP
+              @if (sortColumn() === 'pp') {
+                <span class="sort-icon">{{ sortDirection() === 'asc' ? '▲' : '▼' }}</span>
+              }
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (move of filteredAndSortedMoves(); track move.name) {
+            <tr app-move-list-item [moveName]="move.name" [showLevel]="false"></tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  }
+</div>

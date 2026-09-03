@@ -21,3 +21,8 @@ export enum ColorTypes {
   Physical = '#EE8131',
   Special = '#4153d6',
 }
+
+export const POKEMON_TYPES = Object.keys(ColorTypes).filter(
+  (type) => !['Status', 'Physical', 'Special'].includes(type),
+);
+

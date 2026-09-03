@@ -3,6 +3,10 @@ import { Routes } from '@angular/router';
 export const routes: Routes = [
   {
     path: '',
+    loadComponent: () => import('./features/pokemon/pages/home/home').then((m) => m.Home),
+  },
+  {
+    path: 'pokemon',
     loadChildren: () =>
       import('./features/pokemon/routes/pokemon.route').then((m) => m.POKEMON_ROUTES),
   },
@@ -19,3 +23,4 @@ export const routes: Routes = [
       import('./features/pokemon/pages/moves/move.route').then((m) => m.MOVE_ROUTE),
   },
 ];
+

@@ -6,7 +6,7 @@ import {
 } from '../../../../../shared/constants/version-group';
 import { FormsModule } from '@angular/forms';
 import { MatTableModule } from '@angular/material/table';
-import { PokemonMoveDetails } from './pokemon-move-details/pokemon-move-details';
+import { MoveListItem } from '../../../components/move-list-item/move-list-item';
 import { SortService } from '../../../../../shared/services/sort-service';
 import { SelectionBar } from '../../../components/selection-bar/selection-bar';
 import { LEARN_METHODS } from '../../../../../shared/constants/learn.method';
@@ -45,7 +45,7 @@ export function getMovesForVersionAndLearnMethod(
 
 @Component({
   selector: 'app-pokemon-move-list',
-  imports: [FormsModule, MatTableModule, PokemonMoveDetails, SelectionBar],
+  imports: [FormsModule, MatTableModule, MoveListItem, SelectionBar],
   templateUrl: './pokemon-move-list.html',
   styleUrl: './pokemon-move-list.scss',
 })

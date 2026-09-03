@@ -1,2 +1,38 @@
-<app-pokemon-list></app-pokemon-list>
+<div class="welcome-container">
+  <div class="welcome-hero">
+    <span class="welcome-badge">Bulbapedia Clone</span>
+    <h1>Bem-vindo à Bulbapedia</h1>
+    <p>
+      Sua enciclopédia interativa de Pokémon. Explore a Pokédex completa, consulte golpes,
+      habilidades e detalhes de cada Pokémon em uma interface moderna.
+    </p>
+  </div>
+
+  <div class="welcome-cards">
+    <a routerLink="/pokemon" class="feature-card">
+      <div class="card-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10"></circle>
+          <line x1="2" y1="12" x2="22" y2="12"></line>
+          <circle cx="12" cy="12" r="3"></circle>
+        </svg>
+      </div>
+      <h2>Pokédex</h2>
+      <p>Navegue pela lista de Pokémon por gerações, veja estatísticas, evoluções e formas.</p>
+      <span class="card-action">Explorar Pokédex &rarr;</span>
+    </a>
+
+    <a routerLink="/move" class="feature-card">
+      <div class="card-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+        </svg>
+      </div>
+      <h2>Golpes (Moves)</h2>
+      <p>Consulte a lista de movimentos, especificações técnicas, precisão e poder.</p>
+      <span class="card-action">Explorar Golpes &rarr;</span>
+    </a>
+  </div>
+</div>
+
 
