@@ -1,0 +1,53 @@
+@use '../../../../../styles/utils' as ds;
+
+:host {
+  display: block;
+  width: 100%;
+}
+
+.move-description-container {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 1rem;
+
+  background-color: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+
+  h3 {
+    margin: 0 0 0.75rem;
+
+    color: ds.$primary-color;
+    font-size: 1rem;
+    font-weight: 700;
+  }
+}
+
+.move-description {
+  margin-bottom: 1rem;
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;  
+  border-radius: 4px;
+  padding: 0.75rem;
+  color: ds.$primary-color;
+  font-size: 0.9rem;
+  line-height: 1.6;
+
+  span {
+    font-weight: 600;
+  }
+}
+
+.move-effect-entry {
+  padding: 0.75rem;
+
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 4px;
+
+  span {
+    color: ds.$primary-color;
+    font-size: 0.875rem;
+    line-height: 1.6;
+  }
+}

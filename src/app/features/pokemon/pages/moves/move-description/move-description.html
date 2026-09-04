@@ -1,9 +1,15 @@
 <div class="move-description-container">
+    <div>
+        <h3>Move Description</h3>
+    </div>
     <div class="move-description">
         <span> {{ movesDataDetails.moveName() | cleanText }} </span> is a
         <span> {{ movesDataDetails.moveType()?.name }} type move </span> introduced in
         <span> {{ movesDataDetails.moveGenerationIntroduced()?.name.toUpperCase() }}</span>.
         
+    </div>
+    <div>
+        <h3>Move Effect</h3>
     </div>
     <div class="move-effect-entry">
         <span> {{ movesDataDetails.moveEffectEntry()?.effect }} </span>
