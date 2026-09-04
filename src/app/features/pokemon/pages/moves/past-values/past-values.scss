@@ -1,0 +1,58 @@
+@use '../../../../../styles/utils' as ds;
+
+:host {
+  display: block;
+  width: 100%;
+}
+
+.past-values-container {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 1rem;
+
+  background-color: #f8fafc;
+  border-radius: 6px;
+}
+
+/* Title */
+.past-values-container > div:first-child {
+  margin-bottom: 0.75rem;
+
+  span {
+    color: ds.$primary-color;
+    font-size: 1rem;
+    font-weight: 700;
+  }
+}
+
+/* Version */
+.past-value-version-group {
+  margin-top: 0.75rem;
+  padding: 0.5rem 0.75rem;
+
+  background-color: #e2e8f0;
+  border-radius: 4px;
+
+  span {
+    color: ds.$primary-color;
+    font-size: 0.875rem;
+    font-weight: 600;
+  }
+}
+
+/* Values */
+.past-value-details {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+
+  padding: 0.75rem;
+
+  background-color: #ffffff;
+  border-radius: 0 0 4px 4px;
+
+  span {
+    color: ds.$primary-color;
+    font-size: 0.875rem;
+  }
+}

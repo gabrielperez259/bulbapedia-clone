@@ -1,22 +1,57 @@
+
 @if (movesDataDetails.movePastValues()?.length) {
-    <div class="past-values-container">
-        <div>
-            <span> Past Values: </span>
-        </div>
-        @for (pastValue of movesDataDetails.movePastValues(); track $index) {
-        <div class="past-value-version-group">
-            <span> From {{ pastValue?.version_group.name }} onwards: </span>
-        </div>
-        <div class="past-value-details">
-            <span> Power: {{ pastValue?.power }} </span>
-            <span> Accuracy: {{ pastValue?.accuracy }} </span>
-            <span> PP: {{ pastValue?.pp }} </span>
-            <span> Type: {{ pastValue?.type }} </span>
-            <span> Effect Chance: {{ pastValue?.effect_chance }} </span>
-            @for (effectEntry of pastValue?.effect_entries; track $index) {
-            <span> Effect Entry: {{ effectEntry }} </span>
-            }
-        </div>
-        }
+  <div class="past-values-container">
+
+    <div class="past-values-title">
+      <span>Past Values:</span>
     </div>
+
+    @for (pastValue of movesDataDetails.movePastValues(); track $index) {
+      <div class="past-value">
+        
+        <div class="past-value-version-group">
+          <span>
+            From {{ pastValue?.version_group.name | cleanText }} onwards:
+          </span>
+        </div>
+
+        <div class="past-value-details">
+          @if (pastValue?.power) {
+            <span>Power: {{ pastValue?.power }}</span>
+          }
+
+          @if (pastValue?.accuracy) {
+            <span>Accuracy: {{ pastValue?.accuracy }}</span>
+          }
+
+          @if (pastValue?.pp) {
+            <span>PP: {{ pastValue?.pp }}</span>
+          }
+
+          @if (pastValue?.type?.name) {
+            <span>Type: {{ pastValue?.type.name }}</span>
+          }
+
+          @if (pastValue?.effect_chance) {
+            <span>Effect Chance: {{ pastValue?.effect_chance }}</span>
+          }
+
+          @if (pastValue?.effect_entries) {
+            @for (effectEntry of pastValue?.effect_entries; track $index) {
+              <span>Effect Entry: {{ effectEntry }}</span>
+            }
+          }
+        </div>
+
+      </div>
     }
+
+  </div>
+}@else {
+  <div class="past-values-container">
+    <div class="past-values-title">
+      <span>There are no past values for this move.</span>
+    </div>
+  </div>
+
+}

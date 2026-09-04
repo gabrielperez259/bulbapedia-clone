@@ -2,7 +2,10 @@
     <div class="move-description">
         <span> {{ movesDataDetails.moveName() | cleanText }} </span> is a
         <span> {{ movesDataDetails.moveType()?.name }} type move </span> introduced in
-        <span> {{ movesDataDetails.moveGenerationIntroduced()?.name.toUpperCase() }} </span> that
-        <span> {{ movesDataDetails.moveEffectEntry()?.effect.toLowerCase() }} </span>
+        <span> {{ movesDataDetails.moveGenerationIntroduced()?.name.toUpperCase() }}</span>.
+        
+    </div>
+    <div class="move-effect-entry">
+        <span> {{ movesDataDetails.moveEffectEntry()?.effect }} </span>
     </div>   
 </div>
