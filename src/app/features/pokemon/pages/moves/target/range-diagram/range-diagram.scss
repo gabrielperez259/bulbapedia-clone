@@ -92,6 +92,14 @@
   }
 }
 
+.pokemon-slot.possible-target {
+  background-color: yellow;
+  border-color: #86990d;
+  .pokemon-icon {
+    color: #8c4610;
+  }
+  
+}
 .pokemon-slot.target {
   background-color: #f5b36b;
   border-color: #d47720;
@@ -101,11 +109,14 @@
   }
 }
 
+
+
 .pokemon-slot.user-target {
-  background: linear-gradient(
+  background-color: #f5b36b;
+  background-image: linear-gradient(
     135deg,
-    #8bb8d8 50%,
-    #f5b36b 50%
+    
+    #f5b36b 100%
   );
 
   border-color: #467da5;

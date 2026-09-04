@@ -14,9 +14,11 @@ export type RangeDiagramType =
   | 'all-pokemon'
   | 'opponents-field'
   | 'users-field'
-  | 'user-and-allies';
+  | 'user-and-allies'
+  | 'fainting-pokemon'
+  | 'selected-pokemon-first';
 
-export type RangeSlotState = 'empty' | 'user' | 'target' | 'user-target';
+export type RangeSlotState = 'empty' | 'user' | 'target' | 'possible-target' | 'user-target';
 
 export interface RangeSlot {
   position:
@@ -76,6 +78,7 @@ export class RangeDiagramComponent {
       })),
     ];
   }
+
   private getSlotState(
     side: 'user' | 'opponent',
     position: UserPosition,
@@ -83,55 +86,60 @@ export class RangeDiagramComponent {
     type: RangeDiagramType,
   ): RangeSlotState {
     const isUser = side === 'user' && position === scenario.userPosition;
-
     const isAlly = side === 'user' && position !== scenario.userPosition;
-
     const isOpponent = side === 'opponent';
+
+    const isAdjacentAlly = this.isAdjacentAlly(side, position, scenario);
+
+    const isAdjacentOpponent = this.isAdjacentPokemon(side, position, scenario);
+
+    const isAdjacentPokemon = isAdjacentAlly || isAdjacentOpponent;
 
     switch (type) {
       case 'specific-move':
-        return isUser ? 'user' : 'empty';
+        return isAdjacentOpponent ? 'possible-target' : 'empty';
 
-      case 'user':
-        return isUser ? 'user-target' : 'empty';
+      case 'selected-pokemon':      
+        return isAdjacentPokemon ? 'possible-target' : isUser ? 'user' : 'empty';
 
-      case 'random-opponent':
+      case 'selected-pokemon-first':  
+        return isOpponent && isAdjacentOpponent ? 'possible-target' : isUser ? 'user' : 'empty';
+        
       case 'all-opponents':
+        return isOpponent && isAdjacentOpponent ? 'target' : isUser ? 'user' : 'empty';
+
       case 'opponents-field':
-        return isUser ? 'user' : isOpponent ? 'target' : 'empty';
+        return isOpponent ? 'target' : isUser ? 'user' : 'empty';
 
-      case 'selected-pokemon':
       case 'all-other-pokemon':
-        if (isUser) {
-          return 'user';
-        }
-
-        return this.isTargetedByAllOtherPokemon(side, position, scenario) ? 'target' : 'empty';
-
-      case 'user-and-allies':
-        return isUser ? 'user-target' : isAlly ? 'target' : 'empty';
-      case 'user-or-ally':
-        if (isUser) {
-          return 'user-target';
-        }
-
-        return this.isAdjacentAlly(side, position, scenario) ? 'target' : 'empty';
-
-      case 'ally':
-        return isUser ? 'user' : this.isAdjacentAlly(side, position, scenario) ? 'target' : 'empty';
-
-      case 'all-allies':
-        return isUser ? 'user' : isAlly ? 'target' : 'empty';
+        return isAdjacentPokemon ? 'target' : isUser ? 'user' : 'empty';
 
       case 'entire-field':
       case 'all-pokemon':
         return isUser ? 'user-target' : 'target';
 
+      case 'user':
+      case 'random-opponent':
+      case 'fainting-pokemon':
+        return isUser ? 'user-target' : 'empty';
+
+      case 'ally':
+        return isAdjacentAlly ? 'target' : isUser ? 'user' : 'empty';
+
       case 'users-field':
         return isUser ? 'user-target' : isAlly ? 'target' : 'empty';
 
+      case 'user-or-ally':
+        return isUser || isAdjacentAlly ? 'possible-target' : 'empty';
+
+      case 'all-allies':
+        return isUser ? 'user' : isAlly ? 'target' : 'empty';
+
+      case 'user-and-allies':
+        return isUser ? 'user-target' : isAlly ? 'target' : 'empty';
+
       default:
-        return isUser ? 'user' : 'empty';
+        return 'empty';
     }
   }
   readonly scenarios = computed(() =>
@@ -145,11 +153,7 @@ export class RangeDiagramComponent {
     position: UserPosition,
     scenario: BattleScenario,
   ): boolean {
-    if (side !== 'user') {
-      return false;
-    }
-
-    if (position === scenario.userPosition) {
+    if (side !== 'user' || position === scenario.userPosition) {
       return false;
     }
 
@@ -165,23 +169,19 @@ export class RangeDiagramComponent {
 
     return adjacentPositions[scenario.userPosition].includes(position);
   }
-  private isTargetedByAllOtherPokemon(
+  private isAdjacentPokemon(
     side: 'user' | 'opponent',
     position: UserPosition,
     scenario: BattleScenario,
   ): boolean {
-    // Pokémon diretamente em frente ao usuário.
-    if (side === 'opponent' && position === scenario.userPosition) {
-      return true;
+    if (position === scenario.userPosition) {
+      return side === 'opponent';
     }
 
-    // Em Double Battle, todos os outros Pokémon são adjacentes.
     if (scenario.format === 'double') {
       return true;
     }
 
-    // Em Triple Battle, somente posições adjacentes
-    // à posição do usuário são atingidas.
     const adjacentPositions: Record<UserPosition, UserPosition[]> = {
       left: ['center'],
       center: ['left', 'right'],

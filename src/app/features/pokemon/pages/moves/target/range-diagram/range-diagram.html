@@ -1,5 +1,8 @@
 <div class="range-diagrams">
-  @for (scenario of scenarios(); track scenario.scenario.format + '-' + scenario.scenario.userPosition) {
+  @for (
+    scenario of scenarios();
+    track scenario.scenario.format + '-' + scenario.scenario.userPosition
+  ) {
     <div class="battle-scenario">
 
       <h3>
@@ -9,15 +12,35 @@
 
       <div class="battle-field">
 
+        <!-- Opponent side -->
         <div class="pokemon-side opponent-side">
           @for (slot of scenario.slots; track slot.position) {
             @if (slot.position.startsWith('opponent-')) {
               <div
                 class="pokemon-slot"
                 [class.target]="slot.state === 'target'"
+                [class.possible-target]="slot.state === 'possible-target'"
                 [class.user-target]="slot.state === 'user-target'"
               >
-                <span class="pokemon-icon">●</span>
+                <span class="pokemon-icon">
+                  @switch (slot.state) {
+                    @case ('target') {
+                      ●
+                    }
+
+                    @case ('possible-target') {
+                      ◇
+                    }
+
+                    @case ('user-target') {
+                      ◆
+                    }
+
+                    @default {
+                      ●
+                    }
+                  }
+                </span>
               </div>
             }
           }
@@ -25,6 +48,7 @@
 
         <div class="battle-divider"></div>
 
+        <!-- User side -->
         <div class="pokemon-side user-side">
           @for (slot of scenario.slots; track slot.position) {
             @if (slot.position.startsWith('user-')) {
@@ -32,10 +56,31 @@
                 class="pokemon-slot"
                 [class.user]="slot.state === 'user'"
                 [class.target]="slot.state === 'target'"
+                [class.possible-target]="slot.state === 'possible-target'"
                 [class.user-target]="slot.state === 'user-target'"
               >
                 <span class="pokemon-icon">
-                  {{ slot.state === 'user' ? '◆' : '●' }}
+                  @switch (slot.state) {
+                    @case ('user') {
+                      ◆
+                    }
+
+                    @case ('target') {
+                      ●
+                    }
+
+                    @case ('possible-target') {
+                      ◇
+                    }
+
+                    @case ('user-target') {
+                      ◆
+                    }
+
+                    @default {
+                      ●
+                    }
+                  }
                 </span>
               </div>
             }
