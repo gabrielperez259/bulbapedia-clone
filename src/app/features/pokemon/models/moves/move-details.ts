@@ -3,11 +3,11 @@ import {
   ALL_VERSION_GROUPS,
   PokemonVersionGroup,
 } from '../../../../shared/constants/version-group';
+import {  NamedApiResource } from '../../../../shared/models/named-api-resource';
+import { ContestCombo, ContestType } from '../contest/contest.interface';
+import { ApiResourceReference } from '../../../../shared/models/api-resource-reference';
 
-interface NamedApiResource {
-  name: string;
-  url: string;
-}
+
 
 interface MoveEffectEntry {
   effect: string;
@@ -15,22 +15,6 @@ interface MoveEffectEntry {
   language: NamedApiResource;
 }
 
-interface Normal {
-  use_before: NamedApiResource[];
-  use_after: NamedApiResource[];
-}
-interface Super {
-  use_before: NamedApiResource[];
-  use_after: NamedApiResource[];
-}
-interface ContestCombos {
-  normal: Normal;
-  super: Super;
-}
-
-interface contextEffect {
-  url: string
-}
 export interface MoveDetails {
   name: string;
   power: number | null;
@@ -43,9 +27,10 @@ export interface MoveDetails {
   damage_class: NamedApiResource;
   past_values: PastMoveValues[];
   generation: NamedApiResource;
-  contest_combos: ContestCombos;
-  contest_type: NamedApiResource;
-  contest_effect: string;
+  contest_combos: ContestCombo;
+  contest_type: ContestType;
+  contest_effect: ApiResourceReference;
+  super_contest_effect: ApiResourceReference;
   target: NamedApiResource;
 }
 

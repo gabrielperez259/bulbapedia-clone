@@ -1,3 +1,113 @@
-<div class="contest-container">
-    <span> Contest </span>
-</div>
+<section class="contest-page">
+
+  <header class="contest-page-header">
+    <h2>Contest</h2>
+
+    <p>
+      Contest information and move combinations.
+    </p>
+  </header>
+
+  @if (
+    !contestTypeDataClient.contestTypeLoading() &&
+    !contestEffectDataClient.contestEffectLoading() &&
+    !superContestDataClient.superContestEffectLoading() &&
+    !contestTypeDataClient.contestType() &&
+    !contestEffectDataClient.contestEffect() &&
+    !superContestDataClient.superContestEffect()
+  ) {
+
+    <div class="contest-state contest-empty">
+      <h3>No Contest information</h3>
+
+      <p>
+        This move does not participate in any Pokémon Contest.
+      </p>
+    </div>
+
+  } @else {
+
+    <div class="contest-cards">
+
+      <!-- Normal Contest -->
+      @if (
+        contestTypeDataClient.contestTypeLoading() ||
+        contestEffectDataClient.contestEffectLoading()
+      ) {
+
+        <div class="contest-state contest-loading">
+          <span>Loading Contest information...</span>
+        </div>
+
+      } @else if (
+        contestTypeDataClient.contestTypeError() ||
+        contestEffectDataClient.contestEffectError()
+      ) {
+
+        <div class="contest-state contest-error">
+          <h3>Unable to load Contest information</h3>
+
+          <p>
+            Something went wrong while loading the Contest data.
+            Please try again later.
+          </p>
+        </div>
+
+      } @else if (
+        contestTypeDataClient.contestType() &&
+        contestEffectDataClient.contestEffect()
+      ) {
+
+        <app-contest-card
+          [contestCombos]="contestCombos()"
+          [contestTypeName]="contestTypeDataClient.contestTypeName()!"
+          [contestTypeBerryFlavor]="contestTypeDataClient.contestTypeBerryFlavor()!"
+          [contestEffect]="contestEffectDataClient.contestEffectName()!"
+          [contestEffectAppeal]="contestEffectDataClient.contestEffectAppeal()!"
+          [contestEffectJam]="contestEffectDataClient.contestEffectJam()!"
+          [contestEffectFlavorText]="contestEffectDataClient.contestEffectFlavorText()!"
+        />
+
+      }
+
+
+      <!-- Super Contest -->
+      @if (
+        superContestDataClient.superContestEffectLoading()
+      ) {
+
+        <div class="contest-state contest-loading">
+          <span>Loading Super Contest information...</span>
+        </div>
+
+      } @else if (
+        superContestDataClient.superContestEffectError()
+      ) {
+
+        <div class="contest-state contest-error">
+          <h3>Unable to load Super Contest information</h3>
+
+          <p>
+            Something went wrong while loading the Super Contest data.
+            Please try again later.
+          </p>
+        </div>
+
+      } @else if (
+        superContestDataClient.superContestEffect()
+      ) {
+
+        <app-super-contest-card
+          [contestCombos]="contestCombos()"
+          [superContestEffectFlavorText]="superContestDataClient.superContestEffectFlavorText()!"
+          [superContestAppeal]="superContestDataClient.superContestEffectAppeal()!"
+        />
+
+      }
+
+    </div>
+
+  }
+
+</section>
+

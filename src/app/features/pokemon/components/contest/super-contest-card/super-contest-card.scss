@@ -1,0 +1,210 @@
+@use '../../../../../styles/utils' as ds;
+
+:host {
+  display: block;
+  width: 100%;
+}
+
+.super-contest-card {
+  width: 100%;
+  overflow: hidden;
+  box-sizing: border-box;
+
+  background-color: ds.$bg-dark;
+  border: 1px solid ds.$border-color;
+  border-radius: 0.75rem;
+}
+
+/* ---------------------------------
+   Header
+--------------------------------- */
+
+.super-contest-card-header {
+  padding: 1rem 1.25rem;
+
+  background-color: ds.$bg-card;
+  border-bottom: 1px solid ds.$border-color;
+}
+
+.contest-type {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.contest-type h2 {
+  margin: 0;
+
+  font-size: 1.25rem;
+  font-weight: 600;
+  line-height: 1.3;
+  text-transform: capitalize;
+}
+
+.contest-label {
+  padding: 0.35rem 0.65rem;
+
+  border: 1px solid ds.$border-color;
+  border-radius: 999px;
+
+  color: ds.$text-secondary;
+  font-size: 0.8rem;
+  font-weight: 500;
+
+  white-space: nowrap;
+}
+
+/* ---------------------------------
+   Sections
+--------------------------------- */
+
+.super-contest-card-section {
+  padding: 1.25rem;
+}
+
+.super-contest-card-section + .super-contest-card-section {
+  border-top: 1px solid ds.$border-color;
+}
+
+.section-header {
+  margin-bottom: 0.85rem;
+}
+
+.section-header h3 {
+  margin: 0;
+
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+/* ---------------------------------
+   Effect
+--------------------------------- */
+
+.effect-content {
+  margin-bottom: 1rem;
+}
+
+.effect-content p {
+  margin: 0;
+
+  color: ds.$text-secondary;
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+/* ---------------------------------
+   Appeal
+--------------------------------- */
+
+.appeal-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0.85rem 1rem;
+
+  background-color: ds.$bg-card;
+  border: 1px solid ds.$border-color;
+  border-radius: 0.5rem;
+}
+
+.appeal-label {
+  color: ds.$text-secondary;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.appeal-value {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+/* ---------------------------------
+   Contest Combos
+--------------------------------- */
+
+.combo-groups {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.combo-group {
+  min-width: 0;
+}
+
+.combo-group h4 {
+  margin: 0 0 0.65rem;
+
+  color: ds.$text-secondary;
+  font-size: 0.75rem;
+  font-weight: 600;
+
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.combo-moves {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.combo-move {
+  padding: 0.7rem 0.85rem;
+
+  background-color: ds.$bg-card;
+  border: 1px solid ds.$border-color;
+  border-radius: 0.5rem;
+
+  transition:
+    border-color 0.15s ease,
+    background-color 0.15s ease;
+}
+
+.combo-move:hover {
+  border-color: ds.$text-secondary;
+}
+
+.move-name {
+  display: block;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-transform: capitalize;
+}
+
+.no-combos {
+  margin: 0;
+  padding: 0.7rem 0.85rem;
+
+  color: ds.$text-secondary;
+  font-size: 0.85rem;
+  font-style: italic;
+
+  background-color: ds.$bg-card;
+  border: 1px dashed ds.$border-color;
+  border-radius: 0.5rem;
+}
+
+/* ---------------------------------
+   Responsive
+--------------------------------- */
+
+@media (max-width: 600px) {
+  .contest-type {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .combo-groups {
+    grid-template-columns: 1fr;
+  }
+}

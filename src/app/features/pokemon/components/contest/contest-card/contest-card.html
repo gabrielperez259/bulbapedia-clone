@@ -1,0 +1,102 @@
+<article class="contest-card">
+
+  <header class="contest-card-header">
+    <div class="contest-type">
+      <h2>{{ contestTypeName() }}</h2>
+
+      <span class="berry-flavor">
+        {{ contestTypeBerryFlavor() }}
+      </span>
+    </div>
+  </header>
+
+  <section class="contest-card-section contest-effect-section">
+    <div class="section-header">
+      <h3>Contest Effect</h3>
+    </div>
+
+    <div class="effect-description">
+      <p>{{ contestEffect() }}</p>
+    </div>
+
+    <div class="effect-stats">
+      <div class="effect-stat">
+        <span class="stat-label">Appeal</span>
+        <span class="stat-value">
+          {{ contestEffectAppeal() }}
+        </span>
+      </div>
+
+      <div class="effect-stat">
+        <span class="stat-label">Jam</span>
+        <span class="stat-value">
+          {{ contestEffectJam() }}
+        </span>
+      </div>
+    </div>
+
+    @if (contestEffectFlavorText()) {
+      <div class="effect-flavor-text">
+        <p>{{ contestEffectFlavorText() }}</p>
+      </div>
+    }
+  </section>
+
+  <section class="contest-card-section contest-combo-section">
+    <div class="section-header">
+      <h3>Contest Combos</h3>
+    </div>
+
+    <div class="combo-groups">
+
+      <div class="combo-group">
+        <h4>Use Before</h4>
+
+        @if (contestCombos().normal.use_before!.length > 0) {
+          <div class="combo-moves">
+            @for (
+              move of contestCombos().normal.use_before;
+              track move.name
+            ) {
+              <div class="combo-move">
+                <span class="move-name">
+                  {{ move.name }}
+                </span>
+              </div>
+            }
+          </div>
+        } @else {
+          <p class="no-combos">
+            No compatible moves.
+          </p>
+        }
+      </div>
+
+      <div class="combo-group">
+        <h4>Use After</h4>
+
+        @if (contestCombos().normal.use_after!.length > 0) {
+          <div class="combo-moves">
+            @for (
+              move of contestCombos().normal.use_after;
+              track move.name
+            ) {
+              <div class="combo-move">
+                <span class="move-name">
+                  {{ move.name }}
+                </span>
+              </div>
+            }
+          </div>
+        } @else {
+          <p class="no-combos">
+            No compatible moves.
+          </p>
+        }
+      </div>
+
+    </div>
+  </section>
+
+</article>
+

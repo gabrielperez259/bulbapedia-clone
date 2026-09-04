@@ -1,0 +1,96 @@
+    <article class="super-contest-card">
+
+  <header class="super-contest-card-header">
+    <div class="contest-type">
+          <span class="contest-label">
+        Super Contest
+      </span>
+    </div>
+  </header>
+
+  <section class="super-contest-card-section">
+
+    <div class="section-header">
+      <h3>Contest Effect</h3>
+    </div>
+
+    <div class="effect-content">
+      <p>
+        {{ superContestEffectFlavorText() }}
+      </p>
+    </div>
+
+    <div class="appeal-container">
+      <span class="appeal-label">Appeal</span>
+
+      <span class="appeal-value">
+        {{ superContestAppeal() }}
+      </span>
+    </div>
+
+  </section>
+
+  <section class="super-contest-card-section combo-section">
+
+    <div class="section-header">
+      <h3>Contest Combos</h3>
+    </div>
+
+    <div class="combo-groups">
+
+      <div class="combo-group">
+        <h4>Use Before</h4>
+
+        @if (contestCombos().super.use_before!.length > 0) {
+          <div class="combo-moves">
+
+            @for (
+              move of contestCombos().super.use_before;
+              track move.name
+            ) {
+              <div class="combo-move">
+                <span class="move-name">
+                  {{ move.name }}
+                </span>
+              </div>
+            }
+
+          </div>
+        } @else {
+          <p class="no-combos">
+            No compatible moves.
+          </p>
+        }
+      </div>
+
+      <div class="combo-group">
+        <h4>Use After</h4>
+
+        @if (contestCombos().super.use_after!.length > 0) {
+          <div class="combo-moves">
+
+            @for (
+              move of contestCombos().super.use_after;
+              track move.name
+            ) {
+              <div class="combo-move">
+                <span class="move-name">
+                  {{ move.name }}
+                </span>
+              </div>
+            }
+
+          </div>
+        } @else {
+          <p class="no-combos">
+            No compatible moves.
+          </p>
+        }
+      </div>
+
+    </div>
+
+  </section>
+
+</article>
+

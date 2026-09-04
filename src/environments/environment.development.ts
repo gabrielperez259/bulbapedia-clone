@@ -5,6 +5,8 @@ export const environment = {
   movesUrl: 'https://pokeapi.co/api/v2/move/',
   imageUrl:
     'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/',
-  AbilitiesUrl: 'https://pokeapi.co/api/v2/ability/',
-
-  };
+  abilitiesUrl: 'https://pokeapi.co/api/v2/ability/',
+  contestTypesUrl: 'https://pokeapi.co/api/v2/contest-type/',
+  contestEffectsUrl: 'https://pokeapi.co/api/v2/contest-effect/',
+  superContestEffectsUrl: 'https://pokeapi.co/api/v2/super-contest-effect/',
+};

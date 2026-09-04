@@ -6,7 +6,7 @@ import { AbilityFlavorTextEntry, AbilityRoot } from "../models/abilities/ability
 @Injectable({ providedIn: 'root' })
 export class AbilityDataClient {
     
-    #url = environment.AbilitiesUrl;
+    #url = environment.abilitiesUrl;
     public abilityName = signal('');
     public abilityDetailsLoading = computed(() => this.#abilitiesResource.isLoading());
     public abilityDetailsError = computed(() => this.#abilitiesResource.error());

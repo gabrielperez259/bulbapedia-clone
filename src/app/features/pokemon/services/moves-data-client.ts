@@ -2,7 +2,7 @@ import { environment } from '../../../../environments/environment';
 import { httpResource } from '@angular/common/http';
 import { computed, Injectable, signal } from '@angular/core';
 import { MoveDetails } from '../models/moves/move-details';
-import { PokemonPayload } from '../models/pokemon-payload';
+
 
 export interface TypeResponse {
   id: number;
@@ -40,6 +40,10 @@ export class MovesDataClient {
   public moveGenerationIntroduced = computed(() => this.moveDetails.value()?.generation);
   public movePastValues = computed(() => this.moveDetails.value()?.past_values);
   public moveTarget = computed(() => this.moveDetails.value()?.target.name);
+  public moveContestTypeName = computed(() => this.moveDetails.value()?.contest_type?.name);
+  public moveContestCombos = computed(() => this.moveDetails.value()?.contest_combos);
+  public moveContestEffect = computed(() => this.moveDetails.value()?.contest_effect.url);
+  public moveSuperContestEffect = computed(() => this.moveDetails.value()?.super_contest_effect.url);
   
   public moveEffectEntry = computed(() =>
     this.moveDetails.value()?.effect_entries?.find((entry) => entry.language.name === 'en'),

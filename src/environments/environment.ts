@@ -4,5 +4,8 @@ export const environment = {
   speciesUrl: '',
   movesUrl: '',
   imageUrl: '',
-  AbilitiesUrl: '',
+  abilitiesUrl: '',
+  contestTypesUrl: '',
+  contestEffectsUrl: '',
+  superContestEffectsUrl: ''
 };
