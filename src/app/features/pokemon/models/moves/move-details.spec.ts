@@ -38,7 +38,8 @@ const move: MoveDetails = {
     name: 'cool',
     url: '/contest-type/1'
    },
-   contest_effect: ''
+   contest_effect: '',
+   target: { name: 'user', url: '/move-target/1' }
 };
 
 describe('resolveMoveDetailsForVersionGroup', () => {

@@ -21,6 +21,7 @@ const ROCK_SLIDE: MoveDetails = {
   },
   contest_type: { name: 'tough', url: '/contest-type/5' },
   contest_effect: '',
+  target: { name: 'selected-pokemon', url: '/move-target/4' },
 };
 
 describe('MoveDetailsCard', () => {
