@@ -1,0 +1,20 @@
+  <section
+    class="contest-condition"
+    [style.background-color]="contestConditionColor()"
+  >
+    <div class="condition">
+      <span class="label">Condition:</span>
+
+      <span class="condition-value">
+        {{ contestTypeName() | cleanText }}
+      </span>
+    </div>
+
+    <div class="berry">
+      <span class="label">Berry:</span>
+
+      <span>
+        {{ contestTypeBerryFlavor() | cleanText }}
+      </span>
+    </div>
+  </section>

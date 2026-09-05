@@ -1,0 +1,28 @@
+.contest-condition {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+
+  color: #fff;
+  font-weight: 700;
+
+  .condition,
+  .berry {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.75rem 1rem;
+  }
+
+  .condition {
+    border-right: 1px solid rgb(255 255 255 / 40%);
+  }
+
+  .label {
+    font-weight: 700;
+  }
+
+  .condition-value {
+    text-transform: capitalize;
+  }
+}

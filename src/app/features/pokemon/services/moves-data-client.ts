@@ -41,9 +41,10 @@ export class MovesDataClient {
   public movePastValues = computed(() => this.moveDetails.value()?.past_values);
   public moveTarget = computed(() => this.moveDetails.value()?.target.name);
   public moveContestTypeName = computed(() => this.moveDetails.value()?.contest_type?.name);
+  public moveContestTypeUrl = computed(() => this.moveDetails.value()?.contest_type?.url);
   public moveContestCombos = computed(() => this.moveDetails.value()?.contest_combos);
-  public moveContestEffect = computed(() => this.moveDetails.value()?.contest_effect.url);
-  public moveSuperContestEffect = computed(() => this.moveDetails.value()?.super_contest_effect.url);
+  public moveContestEffectUrl = computed(() => this.moveDetails.value()?.contest_effect?.url);
+  public moveSuperContestEffectUrl = computed(() => this.moveDetails.value()?.super_contest_effect?.url);
   
   public moveEffectEntry = computed(() =>
     this.moveDetails.value()?.effect_entries?.find((entry) => entry.language.name === 'en'),

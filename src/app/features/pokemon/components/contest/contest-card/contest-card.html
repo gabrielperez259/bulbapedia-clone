@@ -1,102 +1,88 @@
 <article class="contest-card">
 
   <header class="contest-card-header">
-    <div class="contest-type">
-      <h2>{{ contestTypeName() }}</h2>
-
-      <span class="berry-flavor">
-        {{ contestTypeBerryFlavor() }}
-      </span>
-    </div>
+    <h2>Contest</h2>
   </header>
 
-  <section class="contest-card-section contest-effect-section">
-    <div class="section-header">
-      <h3>Contest Effect</h3>
+  <section>
+    <app-contest-type
+      [contestTypeName]="contestTypeName()"
+      [contestTypeBerryFlavor]="contestTypeBerryFlavor()"
+    >
+    </app-contest-type>
+  </section>
+ 
+  
+
+  <section class="contest-stats">
+    <div class="stat">
+      <span class="label">Appeal:</span>
+      <span>
+        {{ contestEffectAppeal() }}
+      </span>
     </div>
 
-    <div class="effect-description">
-      <p>{{ contestEffect() }}</p>
+    <div class="stat">
+      <span class="label">Jam:</span>
+      <span>
+        {{ contestEffectJam() }}
+      </span>
     </div>
-
-    <div class="effect-stats">
-      <div class="effect-stat">
-        <span class="stat-label">Appeal</span>
-        <span class="stat-value">
-          {{ contestEffectAppeal() }}
-        </span>
-      </div>
-
-      <div class="effect-stat">
-        <span class="stat-label">Jam</span>
-        <span class="stat-value">
-          {{ contestEffectJam() }}
-        </span>
-      </div>
-    </div>
-
-    @if (contestEffectFlavorText()) {
-      <div class="effect-flavor-text">
-        <p>{{ contestEffectFlavorText() }}</p>
-      </div>
-    }
   </section>
 
-  <section class="contest-card-section contest-combo-section">
-    <div class="section-header">
+  <section class="contest-flavor">  
+    <p>
+      {{ contestEffectFlavorText() }}
+    </p>
+    <p>
+      {{ contestEffect() }}
+    </p>
+  </section>
+
+  <section class="contest-combos">
+
+    <header class="contest-combos-header">
       <h3>Contest Combos</h3>
-    </div>
+    </header>
 
-    <div class="combo-groups">
+    <div class="contest-combos-content">
 
-      <div class="combo-group">
-        <h4>Use Before</h4>
+      <div class="combo-column">
+        <span class="combo-label">
+          Use Before
+        </span>
 
-        @if (contestCombos().normal.use_before!.length > 0) {
-          <div class="combo-moves">
-            @for (
-              move of contestCombos().normal.use_before;
-              track move.name
-            ) {
-              <div class="combo-move">
-                <span class="move-name">
-                  {{ move.name }}
-                </span>
-              </div>
-            }
-          </div>
-        } @else {
-          <p class="no-combos">
-            No compatible moves.
-          </p>
-        }
+        <div class="combo-values">
+          @for (
+            move of contestCombos().normal.use_before;
+            track move
+          ) {
+            <span class="combo-value">
+              {{ move.name| cleanText }}
+            </span>
+          }
+        </div>
       </div>
 
-      <div class="combo-group">
-        <h4>Use After</h4>
+      <div class="combo-column">
+        <span class="combo-label">
+          Use After
+        </span>
 
-        @if (contestCombos().normal.use_after!.length > 0) {
-          <div class="combo-moves">
-            @for (
-              move of contestCombos().normal.use_after;
-              track move.name
-            ) {
-              <div class="combo-move">
-                <span class="move-name">
-                  {{ move.name }}
-                </span>
-              </div>
-            }
-          </div>
-        } @else {
-          <p class="no-combos">
-            No compatible moves.
-          </p>
-        }
+        <div class="combo-values">
+          @for (
+            move of contestCombos().normal.use_after;
+            track move
+          ) {
+            <span class="combo-value">
+              {{ move.name| cleanText }}
+            </span>
+          }
+        </div>
       </div>
 
     </div>
+
   </section>
 
 </article>
-

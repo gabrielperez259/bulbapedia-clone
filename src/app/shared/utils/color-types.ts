@@ -22,6 +22,14 @@ export enum ColorTypes {
   Special = '#4153d6',
 }
 
+export enum ContestConditionColorTypes{
+  cool = '#cb1d31',
+  beauty = '#1ccdd3',
+  cute = '#d61a94',
+  clever = '#1bc841',
+  tough = '#c09018',
+}
+
 export const POKEMON_TYPES = Object.keys(ColorTypes).filter(
   (type) => !['Status', 'Physical', 'Special'].includes(type),
 );

@@ -2,17 +2,20 @@
 
   <header class="super-contest-card-header">
     <div class="contest-type">
-          <span class="contest-label">
+          <h2 class="contest-label">
         Super Contest
-      </span>
+      </h2>
     </div>
   </header>
-
+  <section>
+    <app-contest-type
+      [contestTypeName]="contestTypeName()"
+      [contestTypeBerryFlavor]="contestTypeBerryFlavor()"
+    ></app-contest-type>
+  </section>  
+  
   <section class="super-contest-card-section">
-
-    <div class="section-header">
-      <h3>Contest Effect</h3>
-    </div>
+  
 
     <div class="effect-content">
       <p>
@@ -41,7 +44,7 @@
       <div class="combo-group">
         <h4>Use Before</h4>
 
-        @if (contestCombos().super.use_before!.length > 0) {
+        @if (contestCombos().super.use_before!) {
           <div class="combo-moves">
 
             @for (
@@ -66,7 +69,7 @@
       <div class="combo-group">
         <h4>Use After</h4>
 
-        @if (contestCombos().super.use_after!.length > 0) {
+        @if (contestCombos().super.use_after!) {
           <div class="combo-moves">
 
             @for (

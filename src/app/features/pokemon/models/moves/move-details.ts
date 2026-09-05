@@ -4,7 +4,7 @@ import {
   PokemonVersionGroup,
 } from '../../../../shared/constants/version-group';
 import {  NamedApiResource } from '../../../../shared/models/named-api-resource';
-import { ContestCombo, ContestType } from '../contest/contest.interface';
+import { ContestCombo  } from '../contest/contest.interface';
 import { ApiResourceReference } from '../../../../shared/models/api-resource-reference';
 
 
@@ -28,7 +28,7 @@ export interface MoveDetails {
   past_values: PastMoveValues[];
   generation: NamedApiResource;
   contest_combos: ContestCombo;
-  contest_type: ContestType;
+  contest_type: NamedApiResource;
   contest_effect: ApiResourceReference;
   super_contest_effect: ApiResourceReference;
   target: NamedApiResource;

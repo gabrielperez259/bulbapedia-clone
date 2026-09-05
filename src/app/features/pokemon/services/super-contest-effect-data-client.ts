@@ -38,4 +38,5 @@ export class SuperContestEffectDataClient {
   public readonly superContestEffectMovesNames = computed(
     () => this.#superContestEffectResource.value()?.moves.map((move) => move.name) ?? [],
   );
+  
 }
