@@ -1,9 +1,12 @@
-import { VersionGroupDetails } from './version-group-details';
+import { NamedApiResource } from "../../../../shared/models/api-resource";
+
+export interface MoveVersionGroupDetails {
+  level_learned_at: number;
+  move_learn_method: NamedApiResource;
+  version_group: NamedApiResource;
+}
 
 export interface Move {
-  move: {
-    name: string;
-    url: string;
-  };
-  version_group_details: VersionGroupDetails[];
+  move: NamedApiResource;
+  version_group_details: MoveVersionGroupDetails[];
 }

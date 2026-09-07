@@ -1,6 +1,6 @@
 import { computed, Injectable, signal } from '@angular/core';
 import { httpResource } from '@angular/common/http';
-import { Specie } from '../models/species/specie';
+import { PokemonSpecies } from '../models/pokemon-species/pokemon-species';
 
 @Injectable({ providedIn: 'root' })
 export class PokemonSpeciesDetailsDataClient {
@@ -17,7 +17,7 @@ export class PokemonSpeciesDetailsDataClient {
   );
   public pokemonSpeciesDetailsError = computed(() => this.#pokemonSpeciesDetailsResource.error());
 
-  readonly #pokemonSpeciesDetailsResource = httpResource<Specie>(() => ({
+  readonly #pokemonSpeciesDetailsResource = httpResource<PokemonSpecies>(() => ({
     url: this.url(),
     forceCache: true,
     responseType: 'json',

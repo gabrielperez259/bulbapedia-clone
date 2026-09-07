@@ -1,5 +1,5 @@
-import { BaseForm, ChainLink, EvolutionDetail, ItemReference, Region, Trigger, UsedMove } from "../../app/features/pokemon/models/evolution/evolution";
-import { Species } from "../../app/features/pokemon/models/species/species";
+import {  EvolutionDetail  } from "../../app/features/pokemon/models/evolution/evolution";
+import { NamedApiResource } from "../../app/shared/models/api-resource";
 import { createMockFactory } from "./factory-builder";
 
 
@@ -8,13 +8,13 @@ import { createMockFactory } from "./factory-builder";
 // ==========================================
 
 
-export const createMockSpecies = createMockFactory<Species>(() => ({
+export const createMockSpecies = createMockFactory<NamedApiResource>(() => ({
   id: 25,
   name: 'pikachu',
   url: 'https://pokeapi.co/api/v2/pokemon-species/25/'
 }));
 
-export const createMockTrigger = createMockFactory<Trigger>(() => ({
+export const createMockTrigger = createMockFactory<NamedApiResource>(() => ({
   id: 1,
   name: 'level-up',
   url: 'https://pokeapi.co/api/v2/evolution-trigger/1/'

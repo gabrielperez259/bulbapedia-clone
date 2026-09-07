@@ -26,7 +26,7 @@ export enum ContestConditionColorTypes{
   cool = '#cb1d31',
   beauty = '#1ccdd3',
   cute = '#d61a94',
-  clever = '#1bc841',
+  smart = '#1bc841',
   tough = '#c09018',
 }
 

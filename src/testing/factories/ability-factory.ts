@@ -1,10 +1,9 @@
 
 import { signal } from "@angular/core";
-import { PokemonAbilityList } from "../../app/features/pokemon/models/abilities/ability";
-import { Pokemon } from "../../app/features/pokemon/models/pokemon";
+import { Pokemon, PokemonAbility } from "../../app/features/pokemon/models/pokemon";
 import { createMockFactory } from "./factory-builder";
 
-export const createMockPokemonAbilities =  signal<Pokemon['abilities']>([
+export const createMockPokemonAbilities =  signal<PokemonAbility[]>([
     {
       is_hidden: false,
       slot: 1,

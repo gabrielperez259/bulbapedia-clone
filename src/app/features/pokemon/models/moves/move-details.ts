@@ -1,11 +1,10 @@
-import { VersionGroup } from './version-group';
 import {
   ALL_VERSION_GROUPS,
   PokemonVersionGroup,
 } from '../../../../shared/constants/version-group';
-import {  NamedApiResource } from '../../../../shared/models/named-api-resource';
+import { ApiResourceReference, NamedApiResource } from '../../../../shared/models/api-resource';
 import { ContestCombo  } from '../contest/contest.interface';
-import { ApiResourceReference } from '../../../../shared/models/api-resource-reference';
+
 
 
 
@@ -41,7 +40,7 @@ export interface PastMoveValues {
   power: number | null;
   pp: number | null;
   type: NamedApiResource | null;
-  version_group: VersionGroup;
+  version_group: NamedApiResource;
 }
 
 /**

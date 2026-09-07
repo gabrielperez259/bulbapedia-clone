@@ -1,5 +1,5 @@
 import { Component, input } from '@angular/core';
-import { Pokemon } from '../../models/pokemon';
+import { Pokemon, PokemonAbility } from '../../models/pokemon';
 import { Transparency } from '../../../../shared/directives/transparency';
 import { RouterLink } from '@angular/router';
 import { CleanTextPipe } from "../../../../shared/pipes/clean-text.pipe";
@@ -11,6 +11,6 @@ import { CleanTextPipe } from "../../../../shared/pipes/clean-text.pipe";
   styleUrl: './ability.scss',
 })
 export class Ability {
-  public abilities = input.required<Pokemon['abilities'] | undefined>();
+  public abilities = input.required<PokemonAbility[] | undefined>();
   public isTransparent = input.required<boolean>();
 }

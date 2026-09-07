@@ -1,14 +1,12 @@
-import { NamedApiResource } from '../../../../shared/models/named-api-resource';
+import { NamedApiResource } from "../../../../shared/models/api-resource";
+import { FlavorTextEntry } from "../../../../shared/models/flavor-text-entry";
 
 type EffectEntry = {
     effect: string;
     language: NamedApiResource;
 };
 
-type FlavorTextEntry = {
-    flavor_text: string;
-    language: NamedApiResource;
-};
+
 
 type ContestName = {
     name: string;
@@ -21,19 +19,19 @@ type ContestComboDetail = {
     use_after: NamedApiResource[] | null;
 };
 
-export type ContestCombo = {
+export interface ContestCombo  {
     normal: ContestComboDetail;
     super: ContestComboDetail;
 };
 
-export type ContestType = {
+export interface ContestType {
     id: number;
     name: string;
     berry_flavor: NamedApiResource;
     names: ContestName[];
 };
 
-export type ContestEffect = {
+export interface ContestEffect  {
     id: number;
     appeal: number;
     jam: number;
@@ -41,7 +39,7 @@ export type ContestEffect = {
     flavor_text_entries: FlavorTextEntry[];
 };
 
-export type SuperContestEffect = {
+export interface SuperContestEffect  {
     id: number;
     appeal: number;
     flavor_text_entries: FlavorTextEntry[];

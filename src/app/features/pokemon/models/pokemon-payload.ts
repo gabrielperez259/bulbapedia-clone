@@ -1,5 +1,5 @@
-import { Results } from './results';
+import { NamedApiResource } from "../../../shared/models/api-resource";
 
 export interface PokemonPayload {
-  results: Results[];
+  results: NamedApiResource[];
 }

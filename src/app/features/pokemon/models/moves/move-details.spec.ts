@@ -35,20 +35,16 @@ const move: MoveDetails = {
     } 
   } ,
    contest_type: {
-    id: 1,
+   
     name: 'cool',  
-    berry_flavor: { name: 'cool', url: '/berry-flavor/1' },
-    names: [{ name: 'cool', language: { name: 'en', url: '/language/1' }, color: 'blue' }]
+    url: '/contest-type/1'
    },
-   contest_effect: {
-    id: 1,
-    appeal: 1,
-    jam: 1,
-    effect_entries: [],
-    flavor_text_entries: []
-   },
+   contest_effect: {       
+    url: '/contest-effect/1'
+   },  
 
-   target: { name: 'user', url: '/move-target/1' }
+   target: { name: 'user', url: '/move-target/1' },
+   super_contest_effect: { url: '/super-contest-effect/1' }
 };
 
 describe('resolveMoveDetailsForVersionGroup', () => {

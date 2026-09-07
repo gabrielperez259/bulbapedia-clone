@@ -6,7 +6,7 @@ import {
 } from '@angular/core';
 import * as Highcharts from 'highcharts';
 import { HighchartsChartComponent } from 'highcharts-angular';
-import { Stats as StatsModel } from '../../models/stats/stats';
+import { PokemonStat } from '../../models/pokemon';
 
 @Component({
   selector: 'app-stats',
@@ -15,7 +15,7 @@ import { Stats as StatsModel } from '../../models/stats/stats';
   styleUrl: './stats.scss',
 })
 export class Stats implements OnInit {
-  stats = input.required<StatsModel[]>();
+  stats = input.required<PokemonStat[]>();
   total = computed(() => this.stats().reduce((acc, stat) => acc + stat.base_stat, 0));
   Highcharts: typeof Highcharts = Highcharts;
   chartOptions: Highcharts.Options = {};

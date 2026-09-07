@@ -1,7 +1,7 @@
 import { computed, Injectable, signal } from "@angular/core";
 import { environment } from "../../../../environments/environment";
 import { httpResource } from "@angular/common/http";
-import { AbilityFlavorTextEntry, AbilityRoot } from "../models/abilities/ability";
+import { AbilityFlavorTextEntry, Ability } from "../models/ability/ability";
 
 @Injectable({ providedIn: 'root' })
 export class AbilityDataClient {
@@ -35,7 +35,7 @@ export class AbilityDataClient {
         return Array.from(uniqueVersionsMap.values());
     });
 
-    #abilitiesResource = httpResource<AbilityRoot>(() => ({
+    #abilitiesResource = httpResource<Ability>(() => ({
         url: `${this.#url}${this.abilityName()}`,
         responseType: 'json',
         method: 'GET',

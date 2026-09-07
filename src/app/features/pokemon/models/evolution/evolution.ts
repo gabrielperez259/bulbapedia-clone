@@ -1,4 +1,6 @@
-import { Species } from '../species/species';
+import { NamedApiResource } from "../../../../shared/models/api-resource";
+
+
 
 export interface EvolutionChain {
   baby_trigger_item: any | null;
@@ -11,18 +13,18 @@ export interface ChainLink {
   evolution_details: EvolutionDetail[];
   evolves_to: ChainLink[];
   is_baby: boolean;
-  species: Species;
+  species: NamedApiResource;
 }
 
 export interface EvolutionDetail {
-  base_form: BaseForm | null;
+  base_form: NamedApiResource | null;
   base_form_id: number | null;
   gender: number | null;
-  held_item: ItemReference | null;
-  item: ItemReference | null;
-  known_move: ItemReference | null;
-  known_move_type: ItemReference | null;
-  location: ItemReference | null;
+  held_item: NamedApiResource | null;
+  item: NamedApiResource | null;
+  known_move: NamedApiResource | null;
+  known_move_type: NamedApiResource | null;
+  location: NamedApiResource | null;
   min_affection: number | null;
   min_beauty: number | null;
   min_damage_taken: number | null;
@@ -30,42 +32,19 @@ export interface EvolutionDetail {
   min_level: number | null;
   min_move_count: number | null;
   needs_overworld_rain: boolean;
-  party_species: ItemReference | null;
-  party_type: ItemReference | null;
-  region: Region | null;
+  party_species: NamedApiResource | null;
+  party_type: NamedApiResource | null;
+  region: NamedApiResource | null;
   relative_physical_stats: number | null;
   time_of_day: string;
-  trade_species: ItemReference | null;
-  trigger: Trigger;
+  trade_species: NamedApiResource | null;
+  trigger: NamedApiResource;
   turn_upside_down: boolean;
   evolves_to: ChainLink[];
   is_baby: boolean;
-  species: Species;
-  used_move: UsedMove | null;
-  used_move_type: ItemReference | null;
+  species: NamedApiResource;
+  used_move: NamedApiResource | null;
+  used_move_type: NamedApiResource | null;
 
 }
 
-export interface BaseForm {
-  name: string;
-  url: string;
-}
-export interface ItemReference {
-  name: string;
-  url: string;
-}
-
-export interface Trigger {
-  name: string;
-  url: string;
-}
-
-export interface Region {
-  name: string;
-  url: string;
-}
-
-export interface UsedMove {
-  name: string;
-  url: string;
-}

@@ -1,7 +1,5 @@
-export interface NamedAPIResource {
-  name: string;
-  url: string;
-}
+import { NamedApiResource } from "../../../../shared/models/api-resource";
+
 
 export interface EncounterMethod {
   name: string;
@@ -22,12 +20,12 @@ export interface Encounter {
 }
 
 export interface VersionEncounterDetail {
-  version: NamedAPIResource;
+  version: NamedApiResource;
   max_chance: number;
   encounter_details: Encounter[];
 }
 
 export interface LocationAreaEncounter {
-  location_area: NamedAPIResource;
+  location_area: NamedApiResource;
   version_details: VersionEncounterDetail[];
 }

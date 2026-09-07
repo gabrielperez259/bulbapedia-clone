@@ -1,5 +1,12 @@
-import { Other } from './other';
 
+export interface OfficialArtwork {
+  front_default: string;
+  front_shiny: string;
+}
+
+export interface Other {
+  'official-artwork': OfficialArtwork;
+}
 export interface SpriteVersionSet {
   front_default?: string | null;
   back_default?: string | null;

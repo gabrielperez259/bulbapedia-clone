@@ -21,5 +21,5 @@ export const MOVE_DETAILS_MOCK = {
       { version_group: { name: '' }, accuracy: 0, effect_entries: [{ effect: '' }] },
     ]),
     moveContestType: signal({ name: '' }),
-    moveContestEffect: signal(''),
+    moveContestEffect: signal({name: '', url: ''}),
   };
