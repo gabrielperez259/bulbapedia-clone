@@ -20,7 +20,8 @@ const ROCK_SLIDE: MoveDetails = {
     super: { use_before: [], use_after: [] },
   },
   contest_type: { name: 'tough', url: '/contest-type/5' },
-  contest_effect: '',
+  contest_effect: { url: '' },
+  super_contest_effect: { url: '' },
   target: { name: 'selected-pokemon', url: '/move-target/4' },
 };
 

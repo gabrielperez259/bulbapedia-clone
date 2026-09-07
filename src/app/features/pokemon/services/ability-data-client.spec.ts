@@ -111,7 +111,7 @@ describe('AbilityDataClient', () => {
     TestBed.tick();
 
     const request = httpTesting.expectOne(
-      `${environment.AbilitiesUrl}overgrow`
+      `${environment.abilitiesUrl}overgrow`
     );
 
     expect(request.request.method).toBe('GET');
@@ -128,7 +128,7 @@ describe('AbilityDataClient', () => {
     expect(service.abilityDetailsLoading()).toBe(true);
 
     const request = httpTesting.expectOne(
-      `${environment.AbilitiesUrl}overgrow`
+      `${environment.abilitiesUrl}overgrow`
     );
 
     request.flush(abilityResponse);
@@ -139,7 +139,7 @@ describe('AbilityDataClient', () => {
     TestBed.tick();
 
     const request = httpTesting.expectOne(
-      `${environment.AbilitiesUrl}overgrow`
+      `${environment.abilitiesUrl}overgrow`
     );
 
     expect(service.abilityDetailsLoading()).toBe(true);
@@ -156,7 +156,7 @@ describe('AbilityDataClient', () => {
     TestBed.tick();
 
     const request = httpTesting.expectOne(
-      `${environment.AbilitiesUrl}overgrow`
+      `${environment.abilitiesUrl}overgrow`
     );
 
     request.flush('Not found', {
@@ -174,7 +174,7 @@ describe('AbilityDataClient', () => {
     TestBed.tick();
 
     const request = httpTesting.expectOne(
-      `${environment.AbilitiesUrl}overgrow`
+      `${environment.abilitiesUrl}overgrow`
     );
 
     request.flush(abilityResponse);
@@ -206,7 +206,7 @@ describe('AbilityDataClient', () => {
     TestBed.tick();
 
     const request = httpTesting.expectOne(
-      `${environment.AbilitiesUrl}overgrow`
+      `${environment.abilitiesUrl}overgrow`
     );
 
     request.flush(abilityResponse);
@@ -225,7 +225,7 @@ describe('AbilityDataClient', () => {
     TestBed.tick();
 
     const request = httpTesting.expectOne(
-      `${environment.AbilitiesUrl}overgrow`
+      `${environment.abilitiesUrl}overgrow`
     );
 
     request.flush(abilityResponse);
@@ -249,7 +249,7 @@ describe('AbilityDataClient', () => {
     TestBed.tick();
 
     const request = httpTesting.expectOne(
-      `${environment.AbilitiesUrl}overgrow`
+      `${environment.abilitiesUrl}overgrow`
     );
 
     request.flush(abilityResponse);
@@ -270,7 +270,7 @@ describe('AbilityDataClient', () => {
     TestBed.tick();
     
     const request = httpTesting.expectOne(
-      `${environment.AbilitiesUrl}overgrow`
+      `${environment.abilitiesUrl}overgrow`
     );
 
     request.flush(abilityResponse);

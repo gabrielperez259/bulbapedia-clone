@@ -13,6 +13,8 @@ describe('ContestType', () => {
 
     fixture = TestBed.createComponent(ContestType);
     component = fixture.componentInstance;
+    fixture.componentRef.setInput('contestTypeName', 'cool');
+    fixture.componentRef.setInput('contestTypeBerryFlavor', 'spicy');
     await fixture.whenStable();
   });
 

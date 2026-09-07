@@ -6,7 +6,7 @@ import { AbilityDetails } from './ability-details';
 import { AbilityDataClient } from '../../../services/ability-data-client';
 import { Pokemon } from '../../../models/pokemon';
 import { provideRouter } from '@angular/router';
-import { AbilityFlavorTextEntry } from '../../../models/abilities/ability';
+import { AbilityFlavorTextEntry } from '../../../models/ability/ability';
 
 describe('AbilityDetails', () => {
   let component: AbilityDetails;

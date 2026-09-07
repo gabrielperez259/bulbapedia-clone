@@ -45,7 +45,7 @@ describe('PokemonDetailsCard', () => {
       },
     ],
     abilities: [],
-  });
+  }) as unknown as Pokemon;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
