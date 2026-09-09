@@ -1,9 +1,5 @@
-import { Component, computed, inject, signal, ChangeDetectionStrategy } from '@angular/core';
+import { Component, computed, inject, signal } from '@angular/core';
 import { PokemonDetailsDataClient } from '../../../services/pokemon-details.data-client';
-import {
-  ALL_VERSION_GROUPS,
-  POKEMON_VERSION_GROUPS,
-} from '../../../../../shared/constants/version-group';
 import { FormsModule } from '@angular/forms';
 import { MatTableModule } from '@angular/material/table';
 import { MoveListItem } from '../../../components/move-list-item/move-list-item';

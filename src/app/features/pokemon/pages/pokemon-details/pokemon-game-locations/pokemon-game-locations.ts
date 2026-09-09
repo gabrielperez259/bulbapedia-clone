@@ -9,10 +9,12 @@ import {
   GENERATION_ORDER,
   VERSION_TO_GENERATION,
 } from '../../../../../shared/constants/version-generation-map';
+import {
+  getVersionsForVersionGroup,
+} from '../../../../../shared/constants/version-group-to-versions';
 
 @Component({
   selector: 'app-pokemon-game-locations',
-  standalone: true,
   imports: [GameLocationsCard],
   templateUrl: './pokemon-game-locations.html',
   styleUrl: './pokemon-game-locations.scss',
@@ -38,7 +40,7 @@ export class PokemonGameLocations {
 
   public generationGroups = computed<GenerationLocationsGroup[]>(() => {
     const rawEncounters = this.encountersDataClient.encounters();
-    if (!rawEncounters || rawEncounters.length === 0) return [];
+    const moveVersionGroups = this.pokemonDetailsData.pokemonMoveVersionGroupNames();
 
     // Mapear gameVersion -> Set de location_areas
     const gameLocationsMap = new Map<string, Set<string>>();
@@ -51,6 +53,24 @@ export class PokemonGameLocations {
           gameLocationsMap.set(verName, new Set());
         }
         gameLocationsMap.get(verName)!.add(locName);
+      }
+    }
+
+    // Determinar quais versões individuais já estão cobertas pelas encounters
+    const coveredVersions = new Set<string>(gameLocationsMap.keys());
+
+    // Para cada version group dos moves, verificar se alguma versão individual já está coberta.
+    // Se nenhuma estiver, adicionar todas as versões do grupo com 'evolve/trade'.
+    for (const versionGroup of moveVersionGroups) {
+      const individualVersions = getVersionsForVersionGroup(versionGroup);
+      const anyVersionCovered = individualVersions.some((v) => coveredVersions.has(v));
+
+      if (!anyVersionCovered) {
+        for (const version of individualVersions) {
+          if (!gameLocationsMap.has(version)) {
+            gameLocationsMap.set(version, new Set(['evolve/trade']));
+          }
+        }
       }
     }
 

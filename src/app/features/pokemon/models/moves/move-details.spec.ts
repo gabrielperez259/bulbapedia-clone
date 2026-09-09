@@ -44,7 +44,10 @@ const move: MoveDetails = {
    },  
 
    target: { name: 'user', url: '/move-target/1' },
-   super_contest_effect: { url: '/super-contest-effect/1' }
+   super_contest_effect: { url: '/super-contest-effect/1' },
+   machines: [],
+   flavor_text_entries: [],
+   learned_by_pokemon: [],
 };
 
 describe('resolveMoveDetailsForVersionGroup', () => {

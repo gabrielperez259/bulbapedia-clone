@@ -1,6 +1,7 @@
 import { beforeEach, describe, expect, it } from 'vitest';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { signal } from '@angular/core';
+import { provideRouter } from '@angular/router';
 import { PokemonGameLocations } from './pokemon-game-locations';
 import { PokemonDetailsDataClient } from '../../../services/pokemon-details.data-client';
 import { LocationAreaEncountersDataClient } from '../../../services/location-area-encounters-data-client';
@@ -11,6 +12,7 @@ describe('PokemonGameLocations', () => {
 
   const mockPokemonDetailsDataClient = {
     pokemonLocationAreaEncountersUrl: signal('https://pokeapi.co/api/v2/pokemon/25/encounters'),
+    pokemonMoveVersionGroupNames: signal<string[]>([]),
   };
 
   const mockLocationAreaEncountersDataClient = {
@@ -38,6 +40,7 @@ describe('PokemonGameLocations', () => {
     await TestBed.configureTestingModule({
       imports: [PokemonGameLocations],
       providers: [
+        provideRouter([]),
         { provide: PokemonDetailsDataClient, useValue: mockPokemonDetailsDataClient },
         {
           provide: LocationAreaEncountersDataClient,
@@ -67,5 +70,44 @@ describe('PokemonGameLocations', () => {
     expect(groups[1].generationTitle).toBe('Generation II');
     expect(groups[1].games[0].gameName).toBe('gold');
     expect(groups[1].games[0].locations).toContain('viridian-forest-area');
+  });
+
+  it('should add evolve/trade entries for move version groups not covered by encounters', () => {
+    mockPokemonDetailsDataClient.pokemonMoveVersionGroupNames.set([
+      'red-blue',      // 'red' is already covered → skip
+      'gold-silver',   // 'gold' is already covered → skip
+      'ruby-sapphire', // neither 'ruby' nor 'sapphire' in encounters → add with evolve/trade
+    ]);
+    fixture.detectChanges();
+
+    const groups = component.generationGroups();
+    const gen3 = groups.find((g) => g.generationTitle === 'Generation III');
+
+    expect(gen3).toBeDefined();
+    expect(gen3!.games.some((g) => g.gameName === 'ruby')).toBe(true);
+    expect(gen3!.games.some((g) => g.gameName === 'sapphire')).toBe(true);
+    expect(gen3!.games.find((g) => g.gameName === 'ruby')?.locations).toContain('evolve/trade');
+    expect(gen3!.games.find((g) => g.gameName === 'sapphire')?.locations).toContain('evolve/trade');
+  });
+
+  it('should NOT add evolve/trade when at least one version of the group is covered', () => {
+    mockPokemonDetailsDataClient.pokemonMoveVersionGroupNames.set([
+      'red-blue', // 'red' is in encounters → entire group is considered covered
+    ]);
+    fixture.detectChanges();
+
+    const groups = component.generationGroups();
+    const gen1 = groups.find((g) => g.generationTitle === 'Generation I');
+
+    // 'blue' should NOT be added as evolve/trade because 'red' is already covered
+    expect(gen1!.games.some((g) => g.gameName === 'blue')).toBe(false);
+  });
+
+  it('should return empty array when there are no encounters and no move version groups', () => {
+    mockLocationAreaEncountersDataClient.encounters.set([]);
+    mockPokemonDetailsDataClient.pokemonMoveVersionGroupNames.set([]);
+    fixture.detectChanges();
+
+    expect(component.generationGroups()).toEqual([]);
   });
 });

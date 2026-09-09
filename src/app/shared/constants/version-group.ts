@@ -1,4 +1,4 @@
-export type PokemonVersionGroup =
+export type MainSeriesVersionGroup =
   | 'red-blue'
   | 'yellow'
   | 'gold-silver'
@@ -22,7 +22,7 @@ export type PokemonVersionGroup =
   | 'scarlet-violet'
   | 'champions';
 
-export const POKEMON_VERSION_GROUPS = {
+export const MAIN_SERIES_VERSION_GROUPS = {
   RED_BLUE: 'red-blue',
   YELLOW: 'yellow',
   GOLD_SILVER: 'gold-silver',
@@ -47,4 +47,4 @@ export const POKEMON_VERSION_GROUPS = {
   CHAMPIONS: 'champions',
 } as const;
 
-export const ALL_VERSION_GROUPS: PokemonVersionGroup[] = Object.values(POKEMON_VERSION_GROUPS);
+export const ALL_VERSION_GROUPS: MainSeriesVersionGroup[] = Object.values(MAIN_SERIES_VERSION_GROUPS);

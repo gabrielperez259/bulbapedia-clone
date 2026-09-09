@@ -22,6 +22,9 @@ const ROCK_SLIDE: MoveDetails = {
   contest_type: { name: 'tough', url: '/contest-type/5' },
   contest_effect: { url: '' },
   super_contest_effect: { url: '' },
+  machines: [],
+  flavor_text_entries: [],
+  learned_by_pokemon: [],
   target: { name: 'selected-pokemon', url: '/move-target/4' },
 };
 

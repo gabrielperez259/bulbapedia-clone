@@ -1,6 +1,6 @@
 import {
   ALL_VERSION_GROUPS,
-  PokemonVersionGroup,
+  MainSeriesVersionGroup,
 } from '../../../../shared/constants/version-group';
 import { ApiResourceReference, NamedApiResource } from '../../../../shared/models/api-resource';
 import { FlavorTextEntry } from '../../../../shared/models/flavor-text-entry';
@@ -62,21 +62,21 @@ export function resolveMoveDetailsForVersionGroup(
 ): MoveDetails | undefined {
   if (!moveDetails) return undefined;
 
-  const selectedVersionIndex = ALL_VERSION_GROUPS.indexOf(versionGroup as PokemonVersionGroup);
+  const selectedVersionIndex = ALL_VERSION_GROUPS.indexOf(versionGroup as MainSeriesVersionGroup);
   if (selectedVersionIndex === -1) return moveDetails;
 
   const pastValues = moveDetails.past_values
     .filter((value) => {
       const historicalVersionIndex = ALL_VERSION_GROUPS.indexOf(
-        value.version_group.name as PokemonVersionGroup,
+        value.version_group.name as MainSeriesVersionGroup,
       );
 
       return historicalVersionIndex >= selectedVersionIndex;
     })
     .sort(
       (first, second) =>
-        ALL_VERSION_GROUPS.indexOf(first.version_group.name as PokemonVersionGroup) -
-        ALL_VERSION_GROUPS.indexOf(second.version_group.name as PokemonVersionGroup),
+        ALL_VERSION_GROUPS.indexOf(first.version_group.name as MainSeriesVersionGroup) -
+        ALL_VERSION_GROUPS.indexOf(second.version_group.name as MainSeriesVersionGroup),
     )[0];
 
   if (!pastValues) return moveDetails;

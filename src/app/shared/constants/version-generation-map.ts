@@ -78,8 +78,13 @@ export const VERSION_TO_GENERATION: Record<string, string> = {
   'brilliant-diamond': 'gen-8',
   'shining-pearl': 'gen-8',
   'legends-arceus': 'gen-8',
-
+  'the-isle-of-armor-sword': 'gen-8', 
+  'the-isle-of-armor-shield': 'gen-8', 
+  'the-crown-tundra-sword': 'gen-8',
+  'the-crown-tundra-shield': 'gen-8',
   // Gen 9
   scarlet: 'gen-9',
   violet: 'gen-9',
+  
+
 };
