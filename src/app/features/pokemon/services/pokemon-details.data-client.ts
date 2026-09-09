@@ -22,33 +22,29 @@ export class PokemonDetailsDataClient {
   public pokemonAbilities = computed(() => this.#pokemonDetailsResource.value()?.abilities);
   public pokemonIsDefault = computed(() => this.#pokemonDetailsResource.value()?.is_default); 
   public pokemonLocationAreaEncountersUrl = computed(() => this.#pokemonDetailsResource.value()?.location_area_encounters);
+  public pokemonMoves = computed(() => this.#pokemonDetailsResource.value()?.moves!);
+  
+  public pokemonMoveVersionGroupNames = computed(() => {
+  const moves = this.pokemonDetails()?.moves ?? [];
+
+  return [...new Set(
+    moves.flatMap(move =>
+      move.version_group_details.map(detail => detail.version_group.name)
+    )
+  )];
+});
+
+  public pokemonMoveVersionGroupDefault = computed(() => {
+  return this.pokemonMoveVersionGroupNames().at(-1) ?? null;
+});
+
 
 
   readonly #pokemonDetailsResource = httpResource<Pokemon>(() => ({
     url: `${this.#url}${this.search()}`,
     responseType: 'json',
     method: 'GET',
-    cache: 'force-cache',
-    initialValue: {
-      id: 0,
-      name: '',
-      location_area_encounters: '',
-      species: {
-        name: '',
-        url: ''
-      },
-      sprites: {
-        other: {
-          'official-artwork': {
-            front_default: ''
-          }
-        }
-      },
-      types: [],
-      stats: [],
-      abilities: [],
-      is_default: false
-    }
+    cache: 'force-cache' 
     
   }));
 }

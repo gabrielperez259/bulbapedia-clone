@@ -19,7 +19,8 @@ export type PokemonVersionGroup =
   | 'sword-shield'
   | 'brilliant-diamond-shining-pearl'
   | 'legends-arceus'
-  | 'scarlet-violet';
+  | 'scarlet-violet'
+  | 'champions';
 
 export const POKEMON_VERSION_GROUPS = {
   RED_BLUE: 'red-blue',
@@ -43,6 +44,7 @@ export const POKEMON_VERSION_GROUPS = {
   BRILLIANT_DIAMOND_SHINING_PEARL: 'brilliant-diamond-shining-pearl',
   LEGENDS_ARCEUS: 'legends-arceus',
   SCARLET_VIOLET: 'scarlet-violet',
+  CHAMPIONS: 'champions',
 } as const;
 
 export const ALL_VERSION_GROUPS: PokemonVersionGroup[] = Object.values(POKEMON_VERSION_GROUPS);

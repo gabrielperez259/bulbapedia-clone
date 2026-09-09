@@ -3,6 +3,7 @@ import {
   PokemonVersionGroup,
 } from '../../../../shared/constants/version-group';
 import { ApiResourceReference, NamedApiResource } from '../../../../shared/models/api-resource';
+import { FlavorTextEntry } from '../../../../shared/models/flavor-text-entry';
 import { ContestCombo  } from '../contest/contest.interface';
 
 
@@ -14,6 +15,10 @@ interface MoveEffectEntry {
   language: NamedApiResource;
 }
 
+interface Machine {
+  machine: ApiResourceReference;
+  version_group: NamedApiResource;
+}
 export interface MoveDetails {
   name: string;
   power: number | null;
@@ -30,6 +35,9 @@ export interface MoveDetails {
   contest_type: NamedApiResource;
   contest_effect: ApiResourceReference;
   super_contest_effect: ApiResourceReference;
+  machines: Machine[];
+  flavor_text_entries: FlavorTextEntry[];
+  learned_by_pokemon: NamedApiResource[];
   target: NamedApiResource;
 }
 

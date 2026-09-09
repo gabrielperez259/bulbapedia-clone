@@ -45,6 +45,7 @@ export class MovesDataClient {
   public moveContestCombos = computed(() => this.moveDetails.value()?.contest_combos);
   public moveContestEffectUrl = computed(() => this.moveDetails.value()?.contest_effect?.url);
   public moveSuperContestEffectUrl = computed(() => this.moveDetails.value()?.super_contest_effect?.url);
+  public moveLearnByPokemon = computed(() => this.moveDetails.value()?.learned_by_pokemon);
   
   public moveEffectEntry = computed(() =>
     this.moveDetails.value()?.effect_entries?.find((entry) => entry.language.name === 'en'),

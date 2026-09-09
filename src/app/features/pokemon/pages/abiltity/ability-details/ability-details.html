@@ -24,7 +24,7 @@
                 <ul>
                     @for (pokemon of abilityDataDetails.pokemonsWithAbility(); track pokemon) {
                         <li>
-                            <app-pokemon-list-item [pokemon]="pokemon" [route]='"../../" + pokemon.name'> </app-pokemon-list-item>
+                            <app-pokemon-list-item [pokemon]="pokemon" [route]='"../../pokemon/" + pokemon.name'> </app-pokemon-list-item>
                         </li>
                     }
                 </ul>

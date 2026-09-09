@@ -50,15 +50,15 @@ export function getMovesForVersionAndLearnMethod(
   styleUrl: './pokemon-move-list.scss',
 })
 export class PokemonMoveList {
-  moves = inject(PokemonDetailsDataClient).pokemonDetails()!.moves;
+  moves = inject(PokemonDetailsDataClient);
   sortService = inject(SortService);
 
-  public learnMethod = signal<string>('level-up');
+  public learnMethod = signal<string>('train');
   public learnMethods = signal(LEARN_METHODS);
-  public version = signal<string>(POKEMON_VERSION_GROUPS.SCARLET_VIOLET);
-  public initialLearnMethod = signal<string>('level-up');
-  public initialVersion = signal<string>(POKEMON_VERSION_GROUPS.SCARLET_VIOLET);
-  public versions = signal(ALL_VERSION_GROUPS);
+  public version = signal<string>(this.moves.pokemonMoveVersionGroupDefault()!);
+  public initialLearnMethod = signal<string>('train');
+  public initialVersion = signal<string>('champions');
+  public versions = signal(this.moves.pokemonMoveVersionGroupNames());
 
   public setLearnMethodValue(value: string) {
     this.learnMethod.set(value);
@@ -69,6 +69,6 @@ export class PokemonMoveList {
   }
 
   computedMoveList = computed(() => {
-    return getMovesForVersionAndLearnMethod(this.moves, this.version(), this.learnMethod());
+    return getMovesForVersionAndLearnMethod(this.moves.pokemonMoves(), this.version(), this.learnMethod());
   });
 }

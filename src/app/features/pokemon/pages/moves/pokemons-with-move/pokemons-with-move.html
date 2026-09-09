@@ -1,1 +1,11 @@
-<p>pokemons-with-move works!</p>
+@if (moveDataClient.moveDetailsLoading()) {
+    <p> loading... </p>
+}@else if (moveDataClient.moveDetailsError()) {
+    <p> error </p>
+}@else {
+    @for (pokemon of moveDataClient.moveLearnByPokemon(); track $index) {
+        <app-pokemon-list-item [pokemon]="pokemon" [route]="'../../../pokemon/'+pokemon.name"></app-pokemon-list-item>
+    }
+    
+}
+
