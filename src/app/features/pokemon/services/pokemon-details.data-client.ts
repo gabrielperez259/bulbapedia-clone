@@ -20,6 +20,7 @@ export class PokemonDetailsDataClient {
   public pokemonTypes = computed(() => this.#pokemonDetailsResource.value()?.types);
   public pokemonsStats = computed(() => this.#pokemonDetailsResource.value()?.stats);
   public pokemonAbilities = computed(() => this.#pokemonDetailsResource.value()?.abilities);
+  public pokemonPastAbilities = computed(() => this.#pokemonDetailsResource.value()?.past_abilities);
   public pokemonIsDefault = computed(() => this.#pokemonDetailsResource.value()?.is_default); 
   public pokemonLocationAreaEncountersUrl = computed(() => this.#pokemonDetailsResource.value()?.location_area_encounters);
   public pokemonMoves = computed(() => this.#pokemonDetailsResource.value()?.moves!);

@@ -1,15 +1,19 @@
-import { computed, Injectable, signal } from "@angular/core";
+import { computed, Injectable, Service, signal } from "@angular/core";
 import { environment } from "../../../../environments/environment";
 import { httpResource } from "@angular/common/http";
 import { AbilityFlavorTextEntry, Ability } from "../models/ability/ability";
 
-@Injectable({ providedIn: 'root' })
+@Service()
 export class AbilityDataClient {
     
     #url = environment.abilitiesUrl;
     public abilityName = signal('');
+    public abilityDetails = computed(() => this.#abilitiesResource.value()?.name);
     public abilityDetailsLoading = computed(() => this.#abilitiesResource.isLoading());
     public abilityDetailsError = computed(() => this.#abilitiesResource.error());
+    public abilityDescription = computed(() => this.#abilitiesResource.value()?.effect_entries?.find((entry) => entry.language.name === 'en')?.effect);
+
+    
     public pokemonsWithAbility = computed(() => 
         this.#abilitiesResource.value()?.pokemon.map((p) => p.pokemon) ?? []
     );

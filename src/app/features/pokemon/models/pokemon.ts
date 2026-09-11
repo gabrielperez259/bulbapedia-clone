@@ -10,7 +10,7 @@ import { NamedApiResource } from '../../../shared/models/api-resource';
 
 export interface PokemonPastAbility {
   generation: NamedApiResource;
-  ability: PokemonAbility;
+  abilities: PokemonAbility[];
 }
 
 export interface PokemonGameIndex {

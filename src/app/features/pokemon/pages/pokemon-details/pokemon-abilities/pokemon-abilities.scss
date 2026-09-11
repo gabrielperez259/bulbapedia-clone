@@ -1,0 +1,117 @@
+@use '../../../../../styles/utils' as ds;
+
+:host {
+  display: block;
+  width: 100%;
+}
+
+.pokemon-abilities-container {
+  display: flex;
+  flex-direction: column;
+  gap: ds.$space-md;
+
+  background: ds.$bg-card;
+  backdrop-filter: blur(10px);
+  border: 1px solid ds.$glass-border;
+  border-radius: 0.5rem;
+  box-shadow: ds.$glass-shadow;
+  padding: ds.$space-lg;
+
+  h3 {
+    margin: 0;
+    color: ds.$text-main;
+    font-size: 1.1rem;
+  }
+
+  > div:first-child {
+    padding-bottom: ds.$space-md;
+    border-bottom: 1px solid ds.$glass-border;
+  }
+}
+
+.ability {
+  display: flex;
+  flex-direction: column;
+  gap: ds.$space-md;
+
+  padding-bottom: ds.$space-md;
+  border-bottom: 1px solid ds.$glass-border;
+
+  &:last-child {
+    padding-bottom: 0;
+    border-bottom: none;
+  }
+
+  > span {
+    color: ds.$text-main;
+    font-size: 0.9rem;
+    font-weight: 600;
+
+    a {
+      color: ds.$accent-color;
+      text-decoration: none;
+      transition:
+        color 0.2s ease,
+        text-decoration 0.2s ease;
+
+      &:hover {
+        color: ds.$text-main;
+        text-decoration: underline;
+      }
+
+      &:focus-visible {
+        outline: 2px solid ds.$accent-color;
+        outline-offset: 2px;
+        border-radius: 0.5rem;
+      }
+    }
+  }
+
+  &.hidden > span {
+    color: ds.$accent-color;
+  }
+}
+
+.past-ability {
+  display: flex;
+  flex-direction: column;
+  gap: ds.$space-md;
+
+  padding-top: ds.$space-md;
+
+  h3 {
+    padding-bottom: ds.$space-md;
+    border-bottom: 1px solid ds.$glass-border;
+  }
+
+  .generation {
+    color: ds.$text-muted;
+    font-size: 0.85rem;
+    font-weight: 600;
+  }
+
+  .ability.past {
+    padding-bottom: ds.$space-lg;
+
+    &:last-child {
+      padding-bottom: 0;
+      border-bottom: none;
+    }
+  }
+}
+
+.error-banner {
+  width: 100%;
+  padding: ds.$space-lg;
+
+  background: ds.$bg-card;
+  border: 1px solid ds.$glass-border;
+  border-radius: ds.$radius-md;
+  box-shadow: ds.$glass-shadow;
+
+  p {
+    margin: 0;
+    color: ds.$text-main;
+    text-align: center;
+  }
+}

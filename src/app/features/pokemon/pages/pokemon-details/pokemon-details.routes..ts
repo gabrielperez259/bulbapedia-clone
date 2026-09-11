@@ -9,6 +9,10 @@ export const POKEMON_DETAILS_ROUTES: Route[] = [
     path: 'moves',
     loadComponent: () =>
       import('./pokemon-move-list/pokemon-move-list').then((m) => m.PokemonMoveList),
+  },{
+    path: 'abilities',
+    loadComponent: () =>
+      import('./pokemon-abilities/pokemon-abilities').then((m) => m.PokemonAbilities),
   },
   {
     path: 'evolution',

@@ -1,0 +1,41 @@
+@use '../../../../styles/utils' as ds;
+
+:host {
+  display: block;
+  width: 100%;
+}
+
+.ability-description-container {
+  width: 100%;
+
+  > div {
+    padding: ds.$space-md ds.$space-lg;
+
+    background: ds.$bg-surface;
+    border: 1px solid ds.$glass-border;
+    border-radius: 0.5rem;
+  }
+
+  p {
+    margin: 0;
+    color: ds.$text-muted;
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+}
+
+.error-banner {
+  width: 100%;
+  padding: ds.$space-lg;
+
+  background: ds.$bg-card;
+  border: 1px solid ds.$glass-border;
+  border-radius: 0.5rem;
+  box-shadow: ds.$glass-shadow;
+
+  p {
+    margin: 0;
+    color: ds.$text-main;
+    text-align: center;
+  }
+}

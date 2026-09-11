@@ -1,0 +1,13 @@
+@if (abilityDataClient.abilityDetailsLoading()) {
+    <span>Loading...</span>
+} @else if (abilityDataClient.abilityDetailsError()) {
+    <div class="error-banner">
+        <p>Error...</p>
+    </div>
+} @else {
+    <div class="ability-description-container">
+        <div>
+             <p> {{ abilityDataClient.abilityDescription() | cleanText }} </p>
+        </div>                
+    </div>
+}

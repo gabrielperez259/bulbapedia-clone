@@ -1,0 +1,65 @@
+@if (pokemonDataClient.pokemonDetailsLoading()) {
+  <span>Loading...</span>
+} @else if (pokemonDataClient.pokemonDetailsError()) {
+  <div class="error-banner">
+    <p>Error...</p>
+  </div>
+} @else {
+  <div class="pokemon-abilities-container">
+    <div>
+      <h3>Abilities</h3>
+    </div>
+
+    @for (ability of pokemonDataClient.pokemonAbilities(); track $index) {
+      <div class="ability" [class.hidden]="ability.is_hidden">
+        @if (ability.is_hidden) {
+          <span>
+            Hidden Ability:
+            <a [routerLink]="['/ability', ability.ability.name]">
+              {{ ability.ability.name | cleanText }}
+            </a>
+          </span>
+        } @else {
+          <span>
+            Ability:
+            <a [routerLink]="['/ability', ability.ability.name]">
+              {{ ability.ability.name | cleanText }}
+            </a>
+          </span>
+        }
+
+        <app-ability-description
+          [abilityName]="ability.ability.name"
+        ></app-ability-description>
+      </div>
+    }
+
+    @if (pokemonDataClient.pokemonPastAbilities()) {
+      <div class="past-ability">
+        <h3>Past Abilities</h3>
+
+        @for (pastAbilities of pokemonDataClient.pokemonPastAbilities(); track $index) {
+          <span class="generation">
+            Changed in {{ pastAbilities.generation.name! | cleanText }}
+          </span>
+
+          <div class="ability past">
+            @for (ability of pastAbilities.abilities; track $index) {
+              <span>
+                Ability:
+                <a [routerLink]="['/ability', ability.ability.name]">
+                  {{ ability.ability.name | cleanText }}
+                </a>
+              </span>
+
+              <app-ability-description
+                [abilityName]="ability.ability.name"
+              ></app-ability-description>
+            }
+          </div>
+        }
+      </div>
+    }
+  </div>
+}
+
